@@ -1,0 +1,28 @@
+import pandas as pd
+import numpy as np
+from preprocess.utils.helpers import get_parsed_data, find_project_root
+from preprocess.utils.process_tweet import ProcessTweet
+from preprocess.utils.processing.sample_tweets import SampleGenerator
+ 
+# 1) Load the data (usecols argument)
+ 
+tweets = pd.read_csv("preprocess/data/4_labels_cleaned/cleaned_labels_min-labels-cutoff-3_majority.csv")
+
+id_tweets = tweets['id'].unique()
+ 
+#df = get_parsed_data(contains_keywords=True)
+df = get_parsed_data()[df['id'].isin(id_tweets)]
+
+#df = get_parsed_data(contains_keywords=True, usecols=["id", "text", "is_retweet", "is_reply", "lang", "created_at"], s_date="2020-01-10")
+ 
+ # 2) Remove all retweets, replies and keep only English tweets
+ #df = df.query('is_retweet == False & is_reply == False & lang == "en"')
+ 
+ #import pdb; pdb.set_trace();
+ # 6) anonymize (possibly use ProcessTweet.anonymize_text), use apply
+ 
+ df["text"] = df["text"].apply(lambda text: ProcessTweet.anonymize_text(text))
+ 
+ print(df.head())
+ # 9) Write CSV with id,text
+ df_sample.to_csv('/drives/sdf/annotated_tweet.csv', index = False, header = False)
