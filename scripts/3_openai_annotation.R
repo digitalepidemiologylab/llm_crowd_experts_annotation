@@ -30,3 +30,5 @@ comparison <- annotations %>%
   filter(!is.na(id_gpt)) %>% 
   group_by(label_tag, sentiment_gpt, comp) %>% 
   tally()
+
+## next step: compare positive/negative only and provide two options to GPT
