@@ -2,16 +2,44 @@ import pandas as pd
 import numpy as np
 from preprocess.utils.helpers import get_parsed_data, find_project_root
 from preprocess.utils.process_tweet import ProcessTweet
-from preprocess.utils.processing.sample_tweets import SampleGenerator
+#from preprocess.utils.processing.sample_tweets import SampleGenerator
  
 # 1) Load the data (usecols argument)
  
-tweets = pd.read_csv("preprocess/data/4_labels_cleaned/cleaned_labels_min-labels-cutoff-3_majority.csv")
+tweets_old = pd.read_csv("preprocess/data/4_labels_cleaned/cleaned_labels_min-labels-cutoff-3_majority.csv")
 
-id_tweets = tweets['id'].unique()
+tweets_new = pd.read_csv("preprocess/data/4_labels_cleaned/new_tags_160221_cleaned_labels_min-labels-cutoff-3_majority.csv")
+
+tweets_all = tweets_old.append(tweets_new)
+
+#id_tweets_old = tweets_old['id'].unique()
+
+text_tweets = tweets_all['text'].unique()
  
-#df = get_parsed_data(contains_keywords=True)
-df = get_parsed_data()[df['id'].isin(id_tweets)]
+df_2014 = get_parsed_data(contains_keywords=True, s_date = "2014-01-01", e_date = "2018-12-31")
+df_2015 = get_parsed_data(contains_keywords=True, s_date = "2015-01-01", e_date = "2015-12-31")
+df_2016 = get_parsed_data(contains_keywords=True, s_date = "2016-01-01", e_date = "2016-12-31")
+df_2017 = get_parsed_data(contains_keywords=True, s_date = "2017-01-01", e_date = "2017-12-31")
+df_2018 = get_parsed_data(contains_keywords=True, s_date = "2018-01-01", e_date = "2018-12-31")
+df_2019 = get_parsed_data(contains_keywords=True, s_date = "2019-01-01", e_date = "2019-12-31")
+df_2020 = get_parsed_data(contains_keywords=True, s_date = "2020-01-01", e_date = "2020-12-31")
+df_2021 = get_parsed_data(contains_keywords=True, s_date = "2021-01-01", e_date = "2021-12-31")
+df_2022 = get_parsed_data(contains_keywords=True, s_date = "2022-01-01", e_date = "2022-12-31")
+
+df_2014_text = df_2014[df_2014['text'].isin(text_tweets)]
+df_2015_text = df_2015[df_2015['text'].isin(text_tweets)]
+df_2016_text = df_2016[df_2016['text'].isin(text_tweets)]
+df_2017_text = df_2017[df_2017['text'].isin(text_tweets)]
+df_2018_text = df_2018[df_2018['text'].isin(text_tweets)]
+df_2019_text = df_2019[df_2019['text'].isin(text_tweets)]
+df_2020_text = df_2020[df_2020['text'].isin(text_tweets)]
+df_2021_text = df_2021[df_2021['text'].isin(text_tweets)]
+df_2022_text = df_2022[df_2022['text'].isin(text_tweets)]
+
+
+df = get_parsed_data(contains_keywords=True)
+
+#df = df[df['text'].isin(text)
 
 #df = get_parsed_data(contains_keywords=True, usecols=["id", "text", "is_retweet", "is_reply", "lang", "created_at"], s_date="2020-01-10")
  

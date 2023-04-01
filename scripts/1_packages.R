@@ -14,4 +14,4 @@ while (require("pacman") == FALSE) {
 }
 
 # load packages
-p_load(tidyverse, ExPanDaR)
+p_load(tidyverse, ExPanDaR, reticulate)
