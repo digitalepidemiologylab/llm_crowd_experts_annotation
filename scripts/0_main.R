@@ -11,3 +11,5 @@ source("scripts/1_packages.R")
 ## Only needed once
 source("scripts/2_clean_labelled_tweets.R")
 
+# Merge annotations from Mturk and GPT ------
+source("scripts/3_openai_annotation.R")
