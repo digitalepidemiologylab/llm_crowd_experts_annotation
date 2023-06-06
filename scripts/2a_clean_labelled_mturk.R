@@ -46,11 +46,11 @@ tweets_clean_agg <- tweets_clean %>%
 
 tweets_clean_agg$agree_mturk <- colnames(tweets_clean_agg[,c(2:4)])[apply(tweets_clean_agg[,c(2:4)],1,which.max)]
   
-tweets_clean_agg_100 <- tweets_clean_agg %>% 
-  sample_n(100)
+ tweets_clean_agg_1000 <- tweets_clean_agg %>% 
+   sample_n(1000)
 
 write_csv(tweets_clean_agg, "data/local/labelled_tweets_clean_all_mturk_agg.csv")
-write_csv(tweets_clean_agg_100, "data/local/labelled_tweets_clean_all_mturk_agg_sample100.csv")
+write_csv(tweets_clean_agg_1000, "data/local/labelled_tweets_clean_all_mturk_agg_sample1000.csv")
 
 # Give me one word to select between neutral, positive and negative for the sentiment of this tweet:
 

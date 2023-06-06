@@ -18,3 +18,6 @@ source("scripts/3_openai_annotation.R")
 
 # Analysis of annotations from Mturk and GPT (two levels) ------
 source("scripts/3_openai_annotation_two_labels.R")
+
+# Prompt engineering ---------------------------
+source("scripts/4_prompt_engineering.R")
