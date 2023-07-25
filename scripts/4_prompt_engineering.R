@@ -65,6 +65,12 @@ df_sample <- gpt_clean %>%
                           .default = "different")) %>% 
   arrange(comp)
 
+df_sample_agreement <- df_sample %>% 
+  mutate(agreement = case_when(agree_mturk == "negative" ~ negative/total*100,
+                               agree_mturk == "positive" ~ positive/total*100,
+                               agree_mturk == "neutral" ~ neutral/total*100,
+                               .default = NA))
+
 write_csv(df_sample, "data/local/prompt_explanation.csv")
 
 ## Get GPT annotations for 1000 proportionate sample -------------
@@ -228,9 +234,15 @@ total_pos7 <- df_sample %>%
   as.numeric()
 
 # Compare annotations --------------
-df_sentiment_sample <- df_sample %>% 
+df_sentiment_sample_agreement <- df_sample_agreement %>% 
   filter(!is.na(id_gpt)) %>% 
   group_by(prompt, agree_mturk, sentiment_gpt, comp) %>% 
+  summarise_at(vars(agreement), list(median = median))
+
+df_sentiment_sample <- df_sample_agreement %>% 
+  filter(!is.na(id_gpt)) %>% 
+  group_by(prompt, agree_mturk, sentiment_gpt, comp) %>% 
+  #summarise_at(vars(agreement), list(median = median)) %>% 
   tally() %>% 
   mutate(percent = case_when(agree_mturk == "negative" & prompt == 0 ~ round(n/total_neg0*100, digits = 1),
                              agree_mturk == "neutral" & prompt == 0 ~ round(n/total_neut0*100, digits = 1),
@@ -255,7 +267,8 @@ df_sentiment_sample <- df_sample %>%
                              agree_mturk == "positive" & prompt == 6 ~ round(n/total_pos6*100, digits = 1),
                              agree_mturk == "negative" & prompt == 7 ~ round(n/total_neg7*100, digits = 1),
                              agree_mturk == "neutral" & prompt == 7 ~ round(n/total_neut7*100, digits = 1),
-                             agree_mturk == "positive" & prompt == 7 ~ round(n/total_pos7*100, digits = 1)))
+                             agree_mturk == "positive" & prompt == 7 ~ round(n/total_pos7*100, digits = 1))) %>% 
+  left_join(df_sentiment_sample_agreement, by = c("prompt", "agree_mturk", "sentiment_gpt", "comp"))
 
 
 df_sentiment_sample_table <- df_sentiment_sample %>% 
@@ -278,3 +291,49 @@ df_sentiment_sample_table <- df_sentiment_sample %>%
 
 print(df_sentiment_sample_table)
 
+df_sentiment_sample_table_simplified <- df_sentiment_sample %>% 
+  filter(prompt != 0 & prompt != 2) %>% 
+  filter(comp == "same") %>% 
+  flextable() %>% 
+  flextable::set_header_labels(prompt = 'Version of prompt',
+                               agree_mturk = 'Manual annotation',
+                               sentiment_gpt = 'GPT classification',
+                               comp = 'Comparison',
+                               n = 'Total number of tweets',
+                               percent = "Percentage (%) of manual annotations") %>% 
+  flextable::autofit() %>% 
+  flextable::theme_zebra() %>% 
+  # flextable::color(i = ~ "Comparison" = "same", 
+  #                  j = "Percentage (%) of manual annotations",
+  #                  color = "red") %>% 
+  flextable::merge_v(j = c(1,2)) %>% 
+  flextable::align(j = 4, align = "center") %>% 
+  flextable::bg(part = "header", bg = "#65B32E") %>% 
+  hline(part="all")
+
+print(df_sentiment_sample_table_simplified)
+
+## Multinomial logistic regression ------------------------------
+
+df_log <- df_sample_agreement %>% 
+  filter(prompt != 0 & prompt != 2) %>% 
+  mutate(comp = as.factor(comp),
+         comp = relevel(comp, ref = "same")) %>% 
+  select(-explanation, -text)
+
+
+onehot_enc <- dummyVars(" ~ .", data=df_log)
+df_log_enc <- data.frame(predict(onehot_enc, newdata=df_log)) %>% 
+  select(-comp.same, -comp.different) %>% 
+  mutate(comp = df_log$comp)
+  
+log_reg <- multinom(comp ~ .,
+                    data = df_log_enc)
+
+summary(log_reg)
+
+coef(log_reg)
+
+log_model <- glm(comp ~ sentiment_gpt + prompt + neutral + negative + positive + total + agree_mturk + agreement,
+                 family = binomial(), df_log)
+summary(log_model)

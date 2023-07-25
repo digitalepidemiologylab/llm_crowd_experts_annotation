@@ -13,6 +13,8 @@ source("scripts/2a_clean_labelled_mturk.R")
 
 source("scripts/2b_clean_labelled_tweets.R")
 
+source("scripts/3_epfl_annotated_tweets.R")
+
 # Analysis of annotations from Mturk and GPT (three levels) ------
 source("scripts/3_openai_annotation.R")
 
