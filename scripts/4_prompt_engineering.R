@@ -233,6 +233,8 @@ total_pos7 <- df_sample %>%
   tally() %>% 
   as.numeric()
 
+
+
 # Compare annotations --------------
 df_sentiment_sample_agreement <- df_sample_agreement %>% 
   filter(!is.na(id_gpt)) %>% 
