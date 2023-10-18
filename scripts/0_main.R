@@ -7,6 +7,13 @@
 # Install packages -------------------------
 source("scripts/1_packages.R")
 
+# Get data ------------
+source("scripts/2_1_data.R")
+
+# Launch Shiny app -------------
+source("scripts/annotations/shiny.R")
+shinyApp(ui = ui, server=server)
+
 # Clean labelled tweets data ---------------
 ## Only needed once
 source("scripts/2a_clean_labelled_mturk.R")
@@ -26,3 +33,4 @@ source("scripts/4_prompt_engineering.R")
 
 # GPT, EPFL and Mturk -------------
 source("scripts/5_comparison.R")
+

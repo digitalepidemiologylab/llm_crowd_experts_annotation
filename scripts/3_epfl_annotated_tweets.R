@@ -42,10 +42,11 @@ epfl_df <- full_join(epfl_df_1, epfl_df_2, by = "text") %>%
          pos_stan = rowSums(.[7:10] == "positive")/4*100,
          neg_stan = rowSums(.[7:10] == "negative")/4*100,
          agree_stan = case_when(neutral_stan >= 75 | pos_stan >= 75 | neg_stan >= 75 ~ 1,
-                                .default = 0)) %>% 
+                                .default = 0),
+         stance_mean = ((pos_stan * 2) + (neg_stan * -2))/ (pos_stan + neg_stan + neutral_stan)) %>% 
   select(id_tweet, text, sent_m, sent_c, sent_g, sent_l, neutral_sent,
          pos_sent, neg_sent, agree_sent, neutral_stan, pos_stan, neg_stan,
-         agree_stan, stance_m, stance_c, stance_g, stance_l, agree_stance)
+         agree_stan, stance_m, stance_c, stance_g, stance_l, agree_stance, stance_mean)
 
 sum(epfl_df$agree_sent)/sum(!is.na(epfl_df$sent_l)) *100
 sum(epfl_df$agree_stan)/sum(!is.na(epfl_df$sent_l)) *100
