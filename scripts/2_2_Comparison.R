@@ -50,7 +50,7 @@ df_all_clean <- df_all %>%
 prompts <- df_all_clean$prompt %>% 
   unique()
 
-
+## EPFL vs GPT ------------
 for (i in prompts) {
   df_con_matrix <- df_all_clean %>% 
     filter(prompt == i) %>% 
@@ -69,5 +69,24 @@ for (i in prompts) {
   
 }
 
+
+## EPFL vs Mturk --------------
+for (i in prompts) {
+  df_con_matrix_mturk <- df_all_clean %>% 
+    filter(prompt == i) %>% 
+    select(stance_epfl, agree_mturk) %>% 
+    mutate(stance_epfl = factor(stance_epfl, ordered = TRUE,
+                                levels = c("positive","neutral", "negative")),
+           agree_mturk = factor(agree_mturk, ordered = TRUE,
+                                  levels = c("positive", "neutral", "negative"))) 
+  
+  #prompt_loop[i] <- prompts[i]
+  conf_epfl_mturk <- confusionMatrix(df_con_matrix_mturk$stance_epfl, 
+                                     df_con_matrix_mturk$agree_mturk)
+  conf_epfl_mturk$prompt <- prompts[i]
+  assign(paste('conf_epfl_mturk_all',i,sep='_'),conf_epfl_mturk) %>% 
+    capture.output(., file = paste0("outputs/conf_epfl_mturk_all", i, ".csv"))
+  
+}
 
 
