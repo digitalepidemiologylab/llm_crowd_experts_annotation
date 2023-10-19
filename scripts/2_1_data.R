@@ -29,9 +29,8 @@ df_mturk_annot <- read_csv("data/local/labelled_tweets_clean_all_mturk_agg.csv")
 df_mturk_annot_clean <- df_mturk_annot %>% 
   mutate(id_tweets = 1:nrow(.))
 
-df_mturk_annot_clean_s <- df_mturk_clean %>% 
-  rename("answer_tag_mturk" = "answer_tag") %>% 
-  select(id_tweets, answer_tag_mturk) %>% 
+df_mturk_annot_clean_s <- df_mturk_annot_clean %>% 
+  select(id_tweets, agree_mturk) %>% 
   write_csv("data/mturk_annotations_simple.csv")  
 
 # Get EPFL annotations ------------------

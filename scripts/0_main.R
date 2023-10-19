@@ -11,7 +11,7 @@ source("scripts/1_packages.R")
 source("scripts/2_1_data.R")
 
 # Launch Shiny app -------------
-source("scripts/annotations/shiny.R")
+source("scripts/shiny.R")
 shinyApp(ui = ui, server=server)
 
 # Clean labelled tweets data ---------------
