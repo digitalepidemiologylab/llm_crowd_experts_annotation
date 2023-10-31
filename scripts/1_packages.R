@@ -16,4 +16,5 @@ while (require("pacman") == FALSE) {
 # load packages
 p_load(tidyverse, ExPanDaR, reticulate, readxl, janitor, flextable,
        DataExplorer, caret, vroom, data.table, reactable, purrr, tidyr,
-       caret, vctrs, tm, wordcloud, tidytext, nnet, shiny, shinyWidgets)
+       caret, vctrs, tm, wordcloud, tidytext, nnet, shiny, shinyWidgets,
+       epiR)

@@ -33,6 +33,16 @@ df_mturk_annot_clean_s <- df_mturk_annot_clean %>%
   select(id_tweets, agree_mturk) %>% 
   write_csv("data/mturk_annotations_simple.csv")  
 
+## Get tweets' dates --------------
+mturk_dates <- df_mturk %>%
+  select(text, created_at) %>% 
+  left_join(df_mturk_annot, by = c("text")) %>% 
+  filter(!is.na(agree_mturk)) %>% 
+  distinct(text, created_at)
+
+min(mturk_dates$created_at)
+max(mturk_dates$created_at)
+
 # Get EPFL annotations ------------------
 message("Getting EPFL annotations")
 epfl_df_1 <- read_excel("./data/local/epfl_annotated_tweets.xlsx",
@@ -77,6 +87,7 @@ epfl_df <- full_join(epfl_df_1, epfl_df_2, by = "text") %>%
   select(id_tweets, text, sent_m, sent_c, sent_g, sent_l, neutral_sent,
          pos_sent, neg_sent, agree_sent, neutral_stan, pos_stan, neg_stan,
          agree_stan, stance_m, stance_c, stance_g, stance_l, agree_stance) %>% 
+  filter(!is.na(sent_l)) %>% 
   mutate(stance_epfl = pmap_chr(select(., starts_with("stance")), ~ {
     x <- c(...)
     if(length(unique(x)) == 1) {
@@ -98,15 +109,15 @@ gpt <- vroom(files_gpt)
 setwd("../..")
 
 gpt_clean <- gpt %>% 
-  select(id_gpt, sentiment_gpt, prompt) %>% 
+  select(text, sentiment_gpt, prompt) %>% 
   separate(col = sentiment_gpt, into = c("sentiment_gpt", "explanation"),
            sep = 11) %>% 
-  mutate(id_tweets = id_gpt + 1,
-         sentiment_gpt = tolower(sentiment_gpt),
+  mutate(sentiment_gpt = tolower(sentiment_gpt),
+         # id_tweets = id_gpt + 1,
          sentiment_gpt = case_when(str_detect(sentiment_gpt, 'neutral') ~ "neutral",
                                    str_detect(sentiment_gpt, 'positive') ~ "positive",
                                    .default = "negative")) %>% 
-  distinct(id_gpt, prompt, .keep_all = TRUE)
+  distinct(text, prompt, .keep_all = TRUE)
 
 gpt_clean$sentiment_gpt <- str_replace_all(string = gpt_clean$sentiment_gpt, 
                                            pattern = "\r\n", 
@@ -115,27 +126,56 @@ gpt_clean$sentiment_gpt <- str_replace_all(string = gpt_clean$sentiment_gpt,
 
 unique(gpt_clean$prompt)
 
+gpt_clean <- epfl_df %>% 
+  select(id_tweets, text) %>% 
+  right_join(gpt_clean, by = "text") 
+
 gpt_clean_s <- gpt_clean %>% 
   select(id_tweets, sentiment_gpt, prompt) %>% 
   write_csv("data/gpt_annotations_simple.csv")
 
-## Checking missing tweets per prompt ----------------
-# gpt_prompts <- unique(gpt_clean$prompt)
-# 
-# gpt_missing <- gpt_clean %>% 
-#   group_by(id_gpt, prompt) %>% 
-#   tally() %>% 
-#   ungroup() %>% 
-#   select(-n) 
-# 
-# 
-# all_combinations <- expand.grid(id_gpt = unique(gpt_missing$id_gpt),
-#                                 prompt = gpt_prompts)
-# 
-# gpt_missing_merged <- all_combinations %>% 
-#   left_join(gpt_missing,
-#             by = c("id_gpt", "prompt")) 
-# 
-# 
-# gpt_missing_df <- setdiff(all_combinations, gpt_missing)
-# 
+# Get all datasets -------------
+df_all <- df_mturk_annot_clean %>% 
+  full_join(epfl_df, by = "text") %>% 
+  full_join(gpt_clean, by = "text") %>% 
+  filter(!is.na(sent_l)) %>% 
+  select(-id_tweets.x, -id_tweets.y) # id_tweets comes from gpt_clean (supposedly same as epfl_df)
+
+df_all_available <- df_all %>% 
+  group_by(id_tweets, prompt) %>% 
+  tally() %>% 
+  ungroup()
+
+id_tweets_unique <- unique(df_all_available$id_tweets)
+prompts_unique <- unique(df_all_available$prompt) #%>% 
+#  filter(!is.na(.))
+
+df_all_complete <- expand.grid(id_tweets = id_tweets_unique, prompt = prompts_unique) %>% 
+  filter(!is.na(prompt))
+
+missing_entries <- df_all_available %>% 
+  select(id_tweets, prompt) %>% 
+  setdiff(df_all_complete, .) %>% 
+  filter(prompt != 0) %>% 
+  group_by(prompt) %>% 
+  tally()
+
+## To retrieve the real tweet ids -------------
+tweets_id_real <- select(df_mturk_annot_clean, 'text') %>% 
+  left_join(select(df_mturk, 'tweet_id', "text"), by = "text") %>% 
+  filter(duplicated(text) == FALSE) %>% 
+  left_join(select(df_mturk_annot_clean, 'text', 'id_tweets'),
+            by = "text") 
+
+# Merge databases ----------------
+df_all_clean <- df_all %>% 
+  rename("neutral_mturk" = "neutral",
+         "positive_mturk" = "positive",
+         "negative_mturk" = "negative") %>% 
+  select(-text) %>% 
+  filter(!is.na(stance_epfl)) %>% 
+  left_join(select(tweets_id_real, tweet_id, id_tweets),
+            by = "id_tweets")
+
+df_all_clean %>% 
+  write_csv("outputs/all_datasets_for_shiny.csv")
