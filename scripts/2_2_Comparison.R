@@ -94,11 +94,55 @@ for (i in prompts) {
 }
 
 # Comparing the confusion matrices outputs ------------
-## EPFL-GPT vs EPFL-Mturk -------------
-mcnemar_epfl_gpt_mturk <- mcnemar.test(conf_epfl_gpt_all_8$table,
-                                        conf_epfl_gpt_all_835$table)
+confusion_matrices <- list(conf_epfl_gpt_all_0,  conf_epfl_gpt_all_1, 
+                           conf_epfl_gpt_all_3,  conf_epfl_gpt_all_4, conf_epfl_gpt_all_40 , 
+                           conf_epfl_gpt_all_41, conf_epfl_gpt_all_45, conf_epfl_gpt_all_5,    
+                           conf_epfl_gpt_all_6 , conf_epfl_gpt_all_7,  conf_epfl_gpt_all_8 , 
+                           conf_epfl_mturk   , conf_gpt_mturk , conf_gpt_mturk_all_0,   
+                           conf_gpt_mturk_all_1,  conf_gpt_mturk_all_3,  conf_gpt_mturk_all_4 , 
+                           conf_gpt_mturk_all_40, conf_gpt_mturk_all_41, conf_gpt_mturk_all_45,  
+                           conf_gpt_mturk_all_5 , conf_gpt_mturk_all_6,   conf_gpt_mturk_all_7 , 
+                           conf_gpt_mturk_all_8, conf_mturk_gpt_all_0, 
+                           conf_mturk_gpt_all_1 , conf_mturk_gpt_all_3 , conf_mturk_gpt_all_4  , 
+                           conf_mturk_gpt_all_40 , conf_mturk_gpt_all_41,  conf_mturk_gpt_all_45, 
+                           conf_mturk_gpt_all_5 , conf_mturk_gpt_all_6 ,  conf_mturk_gpt_all_7,  
+                           conf_mturk_gpt_all_8  , conf_mturk_gpt_all_43, conf_mturk_gpt_all_44,
+                           conf_mturk_gpt_all_46, conf_mturk_gpt_all_47)
 
-mcnemar_epfl_gpt_mturk
+confusion_matrices_names <- c("conf_epfl_gpt_all_0",  "conf_epfl_gpt_all_1", 
+                              "conf_epfl_gpt_all_3",  "conf_epfl_gpt_all_4", "conf_epfl_gpt_all_40" , 
+                              "conf_epfl_gpt_all_41", "conf_epfl_gpt_all_45", "conf_epfl_gpt_all_5",    
+                              "conf_epfl_gpt_all_6" , "conf_epfl_gpt_all_7",  "conf_epfl_gpt_all_8" , 
+                              "conf_epfl_mturk"   , "conf_gpt_mturk" , "conf_gpt_mturk_all_0",   
+                              "conf_gpt_mturk_all_1",  "conf_gpt_mturk_all_3",  "conf_gpt_mturk_all_4" , 
+                              "conf_gpt_mturk_all_40", "conf_gpt_mturk_all_41", "conf_gpt_mturk_all_45",  
+                              "conf_gpt_mturk_all_5" , "conf_gpt_mturk_all_6",   "conf_gpt_mturk_all_7" , 
+                              "conf_gpt_mturk_all_8", "conf_mturk_gpt_all_0", 
+                              "conf_mturk_gpt_all_1" , "conf_mturk_gpt_all_3" , "conf_mturk_gpt_all_4"  , 
+                              "conf_mturk_gpt_all_40" , "conf_mturk_gpt_all_41",  "conf_mturk_gpt_all_45", 
+                              "conf_mturk_gpt_all_5" , "conf_mturk_gpt_all_6" ,  "conf_mturk_gpt_all_7",  
+                              "conf_mturk_gpt_all_8" , "conf_mturk_gpt_all_43", "conf_mturk_gpt_all_44" ,
+                              "conf_mturk_gpt_all_46", "conf_mturk_gpt_all_47")
+
+mcnemar_results <- data.frame(matrix1 = NULL, matrix2 = NULL, mcnemar_result = NULL)
+mcnemar_1_all <- NULL
+mcnemar_2_all <- NULL
+mcnemar_pvalue_all <- NULL
+
+for (i in 1:10) {
+  for (j in 1:10) {
+    mcnemar_1 <- confusion_matrices_names[i]
+    mcnemar_1_all <- c(mcnemar_1_all, mcnemar_1)
+    mcnemar_2 <- confusion_matrices_names[j]
+    mcnemar_2_all <- c(mcnemar_2_all, mcnemar_2)
+    mcnemar <- mcnemar.test(confusion_matrices[[i]]$table,
+                            confusion_matrices[[j]]$table)
+    print(paste("mcnemar1:", mcnemar_1, "mcnemar2:", mcnemar_2, mcnemar[3]))
+    mcnemar_pvalue_all <- list(mcnemar_pvalue_all, mcnemar[3])
+    
+  }
+  
+}
 
 # For the Shiny app ----------
 df_list <- ls(pattern = "^df_con_matrix")
@@ -126,6 +170,10 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
   cbind(as.data.frame(conf_epfl_gpt_all_40$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_all_41$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_all_45$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_all_43$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_all_44$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_all_46$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_all_47$overall)) %>% 
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
@@ -136,7 +184,11 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
                                     "\\$overall" = "",
                                     "gpt_all_40" = "GPT 4 prompt 0",
                                     "gpt_all_41" = "GPT 4 prompt 1",
+                                    "gpt_all_43" = "GPT 4 prompt 3",
+                                    "gpt_all_44" = "GPT 4 prompt 4",
                                     "gpt_all_45" = "GPT 4 prompt 5",
+                                    "gpt_all_46" = "GPT 4 prompt 6",
+                                    "gpt_all_47" = "GPT 4 prompt 7",
                                     "gpt_all_0" = "GPT 3.5 prompt 0",
                                     "gpt_all_1" = "GPT 3.5 prompt 1",
                                     "gpt_all_3" = "GPT 3.5 prompt 3",
@@ -211,6 +263,26 @@ class_gpt45 <- as.data.frame(conf_epfl_gpt_all_45$byClass) %>%
   rownames_to_column() %>% 
   select(-rowname)
 
+class_gpt43 <- as.data.frame(conf_epfl_gpt_all_43$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt43", "neutral_gpt43", "negative_gpt43"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_gpt44 <- as.data.frame(conf_epfl_gpt_all_44$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt44", "neutral_gpt44", "negative_gpt44"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_gpt46 <- as.data.frame(conf_epfl_gpt_all_46$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt46", "neutral_gpt46", "negative_gpt46"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_gpt47 <- as.data.frame(conf_epfl_gpt_all_47$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt47", "neutral_gpt47", "negative_gpt47"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
 class_all <- class_gpt0 %>% 
   full_join(class_gpt1) %>% 
   full_join(class_gpt3) %>% 
@@ -223,6 +295,10 @@ class_all <- class_gpt0 %>%
   full_join(class_gpt7) %>% 
   full_join(class_gpt8) %>% 
   full_join(class_mturk) %>% 
+  full_join(class_gpt43) %>% 
+  full_join(class_gpt44) %>% 
+  full_join(class_gpt46) %>% 
+  full_join(class_gpt47) %>% 
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
@@ -230,7 +306,11 @@ class_all <- class_gpt0 %>%
                                     "\\$overall" = "",
                                     "gpt40" = "GPT 4 prompt 0",
                                     "gpt41" = "GPT 4 prompt 1",
+                                    "gpt43" = "GPT 4 prompt 3",
+                                    "gpt44" = "GPT 4 prompt 4",
                                     "gpt45" = "GPT 4 prompt 5",
+                                    "gpt46" = "GPT 4 prompt 6",
+                                    "gpt47" = "GPT 4 prompt 7",
                                     "gpt0" = "GPT 3.5 prompt 0",
                                     "gpt1" = "GPT 3.5 prompt 1",
                                     "gpt3" = "GPT 3.5 prompt 3",

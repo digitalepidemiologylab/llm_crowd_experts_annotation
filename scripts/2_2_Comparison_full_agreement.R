@@ -131,6 +131,10 @@ overall_all_agree <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
   cbind(as.data.frame(conf_epfl_gpt_agree_all_40$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_agree_all_41$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_agree_all_45$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_agree_all_43$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_agree_all_44$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_agree_all_46$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_agree_all_47$overall)) %>% 
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
@@ -197,6 +201,26 @@ class_agree_gpt45 <- as.data.frame(conf_epfl_gpt_agree_all_45$byClass) %>%
   rownames_to_column() %>% 
   select(-rowname)
 
+class_agree_gpt43 <- as.data.frame(conf_epfl_gpt_agree_all_43$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt43", "neutral_gpt43", "negative_gpt43"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_agree_gpt44 <- as.data.frame(conf_epfl_gpt_agree_all_44$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt44", "neutral_gpt44", "negative_gpt44"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_agree_gpt46 <- as.data.frame(conf_epfl_gpt_agree_all_46$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt46", "neutral_gpt46", "negative_gpt46"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_agree_gpt47 <- as.data.frame(conf_epfl_gpt_agree_all_47$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt47", "neutral_gpt47", "negative_gpt47"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
 class_all_agree <- class_agree_gpt0 %>% 
   full_join(class_agree_gpt1) %>% 
   full_join(class_agree_gpt3) %>% 
@@ -208,17 +232,57 @@ class_all_agree <- class_agree_gpt0 %>%
   full_join(class_agree_gpt6) %>% 
   full_join(class_agree_gpt7) %>% 
   full_join(class_agree_gpt8) %>% 
-  full_join(class_mturk_agree) %>% 
-  separate(., class_tweet, into = c("class", "classifier"), sep = "_")
+  full_join(class_mturk_agree) %>%
+  full_join(class_agree_gpt43) %>% 
+  full_join(class_agree_gpt44) %>% 
+  full_join(class_agree_gpt46) %>% 
+  full_join(class_agree_gpt47) %>% 
+  separate(., class_tweet, into = c("class", "classifier"), 
+           sep = "_") %>% 
+  mutate(method = str_replace_all(classifier, 
+                                  c("conf_epfl_" = "", 
+                                    "\\$overall" = "",
+                                    "gpt40" = "GPT 4 prompt 0",
+                                    "gpt41" = "GPT 4 prompt 1",
+                                    "gpt45" = "GPT 4 prompt 5",
+                                    "gpt0" = "GPT 3.5 prompt 0",
+                                    "gpt1" = "GPT 3.5 prompt 1",
+                                    "gpt3" = "GPT 3.5 prompt 3",
+                                    "gpt4" = "GPT 3.5 prompt 4",
+                                    "gpt5" = "GPT 3.5 prompt 5",
+                                    "gpt6" = "GPT 3.5 prompt 6",
+                                    "gpt7" = "GPT 3.5 prompt 7",
+                                    "gpt8" = "GPT 3.5 prompt 8",
+                                    "mturk" = "Amazon Mturk",
+                                    "gpt43" = "GPT 4 prompt 3",
+                                    "gpt44" = "GPT 4 prompt 4",
+                                    "gpt46" = "GPT 4 prompt 6",
+                                    "gpt47" = "GPT 4 prompt 7"))) %>% 
+  select(-classifier)
+
+class_all_agree %>% 
+  write_csv("outputs/confusion_matrix_per_class_all_agree.csv")
+
 
 class_all_agree_positive <- class_all_agree %>% 
   filter(class == "positive") %>% 
   arrange(desc(F1))
 
+class_all_agree_positive %>% 
+  write_csv("outputs/confusion_matrix_per_class_positive_agree.csv")
+
 class_all_agree_negative <- class_all_agree %>% 
   filter(class == "negative")%>% 
   arrange(desc(F1))
 
+
+class_all_agree_negative %>% 
+  write_csv("outputs/confusion_matrix_per_class_positive_agree.csv")
+
 class_all_agree_neutral <- class_all_agree %>% 
   filter(class == "neutral")%>% 
   arrange(desc(F1))
+
+
+class_all_agree_neutral %>% 
+  write_csv("outputs/confusion_matrix_per_class_neutral_agree.csv")

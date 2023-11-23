@@ -2,29 +2,29 @@ Confusion Matrix and Statistics
 
           Reference
 Prediction positive neutral negative
-  positive       49      47       13
-  neutral        61     301       14
-  negative        0       2        2
+  positive       66      73       18
+  neutral        81     485       28
+  negative        0       3        2
 
 Overall Statistics
                                           
-               Accuracy : 0.7198          
-                 95% CI : (0.6778, 0.7592)
-    No Information Rate : 0.7157          
-    P-Value [Acc > NIR] : 0.443           
+               Accuracy : 0.7315          
+                 95% CI : (0.6984, 0.7628)
+    No Information Rate : 0.7421          
+    P-Value [Acc > NIR] : 0.7611          
                                           
-                  Kappa : 0.2979          
+                  Kappa : 0.2861          
                                           
- Mcnemar's Test P-Value : 2.731e-05       
+ Mcnemar's Test P-Value : 2.133e-08       
 
 Statistics by Class:
 
                      Class: positive Class: neutral Class: negative
-Sensitivity                   0.4455         0.8600         0.06897
-Specificity                   0.8417         0.4604         0.99565
-Pos Pred Value                0.4495         0.8005         0.50000
-Neg Pred Value                0.8395         0.5664         0.94433
-Prevalence                    0.2249         0.7157         0.05930
-Detection Rate                0.1002         0.6155         0.00409
-Detection Prevalence          0.2229         0.7689         0.00818
-Balanced Accuracy             0.6436         0.6602         0.53231
+Sensitivity                   0.4490         0.8645        0.041667
+Specificity                   0.8506         0.4410        0.995763
+Pos Pred Value                0.4204         0.8165        0.400000
+Neg Pred Value                0.8648         0.5309        0.938748
+Prevalence                    0.1944         0.7421        0.063492
+Detection Rate                0.0873         0.6415        0.002646
+Detection Prevalence          0.2077         0.7857        0.006614
+Balanced Accuracy             0.6498         0.6528        0.518715

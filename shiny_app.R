@@ -21,6 +21,15 @@ server <- function(input, output) {
            "Overall metrics for negative class" = class_all_negative,
            "Overall accuracy for all classes" = overall_all)
   })
+  
+  datasetInput_full <- reactive({
+    switch(input$dataset_full,
+           "Overall metrics for all classes" = class_all,
+           "Overall metrics for neutral class" = class_all_neutral,
+           "Overall metrics for positive class" = class_all_positive,
+           "Overall metrics for negative class" = class_all_negative,
+           "Overall accuracy for all classes" = overall_all)
+  })
 
   # Show the selected dataset
   output$view <- renderTable({
@@ -31,6 +40,17 @@ server <- function(input, output) {
   output$summary <- renderPrint({
     dataset <- datasetInput()
     summary(dataset)
+  })
+  
+  # Show the selected dataset
+  output$view_full <- renderTable({
+    datasetInput_full()
+  })
+  
+  # Generate a summary of the dataset
+  output$summary_full <- renderPrint({
+    dataset_full <- datasetInput_full()
+    summary(dataset_full)
   })
   
   # Help text per dataset
@@ -45,9 +65,10 @@ server <- function(input, output) {
 }
 
 ## User Interface side of the app
-ui <- fluidPage(
-  titlePanel("Confusion Matrix App"),
+ui <- navbarPage(
+  title = "Confusion Matrix App",
   
+  tabPanel("All tweets",
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
@@ -71,7 +92,29 @@ ui <- fluidPage(
       )
     )
   )
+),
+
+tabPanel("Tweets with full agreement",
+         sidebarLayout(
+           sidebarPanel(
+             selectInput("dataset_full", "Choose a dataset:", 
+                         choices = c("Overall metrics for all classes",
+                                     "Overall metrics for neutral class",
+                                     "Overall metrics for positive class",
+                                     "Overall metrics for negative class",
+                                     "Overall accuracy for all classes"))
+           ),
+           
+           mainPanel(
+             tabsetPanel(
+               tabPanel("View", tableOutput("view_full")),
+               tabPanel("Summary", verbatimTextOutput("summary_full"))
+             )
+           )
+         )
 )
+)
+
 
 # Run the Shiny App
 shinyApp(ui = ui, server = server)
