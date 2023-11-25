@@ -177,13 +177,13 @@ mturk_number_annotations <- df_mturk_annot_clean %>%
 
 ## Get dates of the Mturk ------------
 ### Convert each entry to a JSON object
-mturk_job_initialised <- lapply(df_mturk$full_log, fromJSON)
+#mturk_job_initialised <- lapply(df_mturk$full_log, fromJSON)
 
 # Extract the value of 'userTimeInitialized' from each JSON object
-mturk_job_initialised_clean <- sapply(mturk_job_initialised, function(obj) obj$userTimeInitialized) %>%
-  as.data.frame() %>%
-  arrange() %>%
-  rename("var1" = ".")
+# mturk_job_initialised_clean <- sapply(mturk_job_initialised, function(obj) obj$userTimeInitialized) %>%
+#   as.data.frame() %>%
+#   arrange() %>%
+#   rename("var1" = ".")
 
 ## Get number of Mturkers ---------
 
@@ -231,6 +231,7 @@ gpt_descriptive <- gpt_clean %>%
                                     "44" = "GPT 4 prompt 4",
                                     "46" = "GPT 4 prompt 6",
                                     "47" = "GPT 4 prompt 7",
+                                    "48" = "GPT 4 prompt 8",
                                     "^0$" = "GPT 3.5 prompt 0",
                                     "^1$" = "GPT 3.5 prompt 1",
                                     "^3$" = "GPT 3.5 prompt 3",
@@ -241,12 +242,13 @@ gpt_descriptive <- gpt_clean %>%
                                     "^8$" = "GPT 3.5 prompt 8"))) %>% 
   group_by(prompt, sentiment_gpt) %>% 
   tally() %>% 
-  mutate(percentage = n/sum(n) *100)
-
-gpt_descriptive %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("GPT", 'Prompt'), sep = " prompt ")  %>% 
   pivot_wider(values_from = "percentage",
               names_from = "sentiment_gpt",
-              id_cols = "prompt") %>% 
+              id_cols = c("GPT" , "Prompt")) 
+
+gpt_descriptive %>% 
   write_csv("outputs/descriptive_gpt.csv")
 
 # Get all datasets -------------
@@ -290,7 +292,7 @@ df_all_clean <- df_all %>%
   select(-text) %>% 
   filter(!is.na(stance_epfl)) %>% 
   left_join(select(tweets_id_real, tweet_id, id_tweets),
-            by = "id_tweets")
+            by = "id_tweets") 
 
 df_all_clean %>% 
   write_csv("outputs/all_datasets_for_shiny.csv")

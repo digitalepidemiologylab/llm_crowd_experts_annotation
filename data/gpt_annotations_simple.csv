@@ -1049,6 +1049,7 @@ id_tweets,sentiment_gpt,prompt
 94,neutral,45
 94,neutral,46
 94,neutral,47
+94,neutral,48
 94,neutral,4
 94,neutral,5
 94,neutral,6
@@ -1064,6 +1065,7 @@ id_tweets,sentiment_gpt,prompt
 95,neutral,45
 95,neutral,46
 95,neutral,47
+95,positive,48
 95,neutral,4
 95,neutral,5
 95,neutral,6
@@ -1079,6 +1081,7 @@ id_tweets,sentiment_gpt,prompt
 97,neutral,45
 97,neutral,46
 97,neutral,47
+97,neutral,48
 97,positive,4
 97,neutral,5
 97,neutral,6
@@ -1094,6 +1097,7 @@ id_tweets,sentiment_gpt,prompt
 98,neutral,45
 98,neutral,46
 98,neutral,47
+98,neutral,48
 98,neutral,4
 98,neutral,5
 98,neutral,6
@@ -1109,6 +1113,7 @@ id_tweets,sentiment_gpt,prompt
 99,neutral,45
 99,neutral,46
 99,neutral,47
+99,neutral,48
 99,negative,4
 99,positive,5
 99,positive,6
@@ -1124,6 +1129,7 @@ id_tweets,sentiment_gpt,prompt
 100,negative,45
 100,negative,46
 100,negative,47
+100,negative,48
 100,negative,4
 100,negative,5
 100,negative,6
@@ -1139,6 +1145,7 @@ id_tweets,sentiment_gpt,prompt
 101,negative,45
 101,neutral,46
 101,neutral,47
+101,neutral,48
 101,neutral,4
 101,neutral,5
 101,neutral,6
@@ -1154,6 +1161,7 @@ id_tweets,sentiment_gpt,prompt
 102,positive,45
 102,negative,46
 102,negative,47
+102,negative,48
 102,neutral,4
 102,neutral,5
 102,neutral,6
@@ -1169,6 +1177,7 @@ id_tweets,sentiment_gpt,prompt
 103,neutral,45
 103,neutral,46
 103,neutral,47
+103,neutral,48
 103,negative,4
 103,negative,5
 103,negative,6
@@ -1184,6 +1193,7 @@ id_tweets,sentiment_gpt,prompt
 104,negative,45
 104,neutral,46
 104,negative,47
+104,neutral,48
 104,neutral,4
 104,neutral,5
 104,neutral,6
@@ -1199,6 +1209,7 @@ id_tweets,sentiment_gpt,prompt
 105,neutral,45
 105,neutral,46
 105,neutral,47
+105,neutral,48
 105,positive,4
 105,neutral,5
 105,neutral,6
@@ -1214,6 +1225,7 @@ id_tweets,sentiment_gpt,prompt
 107,neutral,45
 107,neutral,46
 107,neutral,47
+107,neutral,48
 107,neutral,4
 107,neutral,5
 107,neutral,6
@@ -1229,6 +1241,7 @@ id_tweets,sentiment_gpt,prompt
 108,positive,45
 108,positive,46
 108,neutral,47
+108,positive,48
 108,neutral,4
 108,neutral,5
 108,neutral,6
@@ -1244,6 +1257,7 @@ id_tweets,sentiment_gpt,prompt
 109,neutral,45
 109,neutral,46
 109,neutral,47
+109,neutral,48
 109,neutral,4
 109,neutral,5
 109,neutral,6
@@ -1259,6 +1273,7 @@ id_tweets,sentiment_gpt,prompt
 110,neutral,45
 110,neutral,46
 110,neutral,47
+110,neutral,48
 110,positive,4
 110,positive,5
 110,positive,6
@@ -1274,6 +1289,7 @@ id_tweets,sentiment_gpt,prompt
 111,negative,45
 111,positive,46
 111,positive,47
+111,positive,48
 111,neutral,4
 111,positive,5
 111,positive,6
@@ -1289,6 +1305,7 @@ id_tweets,sentiment_gpt,prompt
 112,neutral,45
 112,neutral,46
 112,neutral,47
+112,neutral,48
 112,neutral,4
 112,neutral,5
 112,neutral,6
@@ -1304,6 +1321,7 @@ id_tweets,sentiment_gpt,prompt
 114,neutral,45
 114,neutral,46
 114,positive,47
+114,positive,48
 114,neutral,4
 114,neutral,5
 114,neutral,6
@@ -1319,6 +1337,7 @@ id_tweets,sentiment_gpt,prompt
 116,negative,45
 116,negative,46
 116,negative,47
+116,negative,48
 116,negative,4
 116,negative,5
 116,negative,6
@@ -1334,6 +1353,7 @@ id_tweets,sentiment_gpt,prompt
 117,positive,45
 117,positive,46
 117,positive,47
+117,positive,48
 117,positive,4
 117,positive,5
 117,positive,6
@@ -1349,6 +1369,7 @@ id_tweets,sentiment_gpt,prompt
 118,neutral,45
 118,neutral,46
 118,neutral,47
+118,neutral,48
 118,neutral,4
 118,negative,5
 118,neutral,6
@@ -1364,6 +1385,7 @@ id_tweets,sentiment_gpt,prompt
 119,negative,45
 119,negative,46
 119,negative,47
+119,negative,48
 119,negative,4
 119,negative,5
 119,negative,6
@@ -1379,6 +1401,7 @@ id_tweets,sentiment_gpt,prompt
 120,negative,45
 120,neutral,46
 120,neutral,47
+120,neutral,48
 120,negative,4
 120,neutral,5
 120,negative,6
@@ -1394,6 +1417,7 @@ id_tweets,sentiment_gpt,prompt
 123,neutral,45
 123,neutral,46
 123,neutral,47
+123,neutral,48
 123,neutral,4
 123,neutral,5
 123,neutral,6
@@ -1409,6 +1433,7 @@ id_tweets,sentiment_gpt,prompt
 124,neutral,45
 124,neutral,46
 124,neutral,47
+124,neutral,48
 124,neutral,4
 124,neutral,5
 124,neutral,6
@@ -1424,6 +1449,7 @@ id_tweets,sentiment_gpt,prompt
 125,neutral,45
 125,neutral,46
 125,neutral,47
+125,neutral,48
 125,neutral,4
 125,neutral,5
 125,neutral,6
@@ -1439,6 +1465,7 @@ id_tweets,sentiment_gpt,prompt
 126,neutral,45
 126,neutral,46
 126,neutral,47
+126,positive,48
 126,neutral,4
 126,neutral,5
 126,neutral,6
@@ -1454,6 +1481,7 @@ id_tweets,sentiment_gpt,prompt
 128,positive,45
 128,positive,46
 128,positive,47
+128,positive,48
 128,neutral,4
 128,neutral,5
 128,neutral,6
@@ -1469,6 +1497,7 @@ id_tweets,sentiment_gpt,prompt
 129,neutral,45
 129,neutral,46
 129,neutral,47
+129,neutral,48
 129,neutral,4
 129,neutral,5
 129,neutral,6
@@ -1484,6 +1513,7 @@ id_tweets,sentiment_gpt,prompt
 130,negative,45
 130,neutral,46
 130,negative,47
+130,neutral,48
 130,neutral,4
 130,neutral,5
 130,neutral,6
@@ -1499,6 +1529,7 @@ id_tweets,sentiment_gpt,prompt
 131,neutral,45
 131,negative,46
 131,neutral,47
+131,neutral,48
 131,neutral,4
 131,neutral,5
 131,neutral,6
@@ -1514,6 +1545,7 @@ id_tweets,sentiment_gpt,prompt
 132,neutral,45
 132,neutral,46
 132,neutral,47
+132,neutral,48
 132,neutral,4
 132,neutral,5
 132,neutral,6
@@ -1529,6 +1561,7 @@ id_tweets,sentiment_gpt,prompt
 133,neutral,45
 133,neutral,46
 133,neutral,47
+133,neutral,48
 133,neutral,4
 133,neutral,5
 133,neutral,6
@@ -1544,6 +1577,7 @@ id_tweets,sentiment_gpt,prompt
 137,negative,45
 137,negative,46
 137,negative,47
+137,negative,48
 137,neutral,4
 137,neutral,5
 137,positive,6
@@ -1559,6 +1593,7 @@ id_tweets,sentiment_gpt,prompt
 138,neutral,45
 138,neutral,46
 138,neutral,47
+138,neutral,48
 138,positive,4
 138,positive,5
 138,neutral,6
@@ -1574,6 +1609,7 @@ id_tweets,sentiment_gpt,prompt
 139,neutral,45
 139,neutral,46
 139,neutral,47
+139,neutral,48
 139,neutral,4
 139,neutral,5
 139,neutral,6
@@ -1589,6 +1625,7 @@ id_tweets,sentiment_gpt,prompt
 140,positive,45
 140,positive,46
 140,positive,47
+140,positive,48
 140,negative,4
 140,negative,5
 140,negative,6
@@ -1604,6 +1641,7 @@ id_tweets,sentiment_gpt,prompt
 141,neutral,45
 141,neutral,46
 141,neutral,47
+141,neutral,48
 141,neutral,4
 141,neutral,5
 141,neutral,6
@@ -1619,6 +1657,7 @@ id_tweets,sentiment_gpt,prompt
 143,neutral,45
 143,neutral,46
 143,neutral,47
+143,neutral,48
 143,neutral,4
 143,neutral,5
 143,neutral,6
@@ -1634,6 +1673,7 @@ id_tweets,sentiment_gpt,prompt
 144,positive,45
 144,neutral,46
 144,neutral,47
+144,positive,48
 144,neutral,4
 144,neutral,5
 144,neutral,6
@@ -1649,6 +1689,7 @@ id_tweets,sentiment_gpt,prompt
 145,positive,45
 145,positive,46
 145,positive,47
+145,positive,48
 145,positive,4
 145,positive,5
 145,positive,6
@@ -1664,6 +1705,7 @@ id_tweets,sentiment_gpt,prompt
 146,neutral,45
 146,neutral,46
 146,negative,47
+146,neutral,48
 146,negative,4
 146,negative,5
 146,negative,6
@@ -1679,6 +1721,7 @@ id_tweets,sentiment_gpt,prompt
 147,negative,45
 147,negative,46
 147,negative,47
+147,negative,48
 147,neutral,4
 147,negative,5
 147,negative,6
@@ -1694,6 +1737,7 @@ id_tweets,sentiment_gpt,prompt
 149,neutral,45
 149,neutral,46
 149,neutral,47
+149,neutral,48
 149,positive,4
 149,neutral,5
 149,neutral,6
@@ -1709,6 +1753,7 @@ id_tweets,sentiment_gpt,prompt
 151,neutral,45
 151,neutral,46
 151,neutral,47
+151,neutral,48
 151,neutral,4
 151,neutral,5
 151,neutral,6
@@ -1724,6 +1769,7 @@ id_tweets,sentiment_gpt,prompt
 152,negative,45
 152,neutral,46
 152,neutral,47
+152,neutral,48
 152,neutral,4
 152,neutral,5
 152,neutral,6
@@ -1739,6 +1785,7 @@ id_tweets,sentiment_gpt,prompt
 153,neutral,45
 153,neutral,46
 153,neutral,47
+153,negative,48
 153,neutral,4
 153,neutral,5
 153,neutral,6
@@ -1754,6 +1801,7 @@ id_tweets,sentiment_gpt,prompt
 154,neutral,45
 154,neutral,46
 154,negative,47
+154,neutral,48
 154,neutral,4
 154,neutral,5
 154,neutral,6
@@ -1769,6 +1817,7 @@ id_tweets,sentiment_gpt,prompt
 155,neutral,45
 155,neutral,46
 155,neutral,47
+155,neutral,48
 155,neutral,4
 155,neutral,5
 155,neutral,6
@@ -1784,6 +1833,7 @@ id_tweets,sentiment_gpt,prompt
 156,negative,45
 156,neutral,46
 156,neutral,47
+156,positive,48
 156,neutral,4
 156,negative,5
 156,negative,6
@@ -1799,6 +1849,7 @@ id_tweets,sentiment_gpt,prompt
 157,neutral,45
 157,neutral,46
 157,neutral,47
+157,neutral,48
 157,neutral,4
 157,neutral,5
 157,neutral,6
@@ -1814,6 +1865,7 @@ id_tweets,sentiment_gpt,prompt
 158,neutral,45
 158,neutral,46
 158,neutral,47
+158,neutral,48
 158,neutral,4
 158,neutral,5
 158,neutral,6
@@ -1829,6 +1881,7 @@ id_tweets,sentiment_gpt,prompt
 159,neutral,45
 159,neutral,46
 159,neutral,47
+159,neutral,48
 159,neutral,4
 159,neutral,5
 159,neutral,6
@@ -1844,6 +1897,7 @@ id_tweets,sentiment_gpt,prompt
 163,neutral,45
 163,neutral,46
 163,negative,47
+163,neutral,48
 163,neutral,4
 163,neutral,5
 163,neutral,6
@@ -1859,6 +1913,7 @@ id_tweets,sentiment_gpt,prompt
 165,neutral,45
 165,neutral,46
 165,neutral,47
+165,negative,48
 165,neutral,4
 165,negative,5
 165,negative,6
@@ -1874,6 +1929,7 @@ id_tweets,sentiment_gpt,prompt
 168,negative,45
 168,negative,46
 168,neutral,47
+168,neutral,48
 168,neutral,4
 168,neutral,5
 168,neutral,6
@@ -1889,6 +1945,7 @@ id_tweets,sentiment_gpt,prompt
 169,neutral,45
 169,neutral,46
 169,negative,47
+169,neutral,48
 169,neutral,4
 169,neutral,5
 169,neutral,6
@@ -1904,6 +1961,7 @@ id_tweets,sentiment_gpt,prompt
 170,neutral,45
 170,neutral,46
 170,neutral,47
+170,neutral,48
 170,neutral,4
 170,neutral,5
 170,neutral,6
@@ -1919,6 +1977,7 @@ id_tweets,sentiment_gpt,prompt
 171,neutral,45
 171,neutral,46
 171,neutral,47
+171,neutral,48
 171,positive,4
 171,positive,5
 171,positive,6
@@ -1934,6 +1993,7 @@ id_tweets,sentiment_gpt,prompt
 173,neutral,45
 173,neutral,46
 173,neutral,47
+173,neutral,48
 173,neutral,4
 173,neutral,5
 173,neutral,6
@@ -1949,6 +2009,7 @@ id_tweets,sentiment_gpt,prompt
 174,positive,45
 174,positive,46
 174,positive,47
+174,positive,48
 174,positive,4
 174,positive,5
 174,positive,6
@@ -1964,6 +2025,7 @@ id_tweets,sentiment_gpt,prompt
 175,negative,45
 175,neutral,46
 175,neutral,47
+175,neutral,48
 175,neutral,4
 175,neutral,5
 175,neutral,6
@@ -1979,6 +2041,7 @@ id_tweets,sentiment_gpt,prompt
 176,negative,45
 176,negative,46
 176,neutral,47
+176,neutral,48
 176,neutral,4
 176,neutral,5
 176,neutral,6
@@ -1994,6 +2057,7 @@ id_tweets,sentiment_gpt,prompt
 177,positive,45
 177,positive,46
 177,positive,47
+177,neutral,48
 177,neutral,4
 177,neutral,5
 177,neutral,6
@@ -2009,6 +2073,7 @@ id_tweets,sentiment_gpt,prompt
 178,negative,45
 178,negative,46
 178,negative,47
+178,negative,48
 178,neutral,4
 178,negative,5
 178,negative,6
@@ -2024,6 +2089,7 @@ id_tweets,sentiment_gpt,prompt
 181,neutral,45
 181,neutral,46
 181,neutral,47
+181,neutral,48
 181,neutral,4
 181,neutral,5
 181,neutral,6
@@ -2039,6 +2105,7 @@ id_tweets,sentiment_gpt,prompt
 182,neutral,45
 182,positive,46
 182,neutral,47
+182,positive,48
 182,positive,4
 182,neutral,5
 182,negative,6
@@ -2054,6 +2121,7 @@ id_tweets,sentiment_gpt,prompt
 183,positive,45
 183,positive,46
 183,positive,47
+183,positive,48
 183,neutral,4
 183,neutral,5
 183,neutral,6
@@ -2069,6 +2137,7 @@ id_tweets,sentiment_gpt,prompt
 184,negative,45
 184,neutral,46
 184,neutral,47
+184,neutral,48
 184,neutral,4
 184,neutral,5
 184,neutral,6
@@ -2084,6 +2153,7 @@ id_tweets,sentiment_gpt,prompt
 186,negative,45
 186,neutral,46
 186,negative,47
+186,neutral,48
 186,neutral,4
 186,neutral,5
 186,neutral,6
@@ -2099,6 +2169,7 @@ id_tweets,sentiment_gpt,prompt
 187,positive,45
 187,positive,46
 187,positive,47
+187,positive,48
 187,neutral,4
 187,positive,5
 187,positive,6
@@ -2114,6 +2185,7 @@ id_tweets,sentiment_gpt,prompt
 189,positive,45
 189,positive,46
 189,positive,47
+189,positive,48
 189,positive,4
 189,positive,5
 189,positive,6
@@ -2129,6 +2201,7 @@ id_tweets,sentiment_gpt,prompt
 191,neutral,45
 191,neutral,46
 191,neutral,47
+191,neutral,48
 191,neutral,4
 191,neutral,5
 191,neutral,6
@@ -2144,6 +2217,7 @@ id_tweets,sentiment_gpt,prompt
 192,neutral,45
 192,neutral,46
 192,neutral,47
+192,positive,48
 192,positive,4
 192,positive,5
 192,positive,6
@@ -2159,6 +2233,7 @@ id_tweets,sentiment_gpt,prompt
 194,neutral,45
 194,neutral,46
 194,neutral,47
+194,neutral,48
 194,neutral,4
 194,neutral,5
 194,neutral,6
@@ -2174,6 +2249,7 @@ id_tweets,sentiment_gpt,prompt
 195,neutral,45
 195,neutral,46
 195,neutral,47
+195,neutral,48
 195,positive,4
 195,neutral,5
 195,neutral,6
@@ -2189,6 +2265,7 @@ id_tweets,sentiment_gpt,prompt
 197,neutral,45
 197,neutral,46
 197,neutral,47
+197,neutral,48
 197,neutral,4
 197,neutral,5
 197,neutral,6
@@ -2204,6 +2281,7 @@ id_tweets,sentiment_gpt,prompt
 198,neutral,45
 198,neutral,46
 198,neutral,47
+198,neutral,48
 198,neutral,4
 198,neutral,5
 198,neutral,6
@@ -2219,6 +2297,7 @@ id_tweets,sentiment_gpt,prompt
 199,negative,45
 199,negative,46
 199,negative,47
+199,neutral,48
 199,neutral,4
 199,neutral,5
 199,neutral,6
@@ -2234,6 +2313,7 @@ id_tweets,sentiment_gpt,prompt
 200,positive,45
 200,neutral,46
 200,positive,47
+200,neutral,48
 200,neutral,4
 200,neutral,5
 200,neutral,6
@@ -2249,6 +2329,7 @@ id_tweets,sentiment_gpt,prompt
 201,neutral,45
 201,neutral,46
 201,neutral,47
+201,neutral,48
 201,neutral,4
 201,neutral,5
 201,neutral,6
@@ -2264,6 +2345,7 @@ id_tweets,sentiment_gpt,prompt
 202,neutral,45
 202,neutral,46
 202,neutral,47
+202,neutral,48
 202,neutral,4
 202,negative,5
 202,negative,6
@@ -2279,6 +2361,7 @@ id_tweets,sentiment_gpt,prompt
 203,neutral,45
 203,neutral,46
 203,neutral,47
+203,neutral,48
 203,neutral,4
 203,neutral,5
 203,neutral,6
@@ -2294,6 +2377,7 @@ id_tweets,sentiment_gpt,prompt
 204,positive,45
 204,positive,46
 204,negative,47
+204,positive,48
 204,neutral,4
 204,neutral,5
 204,neutral,6
@@ -2309,6 +2393,7 @@ id_tweets,sentiment_gpt,prompt
 205,neutral,45
 205,neutral,46
 205,neutral,47
+205,neutral,48
 205,neutral,4
 205,neutral,5
 205,neutral,6
@@ -2324,6 +2409,7 @@ id_tweets,sentiment_gpt,prompt
 206,neutral,45
 206,neutral,46
 206,neutral,47
+206,neutral,48
 206,neutral,4
 206,positive,5
 206,neutral,6
@@ -2339,6 +2425,7 @@ id_tweets,sentiment_gpt,prompt
 207,neutral,45
 207,neutral,46
 207,neutral,47
+207,neutral,48
 207,neutral,4
 207,neutral,5
 207,neutral,6
@@ -2354,6 +2441,7 @@ id_tweets,sentiment_gpt,prompt
 208,neutral,45
 208,neutral,46
 208,neutral,47
+208,neutral,48
 208,neutral,4
 208,neutral,5
 208,neutral,6
@@ -2369,6 +2457,7 @@ id_tweets,sentiment_gpt,prompt
 209,neutral,45
 209,neutral,46
 209,neutral,47
+209,neutral,48
 209,neutral,4
 209,neutral,5
 209,neutral,6
@@ -2384,6 +2473,7 @@ id_tweets,sentiment_gpt,prompt
 211,neutral,45
 211,neutral,46
 211,neutral,47
+211,neutral,48
 211,neutral,4
 211,neutral,5
 211,neutral,6
@@ -2399,6 +2489,7 @@ id_tweets,sentiment_gpt,prompt
 212,neutral,45
 212,neutral,46
 212,neutral,47
+212,neutral,48
 212,neutral,4
 212,neutral,5
 212,neutral,6
@@ -2414,6 +2505,7 @@ id_tweets,sentiment_gpt,prompt
 214,neutral,45
 214,neutral,46
 214,neutral,47
+214,neutral,48
 214,neutral,4
 214,neutral,5
 214,neutral,6
@@ -2429,6 +2521,7 @@ id_tweets,sentiment_gpt,prompt
 215,neutral,45
 215,neutral,46
 215,neutral,47
+215,neutral,48
 215,neutral,4
 215,neutral,5
 215,neutral,6
@@ -2444,6 +2537,7 @@ id_tweets,sentiment_gpt,prompt
 216,neutral,45
 216,neutral,46
 216,neutral,47
+216,neutral,48
 216,neutral,4
 216,neutral,5
 216,neutral,6
@@ -2459,6 +2553,7 @@ id_tweets,sentiment_gpt,prompt
 219,neutral,45
 219,neutral,46
 219,neutral,47
+219,neutral,48
 219,neutral,4
 219,neutral,5
 219,neutral,6
@@ -2474,6 +2569,7 @@ id_tweets,sentiment_gpt,prompt
 220,negative,45
 220,neutral,46
 220,negative,47
+220,neutral,48
 220,neutral,4
 220,neutral,5
 220,positive,6
@@ -2489,6 +2585,7 @@ id_tweets,sentiment_gpt,prompt
 221,neutral,45
 221,neutral,46
 221,neutral,47
+221,neutral,48
 221,neutral,4
 221,neutral,5
 221,neutral,6
@@ -2504,6 +2601,7 @@ id_tweets,sentiment_gpt,prompt
 222,neutral,45
 222,neutral,46
 222,neutral,47
+222,neutral,48
 222,neutral,4
 222,neutral,5
 222,neutral,6
@@ -2519,6 +2617,7 @@ id_tweets,sentiment_gpt,prompt
 223,neutral,45
 223,neutral,46
 223,neutral,47
+223,neutral,48
 223,neutral,4
 223,neutral,5
 223,neutral,6
@@ -2534,6 +2633,7 @@ id_tweets,sentiment_gpt,prompt
 224,neutral,45
 224,neutral,46
 224,neutral,47
+224,neutral,48
 224,neutral,4
 224,neutral,5
 224,neutral,6
@@ -2549,6 +2649,7 @@ id_tweets,sentiment_gpt,prompt
 225,neutral,45
 225,neutral,46
 225,neutral,47
+225,neutral,48
 225,neutral,4
 225,neutral,5
 225,neutral,6
@@ -2564,6 +2665,7 @@ id_tweets,sentiment_gpt,prompt
 227,neutral,45
 227,neutral,46
 227,neutral,47
+227,neutral,48
 227,neutral,4
 227,neutral,5
 227,neutral,6
@@ -2579,6 +2681,7 @@ id_tweets,sentiment_gpt,prompt
 229,neutral,45
 229,neutral,46
 229,negative,47
+229,neutral,48
 229,negative,4
 229,neutral,5
 229,positive,6
@@ -2594,6 +2697,7 @@ id_tweets,sentiment_gpt,prompt
 230,negative,45
 230,negative,46
 230,negative,47
+230,negative,48
 230,negative,4
 230,neutral,5
 230,neutral,6
@@ -2609,6 +2713,7 @@ id_tweets,sentiment_gpt,prompt
 231,neutral,45
 231,neutral,46
 231,neutral,47
+231,neutral,48
 231,neutral,4
 231,neutral,5
 231,neutral,6
@@ -2624,6 +2729,7 @@ id_tweets,sentiment_gpt,prompt
 234,neutral,45
 234,neutral,46
 234,neutral,47
+234,neutral,48
 234,neutral,4
 234,neutral,5
 234,neutral,6
@@ -2639,6 +2745,7 @@ id_tweets,sentiment_gpt,prompt
 236,positive,45
 236,neutral,46
 236,neutral,47
+236,positive,48
 236,neutral,4
 236,neutral,5
 236,neutral,6
@@ -2654,6 +2761,7 @@ id_tweets,sentiment_gpt,prompt
 237,neutral,45
 237,neutral,46
 237,neutral,47
+237,neutral,48
 237,neutral,4
 237,neutral,5
 237,neutral,6
@@ -2669,6 +2777,7 @@ id_tweets,sentiment_gpt,prompt
 238,negative,45
 238,negative,46
 238,negative,47
+238,neutral,48
 238,neutral,4
 238,neutral,5
 238,neutral,6
@@ -2684,6 +2793,7 @@ id_tweets,sentiment_gpt,prompt
 240,neutral,45
 240,neutral,46
 240,neutral,47
+240,neutral,48
 240,neutral,4
 240,neutral,5
 240,neutral,6
@@ -2699,6 +2809,7 @@ id_tweets,sentiment_gpt,prompt
 242,positive,45
 242,positive,46
 242,positive,47
+242,positive,48
 242,positive,4
 242,neutral,5
 242,positive,6
@@ -2714,6 +2825,7 @@ id_tweets,sentiment_gpt,prompt
 243,negative,45
 243,neutral,46
 243,neutral,47
+243,neutral,48
 243,neutral,4
 243,neutral,5
 243,neutral,6
@@ -2729,6 +2841,7 @@ id_tweets,sentiment_gpt,prompt
 244,neutral,45
 244,neutral,46
 244,neutral,47
+244,neutral,48
 244,neutral,4
 244,neutral,5
 244,neutral,6
@@ -2744,6 +2857,7 @@ id_tweets,sentiment_gpt,prompt
 245,positive,45
 245,negative,46
 245,negative,47
+245,positive,48
 245,negative,4
 245,negative,5
 245,negative,6
@@ -2759,6 +2873,7 @@ id_tweets,sentiment_gpt,prompt
 247,neutral,45
 247,neutral,46
 247,neutral,47
+247,neutral,48
 247,neutral,4
 247,neutral,5
 247,neutral,6
@@ -2774,6 +2889,7 @@ id_tweets,sentiment_gpt,prompt
 248,negative,45
 248,negative,46
 248,negative,47
+248,positive,48
 248,positive,4
 248,positive,5
 248,neutral,6
@@ -2789,6 +2905,7 @@ id_tweets,sentiment_gpt,prompt
 249,positive,45
 249,neutral,46
 249,neutral,47
+249,positive,48
 249,neutral,4
 249,neutral,5
 249,neutral,6
@@ -2804,6 +2921,7 @@ id_tweets,sentiment_gpt,prompt
 250,positive,45
 250,positive,46
 250,neutral,47
+250,neutral,48
 250,neutral,4
 250,neutral,5
 250,positive,6
@@ -2819,6 +2937,7 @@ id_tweets,sentiment_gpt,prompt
 252,negative,45
 252,negative,46
 252,negative,47
+252,negative,48
 252,negative,4
 252,negative,5
 252,negative,6
@@ -2834,6 +2953,7 @@ id_tweets,sentiment_gpt,prompt
 254,neutral,45
 254,neutral,46
 254,neutral,47
+254,neutral,48
 254,neutral,4
 254,neutral,5
 254,neutral,6
@@ -2849,6 +2969,7 @@ id_tweets,sentiment_gpt,prompt
 255,neutral,45
 255,neutral,46
 255,neutral,47
+255,neutral,48
 255,neutral,4
 255,neutral,5
 255,neutral,6
@@ -2864,6 +2985,7 @@ id_tweets,sentiment_gpt,prompt
 256,neutral,45
 256,neutral,46
 256,neutral,47
+256,neutral,48
 256,neutral,4
 256,neutral,5
 256,neutral,6
@@ -2879,6 +3001,7 @@ id_tweets,sentiment_gpt,prompt
 257,neutral,45
 257,neutral,46
 257,neutral,47
+257,neutral,48
 257,neutral,4
 257,neutral,5
 257,neutral,6
@@ -2894,6 +3017,7 @@ id_tweets,sentiment_gpt,prompt
 258,neutral,45
 258,neutral,46
 258,neutral,47
+258,neutral,48
 258,neutral,4
 258,neutral,5
 258,neutral,6
@@ -2909,6 +3033,7 @@ id_tweets,sentiment_gpt,prompt
 260,neutral,45
 260,neutral,46
 260,neutral,47
+260,neutral,48
 260,neutral,4
 260,neutral,5
 260,neutral,6
@@ -2924,6 +3049,7 @@ id_tweets,sentiment_gpt,prompt
 262,neutral,45
 262,neutral,46
 262,negative,47
+262,neutral,48
 262,neutral,4
 262,neutral,5
 262,neutral,6
@@ -2939,6 +3065,7 @@ id_tweets,sentiment_gpt,prompt
 263,neutral,45
 263,neutral,46
 263,neutral,47
+263,neutral,48
 263,negative,4
 263,negative,5
 263,negative,6
@@ -2954,6 +3081,7 @@ id_tweets,sentiment_gpt,prompt
 265,neutral,45
 265,neutral,46
 265,neutral,47
+265,neutral,48
 265,neutral,4
 265,neutral,5
 265,neutral,6
@@ -2969,6 +3097,7 @@ id_tweets,sentiment_gpt,prompt
 266,negative,45
 266,negative,46
 266,neutral,47
+266,negative,48
 266,neutral,4
 266,negative,5
 266,neutral,6
@@ -2984,6 +3113,7 @@ id_tweets,sentiment_gpt,prompt
 267,negative,45
 267,neutral,46
 267,neutral,47
+267,neutral,48
 267,neutral,4
 267,neutral,5
 267,neutral,6
@@ -2999,6 +3129,7 @@ id_tweets,sentiment_gpt,prompt
 270,neutral,45
 270,neutral,46
 270,neutral,47
+270,neutral,48
 270,neutral,4
 270,neutral,5
 270,neutral,6
@@ -3014,6 +3145,7 @@ id_tweets,sentiment_gpt,prompt
 271,neutral,45
 271,neutral,46
 271,neutral,47
+271,positive,48
 271,negative,4
 271,negative,5
 271,negative,6
@@ -3029,6 +3161,7 @@ id_tweets,sentiment_gpt,prompt
 272,negative,45
 272,negative,46
 272,neutral,47
+272,neutral,48
 272,neutral,4
 272,neutral,5
 272,neutral,6
@@ -3044,6 +3177,7 @@ id_tweets,sentiment_gpt,prompt
 273,negative,45
 273,negative,46
 273,negative,47
+273,negative,48
 273,neutral,4
 273,neutral,5
 273,neutral,6
@@ -3059,6 +3193,7 @@ id_tweets,sentiment_gpt,prompt
 274,neutral,45
 274,neutral,46
 274,neutral,47
+274,neutral,48
 274,neutral,4
 274,neutral,5
 274,neutral,6
@@ -3074,6 +3209,7 @@ id_tweets,sentiment_gpt,prompt
 275,negative,45
 275,negative,46
 275,negative,47
+275,negative,48
 275,negative,4
 275,neutral,5
 275,neutral,6
@@ -3089,6 +3225,7 @@ id_tweets,sentiment_gpt,prompt
 276,neutral,45
 276,neutral,46
 276,neutral,47
+276,neutral,48
 276,neutral,4
 276,neutral,5
 276,neutral,6
@@ -3104,6 +3241,7 @@ id_tweets,sentiment_gpt,prompt
 279,neutral,45
 279,neutral,46
 279,neutral,47
+279,neutral,48
 279,positive,4
 279,neutral,5
 279,neutral,6
@@ -3119,6 +3257,7 @@ id_tweets,sentiment_gpt,prompt
 284,neutral,45
 284,positive,46
 284,neutral,47
+284,neutral,48
 284,neutral,4
 284,neutral,5
 284,neutral,6
@@ -3134,6 +3273,7 @@ id_tweets,sentiment_gpt,prompt
 285,neutral,45
 285,neutral,46
 285,neutral,47
+285,neutral,48
 285,neutral,4
 285,neutral,5
 285,neutral,6
@@ -3149,6 +3289,7 @@ id_tweets,sentiment_gpt,prompt
 287,positive,45
 287,neutral,46
 287,neutral,47
+287,neutral,48
 287,neutral,4
 287,neutral,5
 287,neutral,6
@@ -3164,6 +3305,7 @@ id_tweets,sentiment_gpt,prompt
 288,positive,45
 288,positive,46
 288,positive,47
+288,positive,48
 288,neutral,4
 288,positive,5
 288,positive,6
@@ -3179,6 +3321,7 @@ id_tweets,sentiment_gpt,prompt
 291,neutral,45
 291,neutral,46
 291,neutral,47
+291,neutral,48
 291,neutral,4
 291,neutral,5
 291,neutral,6
@@ -3194,6 +3337,7 @@ id_tweets,sentiment_gpt,prompt
 292,negative,45
 292,negative,46
 292,neutral,47
+292,negative,48
 292,neutral,4
 292,positive,5
 292,positive,6
@@ -3209,6 +3353,7 @@ id_tweets,sentiment_gpt,prompt
 293,neutral,45
 293,neutral,46
 293,neutral,47
+293,neutral,48
 293,neutral,4
 293,neutral,5
 293,neutral,6
@@ -3224,6 +3369,7 @@ id_tweets,sentiment_gpt,prompt
 294,neutral,45
 294,neutral,46
 294,neutral,47
+294,neutral,48
 294,neutral,4
 294,neutral,5
 294,neutral,6
@@ -3239,6 +3385,7 @@ id_tweets,sentiment_gpt,prompt
 295,neutral,45
 295,neutral,46
 295,neutral,47
+295,neutral,48
 295,neutral,4
 295,neutral,5
 295,neutral,6
@@ -3254,6 +3401,7 @@ id_tweets,sentiment_gpt,prompt
 296,positive,45
 296,neutral,46
 296,neutral,47
+296,positive,48
 296,neutral,4
 296,neutral,5
 296,neutral,6
@@ -3269,6 +3417,7 @@ id_tweets,sentiment_gpt,prompt
 299,negative,45
 299,neutral,46
 299,neutral,47
+299,neutral,48
 299,neutral,4
 299,neutral,5
 299,neutral,6
@@ -3284,6 +3433,7 @@ id_tweets,sentiment_gpt,prompt
 300,neutral,45
 300,neutral,46
 300,neutral,47
+300,neutral,48
 300,neutral,4
 300,neutral,5
 300,neutral,6
@@ -3299,6 +3449,7 @@ id_tweets,sentiment_gpt,prompt
 302,neutral,45
 302,neutral,46
 302,neutral,47
+302,neutral,48
 302,neutral,4
 302,neutral,5
 302,neutral,6
@@ -3314,6 +3465,7 @@ id_tweets,sentiment_gpt,prompt
 303,neutral,45
 303,neutral,46
 303,neutral,47
+303,neutral,48
 303,neutral,4
 303,neutral,5
 303,neutral,6
@@ -3329,6 +3481,7 @@ id_tweets,sentiment_gpt,prompt
 304,negative,45
 304,negative,46
 304,neutral,47
+304,neutral,48
 304,neutral,4
 304,neutral,5
 304,neutral,6
@@ -3344,6 +3497,7 @@ id_tweets,sentiment_gpt,prompt
 306,positive,45
 306,positive,46
 306,positive,47
+306,positive,48
 306,neutral,4
 306,neutral,5
 306,neutral,6
@@ -3359,6 +3513,7 @@ id_tweets,sentiment_gpt,prompt
 307,neutral,45
 307,neutral,46
 307,neutral,47
+307,neutral,48
 307,neutral,4
 307,neutral,5
 307,neutral,6
@@ -3374,6 +3529,7 @@ id_tweets,sentiment_gpt,prompt
 309,negative,45
 309,negative,46
 309,neutral,47
+309,negative,48
 309,negative,4
 309,neutral,5
 309,negative,6
@@ -3389,6 +3545,7 @@ id_tweets,sentiment_gpt,prompt
 310,neutral,45
 310,negative,46
 310,positive,47
+310,neutral,48
 310,negative,4
 310,positive,5
 310,neutral,6
@@ -3404,6 +3561,7 @@ id_tweets,sentiment_gpt,prompt
 311,negative,45
 311,negative,46
 311,negative,47
+311,neutral,48
 311,negative,4
 311,negative,5
 311,negative,6
@@ -3419,6 +3577,7 @@ id_tweets,sentiment_gpt,prompt
 312,neutral,45
 312,neutral,46
 312,neutral,47
+312,neutral,48
 312,neutral,4
 312,neutral,5
 312,neutral,6
@@ -3434,6 +3593,7 @@ id_tweets,sentiment_gpt,prompt
 313,neutral,45
 313,neutral,46
 313,neutral,47
+313,neutral,48
 313,neutral,4
 313,neutral,5
 313,neutral,6
@@ -3449,6 +3609,7 @@ id_tweets,sentiment_gpt,prompt
 314,neutral,45
 314,neutral,46
 314,neutral,47
+314,neutral,48
 314,positive,4
 314,neutral,5
 314,positive,6
@@ -3464,6 +3625,7 @@ id_tweets,sentiment_gpt,prompt
 315,neutral,45
 315,neutral,46
 315,negative,47
+315,neutral,48
 315,neutral,4
 315,neutral,5
 315,neutral,6
@@ -3479,6 +3641,7 @@ id_tweets,sentiment_gpt,prompt
 317,neutral,45
 317,neutral,46
 317,neutral,47
+317,neutral,48
 317,neutral,4
 317,neutral,5
 317,neutral,6
@@ -3494,6 +3657,7 @@ id_tweets,sentiment_gpt,prompt
 318,neutral,45
 318,neutral,46
 318,neutral,47
+318,neutral,48
 318,neutral,4
 318,neutral,5
 318,neutral,6
@@ -3509,6 +3673,7 @@ id_tweets,sentiment_gpt,prompt
 319,neutral,45
 319,neutral,46
 319,neutral,47
+319,neutral,48
 319,neutral,4
 319,neutral,5
 319,neutral,6
@@ -3524,6 +3689,7 @@ id_tweets,sentiment_gpt,prompt
 320,negative,45
 320,negative,46
 320,negative,47
+320,neutral,48
 320,positive,4
 320,positive,5
 320,positive,6
@@ -3539,6 +3705,7 @@ id_tweets,sentiment_gpt,prompt
 321,neutral,45
 321,neutral,46
 321,neutral,47
+321,neutral,48
 321,neutral,4
 321,neutral,5
 321,neutral,6
@@ -3554,6 +3721,7 @@ id_tweets,sentiment_gpt,prompt
 322,positive,45
 322,positive,46
 322,positive,47
+322,positive,48
 322,positive,4
 322,positive,5
 322,positive,6
@@ -3569,6 +3737,7 @@ id_tweets,sentiment_gpt,prompt
 324,neutral,45
 324,neutral,46
 324,neutral,47
+324,neutral,48
 324,positive,4
 324,neutral,5
 324,neutral,6
@@ -3584,6 +3753,7 @@ id_tweets,sentiment_gpt,prompt
 325,neutral,45
 325,neutral,46
 325,neutral,47
+325,neutral,48
 325,neutral,4
 325,neutral,5
 325,neutral,6
@@ -3599,6 +3769,7 @@ id_tweets,sentiment_gpt,prompt
 326,neutral,45
 326,neutral,46
 326,neutral,47
+326,neutral,48
 326,neutral,4
 326,neutral,5
 326,neutral,6
@@ -3614,6 +3785,7 @@ id_tweets,sentiment_gpt,prompt
 327,positive,45
 327,positive,46
 327,positive,47
+327,positive,48
 327,neutral,4
 327,positive,5
 327,positive,6
@@ -3629,6 +3801,7 @@ id_tweets,sentiment_gpt,prompt
 328,neutral,45
 328,neutral,46
 328,positive,47
+328,neutral,48
 328,positive,4
 328,positive,5
 328,positive,6
@@ -3644,6 +3817,7 @@ id_tweets,sentiment_gpt,prompt
 330,negative,45
 330,neutral,46
 330,neutral,47
+330,neutral,48
 330,neutral,4
 330,neutral,5
 330,neutral,6
@@ -3659,6 +3833,7 @@ id_tweets,sentiment_gpt,prompt
 331,neutral,45
 331,neutral,46
 331,neutral,47
+331,neutral,48
 331,neutral,4
 331,neutral,5
 331,neutral,6
@@ -3674,6 +3849,7 @@ id_tweets,sentiment_gpt,prompt
 332,neutral,45
 332,neutral,46
 332,neutral,47
+332,neutral,48
 332,neutral,4
 332,neutral,5
 332,neutral,6
@@ -3689,6 +3865,7 @@ id_tweets,sentiment_gpt,prompt
 334,neutral,45
 334,neutral,46
 334,neutral,47
+334,neutral,48
 334,neutral,4
 334,neutral,5
 334,neutral,6
@@ -3704,6 +3881,7 @@ id_tweets,sentiment_gpt,prompt
 335,positive,45
 335,positive,46
 335,positive,47
+335,positive,48
 335,neutral,4
 335,neutral,5
 335,neutral,6
@@ -3719,6 +3897,7 @@ id_tweets,sentiment_gpt,prompt
 336,negative,45
 336,neutral,46
 336,neutral,47
+336,neutral,48
 336,neutral,4
 336,neutral,5
 336,neutral,6
@@ -3734,6 +3913,7 @@ id_tweets,sentiment_gpt,prompt
 337,neutral,45
 337,neutral,46
 337,neutral,47
+337,neutral,48
 337,neutral,4
 337,neutral,5
 337,neutral,6
@@ -3749,6 +3929,7 @@ id_tweets,sentiment_gpt,prompt
 338,neutral,45
 338,neutral,46
 338,neutral,47
+338,positive,48
 338,negative,4
 338,negative,5
 338,negative,6
@@ -3764,6 +3945,7 @@ id_tweets,sentiment_gpt,prompt
 339,neutral,45
 339,neutral,46
 339,neutral,47
+339,neutral,48
 339,neutral,4
 339,neutral,5
 339,neutral,6
@@ -3779,6 +3961,7 @@ id_tweets,sentiment_gpt,prompt
 340,neutral,45
 340,neutral,46
 340,neutral,47
+340,neutral,48
 340,neutral,4
 340,neutral,5
 340,neutral,6
@@ -3794,6 +3977,7 @@ id_tweets,sentiment_gpt,prompt
 341,neutral,45
 341,neutral,46
 341,neutral,47
+341,neutral,48
 341,neutral,4
 341,neutral,5
 341,neutral,6
@@ -3809,6 +3993,7 @@ id_tweets,sentiment_gpt,prompt
 344,negative,45
 344,neutral,46
 344,neutral,47
+344,neutral,48
 344,neutral,4
 344,neutral,5
 344,neutral,6
@@ -3824,6 +4009,7 @@ id_tweets,sentiment_gpt,prompt
 345,neutral,45
 345,neutral,46
 345,neutral,47
+345,neutral,48
 345,neutral,4
 345,positive,5
 345,negative,6
@@ -3839,6 +4025,7 @@ id_tweets,sentiment_gpt,prompt
 346,neutral,45
 346,neutral,46
 346,neutral,47
+346,neutral,48
 346,neutral,4
 346,neutral,5
 346,neutral,6
@@ -3854,6 +4041,7 @@ id_tweets,sentiment_gpt,prompt
 350,positive,45
 350,positive,46
 350,positive,47
+350,positive,48
 350,neutral,4
 350,neutral,5
 350,neutral,6
@@ -3869,6 +4057,7 @@ id_tweets,sentiment_gpt,prompt
 352,negative,45
 352,negative,46
 352,negative,47
+352,negative,48
 352,negative,4
 352,positive,5
 352,negative,6
@@ -3884,6 +4073,7 @@ id_tweets,sentiment_gpt,prompt
 354,positive,45
 354,positive,46
 354,positive,47
+354,positive,48
 354,neutral,4
 354,neutral,5
 354,neutral,6
@@ -3899,6 +4089,7 @@ id_tweets,sentiment_gpt,prompt
 355,neutral,45
 355,neutral,46
 355,neutral,47
+355,neutral,48
 355,neutral,4
 355,neutral,5
 355,neutral,6
@@ -3914,6 +4105,7 @@ id_tweets,sentiment_gpt,prompt
 356,neutral,45
 356,neutral,46
 356,negative,47
+356,neutral,48
 356,neutral,4
 356,neutral,5
 356,neutral,6
@@ -3929,6 +4121,7 @@ id_tweets,sentiment_gpt,prompt
 357,neutral,45
 357,neutral,46
 357,neutral,47
+357,neutral,48
 357,neutral,4
 357,neutral,5
 357,neutral,6
@@ -3944,6 +4137,7 @@ id_tweets,sentiment_gpt,prompt
 358,positive,45
 358,neutral,46
 358,positive,47
+358,positive,48
 358,neutral,4
 358,positive,5
 358,negative,6
@@ -3959,6 +4153,7 @@ id_tweets,sentiment_gpt,prompt
 360,positive,45
 360,positive,46
 360,positive,47
+360,positive,48
 360,positive,4
 360,positive,5
 360,positive,6
@@ -3974,6 +4169,7 @@ id_tweets,sentiment_gpt,prompt
 361,negative,45
 361,neutral,46
 361,neutral,47
+361,neutral,48
 361,neutral,4
 361,neutral,5
 361,neutral,6
@@ -3989,6 +4185,7 @@ id_tweets,sentiment_gpt,prompt
 362,neutral,45
 362,neutral,46
 362,neutral,47
+362,positive,48
 362,positive,4
 362,positive,5
 362,positive,6
@@ -4004,6 +4201,7 @@ id_tweets,sentiment_gpt,prompt
 363,neutral,45
 363,negative,46
 363,neutral,47
+363,neutral,48
 363,neutral,4
 363,neutral,5
 363,neutral,6
@@ -4019,6 +4217,7 @@ id_tweets,sentiment_gpt,prompt
 364,neutral,45
 364,negative,46
 364,negative,47
+364,neutral,48
 364,negative,4
 364,negative,5
 364,negative,6
@@ -4034,6 +4233,7 @@ id_tweets,sentiment_gpt,prompt
 365,neutral,45
 365,neutral,46
 365,neutral,47
+365,neutral,48
 365,neutral,4
 365,neutral,5
 365,neutral,6
@@ -4049,6 +4249,7 @@ id_tweets,sentiment_gpt,prompt
 366,neutral,45
 366,neutral,46
 366,neutral,47
+366,neutral,48
 366,neutral,4
 366,neutral,5
 366,neutral,6
@@ -4064,6 +4265,7 @@ id_tweets,sentiment_gpt,prompt
 368,neutral,45
 368,neutral,46
 368,neutral,47
+368,neutral,48
 368,neutral,4
 368,neutral,5
 368,neutral,6
@@ -4079,6 +4281,7 @@ id_tweets,sentiment_gpt,prompt
 369,neutral,45
 369,neutral,46
 369,neutral,47
+369,neutral,48
 369,neutral,4
 369,neutral,5
 369,neutral,6
@@ -4094,6 +4297,7 @@ id_tweets,sentiment_gpt,prompt
 370,negative,45
 370,negative,46
 370,negative,47
+370,neutral,48
 370,negative,4
 370,negative,5
 370,neutral,6
@@ -4109,6 +4313,7 @@ id_tweets,sentiment_gpt,prompt
 371,neutral,45
 371,neutral,46
 371,neutral,47
+371,neutral,48
 371,neutral,4
 371,neutral,5
 371,neutral,6
@@ -4124,6 +4329,7 @@ id_tweets,sentiment_gpt,prompt
 372,negative,45
 372,neutral,46
 372,neutral,47
+372,neutral,48
 372,neutral,4
 372,neutral,5
 372,neutral,6
@@ -4139,6 +4345,7 @@ id_tweets,sentiment_gpt,prompt
 373,neutral,45
 373,neutral,46
 373,neutral,47
+373,neutral,48
 373,neutral,4
 373,neutral,5
 373,neutral,6
@@ -4154,6 +4361,7 @@ id_tweets,sentiment_gpt,prompt
 375,neutral,45
 375,neutral,46
 375,neutral,47
+375,neutral,48
 375,neutral,4
 375,neutral,5
 375,neutral,6
@@ -4169,6 +4377,7 @@ id_tweets,sentiment_gpt,prompt
 376,neutral,45
 376,neutral,46
 376,neutral,47
+376,neutral,48
 376,neutral,4
 376,neutral,5
 376,neutral,6
@@ -4184,6 +4393,7 @@ id_tweets,sentiment_gpt,prompt
 377,neutral,45
 377,neutral,46
 377,neutral,47
+377,neutral,48
 377,neutral,4
 377,neutral,5
 377,neutral,6
@@ -4199,6 +4409,7 @@ id_tweets,sentiment_gpt,prompt
 378,neutral,45
 378,neutral,46
 378,neutral,47
+378,neutral,48
 378,positive,4
 378,neutral,5
 378,neutral,6
@@ -4214,6 +4425,7 @@ id_tweets,sentiment_gpt,prompt
 379,neutral,45
 379,neutral,46
 379,neutral,47
+379,neutral,48
 379,neutral,4
 379,positive,5
 379,positive,6
@@ -4229,6 +4441,7 @@ id_tweets,sentiment_gpt,prompt
 381,neutral,45
 381,neutral,46
 381,neutral,47
+381,neutral,48
 381,neutral,4
 381,neutral,5
 381,neutral,6
@@ -4244,6 +4457,7 @@ id_tweets,sentiment_gpt,prompt
 382,neutral,45
 382,neutral,46
 382,neutral,47
+382,neutral,48
 382,neutral,4
 382,neutral,5
 382,neutral,6
@@ -4259,6 +4473,7 @@ id_tweets,sentiment_gpt,prompt
 383,neutral,45
 383,neutral,46
 383,neutral,47
+383,neutral,48
 383,neutral,4
 383,neutral,5
 383,neutral,6
@@ -4274,6 +4489,7 @@ id_tweets,sentiment_gpt,prompt
 384,neutral,45
 384,neutral,46
 384,neutral,47
+384,neutral,48
 384,neutral,4
 384,positive,5
 384,positive,6
@@ -4289,6 +4505,7 @@ id_tweets,sentiment_gpt,prompt
 385,negative,45
 385,neutral,46
 385,neutral,47
+385,neutral,48
 385,neutral,4
 385,neutral,5
 385,neutral,6
@@ -4304,6 +4521,7 @@ id_tweets,sentiment_gpt,prompt
 386,neutral,45
 386,neutral,46
 386,neutral,47
+386,negative,48
 386,neutral,4
 386,neutral,5
 386,neutral,6
@@ -4319,6 +4537,7 @@ id_tweets,sentiment_gpt,prompt
 387,neutral,45
 387,neutral,46
 387,neutral,47
+387,neutral,48
 387,neutral,4
 387,neutral,5
 387,neutral,6
@@ -4334,6 +4553,7 @@ id_tweets,sentiment_gpt,prompt
 388,negative,45
 388,neutral,46
 388,negative,47
+388,neutral,48
 388,neutral,4
 388,neutral,5
 388,neutral,6
@@ -4349,6 +4569,7 @@ id_tweets,sentiment_gpt,prompt
 389,neutral,45
 389,neutral,46
 389,neutral,47
+389,neutral,48
 389,neutral,4
 389,negative,5
 389,positive,6
@@ -4364,6 +4585,7 @@ id_tweets,sentiment_gpt,prompt
 390,neutral,45
 390,negative,46
 390,neutral,47
+390,neutral,48
 390,neutral,4
 390,neutral,5
 390,neutral,6
@@ -4379,6 +4601,7 @@ id_tweets,sentiment_gpt,prompt
 391,neutral,45
 391,neutral,46
 391,neutral,47
+391,neutral,48
 391,neutral,4
 391,neutral,5
 391,neutral,6
@@ -4394,6 +4617,7 @@ id_tweets,sentiment_gpt,prompt
 392,neutral,45
 392,neutral,46
 392,neutral,47
+392,neutral,48
 392,neutral,4
 392,neutral,5
 392,neutral,6
@@ -4409,6 +4633,7 @@ id_tweets,sentiment_gpt,prompt
 393,negative,45
 393,neutral,46
 393,neutral,47
+393,neutral,48
 393,neutral,4
 393,neutral,5
 393,neutral,6
@@ -4424,6 +4649,7 @@ id_tweets,sentiment_gpt,prompt
 394,negative,45
 394,neutral,46
 394,neutral,47
+394,neutral,48
 394,neutral,4
 394,neutral,5
 394,neutral,6
@@ -4439,6 +4665,7 @@ id_tweets,sentiment_gpt,prompt
 395,negative,45
 395,neutral,46
 395,neutral,47
+395,neutral,48
 395,neutral,4
 395,neutral,5
 395,neutral,6
@@ -4454,6 +4681,7 @@ id_tweets,sentiment_gpt,prompt
 396,neutral,45
 396,neutral,46
 396,neutral,47
+396,neutral,48
 396,negative,4
 396,negative,5
 396,negative,6
@@ -4469,6 +4697,7 @@ id_tweets,sentiment_gpt,prompt
 397,neutral,45
 397,neutral,46
 397,neutral,47
+397,neutral,48
 397,neutral,4
 397,neutral,5
 397,neutral,6
@@ -4484,6 +4713,7 @@ id_tweets,sentiment_gpt,prompt
 399,positive,45
 399,positive,46
 399,positive,47
+399,positive,48
 399,positive,4
 399,positive,5
 399,neutral,6
@@ -4499,6 +4729,7 @@ id_tweets,sentiment_gpt,prompt
 400,neutral,45
 400,neutral,46
 400,neutral,47
+400,neutral,48
 400,neutral,4
 400,neutral,5
 400,neutral,6
@@ -4514,6 +4745,7 @@ id_tweets,sentiment_gpt,prompt
 401,neutral,45
 401,neutral,46
 401,negative,47
+401,neutral,48
 401,neutral,4
 401,neutral,5
 401,neutral,6
@@ -4529,6 +4761,7 @@ id_tweets,sentiment_gpt,prompt
 402,neutral,45
 402,neutral,46
 402,neutral,47
+402,neutral,48
 402,neutral,4
 402,neutral,5
 402,neutral,6
@@ -4544,6 +4777,7 @@ id_tweets,sentiment_gpt,prompt
 403,negative,45
 403,negative,46
 403,negative,47
+403,neutral,48
 403,neutral,4
 403,neutral,5
 403,neutral,6
@@ -4559,6 +4793,7 @@ id_tweets,sentiment_gpt,prompt
 404,negative,45
 404,neutral,46
 404,neutral,47
+404,neutral,48
 404,neutral,4
 404,negative,5
 404,negative,6
@@ -4574,6 +4809,7 @@ id_tweets,sentiment_gpt,prompt
 405,neutral,45
 405,neutral,46
 405,neutral,47
+405,neutral,48
 405,neutral,4
 405,neutral,5
 405,neutral,6
@@ -4589,6 +4825,7 @@ id_tweets,sentiment_gpt,prompt
 406,neutral,45
 406,neutral,46
 406,negative,47
+406,neutral,48
 406,neutral,4
 406,neutral,5
 406,neutral,6
@@ -4604,6 +4841,7 @@ id_tweets,sentiment_gpt,prompt
 407,neutral,45
 407,neutral,46
 407,neutral,47
+407,neutral,48
 407,neutral,4
 407,neutral,5
 407,neutral,6
@@ -4619,6 +4857,7 @@ id_tweets,sentiment_gpt,prompt
 408,neutral,45
 408,neutral,46
 408,neutral,47
+408,neutral,48
 408,neutral,4
 408,positive,5
 408,positive,6
@@ -4634,6 +4873,7 @@ id_tweets,sentiment_gpt,prompt
 409,neutral,45
 409,neutral,46
 409,neutral,47
+409,neutral,48
 409,neutral,4
 409,neutral,5
 409,neutral,6
@@ -4649,6 +4889,7 @@ id_tweets,sentiment_gpt,prompt
 410,neutral,45
 410,neutral,46
 410,neutral,47
+410,neutral,48
 410,neutral,4
 410,neutral,5
 410,neutral,6
@@ -4664,6 +4905,7 @@ id_tweets,sentiment_gpt,prompt
 411,neutral,45
 411,neutral,46
 411,neutral,47
+411,neutral,48
 411,neutral,4
 411,neutral,5
 411,neutral,6
@@ -4679,6 +4921,7 @@ id_tweets,sentiment_gpt,prompt
 412,neutral,45
 412,neutral,46
 412,neutral,47
+412,neutral,48
 412,neutral,4
 412,neutral,5
 412,neutral,6
@@ -4694,6 +4937,7 @@ id_tweets,sentiment_gpt,prompt
 415,neutral,45
 415,neutral,46
 415,neutral,47
+415,negative,48
 415,neutral,4
 415,negative,5
 415,negative,6
@@ -4709,6 +4953,7 @@ id_tweets,sentiment_gpt,prompt
 416,neutral,45
 416,neutral,46
 416,neutral,47
+416,neutral,48
 416,neutral,4
 416,neutral,5
 416,neutral,6
@@ -4724,6 +4969,7 @@ id_tweets,sentiment_gpt,prompt
 417,neutral,45
 417,neutral,46
 417,neutral,47
+417,neutral,48
 417,neutral,4
 417,neutral,5
 417,neutral,6
@@ -4739,6 +4985,7 @@ id_tweets,sentiment_gpt,prompt
 418,neutral,45
 418,neutral,46
 418,neutral,47
+418,neutral,48
 418,neutral,4
 418,neutral,5
 418,neutral,6
@@ -4754,6 +5001,7 @@ id_tweets,sentiment_gpt,prompt
 419,neutral,45
 419,neutral,46
 419,neutral,47
+419,neutral,48
 419,neutral,4
 419,neutral,5
 419,neutral,6
@@ -4769,6 +5017,7 @@ id_tweets,sentiment_gpt,prompt
 420,negative,45
 420,negative,46
 420,neutral,47
+420,neutral,48
 420,neutral,4
 420,neutral,5
 420,neutral,6
@@ -4784,6 +5033,7 @@ id_tweets,sentiment_gpt,prompt
 421,negative,45
 421,neutral,46
 421,neutral,47
+421,neutral,48
 421,neutral,4
 421,neutral,5
 421,neutral,6
@@ -4799,6 +5049,7 @@ id_tweets,sentiment_gpt,prompt
 422,neutral,45
 422,neutral,46
 422,neutral,47
+422,neutral,48
 422,neutral,4
 422,neutral,5
 422,neutral,6
@@ -4814,6 +5065,7 @@ id_tweets,sentiment_gpt,prompt
 423,neutral,45
 423,negative,46
 423,negative,47
+423,negative,48
 423,positive,4
 423,neutral,5
 423,negative,6
@@ -4829,6 +5081,7 @@ id_tweets,sentiment_gpt,prompt
 425,negative,45
 425,neutral,46
 425,neutral,47
+425,neutral,48
 425,neutral,4
 425,neutral,5
 425,neutral,6
@@ -4844,6 +5097,7 @@ id_tweets,sentiment_gpt,prompt
 426,neutral,45
 426,negative,46
 426,neutral,47
+426,neutral,48
 426,neutral,4
 426,neutral,5
 426,neutral,6
@@ -4859,6 +5113,7 @@ id_tweets,sentiment_gpt,prompt
 428,negative,45
 428,negative,46
 428,negative,47
+428,negative,48
 428,neutral,4
 428,negative,5
 428,negative,6
@@ -4874,6 +5129,7 @@ id_tweets,sentiment_gpt,prompt
 429,neutral,45
 429,neutral,46
 429,neutral,47
+429,neutral,48
 429,positive,4
 429,neutral,5
 429,positive,6
@@ -4889,6 +5145,7 @@ id_tweets,sentiment_gpt,prompt
 430,neutral,45
 430,negative,46
 430,neutral,47
+430,neutral,48
 430,neutral,4
 430,neutral,5
 430,neutral,6
@@ -4904,6 +5161,7 @@ id_tweets,sentiment_gpt,prompt
 431,neutral,45
 431,neutral,46
 431,neutral,47
+431,neutral,48
 431,neutral,4
 431,neutral,5
 431,neutral,6
@@ -4919,6 +5177,7 @@ id_tweets,sentiment_gpt,prompt
 432,neutral,45
 432,neutral,46
 432,negative,47
+432,neutral,48
 432,negative,4
 432,negative,5
 432,negative,6
@@ -4934,6 +5193,7 @@ id_tweets,sentiment_gpt,prompt
 433,neutral,45
 433,neutral,46
 433,neutral,47
+433,neutral,48
 433,neutral,4
 433,neutral,5
 433,neutral,6
@@ -4949,6 +5209,7 @@ id_tweets,sentiment_gpt,prompt
 435,neutral,45
 435,neutral,46
 435,neutral,47
+435,neutral,48
 435,neutral,4
 435,neutral,5
 435,neutral,6
@@ -4964,6 +5225,7 @@ id_tweets,sentiment_gpt,prompt
 436,neutral,45
 436,neutral,46
 436,neutral,47
+436,neutral,48
 436,neutral,4
 436,neutral,5
 436,neutral,6
@@ -4979,6 +5241,7 @@ id_tweets,sentiment_gpt,prompt
 438,neutral,45
 438,neutral,46
 438,neutral,47
+438,neutral,48
 438,neutral,4
 438,neutral,5
 438,neutral,6
@@ -4994,6 +5257,7 @@ id_tweets,sentiment_gpt,prompt
 440,neutral,45
 440,neutral,46
 440,neutral,47
+440,positive,48
 440,neutral,4
 440,neutral,5
 440,neutral,6
@@ -5009,6 +5273,7 @@ id_tweets,sentiment_gpt,prompt
 441,neutral,45
 441,negative,46
 441,neutral,47
+441,neutral,48
 441,neutral,4
 441,neutral,5
 441,neutral,6
@@ -5024,6 +5289,7 @@ id_tweets,sentiment_gpt,prompt
 442,neutral,45
 442,neutral,46
 442,negative,47
+442,neutral,48
 442,neutral,4
 442,neutral,5
 442,neutral,6
@@ -5039,6 +5305,7 @@ id_tweets,sentiment_gpt,prompt
 443,neutral,45
 443,neutral,46
 443,neutral,47
+443,neutral,48
 443,neutral,4
 443,neutral,5
 443,neutral,6
@@ -5054,6 +5321,7 @@ id_tweets,sentiment_gpt,prompt
 444,neutral,45
 444,negative,46
 444,neutral,47
+444,neutral,48
 444,neutral,4
 444,neutral,5
 444,neutral,6
@@ -5069,6 +5337,7 @@ id_tweets,sentiment_gpt,prompt
 445,neutral,45
 445,neutral,46
 445,neutral,47
+445,neutral,48
 445,neutral,4
 445,neutral,5
 445,neutral,6
@@ -5084,6 +5353,7 @@ id_tweets,sentiment_gpt,prompt
 446,negative,45
 446,neutral,46
 446,neutral,47
+446,neutral,48
 446,neutral,4
 446,neutral,5
 446,neutral,6
@@ -5099,6 +5369,7 @@ id_tweets,sentiment_gpt,prompt
 447,negative,45
 447,negative,46
 447,neutral,47
+447,neutral,48
 447,neutral,4
 447,neutral,5
 447,neutral,6
@@ -5114,6 +5385,7 @@ id_tweets,sentiment_gpt,prompt
 449,neutral,45
 449,neutral,46
 449,neutral,47
+449,neutral,48
 449,positive,4
 449,neutral,5
 449,neutral,6
@@ -5129,6 +5401,7 @@ id_tweets,sentiment_gpt,prompt
 452,neutral,45
 452,neutral,46
 452,neutral,47
+452,neutral,48
 452,neutral,4
 452,neutral,5
 452,neutral,6
@@ -5144,6 +5417,7 @@ id_tweets,sentiment_gpt,prompt
 453,positive,45
 453,positive,46
 453,neutral,47
+453,positive,48
 453,negative,4
 453,negative,5
 453,negative,6
@@ -5159,6 +5433,7 @@ id_tweets,sentiment_gpt,prompt
 454,negative,45
 454,neutral,46
 454,neutral,47
+454,neutral,48
 454,neutral,4
 454,neutral,5
 454,neutral,6
@@ -5174,6 +5449,7 @@ id_tweets,sentiment_gpt,prompt
 455,negative,45
 455,negative,46
 455,neutral,47
+455,neutral,48
 455,neutral,4
 455,neutral,5
 455,neutral,6
@@ -5189,6 +5465,7 @@ id_tweets,sentiment_gpt,prompt
 456,neutral,45
 456,neutral,46
 456,neutral,47
+456,neutral,48
 456,neutral,4
 456,positive,5
 456,neutral,6
@@ -5204,6 +5481,7 @@ id_tweets,sentiment_gpt,prompt
 458,negative,45
 458,negative,46
 458,negative,47
+458,negative,48
 458,negative,4
 458,negative,5
 458,negative,6
@@ -5219,6 +5497,7 @@ id_tweets,sentiment_gpt,prompt
 459,negative,45
 459,negative,46
 459,negative,47
+459,neutral,48
 459,neutral,4
 459,neutral,5
 459,neutral,6
@@ -5234,6 +5513,7 @@ id_tweets,sentiment_gpt,prompt
 460,neutral,45
 460,neutral,46
 460,neutral,47
+460,neutral,48
 460,neutral,4
 460,neutral,5
 460,neutral,6
@@ -5249,6 +5529,7 @@ id_tweets,sentiment_gpt,prompt
 461,neutral,45
 461,neutral,46
 461,neutral,47
+461,neutral,48
 461,neutral,4
 461,neutral,5
 461,neutral,6
@@ -5264,6 +5545,7 @@ id_tweets,sentiment_gpt,prompt
 462,neutral,45
 462,neutral,46
 462,neutral,47
+462,neutral,48
 462,neutral,4
 462,neutral,5
 462,neutral,6
@@ -5279,6 +5561,7 @@ id_tweets,sentiment_gpt,prompt
 463,neutral,45
 463,neutral,46
 463,neutral,47
+463,neutral,48
 463,neutral,4
 463,neutral,5
 463,neutral,6
@@ -5294,6 +5577,7 @@ id_tweets,sentiment_gpt,prompt
 464,neutral,45
 464,neutral,46
 464,neutral,47
+464,neutral,48
 464,neutral,4
 464,neutral,5
 464,neutral,6
@@ -5309,6 +5593,7 @@ id_tweets,sentiment_gpt,prompt
 465,neutral,45
 465,neutral,46
 465,neutral,47
+465,neutral,48
 465,positive,4
 465,positive,5
 465,positive,6
@@ -5324,6 +5609,7 @@ id_tweets,sentiment_gpt,prompt
 466,neutral,45
 466,neutral,46
 466,negative,47
+466,neutral,48
 466,neutral,4
 466,neutral,5
 466,neutral,6
@@ -5339,6 +5625,7 @@ id_tweets,sentiment_gpt,prompt
 467,neutral,45
 467,neutral,46
 467,neutral,47
+467,neutral,48
 467,neutral,4
 467,neutral,5
 467,neutral,6
@@ -5354,6 +5641,7 @@ id_tweets,sentiment_gpt,prompt
 468,neutral,45
 468,neutral,46
 468,neutral,47
+468,positive,48
 468,neutral,4
 468,neutral,5
 468,neutral,6
@@ -5369,6 +5657,7 @@ id_tweets,sentiment_gpt,prompt
 469,negative,45
 469,negative,46
 469,neutral,47
+469,neutral,48
 469,neutral,4
 469,neutral,5
 469,neutral,6
@@ -5384,6 +5673,7 @@ id_tweets,sentiment_gpt,prompt
 470,neutral,45
 470,neutral,46
 470,neutral,47
+470,neutral,48
 470,negative,4
 470,negative,5
 470,negative,6
@@ -5399,6 +5689,7 @@ id_tweets,sentiment_gpt,prompt
 474,neutral,45
 474,neutral,46
 474,neutral,47
+474,neutral,48
 474,neutral,4
 474,neutral,5
 474,neutral,6
@@ -5414,6 +5705,7 @@ id_tweets,sentiment_gpt,prompt
 477,positive,45
 477,positive,46
 477,positive,47
+477,positive,48
 477,neutral,4
 477,neutral,5
 477,positive,6
@@ -5429,6 +5721,7 @@ id_tweets,sentiment_gpt,prompt
 478,neutral,45
 478,neutral,46
 478,neutral,47
+478,neutral,48
 478,neutral,4
 478,neutral,5
 478,neutral,6
@@ -5444,6 +5737,7 @@ id_tweets,sentiment_gpt,prompt
 479,negative,45
 479,neutral,46
 479,negative,47
+479,neutral,48
 479,neutral,4
 479,neutral,5
 479,neutral,6
@@ -5459,6 +5753,7 @@ id_tweets,sentiment_gpt,prompt
 480,negative,45
 480,neutral,46
 480,neutral,47
+480,neutral,48
 480,neutral,4
 480,neutral,5
 480,neutral,6
@@ -5474,6 +5769,7 @@ id_tweets,sentiment_gpt,prompt
 482,negative,45
 482,negative,46
 482,neutral,47
+482,neutral,48
 482,neutral,4
 482,neutral,5
 482,neutral,6
@@ -5489,6 +5785,7 @@ id_tweets,sentiment_gpt,prompt
 484,neutral,45
 484,neutral,46
 484,neutral,47
+484,neutral,48
 484,positive,4
 484,positive,5
 484,positive,6
@@ -5504,6 +5801,7 @@ id_tweets,sentiment_gpt,prompt
 485,neutral,45
 485,neutral,46
 485,neutral,47
+485,neutral,48
 485,neutral,4
 485,neutral,5
 485,neutral,6
@@ -5519,6 +5817,7 @@ id_tweets,sentiment_gpt,prompt
 486,neutral,45
 486,neutral,46
 486,neutral,47
+486,neutral,48
 486,neutral,4
 486,neutral,5
 486,neutral,6
@@ -5534,6 +5833,7 @@ id_tweets,sentiment_gpt,prompt
 487,negative,45
 487,negative,46
 487,neutral,47
+487,negative,48
 487,neutral,4
 487,neutral,5
 487,negative,6
@@ -5549,6 +5849,7 @@ id_tweets,sentiment_gpt,prompt
 488,neutral,45
 488,neutral,46
 488,neutral,47
+488,neutral,48
 488,neutral,4
 488,neutral,5
 488,neutral,6
@@ -5564,6 +5865,7 @@ id_tweets,sentiment_gpt,prompt
 489,neutral,45
 489,neutral,46
 489,negative,47
+489,neutral,48
 489,negative,4
 489,negative,5
 489,negative,6
@@ -5579,6 +5881,7 @@ id_tweets,sentiment_gpt,prompt
 490,neutral,45
 490,neutral,46
 490,neutral,47
+490,neutral,48
 490,neutral,4
 490,neutral,5
 490,neutral,6
@@ -5594,6 +5897,7 @@ id_tweets,sentiment_gpt,prompt
 491,neutral,45
 491,neutral,46
 491,neutral,47
+491,neutral,48
 491,neutral,4
 491,neutral,5
 491,neutral,6
@@ -5609,6 +5913,7 @@ id_tweets,sentiment_gpt,prompt
 492,neutral,45
 492,neutral,46
 492,neutral,47
+492,neutral,48
 492,neutral,4
 492,neutral,5
 492,neutral,6
@@ -5624,6 +5929,7 @@ id_tweets,sentiment_gpt,prompt
 493,positive,45
 493,positive,46
 493,positive,47
+493,positive,48
 493,positive,4
 493,neutral,5
 493,neutral,6
@@ -5639,6 +5945,7 @@ id_tweets,sentiment_gpt,prompt
 494,negative,45
 494,neutral,46
 494,neutral,47
+494,neutral,48
 494,neutral,4
 494,neutral,5
 494,neutral,6
@@ -5654,6 +5961,7 @@ id_tweets,sentiment_gpt,prompt
 495,negative,45
 495,neutral,46
 495,neutral,47
+495,positive,48
 495,neutral,4
 495,neutral,5
 495,neutral,6
@@ -5669,6 +5977,7 @@ id_tweets,sentiment_gpt,prompt
 496,negative,45
 496,negative,46
 496,negative,47
+496,neutral,48
 496,neutral,4
 496,neutral,5
 496,neutral,6
@@ -5684,6 +5993,7 @@ id_tweets,sentiment_gpt,prompt
 498,neutral,45
 498,neutral,46
 498,neutral,47
+498,neutral,48
 498,positive,4
 498,positive,5
 498,negative,6
@@ -5699,6 +6009,7 @@ id_tweets,sentiment_gpt,prompt
 499,neutral,45
 499,neutral,46
 499,neutral,47
+499,neutral,48
 499,positive,4
 499,positive,5
 499,positive,6
@@ -5714,6 +6025,7 @@ id_tweets,sentiment_gpt,prompt
 500,negative,45
 500,negative,46
 500,negative,47
+500,negative,48
 500,negative,4
 500,negative,5
 500,negative,6
@@ -5729,6 +6041,7 @@ id_tweets,sentiment_gpt,prompt
 501,neutral,45
 501,neutral,46
 501,neutral,47
+501,neutral,48
 501,neutral,4
 501,neutral,5
 501,neutral,6
@@ -5744,6 +6057,7 @@ id_tweets,sentiment_gpt,prompt
 503,neutral,45
 503,neutral,46
 503,neutral,47
+503,neutral,48
 503,neutral,4
 503,neutral,5
 503,neutral,6
@@ -5759,6 +6073,7 @@ id_tweets,sentiment_gpt,prompt
 505,neutral,45
 505,neutral,46
 505,neutral,47
+505,neutral,48
 505,neutral,4
 505,neutral,5
 505,neutral,6
@@ -5774,6 +6089,7 @@ id_tweets,sentiment_gpt,prompt
 508,neutral,45
 508,neutral,46
 508,neutral,47
+508,neutral,48
 508,neutral,4
 508,neutral,5
 508,neutral,6
@@ -5789,6 +6105,7 @@ id_tweets,sentiment_gpt,prompt
 509,positive,45
 509,positive,46
 509,negative,47
+509,positive,48
 509,positive,4
 509,positive,5
 509,positive,6
@@ -5804,6 +6121,7 @@ id_tweets,sentiment_gpt,prompt
 510,negative,45
 510,neutral,46
 510,neutral,47
+510,neutral,48
 510,positive,4
 510,neutral,5
 510,positive,6
@@ -5819,6 +6137,7 @@ id_tweets,sentiment_gpt,prompt
 511,neutral,45
 511,neutral,46
 511,neutral,47
+511,neutral,48
 511,neutral,4
 511,neutral,5
 511,neutral,6
@@ -5834,6 +6153,7 @@ id_tweets,sentiment_gpt,prompt
 513,negative,45
 513,neutral,46
 513,neutral,47
+513,neutral,48
 513,neutral,4
 513,neutral,5
 513,neutral,6
@@ -5849,6 +6169,7 @@ id_tweets,sentiment_gpt,prompt
 514,neutral,45
 514,neutral,46
 514,neutral,47
+514,neutral,48
 514,neutral,4
 514,neutral,5
 514,neutral,6
@@ -5864,6 +6185,7 @@ id_tweets,sentiment_gpt,prompt
 516,negative,45
 516,negative,46
 516,negative,47
+516,positive,48
 516,positive,4
 516,positive,5
 516,positive,6
@@ -5879,6 +6201,7 @@ id_tweets,sentiment_gpt,prompt
 517,neutral,45
 517,neutral,46
 517,neutral,47
+517,neutral,48
 517,neutral,4
 517,neutral,5
 517,neutral,6
@@ -5894,6 +6217,7 @@ id_tweets,sentiment_gpt,prompt
 518,negative,45
 518,negative,46
 518,negative,47
+518,neutral,48
 518,neutral,4
 518,neutral,5
 518,neutral,6
@@ -5909,6 +6233,7 @@ id_tweets,sentiment_gpt,prompt
 519,neutral,45
 519,neutral,46
 519,neutral,47
+519,neutral,48
 519,neutral,4
 519,neutral,5
 519,neutral,6
@@ -5924,6 +6249,7 @@ id_tweets,sentiment_gpt,prompt
 520,neutral,45
 520,neutral,46
 520,neutral,47
+520,neutral,48
 520,neutral,4
 520,neutral,5
 520,neutral,6
@@ -5939,6 +6265,7 @@ id_tweets,sentiment_gpt,prompt
 521,negative,45
 521,negative,46
 521,neutral,47
+521,neutral,48
 521,negative,4
 521,negative,5
 521,negative,6
@@ -5954,6 +6281,7 @@ id_tweets,sentiment_gpt,prompt
 522,neutral,45
 522,neutral,46
 522,neutral,47
+522,neutral,48
 522,neutral,4
 522,neutral,5
 522,neutral,6
@@ -5969,6 +6297,7 @@ id_tweets,sentiment_gpt,prompt
 523,negative,45
 523,neutral,46
 523,neutral,47
+523,neutral,48
 523,negative,4
 523,negative,5
 523,negative,6
@@ -5984,6 +6313,7 @@ id_tweets,sentiment_gpt,prompt
 525,neutral,45
 525,neutral,46
 525,neutral,47
+525,neutral,48
 525,neutral,4
 525,neutral,5
 525,neutral,6
@@ -5999,6 +6329,7 @@ id_tweets,sentiment_gpt,prompt
 526,neutral,45
 526,neutral,46
 526,neutral,47
+526,neutral,48
 526,neutral,4
 526,neutral,5
 526,neutral,6
@@ -6014,6 +6345,7 @@ id_tweets,sentiment_gpt,prompt
 527,positive,45
 527,positive,46
 527,positive,47
+527,positive,48
 527,neutral,4
 527,positive,5
 527,positive,6
@@ -6029,6 +6361,7 @@ id_tweets,sentiment_gpt,prompt
 528,neutral,45
 528,neutral,46
 528,neutral,47
+528,neutral,48
 528,neutral,4
 528,neutral,5
 528,neutral,6
@@ -6044,6 +6377,7 @@ id_tweets,sentiment_gpt,prompt
 531,neutral,45
 531,neutral,46
 531,neutral,47
+531,neutral,48
 531,neutral,4
 531,neutral,5
 531,neutral,6
@@ -6059,6 +6393,7 @@ id_tweets,sentiment_gpt,prompt
 532,positive,45
 532,positive,46
 532,positive,47
+532,positive,48
 532,positive,4
 532,positive,5
 532,positive,6
@@ -6074,6 +6409,7 @@ id_tweets,sentiment_gpt,prompt
 533,negative,45
 533,neutral,46
 533,neutral,47
+533,neutral,48
 533,neutral,4
 533,neutral,5
 533,neutral,6
@@ -6089,6 +6425,7 @@ id_tweets,sentiment_gpt,prompt
 534,positive,45
 534,positive,46
 534,positive,47
+534,positive,48
 534,positive,4
 534,neutral,5
 534,positive,6
@@ -6104,6 +6441,7 @@ id_tweets,sentiment_gpt,prompt
 535,negative,45
 535,negative,46
 535,neutral,47
+535,negative,48
 535,negative,4
 535,positive,5
 535,neutral,6
@@ -6119,6 +6457,7 @@ id_tweets,sentiment_gpt,prompt
 536,negative,45
 536,neutral,46
 536,neutral,47
+536,neutral,48
 536,neutral,4
 536,neutral,5
 536,neutral,6
@@ -6134,6 +6473,7 @@ id_tweets,sentiment_gpt,prompt
 537,neutral,45
 537,neutral,46
 537,neutral,47
+537,neutral,48
 537,neutral,4
 537,neutral,5
 537,neutral,6
@@ -6149,6 +6489,7 @@ id_tweets,sentiment_gpt,prompt
 538,neutral,45
 538,neutral,46
 538,neutral,47
+538,neutral,48
 538,neutral,4
 538,neutral,5
 538,neutral,6
@@ -6164,6 +6505,7 @@ id_tweets,sentiment_gpt,prompt
 539,negative,45
 539,neutral,46
 539,neutral,47
+539,neutral,48
 539,neutral,4
 539,neutral,5
 539,neutral,6
@@ -6179,6 +6521,7 @@ id_tweets,sentiment_gpt,prompt
 540,neutral,45
 540,neutral,46
 540,neutral,47
+540,neutral,48
 540,neutral,4
 540,neutral,5
 540,neutral,6
@@ -6194,6 +6537,7 @@ id_tweets,sentiment_gpt,prompt
 542,neutral,45
 542,neutral,46
 542,neutral,47
+542,neutral,48
 542,neutral,4
 542,neutral,5
 542,neutral,6
@@ -6209,6 +6553,7 @@ id_tweets,sentiment_gpt,prompt
 543,neutral,45
 543,neutral,46
 543,neutral,47
+543,neutral,48
 543,negative,4
 543,negative,5
 543,negative,6
@@ -6223,6 +6568,7 @@ id_tweets,sentiment_gpt,prompt
 544,neutral,45
 544,neutral,46
 544,neutral,47
+544,neutral,48
 544,neutral,4
 544,neutral,5
 544,neutral,6
@@ -6237,6 +6583,7 @@ id_tweets,sentiment_gpt,prompt
 545,neutral,45
 545,neutral,46
 545,neutral,47
+545,neutral,48
 545,neutral,4
 545,neutral,5
 545,neutral,6
@@ -6251,6 +6598,7 @@ id_tweets,sentiment_gpt,prompt
 546,neutral,45
 546,neutral,46
 546,neutral,47
+546,neutral,48
 546,neutral,4
 546,neutral,5
 546,neutral,6
@@ -6266,6 +6614,7 @@ id_tweets,sentiment_gpt,prompt
 548,neutral,45
 548,neutral,46
 548,neutral,47
+548,neutral,48
 548,neutral,4
 548,neutral,5
 548,neutral,6
@@ -6281,6 +6630,7 @@ id_tweets,sentiment_gpt,prompt
 549,neutral,45
 549,neutral,46
 549,neutral,47
+549,neutral,48
 549,neutral,4
 549,neutral,5
 549,neutral,6
@@ -6296,6 +6646,7 @@ id_tweets,sentiment_gpt,prompt
 552,neutral,45
 552,neutral,46
 552,neutral,47
+552,neutral,48
 552,neutral,4
 552,neutral,5
 552,neutral,6
@@ -6311,6 +6662,7 @@ id_tweets,sentiment_gpt,prompt
 553,neutral,45
 553,neutral,46
 553,neutral,47
+553,neutral,48
 553,neutral,4
 553,neutral,5
 553,neutral,6
@@ -6326,6 +6678,7 @@ id_tweets,sentiment_gpt,prompt
 554,neutral,45
 554,neutral,46
 554,neutral,47
+554,neutral,48
 554,neutral,4
 554,neutral,5
 554,neutral,6
@@ -6341,6 +6694,7 @@ id_tweets,sentiment_gpt,prompt
 555,neutral,45
 555,neutral,46
 555,neutral,47
+555,neutral,48
 555,neutral,4
 555,negative,5
 555,negative,6
@@ -6356,6 +6710,7 @@ id_tweets,sentiment_gpt,prompt
 556,neutral,45
 556,neutral,46
 556,neutral,47
+556,neutral,48
 556,neutral,4
 556,neutral,5
 556,neutral,6
@@ -6371,6 +6726,7 @@ id_tweets,sentiment_gpt,prompt
 557,negative,45
 557,neutral,46
 557,neutral,47
+557,neutral,48
 557,neutral,4
 557,neutral,5
 557,neutral,6
@@ -6386,6 +6742,7 @@ id_tweets,sentiment_gpt,prompt
 559,neutral,45
 559,neutral,46
 559,negative,47
+559,neutral,48
 559,positive,4
 559,neutral,5
 559,positive,6
@@ -6401,6 +6758,7 @@ id_tweets,sentiment_gpt,prompt
 560,neutral,45
 560,neutral,46
 560,neutral,47
+560,neutral,48
 560,neutral,4
 560,neutral,5
 560,neutral,6
@@ -6416,6 +6774,7 @@ id_tweets,sentiment_gpt,prompt
 561,negative,45
 561,neutral,46
 561,neutral,47
+561,neutral,48
 561,neutral,4
 561,neutral,5
 561,neutral,6
@@ -6431,6 +6790,7 @@ id_tweets,sentiment_gpt,prompt
 562,neutral,45
 562,neutral,46
 562,neutral,47
+562,neutral,48
 562,neutral,4
 562,neutral,5
 562,neutral,6
@@ -6446,6 +6806,7 @@ id_tweets,sentiment_gpt,prompt
 563,positive,45
 563,positive,46
 563,positive,47
+563,positive,48
 563,neutral,4
 563,neutral,5
 563,neutral,6
@@ -6461,6 +6822,7 @@ id_tweets,sentiment_gpt,prompt
 564,negative,45
 564,neutral,46
 564,neutral,47
+564,neutral,48
 564,positive,4
 564,neutral,5
 564,neutral,6
@@ -6476,6 +6838,7 @@ id_tweets,sentiment_gpt,prompt
 565,negative,45
 565,negative,46
 565,positive,47
+565,positive,48
 565,neutral,4
 565,neutral,5
 565,neutral,6
@@ -6491,6 +6854,7 @@ id_tweets,sentiment_gpt,prompt
 566,positive,45
 566,positive,46
 566,neutral,47
+566,positive,48
 566,negative,4
 566,negative,5
 566,negative,6
@@ -6506,6 +6870,7 @@ id_tweets,sentiment_gpt,prompt
 567,neutral,45
 567,neutral,46
 567,neutral,47
+567,neutral,48
 567,neutral,4
 567,neutral,5
 567,neutral,6
@@ -6521,6 +6886,7 @@ id_tweets,sentiment_gpt,prompt
 568,negative,45
 568,neutral,46
 568,neutral,47
+568,neutral,48
 568,neutral,4
 568,neutral,5
 568,neutral,6
@@ -6536,6 +6902,7 @@ id_tweets,sentiment_gpt,prompt
 569,negative,45
 569,neutral,46
 569,negative,47
+569,neutral,48
 569,neutral,4
 569,neutral,5
 569,neutral,6
@@ -6551,6 +6918,7 @@ id_tweets,sentiment_gpt,prompt
 570,negative,45
 570,negative,46
 570,negative,47
+570,negative,48
 570,negative,4
 570,negative,5
 570,negative,6
@@ -6566,6 +6934,7 @@ id_tweets,sentiment_gpt,prompt
 571,negative,45
 571,negative,46
 571,neutral,47
+571,negative,48
 571,negative,4
 571,negative,5
 571,negative,6
@@ -6581,6 +6950,7 @@ id_tweets,sentiment_gpt,prompt
 572,neutral,45
 572,neutral,46
 572,neutral,47
+572,neutral,48
 572,neutral,4
 572,neutral,5
 572,neutral,6
@@ -6596,6 +6966,7 @@ id_tweets,sentiment_gpt,prompt
 573,negative,45
 573,negative,46
 573,neutral,47
+573,neutral,48
 573,neutral,4
 573,neutral,5
 573,neutral,6
@@ -6611,6 +6982,7 @@ id_tweets,sentiment_gpt,prompt
 574,neutral,45
 574,neutral,46
 574,neutral,47
+574,neutral,48
 574,positive,4
 574,neutral,5
 574,neutral,6
@@ -6626,6 +6998,7 @@ id_tweets,sentiment_gpt,prompt
 575,neutral,45
 575,neutral,46
 575,neutral,47
+575,neutral,48
 575,neutral,4
 575,neutral,5
 575,neutral,6
@@ -6641,6 +7014,7 @@ id_tweets,sentiment_gpt,prompt
 577,neutral,45
 577,neutral,46
 577,neutral,47
+577,neutral,48
 577,neutral,4
 577,neutral,5
 577,neutral,6
@@ -6656,6 +7030,7 @@ id_tweets,sentiment_gpt,prompt
 578,negative,45
 578,positive,46
 578,negative,47
+578,positive,48
 578,negative,4
 578,negative,5
 578,neutral,6
@@ -6671,6 +7046,7 @@ id_tweets,sentiment_gpt,prompt
 579,neutral,45
 579,neutral,46
 579,neutral,47
+579,neutral,48
 579,neutral,4
 579,neutral,5
 579,neutral,6
@@ -6686,6 +7062,7 @@ id_tweets,sentiment_gpt,prompt
 580,neutral,45
 580,neutral,46
 580,neutral,47
+580,neutral,48
 580,neutral,4
 580,neutral,5
 580,neutral,6
@@ -6701,6 +7078,7 @@ id_tweets,sentiment_gpt,prompt
 581,neutral,45
 581,neutral,46
 581,neutral,47
+581,neutral,48
 581,neutral,4
 581,neutral,5
 581,neutral,6
@@ -6716,6 +7094,7 @@ id_tweets,sentiment_gpt,prompt
 583,neutral,45
 583,neutral,46
 583,neutral,47
+583,neutral,48
 583,neutral,4
 583,neutral,5
 583,neutral,6
@@ -6731,6 +7110,7 @@ id_tweets,sentiment_gpt,prompt
 584,neutral,45
 584,neutral,46
 584,neutral,47
+584,neutral,48
 584,neutral,4
 584,neutral,5
 584,neutral,6
@@ -6746,6 +7126,7 @@ id_tweets,sentiment_gpt,prompt
 585,negative,45
 585,neutral,46
 585,neutral,47
+585,neutral,48
 585,neutral,4
 585,neutral,5
 585,neutral,6
@@ -6761,6 +7142,7 @@ id_tweets,sentiment_gpt,prompt
 586,negative,45
 586,negative,46
 586,neutral,47
+586,neutral,48
 586,neutral,4
 586,neutral,5
 586,neutral,6
@@ -6776,6 +7158,7 @@ id_tweets,sentiment_gpt,prompt
 587,neutral,45
 587,neutral,46
 587,neutral,47
+587,positive,48
 587,neutral,4
 587,neutral,5
 587,neutral,6
@@ -6791,6 +7174,7 @@ id_tweets,sentiment_gpt,prompt
 588,positive,45
 588,positive,46
 588,positive,47
+588,positive,48
 588,negative,4
 588,negative,5
 588,neutral,6
@@ -6806,6 +7190,7 @@ id_tweets,sentiment_gpt,prompt
 590,negative,45
 590,negative,46
 590,negative,47
+590,neutral,48
 590,neutral,4
 590,neutral,5
 590,neutral,6
@@ -6821,6 +7206,7 @@ id_tweets,sentiment_gpt,prompt
 591,neutral,45
 591,negative,46
 591,neutral,47
+591,neutral,48
 591,neutral,4
 591,neutral,5
 591,negative,6
@@ -6836,6 +7222,7 @@ id_tweets,sentiment_gpt,prompt
 592,negative,45
 592,negative,46
 592,positive,47
+592,negative,48
 592,neutral,4
 592,neutral,5
 592,neutral,6
@@ -6851,6 +7238,7 @@ id_tweets,sentiment_gpt,prompt
 593,neutral,45
 593,negative,46
 593,neutral,47
+593,neutral,48
 593,neutral,4
 593,neutral,5
 593,neutral,6
@@ -6866,6 +7254,7 @@ id_tweets,sentiment_gpt,prompt
 594,neutral,45
 594,neutral,46
 594,negative,47
+594,neutral,48
 594,neutral,4
 594,neutral,5
 594,neutral,6
@@ -6881,6 +7270,7 @@ id_tweets,sentiment_gpt,prompt
 595,neutral,45
 595,neutral,46
 595,neutral,47
+595,neutral,48
 595,neutral,4
 595,neutral,5
 595,neutral,6
@@ -6896,6 +7286,7 @@ id_tweets,sentiment_gpt,prompt
 596,neutral,45
 596,negative,46
 596,neutral,47
+596,neutral,48
 596,neutral,4
 596,neutral,5
 596,neutral,6
@@ -6911,6 +7302,7 @@ id_tweets,sentiment_gpt,prompt
 597,neutral,45
 597,neutral,46
 597,neutral,47
+597,neutral,48
 597,neutral,4
 597,neutral,5
 597,neutral,6
@@ -6926,6 +7318,7 @@ id_tweets,sentiment_gpt,prompt
 598,negative,45
 598,negative,46
 598,neutral,47
+598,negative,48
 598,negative,4
 598,negative,5
 598,negative,6
@@ -6941,6 +7334,7 @@ id_tweets,sentiment_gpt,prompt
 600,positive,45
 600,positive,46
 600,positive,47
+600,positive,48
 600,positive,4
 600,positive,5
 600,neutral,6
@@ -6956,6 +7350,7 @@ id_tweets,sentiment_gpt,prompt
 602,negative,45
 602,negative,46
 602,negative,47
+602,neutral,48
 602,neutral,4
 602,neutral,5
 602,neutral,6
@@ -6971,6 +7366,7 @@ id_tweets,sentiment_gpt,prompt
 603,neutral,45
 603,neutral,46
 603,neutral,47
+603,neutral,48
 603,negative,4
 603,negative,5
 603,negative,6
@@ -6986,6 +7382,7 @@ id_tweets,sentiment_gpt,prompt
 604,neutral,45
 604,neutral,46
 604,neutral,47
+604,neutral,48
 604,neutral,4
 604,neutral,5
 604,neutral,6
@@ -7001,6 +7398,7 @@ id_tweets,sentiment_gpt,prompt
 605,neutral,45
 605,neutral,46
 605,neutral,47
+605,neutral,48
 605,neutral,4
 605,neutral,5
 605,neutral,6
@@ -7016,6 +7414,7 @@ id_tweets,sentiment_gpt,prompt
 606,negative,45
 606,negative,46
 606,neutral,47
+606,neutral,48
 606,neutral,4
 606,neutral,5
 606,neutral,6
@@ -7031,6 +7430,7 @@ id_tweets,sentiment_gpt,prompt
 607,negative,45
 607,negative,46
 607,negative,47
+607,neutral,48
 607,negative,4
 607,neutral,5
 607,positive,6
@@ -7046,6 +7446,7 @@ id_tweets,sentiment_gpt,prompt
 608,negative,45
 608,neutral,46
 608,neutral,47
+608,neutral,48
 608,neutral,4
 608,neutral,5
 608,neutral,6
@@ -7061,6 +7462,7 @@ id_tweets,sentiment_gpt,prompt
 609,positive,45
 609,positive,46
 609,positive,47
+609,positive,48
 609,neutral,4
 609,neutral,5
 609,positive,6
@@ -7076,6 +7478,7 @@ id_tweets,sentiment_gpt,prompt
 610,neutral,45
 610,neutral,46
 610,neutral,47
+610,neutral,48
 610,neutral,4
 610,neutral,5
 610,neutral,6
@@ -7091,6 +7494,7 @@ id_tweets,sentiment_gpt,prompt
 611,negative,45
 611,negative,46
 611,negative,47
+611,negative,48
 611,neutral,4
 611,neutral,5
 611,neutral,6
@@ -7106,6 +7510,7 @@ id_tweets,sentiment_gpt,prompt
 612,negative,45
 612,negative,46
 612,negative,47
+612,negative,48
 612,neutral,4
 612,neutral,5
 612,neutral,6
@@ -7121,6 +7526,7 @@ id_tweets,sentiment_gpt,prompt
 615,positive,45
 615,neutral,46
 615,neutral,47
+615,positive,48
 615,positive,4
 615,neutral,5
 615,neutral,6
@@ -7136,6 +7542,7 @@ id_tweets,sentiment_gpt,prompt
 618,neutral,45
 618,neutral,46
 618,neutral,47
+618,positive,48
 618,positive,4
 618,neutral,5
 618,positive,6
@@ -7151,6 +7558,7 @@ id_tweets,sentiment_gpt,prompt
 620,neutral,45
 620,neutral,46
 620,negative,47
+620,neutral,48
 620,neutral,4
 620,neutral,5
 620,neutral,6
@@ -7166,6 +7574,7 @@ id_tweets,sentiment_gpt,prompt
 622,neutral,45
 622,positive,46
 622,neutral,47
+622,neutral,48
 622,positive,4
 622,positive,5
 622,positive,6
@@ -7181,6 +7590,7 @@ id_tweets,sentiment_gpt,prompt
 623,neutral,45
 623,neutral,46
 623,neutral,47
+623,neutral,48
 623,positive,4
 623,positive,5
 623,neutral,6
@@ -7196,6 +7606,7 @@ id_tweets,sentiment_gpt,prompt
 624,negative,45
 624,neutral,46
 624,negative,47
+624,neutral,48
 624,neutral,4
 624,neutral,5
 624,neutral,6
@@ -7211,6 +7622,7 @@ id_tweets,sentiment_gpt,prompt
 627,neutral,45
 627,positive,46
 627,neutral,47
+627,neutral,48
 627,neutral,4
 627,neutral,5
 627,neutral,6
@@ -7226,6 +7638,7 @@ id_tweets,sentiment_gpt,prompt
 628,neutral,45
 628,neutral,46
 628,neutral,47
+628,neutral,48
 628,neutral,4
 628,neutral,5
 628,neutral,6
@@ -7241,6 +7654,7 @@ id_tweets,sentiment_gpt,prompt
 629,neutral,45
 629,neutral,46
 629,neutral,47
+629,neutral,48
 629,neutral,4
 629,neutral,5
 629,neutral,6
@@ -7256,6 +7670,7 @@ id_tweets,sentiment_gpt,prompt
 630,negative,45
 630,negative,46
 630,neutral,47
+630,negative,48
 630,negative,4
 630,neutral,5
 630,negative,6
@@ -7271,6 +7686,7 @@ id_tweets,sentiment_gpt,prompt
 632,negative,45
 632,negative,46
 632,negative,47
+632,negative,48
 632,negative,4
 632,neutral,5
 632,negative,6
@@ -7286,6 +7702,7 @@ id_tweets,sentiment_gpt,prompt
 633,neutral,45
 633,neutral,46
 633,neutral,47
+633,neutral,48
 633,neutral,4
 633,neutral,5
 633,neutral,6
@@ -7301,6 +7718,7 @@ id_tweets,sentiment_gpt,prompt
 637,neutral,45
 637,neutral,46
 637,neutral,47
+637,neutral,48
 637,neutral,4
 637,neutral,5
 637,neutral,6
@@ -7316,6 +7734,7 @@ id_tweets,sentiment_gpt,prompt
 638,positive,45
 638,positive,46
 638,positive,47
+638,positive,48
 638,negative,4
 638,negative,5
 638,negative,6
@@ -7331,6 +7750,7 @@ id_tweets,sentiment_gpt,prompt
 639,negative,45
 639,neutral,46
 639,neutral,47
+639,neutral,48
 639,neutral,4
 639,neutral,5
 639,neutral,6
@@ -7346,6 +7766,7 @@ id_tweets,sentiment_gpt,prompt
 644,neutral,45
 644,neutral,46
 644,neutral,47
+644,neutral,48
 644,neutral,4
 644,neutral,5
 644,neutral,6
@@ -7361,6 +7782,7 @@ id_tweets,sentiment_gpt,prompt
 645,negative,45
 645,positive,46
 645,negative,47
+645,positive,48
 645,negative,4
 645,negative,5
 645,negative,6
@@ -7376,6 +7798,7 @@ id_tweets,sentiment_gpt,prompt
 646,neutral,45
 646,neutral,46
 646,neutral,47
+646,neutral,48
 646,neutral,4
 646,neutral,5
 646,neutral,6
@@ -7391,6 +7814,7 @@ id_tweets,sentiment_gpt,prompt
 647,positive,45
 647,positive,46
 647,positive,47
+647,positive,48
 647,neutral,4
 647,positive,5
 647,positive,6
@@ -7406,6 +7830,7 @@ id_tweets,sentiment_gpt,prompt
 650,neutral,45
 650,neutral,46
 650,neutral,47
+650,neutral,48
 650,neutral,4
 650,neutral,5
 650,neutral,6
@@ -7421,6 +7846,7 @@ id_tweets,sentiment_gpt,prompt
 651,neutral,45
 651,neutral,46
 651,neutral,47
+651,neutral,48
 651,neutral,4
 651,neutral,5
 651,neutral,6
@@ -7436,6 +7862,7 @@ id_tweets,sentiment_gpt,prompt
 653,neutral,45
 653,neutral,46
 653,negative,47
+653,neutral,48
 653,neutral,4
 653,neutral,5
 653,neutral,6
@@ -7451,6 +7878,7 @@ id_tweets,sentiment_gpt,prompt
 654,negative,45
 654,negative,46
 654,neutral,47
+654,neutral,48
 654,neutral,4
 654,neutral,5
 654,neutral,6
@@ -7466,6 +7894,7 @@ id_tweets,sentiment_gpt,prompt
 655,neutral,45
 655,neutral,46
 655,neutral,47
+655,neutral,48
 655,neutral,4
 655,neutral,5
 655,neutral,6
@@ -7481,6 +7910,7 @@ id_tweets,sentiment_gpt,prompt
 660,neutral,45
 660,neutral,46
 660,negative,47
+660,neutral,48
 660,neutral,4
 660,neutral,5
 660,neutral,6
@@ -7496,6 +7926,7 @@ id_tweets,sentiment_gpt,prompt
 664,neutral,45
 664,neutral,46
 664,neutral,47
+664,neutral,48
 664,neutral,4
 664,neutral,5
 664,neutral,6
@@ -7511,6 +7942,7 @@ id_tweets,sentiment_gpt,prompt
 665,neutral,45
 665,neutral,46
 665,neutral,47
+665,neutral,48
 665,neutral,4
 665,neutral,5
 665,neutral,6
@@ -7526,6 +7958,7 @@ id_tweets,sentiment_gpt,prompt
 667,negative,45
 667,positive,46
 667,negative,47
+667,positive,48
 667,positive,4
 667,positive,5
 667,positive,6
@@ -7541,6 +7974,7 @@ id_tweets,sentiment_gpt,prompt
 669,neutral,45
 669,neutral,46
 669,neutral,47
+669,neutral,48
 669,neutral,4
 669,neutral,5
 669,neutral,6
@@ -7556,6 +7990,7 @@ id_tweets,sentiment_gpt,prompt
 670,neutral,45
 670,neutral,46
 670,neutral,47
+670,neutral,48
 670,neutral,4
 670,neutral,5
 670,neutral,6
@@ -7571,6 +8006,7 @@ id_tweets,sentiment_gpt,prompt
 671,neutral,45
 671,neutral,46
 671,neutral,47
+671,neutral,48
 671,neutral,4
 671,neutral,5
 671,neutral,6
@@ -7586,6 +8022,7 @@ id_tweets,sentiment_gpt,prompt
 672,neutral,45
 672,neutral,46
 672,neutral,47
+672,neutral,48
 672,neutral,4
 672,neutral,5
 672,neutral,6
@@ -7601,6 +8038,7 @@ id_tweets,sentiment_gpt,prompt
 674,neutral,45
 674,neutral,46
 674,neutral,47
+674,neutral,48
 674,neutral,4
 674,neutral,5
 674,neutral,6
@@ -7616,6 +8054,7 @@ id_tweets,sentiment_gpt,prompt
 675,neutral,45
 675,neutral,46
 675,neutral,47
+675,neutral,48
 675,positive,4
 675,neutral,5
 675,neutral,6
@@ -7631,6 +8070,7 @@ id_tweets,sentiment_gpt,prompt
 676,neutral,45
 676,neutral,46
 676,neutral,47
+676,neutral,48
 676,negative,4
 676,negative,5
 676,negative,6
@@ -7646,6 +8086,7 @@ id_tweets,sentiment_gpt,prompt
 678,neutral,45
 678,neutral,46
 678,neutral,47
+678,neutral,48
 678,neutral,4
 678,neutral,5
 678,neutral,6
@@ -7661,6 +8102,7 @@ id_tweets,sentiment_gpt,prompt
 679,negative,45
 679,neutral,46
 679,neutral,47
+679,neutral,48
 679,neutral,4
 679,neutral,5
 679,neutral,6
@@ -7676,6 +8118,7 @@ id_tweets,sentiment_gpt,prompt
 680,positive,45
 680,positive,46
 680,positive,47
+680,positive,48
 680,positive,4
 680,positive,5
 680,positive,6
@@ -7691,6 +8134,7 @@ id_tweets,sentiment_gpt,prompt
 681,negative,45
 681,neutral,46
 681,neutral,47
+681,neutral,48
 681,neutral,4
 681,neutral,5
 681,neutral,6
@@ -7706,6 +8150,7 @@ id_tweets,sentiment_gpt,prompt
 682,neutral,45
 682,neutral,46
 682,neutral,47
+682,neutral,48
 682,neutral,4
 682,neutral,5
 682,neutral,6
@@ -7721,6 +8166,7 @@ id_tweets,sentiment_gpt,prompt
 683,positive,45
 683,positive,46
 683,positive,47
+683,positive,48
 683,positive,4
 683,positive,5
 683,positive,6
@@ -7736,6 +8182,7 @@ id_tweets,sentiment_gpt,prompt
 684,negative,45
 684,negative,46
 684,negative,47
+684,neutral,48
 684,neutral,4
 684,neutral,5
 684,neutral,6
@@ -7751,6 +8198,7 @@ id_tweets,sentiment_gpt,prompt
 685,negative,45
 685,neutral,46
 685,neutral,47
+685,neutral,48
 685,neutral,4
 685,neutral,5
 685,positive,6
@@ -7766,6 +8214,7 @@ id_tweets,sentiment_gpt,prompt
 686,negative,45
 686,negative,46
 686,negative,47
+686,neutral,48
 686,neutral,4
 686,neutral,5
 686,neutral,6
@@ -7781,6 +8230,7 @@ id_tweets,sentiment_gpt,prompt
 688,neutral,45
 688,neutral,46
 688,neutral,47
+688,neutral,48
 688,neutral,4
 688,neutral,5
 688,neutral,6
@@ -7796,6 +8246,7 @@ id_tweets,sentiment_gpt,prompt
 689,negative,45
 689,negative,46
 689,negative,47
+689,negative,48
 689,negative,4
 689,positive,5
 689,negative,6
@@ -7811,6 +8262,7 @@ id_tweets,sentiment_gpt,prompt
 690,negative,45
 690,negative,46
 690,negative,47
+690,negative,48
 690,negative,4
 690,positive,5
 690,negative,6
@@ -7826,6 +8278,7 @@ id_tweets,sentiment_gpt,prompt
 691,neutral,45
 691,neutral,46
 691,neutral,47
+691,neutral,48
 691,neutral,4
 691,neutral,5
 691,neutral,6
@@ -7841,6 +8294,7 @@ id_tweets,sentiment_gpt,prompt
 692,neutral,45
 692,neutral,46
 692,neutral,47
+692,neutral,48
 692,neutral,4
 692,neutral,5
 692,neutral,6
@@ -7856,6 +8310,7 @@ id_tweets,sentiment_gpt,prompt
 693,neutral,45
 693,neutral,46
 693,neutral,47
+693,neutral,48
 693,positive,4
 693,neutral,5
 693,neutral,6
@@ -7871,6 +8326,7 @@ id_tweets,sentiment_gpt,prompt
 695,negative,45
 695,negative,46
 695,negative,47
+695,negative,48
 695,negative,4
 695,negative,5
 695,negative,6
@@ -7886,6 +8342,7 @@ id_tweets,sentiment_gpt,prompt
 696,negative,45
 696,neutral,46
 696,neutral,47
+696,neutral,48
 696,neutral,4
 696,neutral,5
 696,neutral,6
@@ -7901,6 +8358,7 @@ id_tweets,sentiment_gpt,prompt
 697,negative,45
 697,negative,46
 697,neutral,47
+697,negative,48
 697,negative,4
 697,positive,5
 697,positive,6
@@ -7916,6 +8374,7 @@ id_tweets,sentiment_gpt,prompt
 698,neutral,45
 698,positive,46
 698,neutral,47
+698,positive,48
 698,positive,4
 698,positive,5
 698,neutral,6
@@ -7931,6 +8390,7 @@ id_tweets,sentiment_gpt,prompt
 699,neutral,45
 699,neutral,46
 699,neutral,47
+699,neutral,48
 699,neutral,4
 699,neutral,5
 699,neutral,6
@@ -7946,6 +8406,7 @@ id_tweets,sentiment_gpt,prompt
 700,neutral,45
 700,neutral,46
 700,neutral,47
+700,neutral,48
 700,neutral,4
 700,neutral,5
 700,neutral,6
@@ -7961,6 +8422,7 @@ id_tweets,sentiment_gpt,prompt
 701,neutral,45
 701,negative,46
 701,neutral,47
+701,neutral,48
 701,neutral,4
 701,neutral,5
 701,neutral,6
@@ -7976,6 +8438,7 @@ id_tweets,sentiment_gpt,prompt
 703,neutral,45
 703,neutral,46
 703,neutral,47
+703,neutral,48
 703,neutral,4
 703,neutral,5
 703,neutral,6
@@ -7991,6 +8454,7 @@ id_tweets,sentiment_gpt,prompt
 704,neutral,45
 704,neutral,46
 704,neutral,47
+704,neutral,48
 704,neutral,4
 704,neutral,5
 704,neutral,6
@@ -8006,6 +8470,7 @@ id_tweets,sentiment_gpt,prompt
 706,neutral,45
 706,neutral,46
 706,neutral,47
+706,neutral,48
 706,neutral,4
 706,neutral,5
 706,neutral,6
@@ -8021,6 +8486,7 @@ id_tweets,sentiment_gpt,prompt
 707,positive,45
 707,negative,46
 707,positive,47
+707,positive,48
 707,negative,4
 707,negative,5
 707,negative,6
@@ -8036,6 +8502,7 @@ id_tweets,sentiment_gpt,prompt
 708,positive,45
 708,positive,46
 708,positive,47
+708,positive,48
 708,negative,4
 708,negative,5
 708,negative,6
@@ -8051,6 +8518,7 @@ id_tweets,sentiment_gpt,prompt
 710,negative,45
 710,negative,46
 710,negative,47
+710,neutral,48
 710,neutral,4
 710,neutral,5
 710,neutral,6
@@ -8066,6 +8534,7 @@ id_tweets,sentiment_gpt,prompt
 711,neutral,45
 711,neutral,46
 711,neutral,47
+711,neutral,48
 711,neutral,4
 711,neutral,5
 711,neutral,6
@@ -8081,6 +8550,7 @@ id_tweets,sentiment_gpt,prompt
 712,neutral,45
 712,negative,46
 712,neutral,47
+712,neutral,48
 712,neutral,4
 712,neutral,5
 712,neutral,6
@@ -8096,6 +8566,7 @@ id_tweets,sentiment_gpt,prompt
 713,positive,45
 713,positive,46
 713,positive,47
+713,positive,48
 713,neutral,4
 713,neutral,5
 713,neutral,6
@@ -8111,6 +8582,7 @@ id_tweets,sentiment_gpt,prompt
 715,negative,45
 715,negative,46
 715,negative,47
+715,positive,48
 715,neutral,4
 715,neutral,5
 715,neutral,6
@@ -8126,6 +8598,7 @@ id_tweets,sentiment_gpt,prompt
 716,neutral,45
 716,neutral,46
 716,neutral,47
+716,neutral,48
 716,neutral,4
 716,neutral,5
 716,neutral,6
@@ -8141,6 +8614,7 @@ id_tweets,sentiment_gpt,prompt
 717,neutral,45
 717,neutral,46
 717,neutral,47
+717,neutral,48
 717,neutral,4
 717,positive,5
 717,neutral,6
@@ -8156,6 +8630,7 @@ id_tweets,sentiment_gpt,prompt
 718,neutral,45
 718,neutral,46
 718,neutral,47
+718,neutral,48
 718,negative,4
 718,negative,5
 718,negative,6
@@ -8171,6 +8646,7 @@ id_tweets,sentiment_gpt,prompt
 719,neutral,45
 719,neutral,46
 719,neutral,47
+719,neutral,48
 719,neutral,4
 719,neutral,5
 719,neutral,6
@@ -8186,6 +8662,7 @@ id_tweets,sentiment_gpt,prompt
 721,neutral,45
 721,neutral,46
 721,neutral,47
+721,neutral,48
 721,neutral,4
 721,neutral,5
 721,neutral,6
@@ -8201,6 +8678,7 @@ id_tweets,sentiment_gpt,prompt
 722,neutral,45
 722,neutral,46
 722,neutral,47
+722,neutral,48
 722,neutral,4
 722,neutral,5
 722,neutral,6
@@ -8216,6 +8694,7 @@ id_tweets,sentiment_gpt,prompt
 724,neutral,45
 724,neutral,46
 724,neutral,47
+724,neutral,48
 724,neutral,4
 724,neutral,5
 724,neutral,6
@@ -8231,6 +8710,7 @@ id_tweets,sentiment_gpt,prompt
 725,neutral,45
 725,neutral,46
 725,neutral,47
+725,neutral,48
 725,neutral,4
 725,neutral,5
 725,neutral,6
@@ -8246,6 +8726,7 @@ id_tweets,sentiment_gpt,prompt
 726,neutral,45
 726,neutral,46
 726,neutral,47
+726,neutral,48
 726,neutral,4
 726,neutral,5
 726,neutral,6
@@ -8261,6 +8742,7 @@ id_tweets,sentiment_gpt,prompt
 727,neutral,45
 727,neutral,46
 727,neutral,47
+727,neutral,48
 727,neutral,4
 727,neutral,5
 727,neutral,6
@@ -8276,6 +8758,7 @@ id_tweets,sentiment_gpt,prompt
 728,positive,45
 728,positive,46
 728,neutral,47
+728,positive,48
 728,positive,4
 728,positive,5
 728,positive,6
@@ -8291,6 +8774,7 @@ id_tweets,sentiment_gpt,prompt
 730,neutral,45
 730,negative,46
 730,neutral,47
+730,neutral,48
 730,neutral,4
 730,neutral,5
 730,neutral,6
@@ -8306,6 +8790,7 @@ id_tweets,sentiment_gpt,prompt
 731,neutral,45
 731,neutral,46
 731,negative,47
+731,negative,48
 731,neutral,4
 731,neutral,5
 731,neutral,6
@@ -8321,6 +8806,7 @@ id_tweets,sentiment_gpt,prompt
 733,neutral,45
 733,neutral,46
 733,neutral,47
+733,neutral,48
 733,neutral,4
 733,neutral,5
 733,neutral,6
@@ -8336,6 +8822,7 @@ id_tweets,sentiment_gpt,prompt
 734,neutral,45
 734,neutral,46
 734,neutral,47
+734,neutral,48
 734,neutral,4
 734,neutral,5
 734,neutral,6
@@ -8351,6 +8838,7 @@ id_tweets,sentiment_gpt,prompt
 735,neutral,45
 735,neutral,46
 735,neutral,47
+735,neutral,48
 735,neutral,4
 735,neutral,5
 735,neutral,6
@@ -8366,6 +8854,7 @@ id_tweets,sentiment_gpt,prompt
 736,neutral,45
 736,neutral,46
 736,neutral,47
+736,neutral,48
 736,neutral,4
 736,neutral,5
 736,neutral,6
@@ -8381,6 +8870,7 @@ id_tweets,sentiment_gpt,prompt
 737,neutral,45
 737,neutral,46
 737,neutral,47
+737,neutral,48
 737,neutral,4
 737,neutral,5
 737,neutral,6
@@ -8396,6 +8886,7 @@ id_tweets,sentiment_gpt,prompt
 738,neutral,45
 738,neutral,46
 738,neutral,47
+738,neutral,48
 738,neutral,4
 738,neutral,5
 738,neutral,6
@@ -8411,6 +8902,7 @@ id_tweets,sentiment_gpt,prompt
 740,neutral,45
 740,neutral,46
 740,neutral,47
+740,neutral,48
 740,neutral,4
 740,positive,5
 740,neutral,6
@@ -8426,6 +8918,7 @@ id_tweets,sentiment_gpt,prompt
 743,neutral,45
 743,neutral,46
 743,neutral,47
+743,neutral,48
 743,neutral,4
 743,neutral,5
 743,neutral,6
@@ -8441,6 +8934,7 @@ id_tweets,sentiment_gpt,prompt
 745,neutral,45
 745,negative,46
 745,neutral,47
+745,neutral,48
 745,negative,4
 745,positive,5
 745,negative,6
@@ -8456,6 +8950,7 @@ id_tweets,sentiment_gpt,prompt
 746,negative,45
 746,neutral,46
 746,neutral,47
+746,neutral,48
 746,neutral,4
 746,neutral,5
 746,neutral,6
@@ -8471,6 +8966,7 @@ id_tweets,sentiment_gpt,prompt
 748,neutral,45
 748,neutral,46
 748,neutral,47
+748,neutral,48
 748,neutral,4
 748,neutral,5
 748,neutral,6
@@ -8486,6 +8982,7 @@ id_tweets,sentiment_gpt,prompt
 749,neutral,45
 749,neutral,46
 749,neutral,47
+749,neutral,48
 749,neutral,4
 749,neutral,5
 749,neutral,6
@@ -8501,6 +8998,7 @@ id_tweets,sentiment_gpt,prompt
 750,negative,45
 750,neutral,46
 750,neutral,47
+750,neutral,48
 750,neutral,4
 750,neutral,5
 750,neutral,6
@@ -8516,6 +9014,7 @@ id_tweets,sentiment_gpt,prompt
 752,neutral,45
 752,negative,46
 752,neutral,47
+752,negative,48
 752,negative,4
 752,neutral,5
 752,negative,6
@@ -8531,6 +9030,7 @@ id_tweets,sentiment_gpt,prompt
 753,negative,45
 753,negative,46
 753,negative,47
+753,negative,48
 753,negative,4
 753,negative,5
 753,negative,6
@@ -8546,6 +9046,7 @@ id_tweets,sentiment_gpt,prompt
 754,neutral,45
 754,neutral,46
 754,neutral,47
+754,neutral,48
 754,neutral,4
 754,neutral,5
 754,neutral,6
@@ -8561,6 +9062,7 @@ id_tweets,sentiment_gpt,prompt
 755,neutral,45
 755,neutral,46
 755,neutral,47
+755,neutral,48
 755,neutral,4
 755,neutral,5
 755,neutral,6
@@ -8576,6 +9078,7 @@ id_tweets,sentiment_gpt,prompt
 757,neutral,45
 757,neutral,46
 757,neutral,47
+757,neutral,48
 757,neutral,4
 757,neutral,5
 757,neutral,6
@@ -8591,6 +9094,7 @@ id_tweets,sentiment_gpt,prompt
 758,neutral,45
 758,neutral,46
 758,neutral,47
+758,neutral,48
 758,neutral,4
 758,neutral,5
 758,neutral,6
@@ -8606,6 +9110,7 @@ id_tweets,sentiment_gpt,prompt
 762,neutral,45
 762,neutral,46
 762,neutral,47
+762,neutral,48
 762,neutral,4
 762,negative,5
 762,negative,6
@@ -8621,6 +9126,7 @@ id_tweets,sentiment_gpt,prompt
 764,neutral,45
 764,neutral,46
 764,neutral,47
+764,neutral,48
 764,neutral,4
 764,neutral,5
 764,neutral,6
@@ -8636,6 +9142,7 @@ id_tweets,sentiment_gpt,prompt
 765,neutral,45
 765,neutral,46
 765,neutral,47
+765,neutral,48
 765,neutral,4
 765,neutral,5
 765,neutral,6
@@ -8651,6 +9158,7 @@ id_tweets,sentiment_gpt,prompt
 766,negative,45
 766,neutral,46
 766,neutral,47
+766,neutral,48
 766,neutral,4
 766,neutral,5
 766,neutral,6
@@ -8666,6 +9174,7 @@ id_tweets,sentiment_gpt,prompt
 767,negative,45
 767,negative,46
 767,neutral,47
+767,neutral,48
 767,neutral,4
 767,neutral,5
 767,neutral,6
@@ -8681,6 +9190,7 @@ id_tweets,sentiment_gpt,prompt
 769,neutral,45
 769,neutral,46
 769,neutral,47
+769,neutral,48
 769,neutral,4
 769,neutral,5
 769,neutral,6
@@ -8696,6 +9206,7 @@ id_tweets,sentiment_gpt,prompt
 770,neutral,45
 770,neutral,46
 770,neutral,47
+770,neutral,48
 770,neutral,4
 770,neutral,5
 770,neutral,6
@@ -8711,6 +9222,7 @@ id_tweets,sentiment_gpt,prompt
 772,neutral,45
 772,neutral,46
 772,neutral,47
+772,neutral,48
 772,neutral,4
 772,neutral,5
 772,neutral,6
@@ -8726,6 +9238,7 @@ id_tweets,sentiment_gpt,prompt
 774,neutral,45
 774,neutral,46
 774,neutral,47
+774,neutral,48
 774,neutral,4
 774,positive,5
 774,neutral,6
@@ -8741,6 +9254,7 @@ id_tweets,sentiment_gpt,prompt
 775,negative,45
 775,negative,46
 775,negative,47
+775,negative,48
 775,negative,4
 775,negative,5
 775,negative,6
@@ -8756,6 +9270,7 @@ id_tweets,sentiment_gpt,prompt
 776,negative,45
 776,neutral,46
 776,negative,47
+776,neutral,48
 776,neutral,4
 776,neutral,5
 776,neutral,6
@@ -8771,6 +9286,7 @@ id_tweets,sentiment_gpt,prompt
 777,negative,45
 777,negative,46
 777,negative,47
+777,negative,48
 777,neutral,4
 777,negative,5
 777,negative,6
@@ -8786,6 +9302,7 @@ id_tweets,sentiment_gpt,prompt
 778,neutral,45
 778,neutral,46
 778,neutral,47
+778,neutral,48
 778,neutral,4
 778,neutral,5
 778,neutral,6
@@ -8801,6 +9318,7 @@ id_tweets,sentiment_gpt,prompt
 779,neutral,45
 779,neutral,46
 779,neutral,47
+779,neutral,48
 779,neutral,4
 779,neutral,5
 779,neutral,6
@@ -8816,6 +9334,7 @@ id_tweets,sentiment_gpt,prompt
 780,neutral,45
 780,neutral,46
 780,neutral,47
+780,neutral,48
 780,neutral,4
 780,neutral,5
 780,neutral,6
@@ -8831,6 +9350,7 @@ id_tweets,sentiment_gpt,prompt
 782,neutral,45
 782,neutral,46
 782,neutral,47
+782,neutral,48
 782,neutral,4
 782,neutral,5
 782,neutral,6
@@ -8846,6 +9366,7 @@ id_tweets,sentiment_gpt,prompt
 783,negative,45
 783,negative,46
 783,negative,47
+783,neutral,48
 783,neutral,4
 783,neutral,5
 783,neutral,6
@@ -8861,6 +9382,7 @@ id_tweets,sentiment_gpt,prompt
 786,neutral,45
 786,neutral,46
 786,neutral,47
+786,neutral,48
 786,neutral,4
 786,neutral,5
 786,neutral,6
@@ -8876,6 +9398,7 @@ id_tweets,sentiment_gpt,prompt
 787,negative,45
 787,neutral,46
 787,neutral,47
+787,negative,48
 787,negative,4
 787,negative,5
 787,negative,6
@@ -8891,6 +9414,7 @@ id_tweets,sentiment_gpt,prompt
 788,negative,45
 788,negative,46
 788,neutral,47
+788,negative,48
 788,neutral,4
 788,neutral,5
 788,neutral,6
@@ -8906,6 +9430,7 @@ id_tweets,sentiment_gpt,prompt
 789,neutral,45
 789,neutral,46
 789,neutral,47
+789,neutral,48
 789,neutral,4
 789,neutral,5
 789,neutral,6
@@ -8921,6 +9446,7 @@ id_tweets,sentiment_gpt,prompt
 790,neutral,45
 790,neutral,46
 790,neutral,47
+790,neutral,48
 790,neutral,4
 790,neutral,5
 790,neutral,6
@@ -8936,6 +9462,7 @@ id_tweets,sentiment_gpt,prompt
 791,neutral,45
 791,neutral,46
 791,neutral,47
+791,neutral,48
 791,neutral,4
 791,neutral,5
 791,neutral,6
@@ -8951,6 +9478,7 @@ id_tweets,sentiment_gpt,prompt
 793,neutral,45
 793,neutral,46
 793,neutral,47
+793,neutral,48
 793,positive,4
 793,neutral,5
 793,neutral,6
@@ -8966,6 +9494,7 @@ id_tweets,sentiment_gpt,prompt
 794,negative,45
 794,neutral,46
 794,neutral,47
+794,neutral,48
 794,neutral,4
 794,neutral,5
 794,neutral,6
@@ -8981,6 +9510,7 @@ id_tweets,sentiment_gpt,prompt
 796,neutral,45
 796,neutral,46
 796,neutral,47
+796,neutral,48
 796,neutral,4
 796,neutral,5
 796,neutral,6
@@ -8996,6 +9526,7 @@ id_tweets,sentiment_gpt,prompt
 798,negative,45
 798,negative,46
 798,negative,47
+798,negative,48
 798,negative,4
 798,positive,5
 798,positive,6
@@ -9011,6 +9542,7 @@ id_tweets,sentiment_gpt,prompt
 799,neutral,45
 799,neutral,46
 799,neutral,47
+799,neutral,48
 799,neutral,4
 799,positive,5
 799,neutral,6
@@ -9026,6 +9558,7 @@ id_tweets,sentiment_gpt,prompt
 802,neutral,45
 802,neutral,46
 802,neutral,47
+802,neutral,48
 802,neutral,4
 802,positive,5
 802,neutral,6
@@ -9041,6 +9574,7 @@ id_tweets,sentiment_gpt,prompt
 810,negative,45
 810,negative,46
 810,negative,47
+810,neutral,48
 810,neutral,4
 810,neutral,5
 810,neutral,6
@@ -9056,6 +9590,7 @@ id_tweets,sentiment_gpt,prompt
 811,positive,45
 811,positive,46
 811,positive,47
+811,positive,48
 811,neutral,4
 811,positive,5
 811,neutral,6
@@ -9071,6 +9606,7 @@ id_tweets,sentiment_gpt,prompt
 812,neutral,45
 812,neutral,46
 812,neutral,47
+812,neutral,48
 812,neutral,4
 812,neutral,5
 812,neutral,6
@@ -9086,6 +9622,7 @@ id_tweets,sentiment_gpt,prompt
 813,neutral,45
 813,neutral,46
 813,neutral,47
+813,neutral,48
 813,neutral,4
 813,neutral,5
 813,neutral,6
@@ -9101,6 +9638,7 @@ id_tweets,sentiment_gpt,prompt
 815,positive,45
 815,positive,46
 815,positive,47
+815,positive,48
 815,neutral,4
 815,neutral,5
 815,neutral,6
@@ -9116,6 +9654,7 @@ id_tweets,sentiment_gpt,prompt
 816,neutral,45
 816,negative,46
 816,negative,47
+816,negative,48
 816,negative,4
 816,negative,5
 816,negative,6
@@ -9131,6 +9670,7 @@ id_tweets,sentiment_gpt,prompt
 817,negative,45
 817,negative,46
 817,negative,47
+817,neutral,48
 817,neutral,4
 817,neutral,5
 817,neutral,6
@@ -9146,6 +9686,7 @@ id_tweets,sentiment_gpt,prompt
 819,neutral,45
 819,neutral,46
 819,neutral,47
+819,neutral,48
 819,neutral,4
 819,neutral,5
 819,neutral,6
@@ -9161,6 +9702,7 @@ id_tweets,sentiment_gpt,prompt
 820,neutral,45
 820,neutral,46
 820,neutral,47
+820,neutral,48
 820,neutral,4
 820,neutral,5
 820,neutral,6
@@ -9176,6 +9718,7 @@ id_tweets,sentiment_gpt,prompt
 821,negative,45
 821,negative,46
 821,neutral,47
+821,neutral,48
 821,neutral,4
 821,neutral,5
 821,neutral,6
@@ -9191,6 +9734,7 @@ id_tweets,sentiment_gpt,prompt
 822,negative,45
 822,negative,46
 822,negative,47
+822,neutral,48
 822,neutral,4
 822,neutral,5
 822,neutral,6
@@ -9206,6 +9750,7 @@ id_tweets,sentiment_gpt,prompt
 823,negative,45
 823,neutral,46
 823,negative,47
+823,neutral,48
 823,neutral,4
 823,neutral,5
 823,neutral,6
@@ -9221,6 +9766,7 @@ id_tweets,sentiment_gpt,prompt
 829,neutral,45
 829,neutral,46
 829,neutral,47
+829,neutral,48
 829,neutral,4
 829,neutral,5
 829,neutral,6
@@ -9236,6 +9782,7 @@ id_tweets,sentiment_gpt,prompt
 830,negative,45
 830,negative,46
 830,negative,47
+830,positive,48
 830,positive,4
 830,positive,5
 830,positive,6
@@ -9251,6 +9798,7 @@ id_tweets,sentiment_gpt,prompt
 832,neutral,45
 832,neutral,46
 832,neutral,47
+832,neutral,48
 832,neutral,4
 832,neutral,5
 832,neutral,6
@@ -9266,6 +9814,7 @@ id_tweets,sentiment_gpt,prompt
 834,positive,45
 834,positive,46
 834,positive,47
+834,positive,48
 834,neutral,4
 834,neutral,5
 834,neutral,6
@@ -9281,6 +9830,7 @@ id_tweets,sentiment_gpt,prompt
 835,neutral,45
 835,neutral,46
 835,negative,47
+835,neutral,48
 835,neutral,4
 835,neutral,5
 835,neutral,6
@@ -9296,6 +9846,7 @@ id_tweets,sentiment_gpt,prompt
 836,neutral,45
 836,neutral,46
 836,neutral,47
+836,neutral,48
 836,negative,4
 836,negative,5
 836,neutral,6
@@ -9311,6 +9862,7 @@ id_tweets,sentiment_gpt,prompt
 837,negative,45
 837,negative,46
 837,negative,47
+837,neutral,48
 837,neutral,4
 837,neutral,5
 837,neutral,6
@@ -9326,6 +9878,7 @@ id_tweets,sentiment_gpt,prompt
 839,neutral,45
 839,neutral,46
 839,neutral,47
+839,neutral,48
 839,neutral,4
 839,neutral,5
 839,neutral,6
@@ -9341,6 +9894,7 @@ id_tweets,sentiment_gpt,prompt
 840,negative,45
 840,negative,46
 840,positive,47
+840,positive,48
 840,positive,4
 840,positive,5
 840,positive,6
@@ -9356,6 +9910,7 @@ id_tweets,sentiment_gpt,prompt
 841,positive,45
 841,negative,46
 841,negative,47
+841,positive,48
 841,neutral,4
 841,negative,5
 841,neutral,6
@@ -9371,6 +9926,7 @@ id_tweets,sentiment_gpt,prompt
 842,positive,45
 842,positive,46
 842,positive,47
+842,positive,48
 842,positive,4
 842,positive,5
 842,positive,6
@@ -9386,6 +9942,7 @@ id_tweets,sentiment_gpt,prompt
 843,neutral,45
 843,neutral,46
 843,neutral,47
+843,neutral,48
 843,positive,4
 843,neutral,5
 843,neutral,6
@@ -9401,6 +9958,7 @@ id_tweets,sentiment_gpt,prompt
 844,negative,45
 844,negative,46
 844,neutral,47
+844,neutral,48
 844,neutral,4
 844,negative,5
 844,neutral,6
@@ -9416,6 +9974,7 @@ id_tweets,sentiment_gpt,prompt
 845,negative,45
 845,negative,46
 845,negative,47
+845,negative,48
 845,negative,4
 845,negative,5
 845,negative,6
@@ -9431,6 +9990,7 @@ id_tweets,sentiment_gpt,prompt
 846,neutral,45
 846,neutral,46
 846,positive,47
+846,positive,48
 846,neutral,4
 846,neutral,5
 846,neutral,6
@@ -9446,6 +10006,7 @@ id_tweets,sentiment_gpt,prompt
 848,negative,45
 848,positive,46
 848,positive,47
+848,positive,48
 848,positive,4
 848,positive,5
 848,positive,6
@@ -9461,6 +10022,7 @@ id_tweets,sentiment_gpt,prompt
 849,neutral,45
 849,neutral,46
 849,neutral,47
+849,neutral,48
 849,neutral,4
 849,neutral,5
 849,neutral,6
@@ -9476,6 +10038,7 @@ id_tweets,sentiment_gpt,prompt
 850,neutral,45
 850,neutral,46
 850,neutral,47
+850,neutral,48
 850,neutral,4
 850,neutral,5
 850,neutral,6
@@ -9491,6 +10054,7 @@ id_tweets,sentiment_gpt,prompt
 852,neutral,45
 852,neutral,46
 852,neutral,47
+852,neutral,48
 852,neutral,4
 852,neutral,5
 852,neutral,6
@@ -9506,6 +10070,7 @@ id_tweets,sentiment_gpt,prompt
 853,neutral,45
 853,neutral,46
 853,neutral,47
+853,neutral,48
 853,neutral,4
 853,neutral,5
 853,neutral,6
@@ -9521,6 +10086,7 @@ id_tweets,sentiment_gpt,prompt
 854,neutral,45
 854,neutral,46
 854,neutral,47
+854,neutral,48
 854,neutral,4
 854,neutral,5
 854,neutral,6
@@ -9536,6 +10102,7 @@ id_tweets,sentiment_gpt,prompt
 855,neutral,45
 855,neutral,46
 855,neutral,47
+855,neutral,48
 855,neutral,4
 855,neutral,5
 855,neutral,6
@@ -9551,6 +10118,7 @@ id_tweets,sentiment_gpt,prompt
 856,neutral,45
 856,neutral,46
 856,neutral,47
+856,neutral,48
 856,neutral,4
 856,neutral,5
 856,neutral,6
@@ -9566,6 +10134,7 @@ id_tweets,sentiment_gpt,prompt
 858,neutral,45
 858,neutral,46
 858,neutral,47
+858,neutral,48
 858,neutral,4
 858,neutral,5
 858,neutral,6
@@ -9581,6 +10150,7 @@ id_tweets,sentiment_gpt,prompt
 859,positive,45
 859,positive,46
 859,positive,47
+859,positive,48
 859,positive,4
 859,positive,5
 859,positive,6
@@ -9596,6 +10166,7 @@ id_tweets,sentiment_gpt,prompt
 860,neutral,45
 860,neutral,46
 860,neutral,47
+860,neutral,48
 860,positive,4
 860,neutral,5
 860,neutral,6
@@ -9611,6 +10182,7 @@ id_tweets,sentiment_gpt,prompt
 861,neutral,45
 861,neutral,46
 861,neutral,47
+861,neutral,48
 861,neutral,4
 861,neutral,5
 861,neutral,6
@@ -9626,6 +10198,7 @@ id_tweets,sentiment_gpt,prompt
 862,neutral,45
 862,neutral,46
 862,neutral,47
+862,neutral,48
 862,neutral,4
 862,neutral,5
 862,neutral,6
@@ -9641,6 +10214,7 @@ id_tweets,sentiment_gpt,prompt
 863,neutral,45
 863,neutral,46
 863,neutral,47
+863,neutral,48
 863,neutral,4
 863,neutral,5
 863,neutral,6
@@ -9656,6 +10230,7 @@ id_tweets,sentiment_gpt,prompt
 864,positive,45
 864,positive,46
 864,positive,47
+864,positive,48
 864,positive,4
 864,positive,5
 864,positive,6
@@ -9671,6 +10246,7 @@ id_tweets,sentiment_gpt,prompt
 866,negative,45
 866,negative,46
 866,negative,47
+866,negative,48
 866,negative,4
 866,negative,5
 866,negative,6
@@ -9686,6 +10262,7 @@ id_tweets,sentiment_gpt,prompt
 867,negative,45
 867,neutral,46
 867,negative,47
+867,neutral,48
 867,neutral,4
 867,neutral,5
 867,neutral,6
@@ -9701,6 +10278,7 @@ id_tweets,sentiment_gpt,prompt
 868,neutral,45
 868,neutral,46
 868,neutral,47
+868,neutral,48
 868,neutral,4
 868,neutral,5
 868,neutral,6
@@ -9716,6 +10294,7 @@ id_tweets,sentiment_gpt,prompt
 869,negative,45
 869,negative,46
 869,negative,47
+869,negative,48
 869,negative,4
 869,negative,5
 869,negative,6
@@ -9731,6 +10310,7 @@ id_tweets,sentiment_gpt,prompt
 870,neutral,45
 870,neutral,46
 870,neutral,47
+870,neutral,48
 870,neutral,4
 870,neutral,5
 870,neutral,6
@@ -9746,6 +10326,7 @@ id_tweets,sentiment_gpt,prompt
 871,negative,45
 871,negative,46
 871,neutral,47
+871,neutral,48
 871,neutral,4
 871,neutral,5
 871,neutral,6
@@ -9761,6 +10342,7 @@ id_tweets,sentiment_gpt,prompt
 872,neutral,45
 872,neutral,46
 872,neutral,47
+872,neutral,48
 872,neutral,4
 872,neutral,5
 872,neutral,6
@@ -9776,6 +10358,7 @@ id_tweets,sentiment_gpt,prompt
 874,negative,45
 874,negative,46
 874,negative,47
+874,negative,48
 874,positive,4
 874,negative,5
 874,positive,6
@@ -9791,6 +10374,7 @@ id_tweets,sentiment_gpt,prompt
 875,neutral,45
 875,neutral,46
 875,neutral,47
+875,neutral,48
 875,neutral,4
 875,neutral,5
 875,neutral,6
@@ -9806,6 +10390,7 @@ id_tweets,sentiment_gpt,prompt
 876,neutral,45
 876,neutral,46
 876,neutral,47
+876,neutral,48
 876,neutral,4
 876,neutral,5
 876,neutral,6
@@ -9821,6 +10406,7 @@ id_tweets,sentiment_gpt,prompt
 877,neutral,45
 877,neutral,46
 877,neutral,47
+877,neutral,48
 877,neutral,4
 877,neutral,5
 877,neutral,6
@@ -9836,6 +10422,7 @@ id_tweets,sentiment_gpt,prompt
 878,neutral,45
 878,neutral,46
 878,neutral,47
+878,neutral,48
 878,neutral,4
 878,positive,5
 878,neutral,6
@@ -9851,6 +10438,7 @@ id_tweets,sentiment_gpt,prompt
 879,neutral,45
 879,neutral,46
 879,neutral,47
+879,neutral,48
 879,neutral,4
 879,positive,5
 879,neutral,6
@@ -9866,6 +10454,7 @@ id_tweets,sentiment_gpt,prompt
 880,negative,45
 880,neutral,46
 880,neutral,47
+880,neutral,48
 880,neutral,4
 880,neutral,5
 880,neutral,6
@@ -9881,6 +10470,7 @@ id_tweets,sentiment_gpt,prompt
 881,positive,45
 881,positive,46
 881,positive,47
+881,positive,48
 881,positive,4
 881,negative,5
 881,positive,6
@@ -9896,6 +10486,7 @@ id_tweets,sentiment_gpt,prompt
 882,negative,45
 882,negative,46
 882,neutral,47
+882,neutral,48
 882,neutral,4
 882,neutral,5
 882,neutral,6
@@ -9911,6 +10502,7 @@ id_tweets,sentiment_gpt,prompt
 883,neutral,45
 883,neutral,46
 883,neutral,47
+883,neutral,48
 883,neutral,4
 883,neutral,5
 883,neutral,6
@@ -9926,6 +10518,7 @@ id_tweets,sentiment_gpt,prompt
 884,neutral,45
 884,neutral,46
 884,neutral,47
+884,neutral,48
 884,neutral,4
 884,neutral,5
 884,negative,6
@@ -9941,6 +10534,7 @@ id_tweets,sentiment_gpt,prompt
 885,neutral,45
 885,neutral,46
 885,neutral,47
+885,neutral,48
 885,neutral,4
 885,neutral,5
 885,neutral,6
@@ -9956,6 +10550,7 @@ id_tweets,sentiment_gpt,prompt
 886,neutral,45
 886,neutral,46
 886,neutral,47
+886,neutral,48
 886,negative,4
 886,negative,5
 886,negative,6
@@ -9971,6 +10566,7 @@ id_tweets,sentiment_gpt,prompt
 887,negative,45
 887,negative,46
 887,neutral,47
+887,neutral,48
 887,negative,4
 887,negative,5
 887,negative,6
@@ -9986,6 +10582,7 @@ id_tweets,sentiment_gpt,prompt
 888,neutral,45
 888,neutral,46
 888,neutral,47
+888,neutral,48
 888,neutral,4
 888,neutral,5
 888,neutral,6
@@ -10001,6 +10598,7 @@ id_tweets,sentiment_gpt,prompt
 889,positive,45
 889,positive,46
 889,positive,47
+889,positive,48
 889,neutral,4
 889,neutral,5
 889,neutral,6
@@ -10016,6 +10614,7 @@ id_tweets,sentiment_gpt,prompt
 890,negative,45
 890,neutral,46
 890,negative,47
+890,neutral,48
 890,neutral,4
 890,neutral,5
 890,neutral,6
@@ -10031,6 +10630,7 @@ id_tweets,sentiment_gpt,prompt
 891,neutral,45
 891,positive,46
 891,positive,47
+891,positive,48
 891,neutral,4
 891,neutral,5
 891,neutral,6
@@ -10046,6 +10646,7 @@ id_tweets,sentiment_gpt,prompt
 892,neutral,45
 892,neutral,46
 892,neutral,47
+892,neutral,48
 892,neutral,4
 892,neutral,5
 892,neutral,6
@@ -10061,6 +10662,7 @@ id_tweets,sentiment_gpt,prompt
 893,neutral,45
 893,neutral,46
 893,neutral,47
+893,neutral,48
 893,neutral,4
 893,neutral,5
 893,neutral,6
@@ -10076,6 +10678,7 @@ id_tweets,sentiment_gpt,prompt
 894,positive,45
 894,positive,46
 894,neutral,47
+894,positive,48
 894,neutral,4
 894,neutral,5
 894,neutral,6
@@ -10091,6 +10694,7 @@ id_tweets,sentiment_gpt,prompt
 895,negative,45
 895,neutral,46
 895,neutral,47
+895,neutral,48
 895,negative,4
 895,negative,5
 895,negative,6
@@ -10106,6 +10710,7 @@ id_tweets,sentiment_gpt,prompt
 896,neutral,45
 896,neutral,46
 896,neutral,47
+896,neutral,48
 896,neutral,4
 896,neutral,5
 896,neutral,6
@@ -10121,6 +10726,7 @@ id_tweets,sentiment_gpt,prompt
 897,negative,45
 897,neutral,46
 897,neutral,47
+897,neutral,48
 897,neutral,4
 897,neutral,5
 897,neutral,6
@@ -10136,6 +10742,7 @@ id_tweets,sentiment_gpt,prompt
 898,negative,45
 898,negative,46
 898,neutral,47
+898,neutral,48
 898,neutral,4
 898,neutral,5
 898,neutral,6
@@ -10151,6 +10758,7 @@ id_tweets,sentiment_gpt,prompt
 899,neutral,45
 899,neutral,46
 899,neutral,47
+899,neutral,48
 899,neutral,4
 899,neutral,5
 899,neutral,6
@@ -10166,6 +10774,7 @@ id_tweets,sentiment_gpt,prompt
 900,neutral,45
 900,neutral,46
 900,neutral,47
+900,neutral,48
 900,neutral,4
 900,neutral,5
 900,neutral,6
@@ -10181,6 +10790,7 @@ id_tweets,sentiment_gpt,prompt
 901,neutral,45
 901,neutral,46
 901,neutral,47
+901,neutral,48
 901,neutral,4
 901,neutral,5
 901,neutral,6
@@ -10196,6 +10806,7 @@ id_tweets,sentiment_gpt,prompt
 903,positive,45
 903,positive,46
 903,positive,47
+903,positive,48
 903,positive,4
 903,neutral,5
 903,positive,6
@@ -10211,6 +10822,7 @@ id_tweets,sentiment_gpt,prompt
 904,negative,45
 904,negative,46
 904,negative,47
+904,negative,48
 904,neutral,4
 904,neutral,5
 904,neutral,6
@@ -10226,6 +10838,7 @@ id_tweets,sentiment_gpt,prompt
 905,neutral,45
 905,neutral,46
 905,neutral,47
+905,neutral,48
 905,neutral,4
 905,neutral,5
 905,neutral,6
@@ -10241,6 +10854,7 @@ id_tweets,sentiment_gpt,prompt
 906,neutral,45
 906,neutral,46
 906,neutral,47
+906,neutral,48
 906,neutral,4
 906,neutral,5
 906,neutral,6
@@ -10256,6 +10870,7 @@ id_tweets,sentiment_gpt,prompt
 907,neutral,45
 907,negative,46
 907,negative,47
+907,neutral,48
 907,neutral,4
 907,neutral,5
 907,neutral,6
@@ -10271,6 +10886,7 @@ id_tweets,sentiment_gpt,prompt
 908,neutral,45
 908,neutral,46
 908,neutral,47
+908,neutral,48
 908,neutral,4
 908,positive,5
 908,positive,6
@@ -10286,6 +10902,7 @@ id_tweets,sentiment_gpt,prompt
 912,positive,45
 912,positive,46
 912,positive,47
+912,positive,48
 912,negative,4
 912,positive,5
 912,negative,6
@@ -10301,6 +10918,7 @@ id_tweets,sentiment_gpt,prompt
 913,neutral,45
 913,neutral,46
 913,neutral,47
+913,neutral,48
 913,neutral,4
 913,neutral,5
 913,neutral,6
@@ -10316,6 +10934,7 @@ id_tweets,sentiment_gpt,prompt
 914,negative,45
 914,negative,46
 914,negative,47
+914,negative,48
 914,negative,4
 914,negative,5
 914,negative,6
@@ -10331,6 +10950,7 @@ id_tweets,sentiment_gpt,prompt
 915,neutral,45
 915,positive,46
 915,positive,47
+915,neutral,48
 915,neutral,4
 915,neutral,5
 915,neutral,6
@@ -10346,6 +10966,7 @@ id_tweets,sentiment_gpt,prompt
 916,neutral,45
 916,neutral,46
 916,neutral,47
+916,neutral,48
 916,negative,4
 916,negative,5
 916,negative,6
@@ -10361,6 +10982,7 @@ id_tweets,sentiment_gpt,prompt
 917,negative,45
 917,neutral,46
 917,negative,47
+917,neutral,48
 917,neutral,4
 917,neutral,5
 917,neutral,6
@@ -10376,6 +10998,7 @@ id_tweets,sentiment_gpt,prompt
 918,negative,45
 918,neutral,46
 918,neutral,47
+918,neutral,48
 918,neutral,4
 918,neutral,5
 918,neutral,6
@@ -10391,6 +11014,7 @@ id_tweets,sentiment_gpt,prompt
 919,neutral,45
 919,neutral,46
 919,neutral,47
+919,neutral,48
 919,neutral,4
 919,neutral,5
 919,neutral,6
@@ -10406,6 +11030,7 @@ id_tweets,sentiment_gpt,prompt
 920,neutral,45
 920,neutral,46
 920,neutral,47
+920,neutral,48
 920,neutral,4
 920,neutral,5
 920,neutral,6
@@ -10421,6 +11046,7 @@ id_tweets,sentiment_gpt,prompt
 921,negative,45
 921,neutral,46
 921,negative,47
+921,neutral,48
 921,neutral,4
 921,neutral,5
 921,neutral,6
@@ -10436,6 +11062,7 @@ id_tweets,sentiment_gpt,prompt
 922,negative,45
 922,negative,46
 922,negative,47
+922,negative,48
 922,neutral,4
 922,neutral,5
 922,neutral,6
@@ -10451,6 +11078,7 @@ id_tweets,sentiment_gpt,prompt
 923,neutral,45
 923,neutral,46
 923,neutral,47
+923,neutral,48
 923,neutral,4
 923,neutral,5
 923,neutral,6
@@ -10466,6 +11094,7 @@ id_tweets,sentiment_gpt,prompt
 924,neutral,45
 924,negative,46
 924,neutral,47
+924,neutral,48
 924,neutral,4
 924,neutral,5
 924,neutral,6
@@ -10481,6 +11110,7 @@ id_tweets,sentiment_gpt,prompt
 925,negative,45
 925,neutral,46
 925,neutral,47
+925,neutral,48
 925,neutral,4
 925,neutral,5
 925,neutral,6
@@ -10496,6 +11126,7 @@ id_tweets,sentiment_gpt,prompt
 926,negative,45
 926,positive,46
 926,positive,47
+926,positive,48
 926,neutral,4
 926,neutral,5
 926,neutral,6
@@ -10511,6 +11142,7 @@ id_tweets,sentiment_gpt,prompt
 927,negative,45
 927,negative,46
 927,negative,47
+927,negative,48
 927,negative,4
 927,positive,5
 927,neutral,6
@@ -10526,6 +11158,7 @@ id_tweets,sentiment_gpt,prompt
 928,negative,45
 928,negative,46
 928,negative,47
+928,positive,48
 928,neutral,4
 928,neutral,5
 928,neutral,6
@@ -10541,6 +11174,7 @@ id_tweets,sentiment_gpt,prompt
 930,neutral,45
 930,neutral,46
 930,negative,47
+930,neutral,48
 930,neutral,4
 930,neutral,5
 930,neutral,6
@@ -10556,6 +11190,7 @@ id_tweets,sentiment_gpt,prompt
 931,neutral,45
 931,neutral,46
 931,neutral,47
+931,neutral,48
 931,neutral,4
 931,neutral,5
 931,neutral,6
@@ -10571,6 +11206,7 @@ id_tweets,sentiment_gpt,prompt
 932,negative,45
 932,neutral,46
 932,neutral,47
+932,neutral,48
 932,neutral,4
 932,neutral,5
 932,neutral,6
@@ -10586,6 +11222,7 @@ id_tweets,sentiment_gpt,prompt
 934,neutral,45
 934,neutral,46
 934,neutral,47
+934,neutral,48
 934,neutral,4
 934,neutral,5
 934,neutral,6
@@ -10601,6 +11238,7 @@ id_tweets,sentiment_gpt,prompt
 935,neutral,45
 935,neutral,46
 935,negative,47
+935,neutral,48
 935,negative,4
 935,negative,5
 935,negative,6
@@ -10616,6 +11254,7 @@ id_tweets,sentiment_gpt,prompt
 936,positive,45
 936,neutral,46
 936,neutral,47
+936,positive,48
 936,neutral,4
 936,neutral,5
 936,neutral,6
@@ -10631,6 +11270,7 @@ id_tweets,sentiment_gpt,prompt
 937,neutral,45
 937,neutral,46
 937,neutral,47
+937,neutral,48
 937,negative,4
 937,negative,5
 937,negative,6
@@ -10646,6 +11286,7 @@ id_tweets,sentiment_gpt,prompt
 938,neutral,45
 938,neutral,46
 938,neutral,47
+938,neutral,48
 938,neutral,4
 938,neutral,5
 938,neutral,6
@@ -10661,6 +11302,7 @@ id_tweets,sentiment_gpt,prompt
 939,neutral,45
 939,neutral,46
 939,neutral,47
+939,neutral,48
 939,neutral,4
 939,neutral,5
 939,neutral,6
@@ -10676,6 +11318,7 @@ id_tweets,sentiment_gpt,prompt
 940,positive,45
 940,positive,46
 940,positive,47
+940,positive,48
 940,negative,4
 940,negative,5
 940,negative,6
@@ -10691,6 +11334,7 @@ id_tweets,sentiment_gpt,prompt
 941,neutral,45
 941,neutral,46
 941,neutral,47
+941,neutral,48
 941,neutral,4
 941,neutral,5
 941,neutral,6
@@ -10706,6 +11350,7 @@ id_tweets,sentiment_gpt,prompt
 942,negative,45
 942,neutral,46
 942,neutral,47
+942,neutral,48
 942,neutral,4
 942,neutral,5
 942,neutral,6
@@ -10721,6 +11366,7 @@ id_tweets,sentiment_gpt,prompt
 943,negative,45
 943,negative,46
 943,neutral,47
+943,negative,48
 943,neutral,4
 943,neutral,5
 943,neutral,6
@@ -10736,6 +11382,7 @@ id_tweets,sentiment_gpt,prompt
 944,neutral,45
 944,neutral,46
 944,neutral,47
+944,neutral,48
 944,neutral,4
 944,positive,5
 944,neutral,6
@@ -10751,6 +11398,7 @@ id_tweets,sentiment_gpt,prompt
 946,neutral,45
 946,neutral,46
 946,neutral,47
+946,neutral,48
 946,neutral,4
 946,neutral,5
 946,neutral,6
@@ -10766,6 +11414,7 @@ id_tweets,sentiment_gpt,prompt
 947,neutral,45
 947,neutral,46
 947,neutral,47
+947,neutral,48
 947,neutral,4
 947,neutral,5
 947,neutral,6
@@ -10781,6 +11430,7 @@ id_tweets,sentiment_gpt,prompt
 948,negative,45
 948,neutral,46
 948,neutral,47
+948,neutral,48
 948,neutral,4
 948,neutral,5
 948,neutral,6
@@ -10796,6 +11446,7 @@ id_tweets,sentiment_gpt,prompt
 950,neutral,45
 950,neutral,46
 950,neutral,47
+950,neutral,48
 950,neutral,4
 950,neutral,5
 950,neutral,6
@@ -10811,6 +11462,7 @@ id_tweets,sentiment_gpt,prompt
 951,neutral,45
 951,neutral,46
 951,neutral,47
+951,neutral,48
 951,neutral,4
 951,neutral,5
 951,neutral,6
@@ -10826,6 +11478,7 @@ id_tweets,sentiment_gpt,prompt
 952,neutral,45
 952,neutral,46
 952,neutral,47
+952,neutral,48
 952,neutral,4
 952,neutral,5
 952,neutral,6
@@ -10841,6 +11494,7 @@ id_tweets,sentiment_gpt,prompt
 953,negative,45
 953,neutral,46
 953,neutral,47
+953,neutral,48
 953,positive,4
 953,neutral,5
 953,negative,6
@@ -10856,6 +11510,7 @@ id_tweets,sentiment_gpt,prompt
 954,positive,45
 954,neutral,46
 954,neutral,47
+954,positive,48
 954,negative,4
 954,positive,5
 954,neutral,6
@@ -10871,6 +11526,7 @@ id_tweets,sentiment_gpt,prompt
 955,neutral,45
 955,neutral,46
 955,neutral,47
+955,neutral,48
 955,neutral,4
 955,neutral,5
 955,neutral,6
@@ -10886,6 +11542,7 @@ id_tweets,sentiment_gpt,prompt
 956,neutral,45
 956,neutral,46
 956,neutral,47
+956,neutral,48
 956,neutral,4
 956,neutral,5
 956,neutral,6
@@ -10901,6 +11558,7 @@ id_tweets,sentiment_gpt,prompt
 957,neutral,45
 957,neutral,46
 957,neutral,47
+957,neutral,48
 957,neutral,4
 957,neutral,5
 957,neutral,6
@@ -10916,6 +11574,7 @@ id_tweets,sentiment_gpt,prompt
 961,neutral,45
 961,neutral,46
 961,neutral,47
+961,neutral,48
 961,neutral,4
 961,neutral,5
 961,neutral,6
@@ -10931,6 +11590,7 @@ id_tweets,sentiment_gpt,prompt
 962,neutral,45
 962,neutral,46
 962,neutral,47
+962,neutral,48
 962,neutral,4
 962,neutral,5
 962,neutral,6
@@ -10946,6 +11606,7 @@ id_tweets,sentiment_gpt,prompt
 963,positive,45
 963,positive,46
 963,positive,47
+963,positive,48
 963,positive,4
 963,positive,5
 963,positive,6
@@ -10961,6 +11622,7 @@ id_tweets,sentiment_gpt,prompt
 964,neutral,45
 964,neutral,46
 964,neutral,47
+964,neutral,48
 964,neutral,4
 964,neutral,5
 964,neutral,6
@@ -10976,6 +11638,7 @@ id_tweets,sentiment_gpt,prompt
 965,neutral,45
 965,neutral,46
 965,neutral,47
+965,neutral,48
 965,neutral,4
 965,neutral,5
 965,neutral,6
@@ -10991,6 +11654,7 @@ id_tweets,sentiment_gpt,prompt
 967,neutral,45
 967,neutral,46
 967,neutral,47
+967,neutral,48
 967,neutral,4
 967,neutral,5
 967,neutral,6
@@ -11006,6 +11670,7 @@ id_tweets,sentiment_gpt,prompt
 968,neutral,45
 968,neutral,46
 968,neutral,47
+968,neutral,48
 968,neutral,4
 968,neutral,5
 968,neutral,6
@@ -11021,6 +11686,7 @@ id_tweets,sentiment_gpt,prompt
 969,negative,45
 969,negative,46
 969,neutral,47
+969,neutral,48
 969,neutral,4
 969,neutral,5
 969,neutral,6
@@ -11036,6 +11702,7 @@ id_tweets,sentiment_gpt,prompt
 970,negative,45
 970,negative,46
 970,negative,47
+970,negative,48
 970,neutral,4
 970,neutral,5
 970,neutral,6
@@ -11051,6 +11718,7 @@ id_tweets,sentiment_gpt,prompt
 971,neutral,45
 971,neutral,46
 971,neutral,47
+971,neutral,48
 971,neutral,4
 971,neutral,5
 971,neutral,6
@@ -11066,6 +11734,7 @@ id_tweets,sentiment_gpt,prompt
 972,positive,45
 972,negative,46
 972,negative,47
+972,positive,48
 972,positive,4
 972,positive,5
 972,positive,6
@@ -11081,6 +11750,7 @@ id_tweets,sentiment_gpt,prompt
 973,neutral,45
 973,neutral,46
 973,neutral,47
+973,neutral,48
 973,neutral,4
 973,neutral,5
 973,neutral,6
@@ -11096,6 +11766,7 @@ id_tweets,sentiment_gpt,prompt
 974,neutral,45
 974,neutral,46
 974,neutral,47
+974,neutral,48
 974,neutral,4
 974,neutral,5
 974,neutral,6
@@ -11111,6 +11782,7 @@ id_tweets,sentiment_gpt,prompt
 975,neutral,45
 975,neutral,46
 975,neutral,47
+975,neutral,48
 975,neutral,4
 975,neutral,5
 975,neutral,6
@@ -11126,6 +11798,7 @@ id_tweets,sentiment_gpt,prompt
 976,neutral,45
 976,neutral,46
 976,neutral,47
+976,neutral,48
 976,neutral,4
 976,neutral,5
 976,neutral,6
@@ -11141,6 +11814,7 @@ id_tweets,sentiment_gpt,prompt
 977,neutral,45
 977,neutral,46
 977,neutral,47
+977,neutral,48
 977,neutral,4
 977,neutral,5
 977,neutral,6
@@ -11156,6 +11830,7 @@ id_tweets,sentiment_gpt,prompt
 978,negative,45
 978,neutral,46
 978,neutral,47
+978,negative,48
 978,negative,4
 978,negative,5
 978,negative,6
@@ -11171,6 +11846,7 @@ id_tweets,sentiment_gpt,prompt
 979,neutral,45
 979,neutral,46
 979,negative,47
+979,negative,48
 979,neutral,4
 979,neutral,5
 979,neutral,6
@@ -11186,6 +11862,7 @@ id_tweets,sentiment_gpt,prompt
 981,neutral,45
 981,neutral,46
 981,neutral,47
+981,neutral,48
 981,neutral,4
 981,neutral,5
 981,neutral,6
@@ -11201,6 +11878,7 @@ id_tweets,sentiment_gpt,prompt
 982,positive,45
 982,positive,46
 982,positive,47
+982,positive,48
 982,positive,4
 982,positive,5
 982,positive,6
@@ -11216,6 +11894,7 @@ id_tweets,sentiment_gpt,prompt
 984,neutral,45
 984,neutral,46
 984,neutral,47
+984,neutral,48
 984,positive,4
 984,neutral,5
 984,neutral,6
@@ -11231,6 +11910,7 @@ id_tweets,sentiment_gpt,prompt
 986,negative,45
 986,neutral,46
 986,neutral,47
+986,neutral,48
 986,positive,4
 986,neutral,5
 986,neutral,6
@@ -11246,6 +11926,7 @@ id_tweets,sentiment_gpt,prompt
 987,neutral,45
 987,neutral,46
 987,neutral,47
+987,neutral,48
 987,neutral,4
 987,neutral,5
 987,neutral,6
@@ -11261,6 +11942,7 @@ id_tweets,sentiment_gpt,prompt
 988,neutral,45
 988,neutral,46
 988,neutral,47
+988,neutral,48
 988,neutral,4
 988,neutral,5
 988,neutral,6
@@ -11276,6 +11958,7 @@ id_tweets,sentiment_gpt,prompt
 989,neutral,45
 989,neutral,46
 989,neutral,47
+989,neutral,48
 989,neutral,4
 989,neutral,5
 989,neutral,6
@@ -11291,6 +11974,7 @@ id_tweets,sentiment_gpt,prompt
 990,neutral,45
 990,negative,46
 990,neutral,47
+990,neutral,48
 990,neutral,4
 990,neutral,5
 990,neutral,6
@@ -11306,6 +11990,7 @@ id_tweets,sentiment_gpt,prompt
 991,negative,45
 991,neutral,46
 991,negative,47
+991,neutral,48
 991,neutral,4
 991,neutral,5
 991,neutral,6
@@ -11321,6 +12006,7 @@ id_tweets,sentiment_gpt,prompt
 992,neutral,45
 992,neutral,46
 992,neutral,47
+992,neutral,48
 992,neutral,4
 992,neutral,5
 992,neutral,6
@@ -11336,6 +12022,7 @@ id_tweets,sentiment_gpt,prompt
 993,neutral,45
 993,neutral,46
 993,neutral,47
+993,neutral,48
 993,positive,4
 993,neutral,5
 993,positive,6
@@ -11351,6 +12038,7 @@ id_tweets,sentiment_gpt,prompt
 994,negative,45
 994,neutral,46
 994,neutral,47
+994,neutral,48
 994,neutral,4
 994,neutral,5
 994,neutral,6
@@ -11366,6 +12054,7 @@ id_tweets,sentiment_gpt,prompt
 995,neutral,45
 995,neutral,46
 995,neutral,47
+995,neutral,48
 995,negative,4
 995,negative,5
 995,neutral,6
@@ -11381,6 +12070,7 @@ id_tweets,sentiment_gpt,prompt
 997,neutral,45
 997,neutral,46
 997,neutral,47
+997,neutral,48
 997,neutral,4
 997,neutral,5
 997,neutral,6
@@ -11396,6 +12086,7 @@ id_tweets,sentiment_gpt,prompt
 999,neutral,45
 999,neutral,46
 999,negative,47
+999,neutral,48
 999,neutral,4
 999,neutral,5
 999,neutral,6
@@ -11411,6 +12102,7 @@ id_tweets,sentiment_gpt,prompt
 1000,neutral,45
 1000,neutral,46
 1000,neutral,47
+1000,neutral,48
 1000,neutral,4
 1000,neutral,5
 1000,neutral,6
@@ -13862,6 +14554,221 @@ NA,neutral,48
 NA,neutral,48
 NA,neutral,48
 NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,positive,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,positive,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,negative,48
+NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,negative,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,neutral,48
+NA,negative,48
+NA,neutral,48
+NA,neutral,48
+NA,positive,48
+NA,positive,48
+NA,neutral,48
+NA,positive,48
+NA,neutral,48
+NA,positive,48
+NA,positive,48
+NA,neutral,48
+NA,neutral,48
+NA,positive,48
 NA,positive,48
 NA,positive,4
 NA,neutral,4

@@ -107,7 +107,7 @@ confusion_matrices <- list(conf_epfl_gpt_all_0,  conf_epfl_gpt_all_1,
                            conf_mturk_gpt_all_40 , conf_mturk_gpt_all_41,  conf_mturk_gpt_all_45, 
                            conf_mturk_gpt_all_5 , conf_mturk_gpt_all_6 ,  conf_mturk_gpt_all_7,  
                            conf_mturk_gpt_all_8  , conf_mturk_gpt_all_43, conf_mturk_gpt_all_44,
-                           conf_mturk_gpt_all_46, conf_mturk_gpt_all_47)
+                           conf_mturk_gpt_all_46, conf_mturk_gpt_all_47, conf_mturk_gpt_all_48)
 
 confusion_matrices_names <- c("conf_epfl_gpt_all_0",  "conf_epfl_gpt_all_1", 
                               "conf_epfl_gpt_all_3",  "conf_epfl_gpt_all_4", "conf_epfl_gpt_all_40" , 
@@ -122,7 +122,7 @@ confusion_matrices_names <- c("conf_epfl_gpt_all_0",  "conf_epfl_gpt_all_1",
                               "conf_mturk_gpt_all_40" , "conf_mturk_gpt_all_41",  "conf_mturk_gpt_all_45", 
                               "conf_mturk_gpt_all_5" , "conf_mturk_gpt_all_6" ,  "conf_mturk_gpt_all_7",  
                               "conf_mturk_gpt_all_8" , "conf_mturk_gpt_all_43", "conf_mturk_gpt_all_44" ,
-                              "conf_mturk_gpt_all_46", "conf_mturk_gpt_all_47")
+                              "conf_mturk_gpt_all_46", "conf_mturk_gpt_all_47", "conf_mturk_gpt_all_48")
 
 mcnemar_results <- data.frame(matrix1 = NULL, matrix2 = NULL, mcnemar_result = NULL)
 mcnemar_1_all <- NULL
@@ -174,6 +174,7 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
   cbind(as.data.frame(conf_epfl_gpt_all_44$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_all_46$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_all_47$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_all_48$overall)) %>% 
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
@@ -189,6 +190,7 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
                                     "gpt_all_45" = "GPT 4 prompt 5",
                                     "gpt_all_46" = "GPT 4 prompt 6",
                                     "gpt_all_47" = "GPT 4 prompt 7",
+                                    "gpt_all_48" = "GPT 4 prompt 8",
                                     "gpt_all_0" = "GPT 3.5 prompt 0",
                                     "gpt_all_1" = "GPT 3.5 prompt 1",
                                     "gpt_all_3" = "GPT 3.5 prompt 3",
@@ -197,7 +199,17 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
                                     "gpt_all_6" = "GPT 3.5 prompt 6",
                                     "gpt_all_7" = "GPT 3.5 prompt 7",
                                     "gpt_all_8" = "GPT 3.5 prompt 8",
-                                    "mturk" = "Amazon Mturk")))
+                                    "mturk" = "Amazon Mturk"))) %>% 
+  select(method, Accuracy, AccuracyLower, AccuracyUpper, AccuracyPValue) %>% 
+  mutate(Accuracy = round(Accuracy, 4),
+         AccuracyLower = round(AccuracyLower, 4), 
+         AccuracyUpper = round(AccuracyUpper, 4),
+         AccuracyPValue = round(AccuracyPValue, 6),
+         AccuracyCI = paste("(", AccuracyLower, " - ", AccuracyUpper, ")", sep = "")) %>% 
+  separate(col = "method", into = c("Method", "Prompt"), sep = " prompt ") %>% 
+  select(Method, Prompt, Accuracy, AccuracyCI, AccuracyPValue) %>% 
+  rename("Accuracy (95% CI)" = "AccuracyCI",
+         "Accuracy (p-value)" = "AccuracyPValue") 
 
 overall_all %>%
   write_csv("outputs/confusion_matrix_accuracy.csv")
@@ -283,6 +295,11 @@ class_gpt47 <- as.data.frame(conf_epfl_gpt_all_47$byClass) %>%
   rownames_to_column() %>% 
   select(-rowname)
 
+class_gpt48 <- as.data.frame(conf_epfl_gpt_all_48$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt48", "neutral_gpt48", "negative_gpt48"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
 class_all <- class_gpt0 %>% 
   full_join(class_gpt1) %>% 
   full_join(class_gpt3) %>% 
@@ -299,6 +316,7 @@ class_all <- class_gpt0 %>%
   full_join(class_gpt44) %>% 
   full_join(class_gpt46) %>% 
   full_join(class_gpt47) %>% 
+  full_join(class_gpt48) %>% 
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
@@ -311,6 +329,7 @@ class_all <- class_gpt0 %>%
                                     "gpt45" = "GPT 4 prompt 5",
                                     "gpt46" = "GPT 4 prompt 6",
                                     "gpt47" = "GPT 4 prompt 7",
+                                    "gpt48" = "GPT 4 prompt 8",
                                     "gpt0" = "GPT 3.5 prompt 0",
                                     "gpt1" = "GPT 3.5 prompt 1",
                                     "gpt3" = "GPT 3.5 prompt 3",
@@ -320,28 +339,45 @@ class_all <- class_gpt0 %>%
                                     "gpt7" = "GPT 3.5 prompt 7",
                                     "gpt8" = "GPT 3.5 prompt 8",
                                     "mturk" = "Amazon Mturk"))) %>% 
-  select(-classifier)
+  select(-classifier) %>% 
+  rename("PPV" = "Pos Pred Value",
+         "NPV" = "Neg Pred Value",
+         "F1 score" = "F1",
+         "Method" = "method",
+         "Balanced accuracy" = "Balanced Accuracy",
+         "Stance" = "class") %>% 
+  separate(col = "Method", into = c("Method", "Prompt"), sep = " prompt ") %>% 
+  select(Method, Prompt, Stance, "F1 score", Sensitivity, Specificity, PPV, NPV, Precision, Recall, 
+         "Balanced accuracy") %>% 
+  mutate(`F1 score` = round(`F1 score`, 4),
+         Sensitivity = round(Sensitivity, 4),
+         Specificity = round(Specificity, 4),
+         PPV = round(PPV, 4),
+         NPV = round(NPV, 4),
+         Precision = round(Precision, 4),
+         Recall = round(Recall, 4),
+         `Balanced accuracy` = round(`Balanced accuracy`, 4))
 
 class_all %>% 
   write_csv("outputs/confusion_matrix_per_class_all.csv")
 
 class_all_positive <- class_all %>% 
-  filter(class == "positive") %>% 
-  arrange(desc(F1))
+  filter(Stance == "positive") %>% 
+  arrange(desc("F1 score"))
 
 class_all_positive %>% 
   write_csv("outputs/confusion_matrix_per_class_positive.csv")
 
 class_all_negative <- class_all %>% 
-  filter(class == "negative")%>% 
-  arrange(desc(F1))
+  filter(Stance == "negative")%>% 
+  arrange(desc("F1 score"))
 
 class_all_negative %>% 
   write_csv("outputs/confusion_matrix_per_class_negative.csv")
 
 class_all_neutral <- class_all %>% 
-  filter(class == "neutral")%>% 
-  arrange(desc(F1))
+  filter(Stance == "neutral")%>% 
+  arrange(desc("F1 score"))
 
 class_all_neutral %>% 
   write_csv("outputs/confusion_matrix_per_class_neutral.csv")

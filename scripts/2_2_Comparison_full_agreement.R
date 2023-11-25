@@ -10,7 +10,7 @@ df_all_agree <- df_mturk_annot_clean %>%
   full_join(gpt_clean, by = "text") %>% 
   filter(!is.na(sent_l)) %>% 
   select(-id_tweets.x, -id_tweets.y) %>% # id_tweets comes from gpt_clean (supossedly same as epfl_df)
-  filter(agree_stan == 1)
+  filter(agree_stance == 1)
 
 
 ## To retrieve the real tweet ids -------------
@@ -135,10 +135,45 @@ overall_all_agree <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
   cbind(as.data.frame(conf_epfl_gpt_agree_all_44$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_agree_all_46$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_agree_all_47$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_gpt_agree_all_48$overall)) %>% 
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
-  select(-Kappa)
+  select(-Kappa) %>% 
+  rownames_to_column("method") %>% 
+  mutate(method = str_replace_all(method, 
+                                  c("conf_epfl_" = "", 
+                                    "\\$overall" = "",
+                                    "gpt_agree_all_40" = "GPT 4 prompt 0",
+                                    "gpt_agree_all_41" = "GPT 4 prompt 1",
+                                    "gpt_agree_all_43" = "GPT 4 prompt 3",
+                                    "gpt_agree_all_44" = "GPT 4 prompt 4",
+                                    "gpt_agree_all_45" = "GPT 4 prompt 5",
+                                    "gpt_agree_all_46" = "GPT 4 prompt 6",
+                                    "gpt_agree_all_47" = "GPT 4 prompt 7",
+                                    "gpt_agree_all_48" = "GPT 4 prompt 8",
+                                    "gpt_agree_all_0" = "GPT 3.5 prompt 0",
+                                    "gpt_agree_all_1" = "GPT 3.5 prompt 1",
+                                    "gpt_agree_all_3" = "GPT 3.5 prompt 3",
+                                    "gpt_agree_all_4" = "GPT 3.5 prompt 4",
+                                    "gpt_agree_all_5" = "GPT 3.5 prompt 5",
+                                    "gpt_agree_all_6" = "GPT 3.5 prompt 6",
+                                    "gpt_agree_all_7" = "GPT 3.5 prompt 7",
+                                    "gpt_agree_all_8" = "GPT 3.5 prompt 8",
+                                    "mturk_agree" = "Amazon Mturk"))) %>% 
+  select(method, Accuracy, AccuracyLower, AccuracyUpper, AccuracyPValue) %>% 
+  mutate(Accuracy = round(Accuracy, 4),
+         AccuracyLower = round(AccuracyLower, 4), 
+         AccuracyUpper = round(AccuracyUpper, 4),
+         AccuracyPValue = round(AccuracyPValue, 6),
+         AccuracyCI = paste("(", AccuracyLower, " - ", AccuracyUpper, ")", sep = "")) %>% 
+  separate(col = "method", into = c("Method", "Prompt"), sep = " prompt ") %>% 
+  select(Method, Prompt, Accuracy, AccuracyCI, AccuracyPValue) %>% 
+  rename("Accuracy (95% CI)" = "AccuracyCI",
+         "Accuracy (p-value)" = "AccuracyPValue") 
+
+overall_all_agree %>%
+  write_csv("outputs/confusion_matrix_accuracy_agree.csv")
 
 ## Per class ---------
 class_mturk_agree <- as.data.frame(conf_epfl_mturk_agree$byClass) %>% 
@@ -221,6 +256,11 @@ class_agree_gpt47 <- as.data.frame(conf_epfl_gpt_agree_all_47$byClass) %>%
   rownames_to_column() %>% 
   select(-rowname)
 
+class_agree_gpt48 <- as.data.frame(conf_epfl_gpt_agree_all_48$byClass) %>% 
+  mutate(class_tweet = c("positive_gpt48", "neutral_gpt48", "negative_gpt48"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
 class_all_agree <- class_agree_gpt0 %>% 
   full_join(class_agree_gpt1) %>% 
   full_join(class_agree_gpt3) %>% 
@@ -237,6 +277,7 @@ class_all_agree <- class_agree_gpt0 %>%
   full_join(class_agree_gpt44) %>% 
   full_join(class_agree_gpt46) %>% 
   full_join(class_agree_gpt47) %>% 
+  full_join(class_agree_gpt48) %>% 
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
@@ -257,31 +298,49 @@ class_all_agree <- class_agree_gpt0 %>%
                                     "gpt43" = "GPT 4 prompt 3",
                                     "gpt44" = "GPT 4 prompt 4",
                                     "gpt46" = "GPT 4 prompt 6",
-                                    "gpt47" = "GPT 4 prompt 7"))) %>% 
-  select(-classifier)
+                                    "gpt47" = "GPT 4 prompt 7",
+                                    "gpt48" = "GPT 4 prompt 8"))) %>% 
+  select(-classifier) %>% 
+  rename("PPV" = "Pos Pred Value",
+         "NPV" = "Neg Pred Value",
+         "F1 score" = "F1",
+         "Method" = "method",
+         "Balanced accuracy" = "Balanced Accuracy",
+         "Stance" = "class") %>% 
+  separate(col = "Method", into = c("Method", "Prompt"), sep = " prompt ") %>% 
+  select(Method, Prompt, Stance, "F1 score", Sensitivity, Specificity, PPV, NPV, Precision, Recall, 
+         "Balanced accuracy") %>% 
+  mutate(`F1 score` = round(`F1 score`, 4),
+         Sensitivity = round(Sensitivity, 4),
+         Specificity = round(Specificity, 4),
+         PPV = round(PPV, 4),
+         NPV = round(NPV, 4),
+         Precision = round(Precision, 4),
+         Recall = round(Recall, 4),
+         `Balanced accuracy` = round(`Balanced accuracy`, 4))
 
 class_all_agree %>% 
   write_csv("outputs/confusion_matrix_per_class_all_agree.csv")
 
 
 class_all_agree_positive <- class_all_agree %>% 
-  filter(class == "positive") %>% 
-  arrange(desc(F1))
+  filter(Stance == "positive") %>% 
+  arrange(desc(`F1 score`))
 
 class_all_agree_positive %>% 
   write_csv("outputs/confusion_matrix_per_class_positive_agree.csv")
 
 class_all_agree_negative <- class_all_agree %>% 
-  filter(class == "negative")%>% 
-  arrange(desc(F1))
+  filter(Stance == "negative")%>% 
+  arrange(desc(`F1 score`))
 
 
 class_all_agree_negative %>% 
-  write_csv("outputs/confusion_matrix_per_class_positive_agree.csv")
+  write_csv("outputs/confusion_matrix_per_class_negative_agree.csv")
 
 class_all_agree_neutral <- class_all_agree %>% 
-  filter(class == "neutral")%>% 
-  arrange(desc(F1))
+  filter(Stance == "neutral")%>% 
+  arrange(desc(`F1 score`))
 
 
 class_all_agree_neutral %>% 
