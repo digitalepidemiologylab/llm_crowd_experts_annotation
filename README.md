@@ -13,7 +13,5 @@ For visualising the results of the analysis, please do the following steps:
 
 *Pending improvements for publication:*
 - Clean df_all_clean
-- Move confusion matrices to data/local
-- Group three methods per stance, partial and full agreement, instead of having list of all tweets
-- Add tabs with descriptive analysis for all three methods
+- Clean Python code
 

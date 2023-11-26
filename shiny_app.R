@@ -13,6 +13,13 @@ source("scripts/3_shiny_data.R")
 
 server <- function(input, output) {
   # Reactive expression to return the selected dataset
+  datasetInput_describe <- reactive({
+    switch(input$dataset_describe,
+           "Summary of stance by EPFL experts" = shiny_epfl,
+           "Summary of stance by Amazon Mturk workers" = shiny_mturk,
+           "Summary of stance by GPT" = shiny_gpt)
+  })
+  
   datasetInput <- reactive({
     switch(input$dataset,
            "Overall metrics for all classes" = class_all,
@@ -31,6 +38,11 @@ server <- function(input, output) {
            "Overall accuracy for all classes " = overall_all_agree)
   })
 
+  # Show the selected dataset
+  output$view_describe <- renderTable({
+    datasetInput_describe()
+  })
+  
   # Show the selected dataset
   output$view <- renderTable({
     datasetInput()
@@ -51,6 +63,14 @@ server <- function(input, output) {
   output$summary_full <- renderPrint({
     dataset_full <- datasetInput_full()
     summary(dataset_full)
+  })
+  
+  # Help text per dataset
+  output$helpText_describe <- renderText({
+    switch(input$dataset_describe,
+           "Summary of stance by EPFL experts" = "Distribution of stance depending on agreement reached by EPFL experts. Tweets with the same stance assigned by at least three out of the four EPFL experts were considered tweets with partial agreement",
+           "Summary of stance by Amazon Mturk workers" = "Distribution of stance depending on agreement reached by Amazon Mturk workers. Tweets with the same stance assigned by at least 75% of the Amazon Mturk workers classifying each tweet were considered tweets with partial agreement",
+           "Summary of stance by GPT" = "Distribution of stance depending on agreement reached by Amazon Mturk workers. Tweets with the same stance assigned by at least 75% of the Amazon Mturk workers classifying each tweet were considered tweets with partial agreement")
   })
   
   # Help text per dataset
@@ -76,6 +96,29 @@ server <- function(input, output) {
 ## User Interface side of the app
 ui <- navbarPage(
   title = "Confusion Matrix App",
+  
+  tabPanel("Distribution of stance by each method",
+           # Sidebar with a slider input for number of bins 
+           sidebarLayout(
+             sidebarPanel(
+               # Input: Selector for choosing dataset
+               selectInput("dataset_describe", "Choose a dataset:", 
+                           choices = c("Summary of stance by EPFL experts",
+                                       "Summary of stance by Amazon Mturk workers",
+                                       "Summary of stance by GPT")),
+               # Get help text per dataset
+               textOutput("helpText_describe")
+             ),
+             
+             # Main panel for displaying outputs
+             mainPanel(
+               tabsetPanel(
+                 
+                 tabPanel("View", tableOutput("view_describe"))
+               )
+             )
+           )
+  ),
   
   tabPanel("GPT & Mturk performance in tweets with partial agreement",
   # Sidebar with a slider input for number of bins 

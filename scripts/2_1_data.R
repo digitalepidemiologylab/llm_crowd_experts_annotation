@@ -148,7 +148,7 @@ df_mturk_annot_clean %>%
 
 
 df_mturk_annot_clean_s <- df_mturk_annot_clean %>% 
-  select(id_tweets, agree_mturk) %>% 
+  select(id_tweets, total, neutral, negative, positive, partial_agree, full_agree, agree_mturk) %>% 
   write_csv("data/mturk_annotations_simple.csv")  
 
 ## Get tweets' dates --------------

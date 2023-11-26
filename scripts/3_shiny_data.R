@@ -4,21 +4,78 @@
 #' Date created: 31 October 2023
 #' Date updated: 31 October 2023
 
+# Getting summary of three methods -------------------
+## EPFL experts ------------
+message('Getting EPFL dataset for Shiny app')
 
-# Reading datasets ------------
+shiny_epfl_partial <- read_csv("data/epfl_annotations_simple_partial_agreement.csv") %>% 
+  group_by(stance_epfl) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  mutate(`Percentage (%)` = round(n/sum(n) * 100, 1),
+         Agreement = "Partial agreement") %>% 
+  rename("Stance" = "stance_epfl",
+         "Number of tweets" = "n") 
+
+shiny_epfl_full <- read_csv("data/epfl_annotations_simple_full_agreement.csv") %>% 
+  group_by(stance_epfl) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  mutate(`Percentage (%)` = round(n/sum(n) * 100, 1),
+         Agreement = "Full agreement") %>% 
+  rename("Stance" = "stance_epfl",
+         "Number of tweets" = "n") 
+
+shiny_epfl <- rbind(shiny_epfl_partial, shiny_epfl_full) %>% 
+  select(Agreement, Stance, `Number of tweets`,`Percentage (%)`)
+
+## Amazon Mturk workers -----------
+message('Getting Amazon Mturk workers dataset for Shiny app')
+shiny_mturk_all <- read_csv("data/mturk_annotations_simple.csv") %>% 
+  group_by(agree_mturk) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  mutate(`Percentage (%)` = round(n/sum(n) * 100, 1),
+         Agreement = "All tweets")
+
+shiny_mturk_partial <- read_csv("data/mturk_annotations_simple.csv") %>% 
+  filter(partial_agree == 1) %>% 
+  group_by(agree_mturk) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  mutate(`Percentage (%)` = round(n/sum(n) * 100, 1),
+         Agreement = "Partial agreement")
+
+shiny_mturk_full <- read_csv("data/mturk_annotations_simple.csv") %>% 
+  filter(full_agree == 1) %>% 
+  group_by(agree_mturk) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  mutate(`Percentage (%)` = round(n/sum(n) * 100, 1),
+         Agreement = "Total agreement")
+
+shiny_mturk <- rbind(shiny_mturk_all, shiny_mturk_partial, shiny_mturk_full) %>% 
+  select(Agreement, agree_mturk, n, `Percentage (%)`) %>% 
+  rename("Stance" = "agree_mturk",
+         "Number of tweets" = "n")
+
+rm(shiny_mturk_all, shiny_mturk_partial, shiny_mturk_full)
+
+## GPT -------
+message("Getting GPT dataset for Shiny app")
+
+shiny_gpt <- read_csv("outputs/descriptive_gpt.csv") %>% 
+  mutate(negative = round(negative, 1),
+         neutral = round(neutral, 1),
+         positive = round(positive, 1),
+         Prompt = as.character(Prompt))
+
+# Getting performance indicators ------------
 ## Without full agreement  ----------
 message("Getting datasets with partial agreement for Shiny app")
 class_all <- read_csv("outputs/confusion_matrix_per_class_all.csv") %>% 
   mutate(Prompt = as.character(Prompt)) %>% 
-  arrange(desc(`F1 score`)) %>% 
-  mutate(`F1 score` = as.character(`F1 score`),
-         Sensitivity = as.character(Sensitivity),
-         Specificity = as.character(Specificity),
-         PPV = as.character(PPV),
-         NPV = as.character(NPV),
-         Precision = as.character(Precision),
-         Recall = as.character(Recall),
-         `Balanced accuracy` = as.character(`Balanced accuracy`))
+  arrange(desc(`F1 score`)) 
 class_all_positive <- read_csv("outputs/confusion_matrix_per_class_positive.csv") %>% 
   mutate(Prompt = as.character(Prompt)) %>% 
   arrange(desc(`F1 score`)) 

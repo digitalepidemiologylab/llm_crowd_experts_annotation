@@ -30,7 +30,7 @@ for (i in prompts) {
                                    df_con_matrix$stance_epfl, mode = "everything")
   conf_epfl_gpt$prompt <- prompts[i]
   assign(paste('conf_epfl_gpt_all',i,sep='_'),conf_epfl_gpt) %>% 
-    capture.output(., file = paste0("outputs/conf_epfl_gpt_all", i, ".csv"))
+    capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_gpt_all", i, ".csv"))
   
 }
 
@@ -50,7 +50,7 @@ conf_epfl_mturk <- confusionMatrix(df_con_matrix_mturk$agree_mturk,
 
   
 conf_epfl_mturk %>% 
-    capture.output(., file = paste0("outputs/conf_epfl_mturk.csv"))
+    capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mturk.csv"))
   
 
 
@@ -69,7 +69,7 @@ for (i in prompts) {
                                     df_con_matrix_mturk_gpt$agree_mturk, mode = "everything")
   conf_mturk_gpt$prompt <- prompts[i]
   assign(paste('conf_mturk_gpt_all',i,sep='_'),conf_epfl_mturk) %>% 
-    capture.output(., file = paste0("outputs/conf_mturk_gpt_all", i, ".csv"))
+    capture.output(., file = paste0("outputs/confusion_matrices/conf_mturk_gpt_all", i, ".csv"))
   
 }
 
@@ -89,7 +89,7 @@ for (i in prompts) {
                                     df_con_matrix_mturk_gpt$sentiment_gpt, mode = "everything")
   conf_gpt_mturk$prompt <- prompts[i]
   assign(paste('conf_gpt_mturk_all',i,sep='_'),conf_epfl_mturk) %>% 
-    capture.output(., file = paste0("outputs/conf_gpt_mturk_all", i, ".csv"))
+    capture.output(., file = paste0("outputs/confusion_matrices/conf_gpt_mturk_all", i, ".csv"))
   
 }
 
