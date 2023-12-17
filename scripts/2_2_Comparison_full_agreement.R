@@ -8,6 +8,7 @@
 df_all_agree <- df_mturk_annot_clean %>% 
   full_join(epfl_df, by = "text") %>% 
   full_join(gpt_clean, by = "text") %>% 
+  full_join(mistral_clean, by = c("text", "prompt")) %>% 
   filter(!is.na(sent_l)) %>% 
   select(-id_tweets.x, -id_tweets.y) %>% # id_tweets comes from gpt_clean (supossedly same as epfl_df)
   filter(agree_stance == 1)
@@ -53,6 +54,23 @@ for (i in prompts_agree) {
   
 }
 
+## EPFL vs Mistral ---------------
+for (i in prompts_agree) {
+  df_con_matrix_mistral_agree <- df_all_agree_clean %>% 
+    filter(prompt == i) %>% 
+    select(stance_epfl, sentiment_mistral) %>% 
+    mutate(stance_epfl = factor(stance_epfl, ordered = TRUE,
+                                levels = c("positive","neutral", "negative")),
+           sentiment_mistral = factor(sentiment_mistral, ordered = TRUE,
+                                      levels = c("positive", "neutral", "negative"))) 
+  #prompt_loop[i] <- prompts[i]
+  conf_epfl_mistral_agree <- confusionMatrix(df_con_matrix_mistral_agree$sentiment_mistral,
+                                       df_con_matrix_mistral_agree$stance_epfl, mode = "everything")
+  conf_epfl_mistral_agree$prompt <- prompts_agree[i]
+  assign(paste('conf_epfl_mistral_agree_all',i,sep='_'),conf_epfl_mistral_agree) %>% 
+    capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mistral_agree_all", i, ".csv"))
+  
+}
 
 ## EPFL vs Mturk --------------
 df_con_matrix_mturk_agree <- df_all_agree_clean %>% 
@@ -70,7 +88,6 @@ df_con_matrix_mturk_agree <- df_all_agree_clean %>%
   conf_epfl_mturk_agree %>% 
     capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mturk_agree.csv"))
   
-
 
 ## Mturk vs GPT --------------
 for (i in prompts) {
@@ -110,13 +127,6 @@ for (i in prompts) {
   
 }
 
-# Comparing the confusion matrices outputs ------------
-## EPFL-GPT vs EPFL-Mturk -------------
-mcnemar_results <- mcnemar.test(conf_epfl_mturk_agree$table,
-                                        conf_epfl_mturk$table)
-
-mcnemar_results
-
 # Merging all confusion matrices ------------
 ## Accuracy -------------
 overall_all_agree <- as.data.frame(conf_epfl_mturk_agree$overall) %>% 
@@ -136,6 +146,14 @@ overall_all_agree <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
   cbind(as.data.frame(conf_epfl_gpt_agree_all_46$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_agree_all_47$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_agree_all_48$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mistral_agree_all_0$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mistral_agree_all_1$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mistral_agree_all_3$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mistral_agree_all_4$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mistral_agree_all_5$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mistral_agree_all_6$overall)) %>% 
+  #cbind(as.data.frame(conf_epfl_mistral_agree_all_7$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mistral_agree_all_8$overall)) %>% 
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
@@ -144,6 +162,14 @@ overall_all_agree <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
   mutate(method = str_replace_all(method, 
                                   c("conf_epfl_" = "", 
                                     "\\$overall" = "",
+                                    "mistral_agree_all_0" = "Mistral prompt 0",
+                                    "mistral_agree_all_1" = "Mistral prompt 1",
+                                    "mistral_agree_all_3" = "Mistral prompt 3",
+                                    "mistral_agree_all_4" = "Mistral prompt 4",
+                                    "mistral_agree_all_5" = "Mistral prompt 5",
+                                    "mistral_agree_all_6" = "Mistral prompt 6",
+                                    #"mistral_agree_all_7" = "Mistral prompt 7",
+                                    "mistral_agree_all_8" = "Mistral prompt 8",
                                     "gpt_agree_all_40" = "GPT 4 prompt 0",
                                     "gpt_agree_all_41" = "GPT 4 prompt 1",
                                     "gpt_agree_all_43" = "GPT 4 prompt 3",
@@ -261,6 +287,46 @@ class_agree_gpt48 <- as.data.frame(conf_epfl_gpt_agree_all_48$byClass) %>%
   rownames_to_column() %>% 
   select(-rowname)
 
+class_agree_mistral0 <- as.data.frame(conf_epfl_mistral_agree_all_0$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral0", "neutral_mistral0", "negative_mistral0"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_agree_mistral1 <- as.data.frame(conf_epfl_mistral_agree_all_1$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral1", "neutral_mistral1", "negative_mistral1"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_agree_mistral3 <- as.data.frame(conf_epfl_mistral_agree_all_3$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral3", "neutral_mistral3", "negative_mistral3"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_agree_mistral4 <- as.data.frame(conf_epfl_mistral_agree_all_4$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral4", "neutral_mistral4", "negative_mistral4"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_agree_mistral5 <- as.data.frame(conf_epfl_mistral_agree_all_5$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral5", "neutral_mistral5", "negative_mistral5"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_agree_mistral6 <- as.data.frame(conf_epfl_mistral_agree_all_6$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral6", "neutral_mistral6", "negative_mistral6"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+# class_agree_mistral7 <- as.data.frame(conf_epfl_mistral_agree_all_7$byClass) %>% 
+#   mutate(class_tweet = c("positive_mistral7", "neutral_mistral7", "negative_mistral7"))%>% 
+#   rownames_to_column() %>% 
+#   select(-rowname)
+
+class_agree_mistral8 <- as.data.frame(conf_epfl_mistral_agree_all_8$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral8", "neutral_mistral8", "negative_mistral8"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
 class_all_agree <- class_agree_gpt0 %>% 
   full_join(class_agree_gpt1) %>% 
   full_join(class_agree_gpt3) %>% 
@@ -278,14 +344,35 @@ class_all_agree <- class_agree_gpt0 %>%
   full_join(class_agree_gpt46) %>% 
   full_join(class_agree_gpt47) %>% 
   full_join(class_agree_gpt48) %>% 
+  full_join(class_agree_mistral0) %>% 
+  full_join(class_agree_mistral1) %>% 
+  full_join(class_agree_mistral3) %>% 
+  full_join(class_agree_mistral4) %>% 
+  full_join(class_agree_mistral5) %>% 
+  full_join(class_agree_mistral6) %>% 
+  # full_join(class_agree_mistral7) %>% 
+  full_join(class_agree_mistral8) %>% 
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
                                   c("conf_epfl_" = "", 
                                     "\\$overall" = "",
+                                    "mistral0" = "Mistral prompt 0",
+                                    "mistral1" = "Mistral prompt 1",
+                                    "mistral3" = "Mistral prompt 3",
+                                    "mistral4" = "Mistral prompt 4",
+                                    "mistral5" = "Mistral prompt 5",
+                                    "mistral6" = "Mistral prompt 6",
+                                    # "mistral7" = "Mistral prompt 7",
+                                    "mistral8" = "Mistral prompt 8",
                                     "gpt40" = "GPT 4 prompt 0",
                                     "gpt41" = "GPT 4 prompt 1",
                                     "gpt45" = "GPT 4 prompt 5",
+                                    "gpt43" = "GPT 4 prompt 3",
+                                    "gpt44" = "GPT 4 prompt 4",
+                                    "gpt46" = "GPT 4 prompt 6",
+                                    "gpt47" = "GPT 4 prompt 7",
+                                    "gpt48" = "GPT 4 prompt 8",
                                     "gpt0" = "GPT 3.5 prompt 0",
                                     "gpt1" = "GPT 3.5 prompt 1",
                                     "gpt3" = "GPT 3.5 prompt 3",
@@ -294,12 +381,7 @@ class_all_agree <- class_agree_gpt0 %>%
                                     "gpt6" = "GPT 3.5 prompt 6",
                                     "gpt7" = "GPT 3.5 prompt 7",
                                     "gpt8" = "GPT 3.5 prompt 8",
-                                    "mturk" = "Amazon Mturk",
-                                    "gpt43" = "GPT 4 prompt 3",
-                                    "gpt44" = "GPT 4 prompt 4",
-                                    "gpt46" = "GPT 4 prompt 6",
-                                    "gpt47" = "GPT 4 prompt 7",
-                                    "gpt48" = "GPT 4 prompt 8"))) %>% 
+                                    "mturk" = "Amazon Mturk"))) %>% 
   select(-classifier) %>% 
   rename("PPV" = "Pos Pred Value",
          "NPV" = "Neg Pred Value",
@@ -322,7 +404,6 @@ class_all_agree <- class_agree_gpt0 %>%
 class_all_agree %>% 
   write_csv("outputs/confusion_matrix_per_class_all_agree.csv")
 
-
 class_all_agree_positive <- class_all_agree %>% 
   filter(Stance == "positive") %>% 
   arrange(desc(`F1 score`))
@@ -334,7 +415,6 @@ class_all_agree_negative <- class_all_agree %>%
   filter(Stance == "negative")%>% 
   arrange(desc(`F1 score`))
 
-
 class_all_agree_negative %>% 
   write_csv("outputs/confusion_matrix_per_class_negative_agree.csv")
 
@@ -342,6 +422,6 @@ class_all_agree_neutral <- class_all_agree %>%
   filter(Stance == "neutral")%>% 
   arrange(desc(`F1 score`))
 
-
 class_all_agree_neutral %>% 
   write_csv("outputs/confusion_matrix_per_class_neutral_agree.csv")
+

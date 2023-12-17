@@ -4,7 +4,7 @@
 #' Date created: 31 October 2023
 #' Date updated: 31 October 2023
 
-# Getting summary of three methods -------------------
+# Getting summary of methods -------------------
 ## EPFL experts ------------
 message('Getting EPFL dataset for Shiny app')
 
@@ -65,6 +65,14 @@ rm(shiny_mturk_all, shiny_mturk_partial, shiny_mturk_full)
 message("Getting GPT dataset for Shiny app")
 
 shiny_gpt <- read_csv("outputs/descriptive_gpt.csv") %>% 
+  mutate(negative = round(negative, 1),
+         neutral = round(neutral, 1),
+         positive = round(positive, 1),
+         Prompt = as.character(Prompt))
+
+## Mistral ----------------
+message("Getting Mistral dataset for Shiny app")
+shiny_mistral <- read_csv("outputs/descriptive_mistral.csv") %>% 
   mutate(negative = round(negative, 1),
          neutral = round(neutral, 1),
          positive = round(positive, 1),

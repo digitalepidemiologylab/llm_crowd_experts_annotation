@@ -251,10 +251,49 @@ gpt_descriptive <- gpt_clean %>%
 gpt_descriptive %>% 
   write_csv("outputs/descriptive_gpt.csv")
 
+# Get Mistral data ------------------
+message("Getting Mistral annotations")
+setwd("data/local")
+files_mistral <- fs::dir_ls(glob = "mistral_sentiment_prompt*csv")
+mistral <- vroom(files_mistral)
+setwd("../..")
+
+mistral_clean <- mistral %>% 
+  select(text, sentiment_mistral, prompt) %>% 
+  mutate(sentiment_mistral_raw = tolower(sentiment_mistral),
+         sentiment_mistral_raw = str_replace_all(sentiment_mistral_raw,
+                                                 c("neutural" = "neutral",
+                                                 "neutional" = "neutral")),
+         # get the first instance of the three classes
+         sentiment_mistral = str_match(sentiment_mistral_raw, "\\b(neutral|negative|positive)\\b")[,2])
+
+## Descriptive analysis of Mistral -----------
+mistral_descriptive <- mistral_clean %>% 
+  mutate(prompt = str_replace_all(prompt, 
+                                  c("^0$" = "Mistral prompt 0",
+                                    "^1$" = "Mistral prompt 1",
+                                    "^3$" = "Mistral prompt 3",
+                                    "^4$" = "Mistral prompt 4",
+                                    "^5$" = "Mistral prompt 5",
+                                    "^6$" = "Mistral prompt 6",
+                                    #"^7$" = "Mistral prompt 7",
+                                    "^8$" = "Mistral prompt 8"))) %>% 
+  group_by(prompt, sentiment_mistral) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("Mistral", 'Prompt'), sep = " prompt ")  %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sentiment_mistral",
+              id_cols = c("Mistral" , "Prompt")) 
+
+mistral_descriptive %>% 
+  write_csv("outputs/descriptive_mistral.csv")
+  
 # Get all datasets -------------
 df_all <- df_mturk_annot_clean %>% 
   full_join(epfl_df, by = "text") %>% 
-  full_join(gpt_clean, by = "text") %>% 
+  full_join(gpt_clean, by = "text") %>%
+  full_join(mistral_clean, by = c("text", "prompt")) %>% 
   filter(!is.na(sent_l)) %>% 
   select(-id_tweets.x, -id_tweets.y) # id_tweets comes from gpt_clean (supposedly same as epfl_df)
 

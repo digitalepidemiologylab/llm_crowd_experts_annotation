@@ -5,7 +5,7 @@ Use one of the following words: neutral, negative, positive. \
 1,"""Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
 Use one of the following words: neutral, negative, positive. Include an explanation for the selection of the sentiment. \
 ```{TWEET_TEXT_HERE}```"""
-3,"Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
+3,"""Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
 Use one of the following words: neutral, negative, positive. Include an explanation for the selection of the sentiment. \
 \
 News, factual or objective tweets as well as generally ambiguous examples should be classified as neutral.\
@@ -22,8 +22,8 @@ Examples of negative tweets: \
 * There's a reason these vaccines can take up to 20 years to reach market. Say no to the vaccine. \
 * Vaccines may not be good for kids like the Dengue Fever vaccine. You’re playing with fire. <url> \
 \
-```{TWEET_TEXT_HERE}```"
-4,"Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
+```{TWEET_TEXT_HERE}```"""
+4,"""Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
 Use one of the following words: neutral, negative, positive. Include an explanation for the selection of the sentiment. \
 \
 News, factual or objective tweets as well as generally ambiguous examples should be classified as neutral except if:\
@@ -47,8 +47,8 @@ Examples of negative tweets: \
 * There's a reason these vaccines can take up to 20 years to reach market. Say no to the vaccine. \
 * Vaccines may not be good for kids like the Dengue Fever vaccine. You’re playing with fire. <url> \
 \
-```{TWEET_TEXT_HERE}```"
-5,"Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
+```{TWEET_TEXT_HERE}```"""
+5,"""Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
 Use one of the following words: neutral, negative, positive. Include an explanation for the selection of the sentiment. \
 \
 News, factual or objective tweets as well as generally ambiguous examples should be classified as neutral except if:\
@@ -82,8 +82,8 @@ Examples of negative tweets: \
 * There's a reason these vaccines can take up to 20 years to reach market. Say no to the vaccine. \
 * Vaccines may not be good for kids like the Dengue Fever vaccine. You’re playing with fire. <url> \
 \
-```{TWEET_TEXT_HERE}```"
-6,"Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
+```{TWEET_TEXT_HERE}```"""
+6,"""Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
 Use one of the following words: neutral, negative, positive. Include an explanation for the selection of the sentiment. \
 \
 News, factual or objective tweets as well as generally ambiguous examples should be classified as neutral except if:\
@@ -116,8 +116,8 @@ Examples of negative tweets: \
 * There's a reason these vaccines can take up to 20 years to reach market. Say no to the vaccine. \
 * Vaccines may not be good for kids like the Dengue Fever vaccine. You’re playing with fire. <url> \
 \
-```{TWEET_TEXT_HERE}```"
-7,"Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
+```{TWEET_TEXT_HERE}```"""
+7,"""Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
 Use one of the following words: neutral, negative, positive. Include an explanation for the selection of the sentiment. \
 \
 News, factual or objective tweets as well as generally ambiguous examples should be classified as neutral except if:\
@@ -157,8 +157,8 @@ Examples of negative tweets: \
 * <It would go away without the vaccine> #HerdMentality this man knows nothing about viruses. \
 * Anti-vaxxer Novak Djokovic. #COVID19 #tennis The current world number one is the fourth player to test positive from the event that did not even pay lip service to social distancing. <url> via @user \
 \
-```{TWEET_TEXT_HERE}```"
-8,"Give me the stance of the user towards vaccination in the tweet text delimited by triple backticks, regardless of the general sentiment expressed in the tweet. A tweet with a negative general sentiment can express a positive stance of the user towards vaccination and viceversa. \
+```{TWEET_TEXT_HERE}```"""
+8,"""Give me the stance of the user towards vaccination in the tweet text delimited by triple backticks, regardless of the general sentiment expressed in the tweet. A tweet with a negative general sentiment can express a positive stance of the user towards vaccination and viceversa. \
 Use one of the following words: neutral, negative, positive. Include an explanation for the selection of the stance. \
 The reply must contain the selected word for the stance followed by '.' and followed by the explanation for the selected stance. \
 \
@@ -193,4 +193,4 @@ Examples of negative tweets: \
 * There's a reason these vaccines can take up to 20 years to reach market. Say no to the vaccine. \
 * Vaccines may not be good for kids like the Dengue Fever vaccine. You’re playing with fire. <url> \
 \
-```{TWEET_TEXT_HERE}```"
+```{TWEET_TEXT_HERE}```"""

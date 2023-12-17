@@ -17,7 +17,8 @@ server <- function(input, output) {
     switch(input$dataset_describe,
            "Summary of stance by EPFL experts" = shiny_epfl,
            "Summary of stance by Amazon Mturk workers" = shiny_mturk,
-           "Summary of stance by GPT" = shiny_gpt)
+           "Summary of stance by GPT" = shiny_gpt,
+           "Summary of stance by Mistral" = shiny_mistral)
   })
   
   datasetInput <- reactive({
@@ -70,7 +71,8 @@ server <- function(input, output) {
     switch(input$dataset_describe,
            "Summary of stance by EPFL experts" = "Distribution of stance depending on agreement reached by EPFL experts. Tweets with the same stance assigned by at least three out of the four EPFL experts were considered tweets with partial agreement",
            "Summary of stance by Amazon Mturk workers" = "Distribution of stance depending on agreement reached by Amazon Mturk workers. Tweets with the same stance assigned by at least 75% of the Amazon Mturk workers classifying each tweet were considered tweets with partial agreement",
-           "Summary of stance by GPT" = "Distribution of stance depending on agreement reached by Amazon Mturk workers. Tweets with the same stance assigned by at least 75% of the Amazon Mturk workers classifying each tweet were considered tweets with partial agreement")
+           "Summary of stance by GPT" = "Distribution of stance provided by GPT versions 3.5 and 4 and depending on the prompt provided to GPT",
+           "Summary of stance by Mistral" = "Distribution of stance provided by Mistral depending on the prompt provided to Mistral")
   })
   
   # Help text per dataset
@@ -105,7 +107,8 @@ ui <- navbarPage(
                selectInput("dataset_describe", "Choose a dataset:", 
                            choices = c("Summary of stance by EPFL experts",
                                        "Summary of stance by Amazon Mturk workers",
-                                       "Summary of stance by GPT")),
+                                       "Summary of stance by GPT",
+                                       "Summary of stance by Mistral")),
                # Get help text per dataset
                textOutput("helpText_describe")
              ),

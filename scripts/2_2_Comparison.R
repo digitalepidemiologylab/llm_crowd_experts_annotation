@@ -53,6 +53,24 @@ conf_epfl_mturk %>%
     capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mturk.csv"))
   
 
+## EPFL vs Mistral ---------------
+for (i in prompts) {
+  df_con_matrix_mistral <- df_all_clean %>% 
+    filter(prompt == i) %>% 
+    select(stance_epfl, sentiment_mistral) %>% 
+    mutate(stance_epfl = factor(stance_epfl, ordered = TRUE,
+                                levels = c("positive","neutral", "negative")),
+           sentiment_mistral = factor(sentiment_mistral, ordered = TRUE,
+                                  levels = c("positive", "neutral", "negative"))) 
+  assign(paste('df_con_matrix_mistral',i,sep='_'), df_con_matrix_mistral)
+  #prompt_loop[i] <- prompts[i]
+  conf_epfl_mistral <- confusionMatrix(df_con_matrix_mistral$sentiment_mistral,
+                                   df_con_matrix_mistral$stance_epfl, mode = "everything")
+  conf_epfl_mistral$prompt <- prompts[i]
+  assign(paste('conf_epfl_mistral_all',i,sep='_'),conf_epfl_mistral) %>% 
+    capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mistral_all", i, ".csv"))
+  
+}
 
 ## Mturk vs GPT --------------
 for (i in prompts) {
@@ -93,69 +111,6 @@ for (i in prompts) {
   
 }
 
-# Comparing the confusion matrices outputs ------------
-confusion_matrices <- list(conf_epfl_gpt_all_0,  conf_epfl_gpt_all_1, 
-                           conf_epfl_gpt_all_3,  conf_epfl_gpt_all_4, conf_epfl_gpt_all_40 , 
-                           conf_epfl_gpt_all_41, conf_epfl_gpt_all_45, conf_epfl_gpt_all_5,    
-                           conf_epfl_gpt_all_6 , conf_epfl_gpt_all_7,  conf_epfl_gpt_all_8 , 
-                           conf_epfl_mturk   , conf_gpt_mturk , conf_gpt_mturk_all_0,   
-                           conf_gpt_mturk_all_1,  conf_gpt_mturk_all_3,  conf_gpt_mturk_all_4 , 
-                           conf_gpt_mturk_all_40, conf_gpt_mturk_all_41, conf_gpt_mturk_all_45,  
-                           conf_gpt_mturk_all_5 , conf_gpt_mturk_all_6,   conf_gpt_mturk_all_7 , 
-                           conf_gpt_mturk_all_8, conf_mturk_gpt_all_0, 
-                           conf_mturk_gpt_all_1 , conf_mturk_gpt_all_3 , conf_mturk_gpt_all_4  , 
-                           conf_mturk_gpt_all_40 , conf_mturk_gpt_all_41,  conf_mturk_gpt_all_45, 
-                           conf_mturk_gpt_all_5 , conf_mturk_gpt_all_6 ,  conf_mturk_gpt_all_7,  
-                           conf_mturk_gpt_all_8  , conf_mturk_gpt_all_43, conf_mturk_gpt_all_44,
-                           conf_mturk_gpt_all_46, conf_mturk_gpt_all_47, conf_mturk_gpt_all_48)
-
-confusion_matrices_names <- c("conf_epfl_gpt_all_0",  "conf_epfl_gpt_all_1", 
-                              "conf_epfl_gpt_all_3",  "conf_epfl_gpt_all_4", "conf_epfl_gpt_all_40" , 
-                              "conf_epfl_gpt_all_41", "conf_epfl_gpt_all_45", "conf_epfl_gpt_all_5",    
-                              "conf_epfl_gpt_all_6" , "conf_epfl_gpt_all_7",  "conf_epfl_gpt_all_8" , 
-                              "conf_epfl_mturk"   , "conf_gpt_mturk" , "conf_gpt_mturk_all_0",   
-                              "conf_gpt_mturk_all_1",  "conf_gpt_mturk_all_3",  "conf_gpt_mturk_all_4" , 
-                              "conf_gpt_mturk_all_40", "conf_gpt_mturk_all_41", "conf_gpt_mturk_all_45",  
-                              "conf_gpt_mturk_all_5" , "conf_gpt_mturk_all_6",   "conf_gpt_mturk_all_7" , 
-                              "conf_gpt_mturk_all_8", "conf_mturk_gpt_all_0", 
-                              "conf_mturk_gpt_all_1" , "conf_mturk_gpt_all_3" , "conf_mturk_gpt_all_4"  , 
-                              "conf_mturk_gpt_all_40" , "conf_mturk_gpt_all_41",  "conf_mturk_gpt_all_45", 
-                              "conf_mturk_gpt_all_5" , "conf_mturk_gpt_all_6" ,  "conf_mturk_gpt_all_7",  
-                              "conf_mturk_gpt_all_8" , "conf_mturk_gpt_all_43", "conf_mturk_gpt_all_44" ,
-                              "conf_mturk_gpt_all_46", "conf_mturk_gpt_all_47", "conf_mturk_gpt_all_48")
-
-mcnemar_results <- data.frame(matrix1 = NULL, matrix2 = NULL, mcnemar_result = NULL)
-mcnemar_1_all <- NULL
-mcnemar_2_all <- NULL
-mcnemar_pvalue_all <- NULL
-
-for (i in 1:10) {
-  for (j in 1:10) {
-    mcnemar_1 <- confusion_matrices_names[i]
-    mcnemar_1_all <- c(mcnemar_1_all, mcnemar_1)
-    mcnemar_2 <- confusion_matrices_names[j]
-    mcnemar_2_all <- c(mcnemar_2_all, mcnemar_2)
-    mcnemar <- mcnemar.test(confusion_matrices[[i]]$table,
-                            confusion_matrices[[j]]$table)
-    print(paste("mcnemar1:", mcnemar_1, "mcnemar2:", mcnemar_2, mcnemar[3]))
-    mcnemar_pvalue_all <- list(mcnemar_pvalue_all, mcnemar[3])
-    
-  }
-  
-}
-
-# For the Shiny app ----------
-df_list <- ls(pattern = "^df_con_matrix")
-
-# Comparison of results per class ---------------
-## EPFL-GPT vs EPFL-Mturk -------------
-### GPT 3.5 prompt 5
-df_class_epfl_mturk <- conf_epfl_mturk$byClass
-df_class_epfl_gpt_5 <- conf_epfl_gpt_all_5$byClass
-wilcox_epfl__mturk_gpt5_sensitivity_positive <- wilcox.test(df_class_epfl_gpt_5[[3,3]],
-                                                              df_class_epfl_mturk[[3,3]], paired = TRUE)
-wilcox_epfl__mturk_gpt5_sensitivity_positive
-
 # Merging all confusion matrices ------------
 ## Accuracy -------------
 overall_all <- as.data.frame(conf_epfl_mturk$overall) %>% 
@@ -175,6 +130,14 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
   cbind(as.data.frame(conf_epfl_gpt_all_46$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_all_47$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_all_48$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mistral_all_0$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mistral_all_1$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mistral_all_3$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mistral_all_4$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mistral_all_5$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mistral_all_6$overall)) %>%
+  # cbind(as.data.frame(conf_epfl_mistral_all_7$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mistral_all_8$overall)) %>% 
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
@@ -183,6 +146,14 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
   mutate(method = str_replace_all(method, 
                                   c("conf_epfl_" = "", 
                                     "\\$overall" = "",
+                                    "mistral_all_0" = "Mistral prompt 0",
+                                    "mistral_all_1" = "Mistral prompt 1",
+                                    "mistral_all_3" = "Mistral prompt 3",
+                                    "mistral_all_4" = "Mistral prompt 4",
+                                    "mistral_all_5" = "Mistral prompt 5",
+                                    "mistral_all_6" = "Mistral prompt 6",
+                                    # "mistral_all_7" = "Mistral prompt 7",
+                                    "mistral_all_8" = "Mistral prompt 8",
                                     "gpt_all_40" = "GPT 4 prompt 0",
                                     "gpt_all_41" = "GPT 4 prompt 1",
                                     "gpt_all_43" = "GPT 4 prompt 3",
@@ -300,6 +271,46 @@ class_gpt48 <- as.data.frame(conf_epfl_gpt_all_48$byClass) %>%
   rownames_to_column() %>% 
   select(-rowname)
 
+class_mistral0 <- as.data.frame(conf_epfl_mistral_all_0$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral0", "neutral_mistral0", "negative_mistral0"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_mistral1 <- as.data.frame(conf_epfl_mistral_all_1$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral1", "neutral_mistral1", "negative_mistral1"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_mistral3 <- as.data.frame(conf_epfl_mistral_all_3$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral3", "neutral_mistral3", "negative_mistral3"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_mistral4 <- as.data.frame(conf_epfl_mistral_all_4$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral4", "neutral_mistral4", "negative_mistral4"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_mistral5 <- as.data.frame(conf_epfl_mistral_all_5$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral5", "neutral_mistral5", "negative_mistral5"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_mistral6 <- as.data.frame(conf_epfl_mistral_all_6$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral6", "neutral_mistral6", "negative_mistral6"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+# class_mistral7 <- as.data.frame(conf_epfl_mistral_all_7$byClass) %>% 
+#   mutate(class_tweet = c("positive_mistral7", "neutral_mistral7", "negative_mistral7"))%>% 
+#   rownames_to_column() %>% 
+#   select(-rowname)
+
+class_mistral8 <- as.data.frame(conf_epfl_mistral_all_8$byClass) %>% 
+  mutate(class_tweet = c("positive_mistral8", "neutral_mistral8", "negative_mistral8"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
 class_all <- class_gpt0 %>% 
   full_join(class_gpt1) %>% 
   full_join(class_gpt3) %>% 
@@ -317,11 +328,27 @@ class_all <- class_gpt0 %>%
   full_join(class_gpt46) %>% 
   full_join(class_gpt47) %>% 
   full_join(class_gpt48) %>% 
+  full_join(class_mistral0) %>% 
+  full_join(class_mistral1) %>% 
+  full_join(class_mistral3) %>% 
+  full_join(class_mistral4) %>% 
+  full_join(class_mistral5) %>% 
+  full_join(class_mistral6) %>% 
+  # full_join(class_mistral7) %>% 
+  full_join(class_mistral8) %>% 
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
                                   c("conf_epfl_" = "", 
                                     "\\$overall" = "",
+                                    "mistral0" = "Mistral prompt 0",
+                                    "mistral1" = "Mistral prompt 1",
+                                    "mistral3" = "Mistral prompt 3",
+                                    "mistral4" = "Mistral prompt 4",
+                                    "mistral5" = "Mistral prompt 5",
+                                    "mistral6" = "Mistral prompt 6",
+                                    # "mistral7" = "Mistral prompt 7",
+                                    "mistral8" = "Mistral prompt 8",
                                     "gpt40" = "GPT 4 prompt 0",
                                     "gpt41" = "GPT 4 prompt 1",
                                     "gpt43" = "GPT 4 prompt 3",
