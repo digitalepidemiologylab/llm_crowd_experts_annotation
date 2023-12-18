@@ -152,7 +152,7 @@ overall_all_agree <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
   cbind(as.data.frame(conf_epfl_mistral_agree_all_4$overall)) %>%
   cbind(as.data.frame(conf_epfl_mistral_agree_all_5$overall)) %>% 
   cbind(as.data.frame(conf_epfl_mistral_agree_all_6$overall)) %>% 
-  #cbind(as.data.frame(conf_epfl_mistral_agree_all_7$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mistral_agree_all_7$overall)) %>%
   cbind(as.data.frame(conf_epfl_mistral_agree_all_8$overall)) %>% 
   t() %>% 
   as.data.frame() %>% 
@@ -168,7 +168,7 @@ overall_all_agree <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
                                     "mistral_agree_all_4" = "Mistral prompt 4",
                                     "mistral_agree_all_5" = "Mistral prompt 5",
                                     "mistral_agree_all_6" = "Mistral prompt 6",
-                                    #"mistral_agree_all_7" = "Mistral prompt 7",
+                                    "mistral_agree_all_7" = "Mistral prompt 7",
                                     "mistral_agree_all_8" = "Mistral prompt 8",
                                     "gpt_agree_all_40" = "GPT 4 prompt 0",
                                     "gpt_agree_all_41" = "GPT 4 prompt 1",
@@ -317,10 +317,10 @@ class_agree_mistral6 <- as.data.frame(conf_epfl_mistral_agree_all_6$byClass) %>%
   rownames_to_column() %>% 
   select(-rowname)
 
-# class_agree_mistral7 <- as.data.frame(conf_epfl_mistral_agree_all_7$byClass) %>% 
-#   mutate(class_tweet = c("positive_mistral7", "neutral_mistral7", "negative_mistral7"))%>% 
-#   rownames_to_column() %>% 
-#   select(-rowname)
+class_agree_mistral7 <- as.data.frame(conf_epfl_mistral_agree_all_7$byClass) %>%
+  mutate(class_tweet = c("positive_mistral7", "neutral_mistral7", "negative_mistral7"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
 
 class_agree_mistral8 <- as.data.frame(conf_epfl_mistral_agree_all_8$byClass) %>% 
   mutate(class_tweet = c("positive_mistral8", "neutral_mistral8", "negative_mistral8"))%>% 
@@ -350,7 +350,7 @@ class_all_agree <- class_agree_gpt0 %>%
   full_join(class_agree_mistral4) %>% 
   full_join(class_agree_mistral5) %>% 
   full_join(class_agree_mistral6) %>% 
-  # full_join(class_agree_mistral7) %>% 
+  full_join(class_agree_mistral7) %>%
   full_join(class_agree_mistral8) %>% 
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
@@ -363,7 +363,7 @@ class_all_agree <- class_agree_gpt0 %>%
                                     "mistral4" = "Mistral prompt 4",
                                     "mistral5" = "Mistral prompt 5",
                                     "mistral6" = "Mistral prompt 6",
-                                    # "mistral7" = "Mistral prompt 7",
+                                    "mistral7" = "Mistral prompt 7",
                                     "mistral8" = "Mistral prompt 8",
                                     "gpt40" = "GPT 4 prompt 0",
                                     "gpt41" = "GPT 4 prompt 1",

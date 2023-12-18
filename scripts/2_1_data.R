@@ -276,7 +276,7 @@ mistral_descriptive <- mistral_clean %>%
                                     "^4$" = "Mistral prompt 4",
                                     "^5$" = "Mistral prompt 5",
                                     "^6$" = "Mistral prompt 6",
-                                    #"^7$" = "Mistral prompt 7",
+                                    "^7$" = "Mistral prompt 7",
                                     "^8$" = "Mistral prompt 8"))) %>% 
   group_by(prompt, sentiment_mistral) %>% 
   tally() %>% 
