@@ -49,8 +49,8 @@ for (i in prompts_agree) {
   conf_epfl_gpt_agree <- confusionMatrix(df_con_matrix_agree$sentiment_gpt,
                                          df_con_matrix_agree$stance_epfl)
   conf_epfl_gpt_agree$prompt <- prompts_agree[i]
-  assign(paste('conf_epfl_gpt_agree_all',i,sep='_'),conf_epfl_gpt_agree) %>% 
-    capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_gpt_agree_all", i, ".csv"))
+  # assign(paste('conf_epfl_gpt_agree_all',i,sep='_'),conf_epfl_gpt_agree) %>% 
+  #   capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_gpt_agree_all", i, ".csv"))
   
 }
 
@@ -67,8 +67,8 @@ for (i in prompts_agree) {
   conf_epfl_mistral_agree <- confusionMatrix(df_con_matrix_mistral_agree$sentiment_mistral,
                                        df_con_matrix_mistral_agree$stance_epfl, mode = "everything")
   conf_epfl_mistral_agree$prompt <- prompts_agree[i]
-  assign(paste('conf_epfl_mistral_agree_all',i,sep='_'),conf_epfl_mistral_agree) %>% 
-    capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mistral_agree_all", i, ".csv"))
+  # assign(paste('conf_epfl_mistral_agree_all',i,sep='_'),conf_epfl_mistral_agree) %>% 
+  #   capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mistral_agree_all", i, ".csv"))
   
 }
 
@@ -85,8 +85,8 @@ df_con_matrix_mturk_agree <- df_all_agree_clean %>%
   conf_epfl_mturk_agree <- confusionMatrix(df_con_matrix_mturk_agree$agree_mturk,
                                      df_con_matrix_mturk_agree$stance_epfl)
   
-  conf_epfl_mturk_agree %>% 
-    capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mturk_agree.csv"))
+  # conf_epfl_mturk_agree %>% 
+  #   capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mturk_agree.csv"))
   
 
 ## Mturk vs GPT --------------
@@ -122,8 +122,8 @@ for (i in prompts) {
   conf_gpt_mturk <- confusionMatrix(df_con_matrix_mturk_gpt$agree_mturk,
                                     df_con_matrix_mturk_gpt$sentiment_gpt)
   conf_gpt_mturk$prompt <- prompts[i]
-  assign(paste('conf_gpt_mturk_all',i,sep='_'),conf_epfl_mturk) %>% 
-    capture.output(., file = paste0("outputs/confusion_matrices/conf_gpt_mturk_all", i, ".csv"))
+  # assign(paste('conf_gpt_mturk_all',i,sep='_'),conf_epfl_mturk) %>% 
+  #   capture.output(., file = paste0("outputs/confusion_matrices/conf_gpt_mturk_all", i, ".csv"))
   
 }
 
@@ -399,7 +399,8 @@ class_all_agree <- class_agree_gpt0 %>%
          NPV = round(NPV, 4),
          Precision = round(Precision, 4),
          Recall = round(Recall, 4),
-         `Balanced accuracy` = round(`Balanced accuracy`, 4))
+         `Balanced accuracy` = round(`Balanced accuracy`, 4)) %>% 
+  select(Method, Prompt, Stance, `F1 score`, Sensitivity, Specificity)
 
 class_all_agree %>% 
   write_csv("outputs/confusion_matrix_per_class_all_agree.csv")

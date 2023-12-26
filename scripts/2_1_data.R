@@ -251,6 +251,37 @@ gpt_descriptive <- gpt_clean %>%
 gpt_descriptive %>% 
   write_csv("outputs/descriptive_gpt.csv")
 
+gpt_descriptive_agree <- gpt_clean %>% 
+  mutate(prompt = str_replace_all(prompt, 
+                                  c("40" = "GPT 4 prompt 0",
+                                    "41" = "GPT 4 prompt 1",
+                                    "45" = "GPT 4 prompt 5",
+                                    "43" = "GPT 4 prompt 3",
+                                    "44" = "GPT 4 prompt 4",
+                                    "46" = "GPT 4 prompt 6",
+                                    "47" = "GPT 4 prompt 7",
+                                    "48" = "GPT 4 prompt 8",
+                                    "^0$" = "GPT 3.5 prompt 0",
+                                    "^1$" = "GPT 3.5 prompt 1",
+                                    "^3$" = "GPT 3.5 prompt 3",
+                                    "^4$" = "GPT 3.5 prompt 4",
+                                    "^5$" = "GPT 3.5 prompt 5",
+                                    "^6$" = "GPT 3.5 prompt 6",
+                                    "^7$" = "GPT 3.5 prompt 7",
+                                    "^8$" = "GPT 3.5 prompt 8"))) %>% 
+  semi_join(epfl_df_full['text']) %>% 
+  group_by(prompt, sentiment_gpt) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("GPT", 'Prompt'), sep = " prompt ")  %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sentiment_gpt",
+              id_cols = c("GPT" , "Prompt")) 
+
+gpt_descriptive_agree %>% 
+  write_csv("outputs/descriptive_gpt_agree.csv")
+
+
 # Get Mistral data ------------------
 message("Getting Mistral annotations")
 setwd("data/local")
@@ -288,6 +319,66 @@ mistral_descriptive <- mistral_clean %>%
 
 mistral_descriptive %>% 
   write_csv("outputs/descriptive_mistral.csv")
+
+mistral_descriptive_agree <- mistral_clean %>% 
+  mutate(prompt = str_replace_all(prompt, 
+                                  c("^0$" = "Mistral prompt 0",
+                                    "^1$" = "Mistral prompt 1",
+                                    "^3$" = "Mistral prompt 3",
+                                    "^4$" = "Mistral prompt 4",
+                                    "^5$" = "Mistral prompt 5",
+                                    "^6$" = "Mistral prompt 6",
+                                    "^7$" = "Mistral prompt 7",
+                                    "^8$" = "Mistral prompt 8"))) %>% 
+  semi_join(epfl_df_full['text']) %>% 
+  group_by(prompt, sentiment_mistral) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("Mistral", 'Prompt'), sep = " prompt ")  %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sentiment_mistral",
+              id_cols = c("Mistral" , "Prompt")) 
+
+mistral_descriptive_agree %>% 
+  write_csv("outputs/descriptive_mistral_agree.csv")
+
+
+# Merge mistral and gpt -----------
+mistral_gpt_descriptive <- gpt_descriptive %>% 
+  rename("Mistral" = "GPT") %>% 
+  rbind(mistral_descriptive) %>% 
+  rename("Model" = "Mistral",
+         "Positive" = "positive",
+         "Neutral" = "neutral",
+         "Negative" = "negative") %>% 
+  arrange(Prompt)
+
+mistral_gpt_descriptive %>% 
+  write_csv("outputs/descriptive_mistral_gpt.csv")
+
+mistral_gpt_descriptive_agree <- gpt_descriptive_agree %>% 
+  rename("Mistral" = "GPT") %>% 
+  rbind(mistral_descriptive_agree) %>% 
+  rename("Model" = "Mistral",
+         "Positive" = "positive",
+         "Neutral" = "neutral",
+         "Negative" = "negative") %>% 
+  arrange(Prompt)
+
+mistral_gpt_descriptive_agree %>% 
+  write_csv("outputs/descriptive_mistral_gpt_agree.csv")
+
+mistral_gpt_descriptive_all <- mistral_gpt_descriptive %>% 
+  left_join(mistral_gpt_descriptive_agree, by = c("Model", "Prompt")) %>% 
+  rename("Neutral (partial agreement)" = Neutral.x,
+         "Positive (partial agreement)" = Positive.x,
+         "Negative (partial agreement)" = Negative.x,
+         "Neutral (full agreement)" = Neutral.y,
+         "Positive (full agreement)" = Positive.y,
+         "Negative (full agreement)" = Negative.y)
+
+mistral_gpt_descriptive_all %>% 
+  write_csv("outputs/descriptive_mistral_gpt_all.csv")
   
 # Get all datasets -------------
 df_all <- df_mturk_annot_clean %>% 

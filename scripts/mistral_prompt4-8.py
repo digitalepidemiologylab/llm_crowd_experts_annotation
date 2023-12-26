@@ -25,33 +25,62 @@ prompt_8 = prompts.iloc[7,1]
 
 # Prompt 5        
 # Setting up the columns for the database with the sentiment
-id_mistral = []
-sent_mistral = []
-text = []
+#id_mistral = []
+#sent_mistral = []
+#text = []
 
 ## Loop to get the sentiment from mistral
 
-for i in range(0, 999):
-    prompt_i = prompt_5.replace('TWEET_TEXT_HERE', df.iloc[i,2])
-    response = llm.complete(prompt_i)
-    text.append(df.iloc[i,2])
-    sent_mistral.append(response.text)
-    id_mistral.append(df.iloc[i,1])
-    print('Tweet #:', i, '  Prompt: 5') # Check how many tweets are left
+#for i in range(0, 999):
+#    prompt_i = prompt_5.replace('TWEET_TEXT_HERE', df.iloc[i,2])
+#    response = llm.complete(prompt_i)
+#    text.append(df.iloc[i,2])
+#    sent_mistral.append(response.text)
+#    id_mistral.append(df.iloc[i,1])
+#    print('Tweet #:', i, '  Prompt: 5') # Check how many tweets are left
 
 ## Save the sentiment in a file and export it
-df_mistral5 = pd.DataFrame(list(zip(id_mistral, text, sent_mistral)),
-        columns = ['id', 'text', 'sentiment_mistral'])
+#df_mistral5 = pd.DataFrame(list(zip(id_mistral, text, sent_mistral)),
+#        columns = ['id', 'text', 'sentiment_mistral'])
 
-df_mistral5['prompt'] = 5
+#df_mistral5['prompt'] = 5
 
-df_mistral5.to_csv('mistral_sentiment_prompt5.csv')
+#df_mistral5.to_csv('mistral_sentiment_prompt5.csv')
 
-print(df_mistral5.info())
-print(df_mistral5.head())
-print('Length mistral5:', len(df_mistral5))
+#print(df_mistral5.info())
+#print(df_mistral5.head())
+#print('Length mistral5:', len(df_mistral5))
 
 # Prompt 4
+## Setting up the columns for the database with the sentiment
+#id_mistral = []
+#sent_mistral = []
+#text = []
+
+## Loop to get the sentiment from mistral
+
+#for i in range(0, 999):
+#    prompt_i = prompt_4.replace('TWEET_TEXT_HERE', df.iloc[i,2])
+#    response = llm.complete(prompt_i)
+#    text.append(df.iloc[i,2])
+#    sent_mistral.append(response.text)
+#    id_mistral.append(df.iloc[i,1])
+#    print(i, 4) # Check how many tweets are left
+
+## Save the sentiment in a file and export it
+#df_mistral4 = pd.DataFrame(list(zip(id_mistral, text, sent_mistral)),
+#        columns = ['id', 'text', 'sentiment_mistral'])
+
+#df_mistral4['prompt'] = 4
+
+#df_mistral4.to_csv('mistral_sentiment_prompt4.csv')
+
+#print(df_mistral4.info())
+#print(df_mistral4.head())
+#print('Length mistral4:', len(df_mistral4))
+
+
+# Prompt 8
 ## Setting up the columns for the database with the sentiment
 id_mistral = []
 sent_mistral = []
@@ -60,25 +89,27 @@ text = []
 ## Loop to get the sentiment from mistral
 
 for i in range(0, 999):
-    prompt_i = prompt_4.replace('TWEET_TEXT_HERE', df.iloc[i,2])
+    prompt_i = prompt_8.replace('TWEET_TEXT_HERE', df.iloc[i,2])
     response = llm.complete(prompt_i)
     text.append(df.iloc[i,2])
     sent_mistral.append(response.text)
     id_mistral.append(df.iloc[i,1])
-    print('Tweet #:', i, '  Prompt: 5') # Check how many tweets are left
+    print(i, 8) # Check how many tweets are left
+
 
 ## Save the sentiment in a file and export it
-df_mistral4 = pd.DataFrame(list(zip(id_mistral, text, sent_mistral)),
+df_mistral8 = pd.DataFrame(list(zip(id_mistral, text, sent_mistral)),
         columns = ['id', 'text', 'sentiment_mistral'])
 
-df_mistral4['prompt'] = 4
+df_mistral8['prompt'] = 8
 
-df_mistral4.to_csv('mistral_sentiment_prompt4.csv')
+df_mistral8.to_csv('mistral_sentiment_prompt8.csv')
 
-print(df_mistral4.info())
-print(df_mistral4.head())
-print('Length mistral4:', len(df_mistral4))
+print(df_mistral8.info())
+print(df_mistral8.head())
+print('Length mistral8:', len(df_mistral8))
 
+df_mistral8.to_csv('mistral_sentiment_prompt8.csv')
 
 # Prompt 6
 ## Setting up the columns for the database with the sentiment
@@ -94,7 +125,7 @@ for i in range(0, 999):
     text.append(df.iloc[i,2])
     sent_mistral.append(response.text)
     id_mistral.append(df.iloc[i,1])
-    print('Tweet #:', i, '  Prompt: 5') # Check how many tweets are left
+    print(i, 6) # Check how many tweets are left
 
 
 ## Save the sentiment in a file and export it
@@ -124,7 +155,7 @@ for i in range(0, 999):
     text.append(df.iloc[i,2])
     sent_mistral.append(response.text)
     id_mistral.append(df.iloc[i,1])
-    print('Tweet #:', i, '  Prompt: 5') # Check how many tweets are left
+    print(i, 7) # Check how many tweets are left
 
 ## Save the sentiment in a file and export it
 df_mistral7 = pd.DataFrame(list(zip(id_mistral, text, sent_mistral)),
@@ -138,36 +169,5 @@ print(df_mistral7.info())
 print(df_mistral7.head())
 print('Length mistral7:', len(df_mistral7))
 
-
-# Prompt 8
-## Setting up the columns for the database with the sentiment
-id_mistral = []
-sent_mistral = []
-text = []
-
-## Loop to get the sentiment from mistral
-
-for i in range(0, 999):
-    prompt_i = prompt_8.replace('TWEET_TEXT_HERE', df.iloc[i,2])
-    response = llm.complete(prompt_i)
-    text.append(df.iloc[i,2])
-    sent_mistral.append(response.text)
-    id_mistral.append(df.iloc[i,1])
-    print('Tweet #:', i, '  Prompt: 5') # Check how many tweets are left
-
-
-## Save the sentiment in a file and export it
-df_mistral8 = pd.DataFrame(list(zip(id_mistral, text, sent_mistral)),
-        columns = ['id', 'text', 'sentiment_mistral'])
-
-df_mistral8['prompt'] = 8
-
-df_mistral8.to_csv('mistral_sentiment_prompt8.csv')
-
-print(df_mistral8.info())
-print(df_mistral8.head())
-print('Length mistral8:', len(df_mistral8))
-
-df_mistral8.to_csv('mistral_sentiment_prompt8.csv')
 
 

@@ -40,31 +40,33 @@ server <- function(input, output) {
   })
 
   # Show the selected dataset
-  output$view_describe <- renderTable({
-    datasetInput_describe()
-  })
+  output$view_describe <- renderDT({
+    datasetInput_describe()},
+    #filter = "top",
+    options = list(pageLength = 16)
+  )
   
   # Show the selected dataset
-  output$view <- renderTable({
-    datasetInput()
-  })
+  output$view <- renderDT({
+    datasetInput()},
+    #filter = "top",
+    options = list(pageLength = 25))
     
-  # Generate a summary of the dataset
-  output$summary <- renderPrint({
-    dataset <- datasetInput()
-    summary(dataset)
-  })
+  # # Generate a summary of the dataset
+  # output$summary <- renderTable({
+  #   datasetInput()
+  # })
   
   # Show the selected dataset
-  output$view_full <- renderTable({
-    datasetInput_full()
-  })
+  output$view_full <- renderDT({
+    datasetInput_full()},
+  #filter = "top",
+  options = list(pageLength = 25))
   
   # Generate a summary of the dataset
-  output$summary_full <- renderPrint({
-    dataset_full <- datasetInput_full()
-    summary(dataset_full)
-  })
+  # output$summary_full <- renderTable({
+  #   datasetInput_full()
+  # })
   
   # Help text per dataset
   output$helpText_describe <- renderText({
@@ -117,13 +119,13 @@ ui <- navbarPage(
              mainPanel(
                tabsetPanel(
                  
-                 tabPanel("View", tableOutput("view_describe"))
+                 tabPanel("View", DT::dataTableOutput("view_describe"))
                )
              )
            )
   ),
   
-  tabPanel("GPT & Mturk performance in tweets with partial agreement",
+  tabPanel("Performance of Mturk and LLMs (tweets with partial agreement)",
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
@@ -142,14 +144,13 @@ ui <- navbarPage(
     mainPanel(
       tabsetPanel(
         
-        tabPanel("View", tableOutput("view")),
-        tabPanel("Summary", verbatimTextOutput("summary"))
+        tabPanel("View", DT::dataTableOutput("view"))
       )
     )
   )
 ),
 
-tabPanel("GPT & Mturk performance in tweets with full agreement",
+tabPanel("Performance of Mturk and LLMs (tweets with full agreement)",
          sidebarLayout(
            sidebarPanel(
              selectInput("dataset_full", "Choose a dataset:", 
@@ -164,8 +165,7 @@ tabPanel("GPT & Mturk performance in tweets with full agreement",
            
            mainPanel(
              tabsetPanel(
-               tabPanel("View", tableOutput("view_full")),
-               tabPanel("Summary", verbatimTextOutput("summary_full"))
+               tabPanel("View", DT::dataTableOutput("view_full"))
              )
            )
          )
