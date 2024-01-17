@@ -1,20 +1,20 @@
 Method,Prompt,Stance,F1 score,Sensitivity,Specificity
+GPT 4,1,neutral,0.951,0.9488,0.8413
 GPT 4,8,neutral,0.9495,0.9628,0.7778
-GPT 4,1,neutral,0.9486,0.9442,0.8413
-GPT 4,4,neutral,0.9358,0.9488,0.7302
-GPT 4,3,neutral,0.9309,0.9439,0.7143
+GPT 4,6,neutral,0.9476,0.9674,0.746
+GPT 4,3,neutral,0.9431,0.9673,0.7143
+GPT 4,5,neutral,0.9428,0.9581,0.746
+GPT 4,4,neutral,0.9406,0.9581,0.7302
+GPT 4,7,neutral,0.9372,0.9721,0.6508
 GPT 4,0,neutral,0.9074,0.8884,0.7619
 GPT 3.5,3,neutral,0.9071,0.9535,0.4921
 GPT 3.5,5,neutral,0.9025,0.9256,0.5714
 GPT 3.5,4,neutral,0.9021,0.9209,0.5873
 GPT 3.5,6,neutral,0.8986,0.907,0.619
 Amazon Mturk,NA,neutral,0.8915,0.8977,0.6032
-GPT 4,6,neutral,0.8841,0.8512,0.746
 Mistral,0,neutral,0.8812,0.8318,0.8095
 GPT 3.5,8,neutral,0.8756,0.8837,0.5397
 Mistral,1,neutral,0.8713,0.8224,0.7778
-GPT 4,7,neutral,0.866,0.8419,0.6508
-GPT 4,5,neutral,0.8175,0.7395,0.7619
 Mistral,3,neutral,0.8114,0.7336,0.746
 Mistral,8,neutral,0.7895,0.7009,0.746
 Mistral,7,neutral,0.7582,0.6449,0.8095

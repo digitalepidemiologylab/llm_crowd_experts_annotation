@@ -48,7 +48,7 @@ epfl_df_all <- full_join(epfl_df_1, epfl_df_2, by = "text") %>%
   select(id_tweets, text, sent_m, sent_c, sent_g, sent_l, neutral_sent,
          pos_sent, neg_sent, agree_sent, neutral_stan, pos_stan, neg_stan,
          agree_stan, stance_m, stance_c, stance_g, stance_l, agree_stance) %>% 
-  filter(!is.na(sent_l)) %>% 
+  dplyr::filter(!is.na(sent_l)) %>% 
   mutate(stance_epfl = pmap_chr(select(., starts_with("stance")), ~ {
     x <- c(...)
     if(length(unique(x)) == 1) {
@@ -73,7 +73,7 @@ epfl_df_class_agreement_all <- epfl_df_all %>%
 
 ## Descriptive analysis (partial agreement) --------
 epfl_df <- epfl_df_all %>% 
-  filter(agree_stan == 1)
+  dplyr::filter(agree_stan == 1)
 
 
 epfl_df_s <- epfl_df  %>% 
@@ -82,14 +82,14 @@ epfl_df_s <- epfl_df  %>%
 
 ### Tweets per agreement and class -----------
 epfl_df_class_agreement <- epfl_df %>% 
-  filter(agree_stan == 1 ) %>% 
+  dplyr::filter(agree_stan == 1 ) %>% 
   group_by(stance_epfl) %>% 
   tally() %>% 
   mutate(percent = n / sum(n) * 100)
 
 ## Descriptive analysis (full agreement) --------
 epfl_df_full <- epfl_df_all %>% 
-  filter(agree_stance == 1)
+  dplyr::filter(agree_stance == 1)
 
 
 epfl_df_full_s <- epfl_df_full  %>% 
@@ -98,7 +98,7 @@ epfl_df_full_s <- epfl_df_full  %>%
 
 ### Tweets per agreement and class -----------
 epfl_df_class_agreement_full <- epfl_df_full %>% 
-  filter(agree_stance == 1 ) %>% 
+  dplyr::filter(agree_stance == 1 ) %>% 
   group_by(stance_epfl) %>% 
   tally() %>% 
   mutate(percent = n / sum(n) * 100)
@@ -112,7 +112,7 @@ setwd("../../..")
 
 unique(df_mturk$question_tag)
 df_mturk_clean <- df_mturk %>% 
-  filter(question_tag == "vax_sentiment" | question_tag == "sentiment") %>% 
+  dplyr::filter(question_tag == "vax_sentiment" | question_tag == "sentiment") %>% 
   select(-question_tag, -question_id, -answer_id, -id, -full_log, -total_duration_ms, -worker_id, -task_id) %>% 
   mutate(answer_tag = case_when(answer_tag == "very_negative" | answer_tag == "rather_negative" | answer_tag == "negative" ~ "negative",
                                 answer_tag == "very_positive" | answer_tag == "rather_positive" | answer_tag == "positive" ~ "positive",
@@ -155,7 +155,7 @@ df_mturk_annot_clean_s <- df_mturk_annot_clean %>%
 mturk_dates <- df_mturk %>%
   select(text, created_at) %>% 
   left_join(df_mturk_annot, by = c("text")) %>% 
-  filter(!is.na(agree_mturk)) %>% 
+  dplyr::filter(!is.na(agree_mturk)) %>% 
   distinct(text, created_at)
 
 min(mturk_dates$created_at)
@@ -197,19 +197,17 @@ setwd("../..")
 
 gpt_clean <- gpt %>% 
   select(text, sentiment_gpt, prompt) %>% 
-  separate(col = sentiment_gpt, into = c("sentiment_gpt", "explanation"),
-           sep = 11) %>% 
   mutate(sentiment_gpt = tolower(sentiment_gpt),
          # id_tweets = id_gpt + 1,
-         sentiment_gpt = case_when(str_detect(sentiment_gpt, 'neutral') ~ "neutral",
-                                   str_detect(sentiment_gpt, 'positive') ~ "positive",
-                                   .default = "negative")) %>% 
+         sentiment_gpt = str_match(sentiment_gpt, "\\b(neutral|negative|positive)\\b")[,2],
+         sentiment_gpt = case_when(is.na(sentiment_gpt) ~ "neutral",
+                                   .default = sentiment_gpt)) %>% 
   distinct(text, prompt, .keep_all = TRUE)
 
-gpt_clean$sentiment_gpt <- str_replace_all(string = gpt_clean$sentiment_gpt, 
-                                           pattern = "\r\n", 
-                                           replacement = "") %>%
-  tolower()
+# gpt_clean$sentiment_gpt <- str_replace_all(string = gpt_clean$sentiment_gpt, 
+#                                            pattern = "\r\n", 
+#                                            replacement = "") %>%
+#   tolower()
 
 unique(gpt_clean$prompt)
 
@@ -243,10 +241,10 @@ gpt_descriptive <- gpt_clean %>%
   group_by(prompt, sentiment_gpt) %>% 
   tally() %>% 
   mutate(percentage = n/sum(n) *100) %>% 
-  separate(prompt, c("GPT", 'Prompt'), sep = " prompt ")  %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
   pivot_wider(values_from = "percentage",
               names_from = "sentiment_gpt",
-              id_cols = c("GPT" , "Prompt")) 
+              id_cols = c("Model" , "Prompt")) 
 
 gpt_descriptive %>% 
   write_csv("outputs/descriptive_gpt.csv")
@@ -273,14 +271,25 @@ gpt_descriptive_agree <- gpt_clean %>%
   group_by(prompt, sentiment_gpt) %>% 
   tally() %>% 
   mutate(percentage = n/sum(n) *100) %>% 
-  separate(prompt, c("GPT", 'Prompt'), sep = " prompt ")  %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
   pivot_wider(values_from = "percentage",
               names_from = "sentiment_gpt",
-              id_cols = c("GPT" , "Prompt")) 
+              id_cols = c("Model" , "Prompt")) 
 
 gpt_descriptive_agree %>% 
   write_csv("outputs/descriptive_gpt_agree.csv")
 
+gpt_descriptive_all <- gpt_descriptive %>% 
+  left_join(gpt_descriptive_agree, by = c("Model", "Prompt")) %>% 
+  rename("Neutral (partial agreement)" = neutral.x,
+         "Positive (partial agreement)" = positive.x,
+         "Negative (partial agreement)" = negative.x,
+         "Neutral (full agreement)" = neutral.y,
+         "Positive (full agreement)" = positive.y,
+         "Negative (full agreement)" = negative.y)
+
+gpt_descriptive_all %>% 
+  write_csv("outputs/descriptive_gpt_all.csv")
 
 # Get Mistral data ------------------
 message("Getting Mistral annotations")
@@ -312,10 +321,10 @@ mistral_descriptive <- mistral_clean %>%
   group_by(prompt, sentiment_mistral) %>% 
   tally() %>% 
   mutate(percentage = n/sum(n) *100) %>% 
-  separate(prompt, c("Mistral", 'Prompt'), sep = " prompt ")  %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
   pivot_wider(values_from = "percentage",
               names_from = "sentiment_mistral",
-              id_cols = c("Mistral" , "Prompt")) 
+              id_cols = c("Model" , "Prompt")) 
 
 mistral_descriptive %>% 
   write_csv("outputs/descriptive_mistral.csv")
@@ -334,21 +343,30 @@ mistral_descriptive_agree <- mistral_clean %>%
   group_by(prompt, sentiment_mistral) %>% 
   tally() %>% 
   mutate(percentage = n/sum(n) *100) %>% 
-  separate(prompt, c("Mistral", 'Prompt'), sep = " prompt ")  %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
   pivot_wider(values_from = "percentage",
               names_from = "sentiment_mistral",
-              id_cols = c("Mistral" , "Prompt")) 
+              id_cols = c("Model" , "Prompt")) 
 
 mistral_descriptive_agree %>% 
   write_csv("outputs/descriptive_mistral_agree.csv")
 
+mistral_descriptive_all <- mistral_descriptive %>% 
+  left_join(mistral_descriptive_agree, by = c("Model", "Prompt")) %>% 
+  rename("Neutral (partial agreement)" = neutral.x,
+         "Positive (partial agreement)" = positive.x,
+         "Negative (partial agreement)" = negative.x,
+         "Neutral (full agreement)" = neutral.y,
+         "Positive (full agreement)" = positive.y,
+         "Negative (full agreement)" = negative.y)
+
+mistral_descriptive_all %>% 
+  write_csv("outputs/descriptive_mistral_all.csv")
 
 # Merge mistral and gpt -----------
 mistral_gpt_descriptive <- gpt_descriptive %>% 
-  rename("Mistral" = "GPT") %>% 
   rbind(mistral_descriptive) %>% 
-  rename("Model" = "Mistral",
-         "Positive" = "positive",
+  rename("Positive" = "positive",
          "Neutral" = "neutral",
          "Negative" = "negative") %>% 
   arrange(Prompt)
@@ -357,10 +375,8 @@ mistral_gpt_descriptive %>%
   write_csv("outputs/descriptive_mistral_gpt.csv")
 
 mistral_gpt_descriptive_agree <- gpt_descriptive_agree %>% 
-  rename("Mistral" = "GPT") %>% 
   rbind(mistral_descriptive_agree) %>% 
-  rename("Model" = "Mistral",
-         "Positive" = "positive",
+  rename("Positive" = "positive",
          "Neutral" = "neutral",
          "Negative" = "negative") %>% 
   arrange(Prompt)
@@ -379,13 +395,42 @@ mistral_gpt_descriptive_all <- mistral_gpt_descriptive %>%
 
 mistral_gpt_descriptive_all %>% 
   write_csv("outputs/descriptive_mistral_gpt_all.csv")
+
+## Figure stance distribution per method and prompt ----------------
+mistral_gpt_descriptive_all_fig <- mistral_gpt_descriptive %>% 
+  left_join(mistral_gpt_descriptive_agree, by = c("Model", "Prompt")) %>% 
+  pivot_longer(cols = c(starts_with("ne"), starts_with("pos")),
+               names_to = "stance",
+               values_to = "percentaje") %>% 
+  mutate(agreement = case_when(str_detect(stance,
+                                          "x") ~ "Partial agreement",
+                               .default = "Full agreement"),
+         stance = str_replace_all(stance, ".x", ""),
+         stance = str_replace_all(stance, ".y", ""))
   
+
+mistral_gpt_descriptive_all_fig %>% 
+  #filter(agreement == "Partial") %>% 
+  ggplot() +
+  geom_bar(aes(x = Model, 
+               y = percentaje, 
+               fill = stance),
+           position = "stack",
+           stat = "identity") +
+  facet_grid(agreement ~ Prompt
+             , switch = "x"
+             ) +
+  theme(strip.placement = "outside",
+        strip.background = element_rect(fill = NA, 
+                                        color = "white"),
+        panel.spacing = unit(-.01,"cm"))
+
 # Get all datasets -------------
 df_all <- df_mturk_annot_clean %>% 
   full_join(epfl_df, by = "text") %>% 
   full_join(gpt_clean, by = "text") %>%
   full_join(mistral_clean, by = c("text", "prompt")) %>% 
-  filter(!is.na(sent_l)) %>% 
+  dplyr::filter(!is.na(sent_l)) %>% 
   select(-id_tweets.x, -id_tweets.y) # id_tweets comes from gpt_clean (supposedly same as epfl_df)
 
 df_all_available <- df_all %>% 
@@ -398,19 +443,19 @@ prompts_unique <- unique(df_all_available$prompt) #%>%
 #  filter(!is.na(.))
 
 df_all_complete <- expand.grid(id_tweets = id_tweets_unique, prompt = prompts_unique) %>% 
-  filter(!is.na(prompt))
+  dplyr::filter(!is.na(prompt))
 
 missing_entries <- df_all_available %>% 
   select(id_tweets, prompt) %>% 
   setdiff(df_all_complete, .) %>% 
-  filter(prompt != 0) %>% 
+  dplyr::filter(prompt != 0) %>% 
   group_by(prompt) %>% 
   tally()
 
 ## To retrieve the real tweet ids -------------
 tweets_id_real <- select(df_mturk_annot_clean, 'text') %>% 
   left_join(select(df_mturk, 'tweet_id', "text"), by = "text") %>% 
-  filter(duplicated(text) == FALSE) %>% 
+  dplyr::filter(duplicated(text) == FALSE) %>% 
   left_join(select(df_mturk_annot_clean, 'text', 'id_tweets'),
             by = "text") 
 
@@ -420,7 +465,7 @@ df_all_clean <- df_all %>%
          "positive_mturk" = "positive",
          "negative_mturk" = "negative") %>% 
   select(-text) %>% 
-  filter(!is.na(stance_epfl)) %>% 
+  dplyr::filter(!is.na(stance_epfl)) %>% 
   left_join(select(tweets_id_real, tweet_id, id_tweets),
             by = "id_tweets") 
 

@@ -64,18 +64,24 @@ rm(shiny_mturk_all, shiny_mturk_partial, shiny_mturk_full)
 ## GPT -------
 message("Getting GPT dataset for Shiny app")
 
-shiny_gpt <- read_csv("outputs/descriptive_gpt.csv") %>% 
-  mutate(negative = round(negative, 1),
-         neutral = round(neutral, 1),
-         positive = round(positive, 1),
+shiny_gpt <- read_csv("outputs/descriptive_gpt_all.csv") %>% 
+  mutate(`Negative (partial agreement)` = round(`Negative (partial agreement)`, 1),
+         `Positive (partial agreement)` = round(`Positive (partial agreement)`, 1),
+         `Neutral (partial agreement)` = round(`Neutral (partial agreement)`, 1),
+         `Negative (full agreement)` = round(`Negative (full agreement)`, 1),
+         `Positive (full agreement)` = round(`Positive (full agreement)`, 1),
+         `Neutral (full agreement)` = round(`Neutral (full agreement)`, 1),
          Prompt = as.character(Prompt))
 
 ## Mistral ----------------
 message("Getting Mistral dataset for Shiny app")
-shiny_mistral <- read_csv("outputs/descriptive_mistral.csv") %>% 
-  mutate(negative = round(negative, 1),
-         neutral = round(neutral, 1),
-         positive = round(positive, 1),
+shiny_mistral <- read_csv("outputs/descriptive_mistral_all.csv") %>% 
+  mutate(`Negative (partial agreement)` = round(`Negative (partial agreement)`, 1),
+         `Positive (partial agreement)` = round(`Positive (partial agreement)`, 1),
+         `Neutral (partial agreement)` = round(`Neutral (partial agreement)`, 1),
+         `Negative (full agreement)` = round(`Negative (full agreement)`, 1),
+         `Positive (full agreement)` = round(`Positive (full agreement)`, 1),
+         `Neutral (full agreement)` = round(`Neutral (full agreement)`, 1),
          Prompt = as.character(Prompt))
 
 # Getting performance indicators ------------

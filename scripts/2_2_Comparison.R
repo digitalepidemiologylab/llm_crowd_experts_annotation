@@ -29,6 +29,7 @@ for (i in prompts) {
   conf_epfl_gpt <- confusionMatrix(df_con_matrix$sentiment_gpt,
                                    df_con_matrix$stance_epfl, mode = "everything")
   conf_epfl_gpt$prompt <- prompts[i]
+  assign(paste('conf_epfl_gpt_all',i,sep='_'),conf_epfl_gpt) 
   # assign(paste('conf_epfl_gpt_all',i,sep='_'),conf_epfl_gpt) %>% 
   #   capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_gpt_all", i, ".csv"))
   
@@ -67,6 +68,7 @@ for (i in prompts) {
   conf_epfl_mistral <- confusionMatrix(df_con_matrix_mistral$sentiment_mistral,
                                    df_con_matrix_mistral$stance_epfl, mode = "everything")
   conf_epfl_mistral$prompt <- prompts[i]
+  assign(paste('conf_epfl_mistral_all',i,sep='_'),conf_epfl_mistral) 
   # assign(paste('conf_epfl_mistral_all',i,sep='_'),conf_epfl_mistral) %>% 
   #   capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mistral_all", i, ".csv"))
   
@@ -409,3 +411,4 @@ class_all_neutral <- class_all %>%
 
 class_all_neutral %>% 
   write_csv("outputs/confusion_matrix_per_class_neutral.csv")
+

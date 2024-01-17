@@ -49,7 +49,7 @@ for (i in prompts_agree) {
   conf_epfl_gpt_agree <- confusionMatrix(df_con_matrix_agree$sentiment_gpt,
                                          df_con_matrix_agree$stance_epfl)
   conf_epfl_gpt_agree$prompt <- prompts_agree[i]
-  # assign(paste('conf_epfl_gpt_agree_all',i,sep='_'),conf_epfl_gpt_agree) %>% 
+  assign(paste('conf_epfl_gpt_agree_all',i,sep='_'),conf_epfl_gpt_agree) #%>% 
   #   capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_gpt_agree_all", i, ".csv"))
   
 }
@@ -67,7 +67,7 @@ for (i in prompts_agree) {
   conf_epfl_mistral_agree <- confusionMatrix(df_con_matrix_mistral_agree$sentiment_mistral,
                                        df_con_matrix_mistral_agree$stance_epfl, mode = "everything")
   conf_epfl_mistral_agree$prompt <- prompts_agree[i]
-  # assign(paste('conf_epfl_mistral_agree_all',i,sep='_'),conf_epfl_mistral_agree) %>% 
+   assign(paste('conf_epfl_mistral_agree_all',i,sep='_'),conf_epfl_mistral_agree) #%>% 
   #   capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mistral_agree_all", i, ".csv"))
   
 }
@@ -407,7 +407,7 @@ class_all_agree %>%
 
 class_all_agree_positive <- class_all_agree %>% 
   filter(Stance == "positive") %>% 
-  arrange(desc(`F1 score`))
+  arrange(desc(`F1 score`)) 
 
 class_all_agree_positive %>% 
   write_csv("outputs/confusion_matrix_per_class_positive_agree.csv")
@@ -425,4 +425,93 @@ class_all_agree_neutral <- class_all_agree %>%
 
 class_all_agree_neutral %>% 
   write_csv("outputs/confusion_matrix_per_class_neutral_agree.csv")
+
+# Comparing metrics for partial and full agreement tweets ---------
+## Negative class ------------
+class_negative_rank <- class_all_negative %>% 
+  select(Method, Prompt, `F1 score`) %>% 
+  rename("Method (partial tweets)" = "Method",
+         "Prompt (partial tweets)" = "Prompt",
+         "F1 score (partial tweets)" = "F1 score") %>% 
+  arrange(desc(`F1 score (partial tweets)`)) %>% 
+  cbind(class_all_agree_negative) %>% 
+  select(-Sensitivity, -Specificity) %>% 
+  rename("Method (full tweets)" = "Method",
+         "Prompt (full tweets)" = "Prompt",
+         "F1 score (full tweets)" = "F1 score") %>% 
+  mutate(`Rank comparison` = if_else(`Method (partial tweets)` == `Method (full tweets)` &
+                                                `Prompt (partial tweets)` == `Prompt (full tweets)`, "Equal", "Different"),
+         `Rank comparison` = case_when(is.na(`Rank comparison`) ~ "Equal",
+                                       .default = `Rank comparison`)) 
+
+class_negative_rank_method <- class_negative_rank %>% 
+  group_by(`Method (full tweets)`, `Rank comparison`) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  filter(`Rank comparison` == "Equal")
+
+class_negative_rank_agreement <- class_negative_rank %>% 
+  group_by(`Rank comparison`, Stance) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  mutate(percentage = (n / sum(n)*100)) %>% 
+  arrange(desc(`Rank comparison`))
+
+class_positive_rank <- class_all_positive %>% 
+  select(Method, Prompt, `F1 score`) %>% 
+  arrange(desc(`F1 score`)) %>% 
+  rename("Method (partial tweets)" = "Method",
+         "Prompt (partial tweets)" = "Prompt",
+         "F1 score (partial tweets)" = "F1 score") %>% 
+  cbind(class_all_agree_positive) %>% 
+  select(-Sensitivity, -Specificity) %>% 
+  rename("Method (full tweets)" = "Method",
+         "Prompt (full tweets)" = "Prompt",
+         "F1 score (full tweets)" = "F1 score") %>% 
+  mutate(`Rank comparison` = if_else(`Method (partial tweets)` == `Method (full tweets)` &
+                                       `Prompt (partial tweets)` == `Prompt (full tweets)`, "Equal", "Different"),
+         `Rank comparison` = case_when(is.na(`Rank comparison`) ~ "Equal",
+                                       .default = `Rank comparison`)) 
+
+class_positive_rank_method <- class_positive_rank %>% 
+  group_by(`Method (full tweets)`, `Rank comparison`) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  filter(`Rank comparison` == "Equal")
+
+class_positive_rank_agreement <- class_positive_rank %>% 
+  group_by(`Rank comparison`, Stance) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  mutate(percentage = (n / sum(n)*100)) %>% 
+  arrange(desc(`Rank comparison`))
+
+class_neutral_rank <- class_all_neutral %>% 
+  select(Method, Prompt, `F1 score`) %>%
+  arrange(desc(`F1 score`)) %>% 
+  rename("Method (partial tweets)" = "Method",
+         "Prompt (partial tweets)" = "Prompt",
+         "F1 score (partial tweets)" = "F1 score") %>% 
+  cbind(class_all_agree_neutral) %>% 
+  select(-Sensitivity, -Specificity) %>% 
+  rename("Method (full tweets)" = "Method",
+         "Prompt (full tweets)" = "Prompt",
+         "F1 score (full tweets)" = "F1 score") %>% 
+  mutate(`Rank comparison` = if_else(`Method (partial tweets)` == `Method (full tweets)` &
+                                       `Prompt (partial tweets)` == `Prompt (full tweets)`, "Equal", "Different"),
+         `Rank comparison` = case_when(is.na(`Rank comparison`) ~ "Equal",
+                                       .default = `Rank comparison`)) 
+
+class_neutral_rank_method <- class_neutral_rank %>% 
+  group_by(`Method (full tweets)`, `Rank comparison`) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  filter(`Rank comparison` == "Equal")
+
+class_neutral_rank_agreement <- class_neutral_rank %>% 
+  group_by(`Rank comparison`, Stance) %>% 
+  tally() %>% 
+  ungroup() %>% 
+  mutate(percentage = (n / sum(n)*100)) %>% 
+  arrange(desc(`Rank comparison`))
 

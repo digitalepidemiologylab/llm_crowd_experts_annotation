@@ -73,8 +73,8 @@ server <- function(input, output) {
     switch(input$dataset_describe,
            "Summary of stance by EPFL experts" = "Distribution of stance depending on agreement reached by EPFL experts. Tweets with the same stance assigned by at least three out of the four EPFL experts were considered tweets with partial agreement",
            "Summary of stance by Amazon Mturk workers" = "Distribution of stance depending on agreement reached by Amazon Mturk workers. Tweets with the same stance assigned by at least 75% of the Amazon Mturk workers classifying each tweet were considered tweets with partial agreement",
-           "Summary of stance by GPT" = "Distribution of stance provided by GPT versions 3.5 and 4 and depending on the prompt provided to GPT",
-           "Summary of stance by Mistral" = "Distribution of stance provided by Mistral depending on the prompt provided to Mistral")
+           "Summary of stance by GPT" = "Distribution of stance provided by GPT versions 3.5 and 4 and depending on the prompt provided to GPT and experts' agreement",
+           "Summary of stance by Mistral" = "Distribution of stance provided by Mistral depending on the prompt provided to Mistral and experts' agreement")
   })
   
   # Help text per dataset

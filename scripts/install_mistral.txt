@@ -1,7 +1,0 @@
-# Ensure CUDA is install. Otherwise:
-conda install cuda -c nvidia
-
-# Install Mistral from source
-git clone https://github.com/vllm-project/vllm.git
-cd vllm
-pip install -e . 
