@@ -344,8 +344,8 @@ mixtral_descriptive <- mixtral_clean %>%
                                     ,"^4$" = "Mixtral prompt 4"
                                     ,"^5$" = "Mixtral prompt 5"
                                     ,"^6$" = "Mixtral prompt 6"
-                                    # ,"^7$" = "Mixtral prompt 7"
-                                    # ,"^8$" = "Mixtral prompt 8"
+                                    ,"^7$" = "Mixtral prompt 7"
+                                    ,"^8$" = "Mixtral prompt 8"
                                     ))) %>% 
   group_by(prompt, sentiment_mixtral) %>% 
   tally() %>% 
@@ -366,8 +366,8 @@ mixtral_descriptive_agree <- mixtral_clean %>%
                                     ,"^4$" = "Mixtral prompt 4"
                                     ,"^5$" = "Mixtral prompt 5"
                                     ,"^6$" = "Mixtral prompt 6"
-                                    # ,"^7$" = "Mixtral prompt 7"
-                                    # ,"^8$" = "Mixtral prompt 8"
+                                    ,"^7$" = "Mixtral prompt 7"
+                                    ,"^8$" = "Mixtral prompt 8"
                                     ))) %>% 
   semi_join(epfl_df_full['text']) %>% 
   group_by(prompt, sentiment_mixtral) %>% 

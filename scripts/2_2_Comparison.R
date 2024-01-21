@@ -7,13 +7,9 @@
 
 # Confusion matrix --------
 ## Get merged datasets ----------
-
-
 ## Get unique prompts ---------------
 prompts <- df_all_clean$prompt %>% 
   unique()
-
-
 
 ## EPFL vs GPT ------------
 for (i in prompts) {
@@ -141,8 +137,8 @@ overall_all_fig <- as.data.frame(conf_epfl_mturk$overall) %>%
   cbind(as.data.frame(conf_epfl_mixtral_all_4$overall)) %>%
   cbind(as.data.frame(conf_epfl_mixtral_all_5$overall)) %>%
   cbind(as.data.frame(conf_epfl_mixtral_all_6$overall)) %>%
-  # cbind(as.data.frame(conf_epfl_mixtral_all_7$overall)) %>%
-  # cbind(as.data.frame(conf_epfl_mixtral_all_8$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mixtral_all_7$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mixtral_all_8$overall)) %>%
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
@@ -165,8 +161,8 @@ overall_all_fig <- as.data.frame(conf_epfl_mturk$overall) %>%
                                     "mixtral_all_4" = "Mixtral prompt 4",
                                     "mixtral_all_5" = "Mixtral prompt 5",
                                     "mixtral_all_6" = "Mixtral prompt 6",
-                                    # "mixtral_all_7" = "Mixtral prompt 7",
-                                    # "mixtral_all_8" = "Mixtral prompt 8",
+                                    "mixtral_all_7" = "Mixtral prompt 7",
+                                    "mixtral_all_8" = "Mixtral prompt 8",
                                     "gpt_all_40" = "GPT 4 prompt 0",
                                     "gpt_all_41" = "GPT 4 prompt 1",
                                     "gpt_all_43" = "GPT 4 prompt 3",
@@ -384,15 +380,15 @@ class_mixtral6 <- as.data.frame(conf_epfl_mixtral_all_6$byClass) %>%
   rownames_to_column() %>%
   select(-rowname)
 
-# class_mixtral7 <- as.data.frame(conf_epfl_mixtral_all_7$byClass) %>%
-#   mutate(class_tweet = c("positive_mixtral7", "neutral_mixtral7", "negative_mixtral7"))%>%
-#   rownames_to_column() %>%
-#   select(-rowname)
-# 
-# class_mixtral8 <- as.data.frame(conf_epfl_mixtral_all_8$byClass) %>% 
-#   mutate(class_tweet = c("positive_mixtral8", "neutral_mixtral8", "negative_mixtral8"))%>% 
-#   rownames_to_column() %>% 
-#   select(-rowname)
+class_mixtral7 <- as.data.frame(conf_epfl_mixtral_all_7$byClass) %>%
+  mutate(class_tweet = c("positive_mixtral7", "neutral_mixtral7", "negative_mixtral7"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
+
+class_mixtral8 <- as.data.frame(conf_epfl_mixtral_all_8$byClass) %>%
+  mutate(class_tweet = c("positive_mixtral8", "neutral_mixtral8", "negative_mixtral8"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
 
 class_all <- class_gpt0 %>% 
   full_join(class_gpt1) %>% 
@@ -425,8 +421,8 @@ class_all <- class_gpt0 %>%
   full_join(class_mixtral4) %>%
   full_join(class_mixtral5) %>%
   full_join(class_mixtral6) %>%
-  # full_join(class_mixtral7) %>%
-  # full_join(class_mixtral8) %>% 
+  full_join(class_mixtral7) %>%
+  full_join(class_mixtral8) %>%
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
@@ -446,8 +442,8 @@ class_all <- class_gpt0 %>%
                                     "mixtral4" = "Mixtral prompt 4",
                                     "mixtral5" = "Mixtral prompt 5",
                                     "mixtral6" = "Mixtral prompt 6",
-                                    # "mixtral7" = "Mixtral prompt 7",
-                                    # "mixtral8" = "Mixtral prompt 8",
+                                    "mixtral7" = "Mixtral prompt 7",
+                                    "mixtral8" = "Mixtral prompt 8",
                                     "gpt40" = "GPT 4 prompt 0",
                                     "gpt41" = "GPT 4 prompt 1",
                                     "gpt43" = "GPT 4 prompt 3",
@@ -483,7 +479,8 @@ class_all <- class_gpt0 %>%
          Precision = round(Precision, 4),
          Recall = round(Recall, 4),
          `Balanced accuracy` = round(`Balanced accuracy`, 4)) %>% 
-  select(Method, Prompt, Stance, `F1 score`, Sensitivity, Specificity)
+  select(Method, Prompt, Stance, `F1 score`, Sensitivity, Specificity) %>% 
+  mutate(agreement = "Partial agreement")
 
 class_all %>% 
   write_csv("outputs/confusion_matrix_per_class_all.csv")

@@ -1,32 +1,34 @@
-Method,Prompt,Stance,F1 score,Sensitivity,Specificity
-GPT 3.5,0,positive,0.3435,0.4966,0.6639
-GPT 3.5,1,positive,0.3959,0.5238,0.7295
-GPT 3.5,3,positive,0.2951,0.1837,0.9852
-GPT 3.5,4,positive,0.3668,0.2857,0.9344
-GPT 4,0,positive,0.4701,0.4014,0.9262
-GPT 4,1,positive,0.5249,0.3946,0.9738
-GPT 4,5,positive,0.5628,0.4422,0.9689
-GPT 3.5,5,positive,0.3612,0.2789,0.9361
-GPT 3.5,6,positive,0.3836,0.2857,0.9508
-GPT 3.5,7,positive,0.3604,0.2721,0.9426
-GPT 3.5,8,positive,0.3594,0.3129,0.8967
-Amazon Mturk,NA,positive,0.4342,0.449,0.8506
-GPT 4,3,positive,0.3892,0.2449,0.9967
-GPT 4,4,positive,0.5339,0.4014,0.9754
-GPT 4,6,positive,0.5,0.381,0.9656
-GPT 4,7,positive,0.484,0.3605,0.9689
-GPT 4,8,positive,0.5771,0.4966,0.9459
-Mistral,0,positive,0.4333,0.3537,0.9325
-Mistral,1,positive,0.3802,0.3129,0.9193
-Mistral,3,positive,0.3689,0.3061,0.9143
-Mistral,4,positive,0.3774,0.3401,0.888
-Mistral,5,positive,0.3574,0.3197,0.8863
-Mistral,6,positive,0.3307,0.2857,0.8929
-Mistral,7,positive,0.3942,0.4626,0.7858
-Mistral,8,positive,0.4045,0.3673,0.8913
-Mixtral,0,positive,0.4098,0.3401,0.9226
-Mixtral,1,positive,0.3913,0.3673,0.8764
-Mixtral,3,positive,0.3146,0.1905,0.9951
-Mixtral,4,positive,0.4456,0.2925,0.9951
-Mixtral,5,positive,0.375,0.2449,0.9852
-Mixtral,6,positive,0.2791,0.1633,0.9984
+Method,Prompt,Stance,F1 score,Sensitivity,Specificity,agreement
+GPT 3.5,0,positive,0.3435,0.4966,0.6639,Partial agreement
+GPT 3.5,1,positive,0.3959,0.5238,0.7295,Partial agreement
+GPT 3.5,3,positive,0.2951,0.1837,0.9852,Partial agreement
+GPT 3.5,4,positive,0.3668,0.2857,0.9344,Partial agreement
+GPT 4,0,positive,0.4701,0.4014,0.9262,Partial agreement
+GPT 4,1,positive,0.5249,0.3946,0.9738,Partial agreement
+GPT 4,5,positive,0.5628,0.4422,0.9689,Partial agreement
+GPT 3.5,5,positive,0.3612,0.2789,0.9361,Partial agreement
+GPT 3.5,6,positive,0.3836,0.2857,0.9508,Partial agreement
+GPT 3.5,7,positive,0.3604,0.2721,0.9426,Partial agreement
+GPT 3.5,8,positive,0.3594,0.3129,0.8967,Partial agreement
+Amazon Mturk,NA,positive,0.4342,0.449,0.8506,Partial agreement
+GPT 4,3,positive,0.3892,0.2449,0.9967,Partial agreement
+GPT 4,4,positive,0.5339,0.4014,0.9754,Partial agreement
+GPT 4,6,positive,0.5,0.381,0.9656,Partial agreement
+GPT 4,7,positive,0.484,0.3605,0.9689,Partial agreement
+GPT 4,8,positive,0.5771,0.4966,0.9459,Partial agreement
+Mistral,0,positive,0.4333,0.3537,0.9325,Partial agreement
+Mistral,1,positive,0.3802,0.3129,0.9193,Partial agreement
+Mistral,3,positive,0.3689,0.3061,0.9143,Partial agreement
+Mistral,4,positive,0.3774,0.3401,0.888,Partial agreement
+Mistral,5,positive,0.3574,0.3197,0.8863,Partial agreement
+Mistral,6,positive,0.3307,0.2857,0.8929,Partial agreement
+Mistral,7,positive,0.3942,0.4626,0.7858,Partial agreement
+Mistral,8,positive,0.4045,0.3673,0.8913,Partial agreement
+Mixtral,0,positive,0.4098,0.3401,0.9226,Partial agreement
+Mixtral,1,positive,0.3913,0.3673,0.8764,Partial agreement
+Mixtral,3,positive,0.3146,0.1905,0.9951,Partial agreement
+Mixtral,4,positive,0.4456,0.2925,0.9951,Partial agreement
+Mixtral,5,positive,0.375,0.2449,0.9852,Partial agreement
+Mixtral,6,positive,0.2791,0.1633,0.9984,Partial agreement
+Mixtral,7,positive,0.451,0.3129,0.9819,Partial agreement
+Mixtral,8,positive,0.5085,0.4082,0.9522,Partial agreement

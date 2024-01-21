@@ -156,8 +156,8 @@ overall_all_agree_fig <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
     cbind(as.data.frame(conf_epfl_mixtral_agree_all_4$overall)) %>%
     cbind(as.data.frame(conf_epfl_mixtral_agree_all_5$overall)) %>%
     cbind(as.data.frame(conf_epfl_mixtral_agree_all_6$overall)) %>%
-    # cbind(as.data.frame(conf_epfl_mixtral_agree_all_7$overall)) %>%
-    # cbind(as.data.frame(conf_epfl_mixtral_agree_all_8$overall)) %>% 
+    cbind(as.data.frame(conf_epfl_mixtral_agree_all_7$overall)) %>%
+    cbind(as.data.frame(conf_epfl_mixtral_agree_all_8$overall)) %>%
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
@@ -180,8 +180,8 @@ overall_all_agree_fig <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
                                     "mixtral_agree_all_4" = "Mixtral prompt 4",
                                     "mixtral_agree_all_5" = "Mixtral prompt 5",
                                     "mixtral_agree_all_6" = "Mixtral prompt 6",
-                                    # "mixtral_agree_all_7" = "Mixtral prompt 7",
-                                    # "mixtral_agree_all_8" = "Mixtral prompt 8",
+                                    "mixtral_agree_all_7" = "Mixtral prompt 7",
+                                    "mixtral_agree_all_8" = "Mixtral prompt 8",
                                     "gpt_agree_all_40" = "GPT 4 prompt 0",
                                     "gpt_agree_all_41" = "GPT 4 prompt 1",
                                     "gpt_agree_all_43" = "GPT 4 prompt 3",
@@ -232,110 +232,6 @@ accuracy_fig_full <- overall_all_agree_fig %>%
   facet_grid(~Method, scales = "free_x") 
 
 accuracy_fig_full
-
-### Combined figure for partial and full agreement --------------
-#### Dataset for CI and accuracy selecting majority class per agreement facet ---------
-ci_majority_accuracy <- data.frame(
-  xmin = 0,
-  xmax = c(2, 9, 9, 9, 9,
-           2, 9, 9, 9, 9),
-  ymin = c(conf_epfl_majority$overall[[3]],
-           conf_epfl_majority$overall[[3]],
-           conf_epfl_majority$overall[[3]],
-           conf_epfl_majority$overall[[3]],
-           conf_epfl_majority$overall[[3]],
-           conf_epfl_majority_agree$overall[[3]],
-           conf_epfl_majority_agree$overall[[3]],
-           conf_epfl_majority_agree$overall[[3]],
-           conf_epfl_majority_agree$overall[[3]],
-           conf_epfl_majority_agree$overall[[3]]),
-  ymax = c(conf_epfl_majority$overall[[4]],
-           conf_epfl_majority$overall[[4]],
-           conf_epfl_majority$overall[[4]],
-           conf_epfl_majority$overall[[4]],
-           conf_epfl_majority$overall[[4]],
-           conf_epfl_majority_agree$overall[[4]],
-           conf_epfl_majority_agree$overall[[4]],
-           conf_epfl_majority_agree$overall[[4]],
-           conf_epfl_majority_agree$overall[[4]],
-           conf_epfl_majority_agree$overall[[4]]),
-  agreement = c("Partial agreement", "Partial agreement", 
-                "Partial agreement", "Partial agreement",
-                "Partial agreement", "Full agreement",
-                "Full agreement", "Full agreement",
-                "Full agreement", "Full agreement"),
-  Method = c("Amazon Mturk", "GPT 3.5", "GPT 4",
-             "Mistral", "Mixtral", "Amazon Mturk", 
-             "GPT 3.5", "GPT 4", "Mistral", 
-             "Mixtral"))
-
-majority_accuracy <- data.frame(
-  hline_accuracy = c(conf_epfl_majority$overall[[1]],
-                     conf_epfl_majority_agree$overall[[1]]),
-  agreement = c("Partial agreement", 
-                "Full agreement")
-)
-
-#### Dataset ---------
-overall_all_total <- overall_all_fig %>% 
-  rbind(overall_all_agree_fig) %>% 
-  left_join(majority_accuracy,
-            by = "agreement")
-
-#### Figure ----------------
-accuracy_fig_all <- overall_all_total %>% 
-  ggplot(aes(x = Prompt, y = Accuracy)) +
-  geom_point(aes(color = factor(Pvalue), 
-                 shape = factor(Pvalue),
-                 size = factor(Pvalue))) +
-  geom_errorbar(aes(ymin = AccuracyLower,
-                    ymax = AccuracyUpper,
-                    color = Pvalue),
-                width = 0.2) +
-  geom_segment(aes(x = -Inf, xend = Inf,
-                   y = hline_accuracy,
-                   yend = hline_accuracy,
-                   linetype = agreement),
-               size = 1) +
-  geom_rect(data = ci_majority_accuracy,
-            aes(xmin = xmin, xmax = xmax,
-                ymin = ymin, ymax = ymax,
-                fill = agreement),
-            alpha = 0.2, inherit.aes = FALSE) +
-  facet_grid(agreement~Method, scales = "free_x") +
-  theme_bw() +
-  scale_linetype_manual(values = c("Partial agreement" = 2,
-                                   "Full agreement" = 3)) +
-  scale_color_manual(values = c("<= 0.05" = "red",
-                                "> 0.05" = "blue"),
-                     labels = c("<= 0.05", 
-                                "> 0.05")) +
-  scale_shape_manual(values = c("<= 0.05" = "square",
-                                "> 0.05" = "circle"),
-                     labels = c("<= 0.05", 
-                                "> 0.05")) +
-  scale_size_manual(values = c("<= 0.05" = 3,
-                                "> 0.05" = 2.5),
-                     labels = c("<= 0.05", 
-                                "> 0.05")) +
-  scale_fill_grey() +
-  labs(color = "P value",
-       shape = "P value",
-       size = "P value",
-       linetype = "Accuracy for selecting \nmajority class",
-       fill = "Confidence interval for \nselecting majority class") +
-  theme(text = element_text(size = 16),
-        strip.text.x = element_text(size = 16),  
-        strip.text.y = element_text(size = 16),
-        axis.title = element_text(size = 16),
-        panel.spacing.y = unit(0, "lines"),
-        axis.text = element_text(color = "black")) 
-
-accuracy_fig_all
-
-ggsave("outputs/accuracy_figure.jpeg",
-       accuracy_fig_all,
-       width = 10, height = 6)
 
 ## Per class ---------
 class_mturk_agree <- as.data.frame(conf_epfl_mturk_agree$byClass) %>% 
@@ -493,15 +389,15 @@ class_agree_mixtral6 <- as.data.frame(conf_epfl_mixtral_agree_all_6$byClass) %>%
   rownames_to_column() %>%
   select(-rowname)
 
-# class_agree_mixtral7 <- as.data.frame(conf_epfl_mixtral_agree_all_7$byClass) %>%
-#   mutate(class_tweet = c("positive_mixtral7", "neutral_mixtral7", "negative_mixtral7"))%>%
-#   rownames_to_column() %>%
-#   select(-rowname)
-# 
-# class_agree_mixtral8 <- as.data.frame(conf_epfl_mixtral_agree_all_8$byClass) %>% 
-#   mutate(class_tweet = c("positive_mixtral8", "neutral_mixtral8", "negative_mixtral8"))%>% 
-#   rownames_to_column() %>% 
-#   select(-rowname)
+class_agree_mixtral7 <- as.data.frame(conf_epfl_mixtral_agree_all_7$byClass) %>%
+  mutate(class_tweet = c("positive_mixtral7", "neutral_mixtral7", "negative_mixtral7"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
+
+class_agree_mixtral8 <- as.data.frame(conf_epfl_mixtral_agree_all_8$byClass) %>%
+  mutate(class_tweet = c("positive_mixtral8", "neutral_mixtral8", "negative_mixtral8"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
 
 
 class_all_agree <- class_agree_gpt0 %>% 
@@ -528,7 +424,15 @@ class_all_agree <- class_agree_gpt0 %>%
   full_join(class_agree_mistral5) %>% 
   full_join(class_agree_mistral6) %>% 
   full_join(class_agree_mistral7) %>%
-  full_join(class_agree_mistral8) %>% 
+  full_join(class_agree_mistral8) %>%
+  full_join(class_agree_mixtral0) %>% 
+  full_join(class_agree_mixtral1) %>% 
+  full_join(class_agree_mixtral3) %>% 
+  full_join(class_agree_mixtral4) %>% 
+  full_join(class_agree_mixtral5) %>% 
+  full_join(class_agree_mixtral6) %>% 
+  full_join(class_agree_mixtral7) %>%
+  full_join(class_agree_mixtral8) %>%
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
@@ -548,8 +452,8 @@ class_all_agree <- class_agree_gpt0 %>%
                                     "mixtral4" = "Mixtral prompt 4",
                                     "mixtral5" = "Mixtral prompt 5",
                                     "mixtral6" = "Mixtral prompt 6",
-                                    # "mixtral7" = "Mixtral prompt 7",
-                                    # "mixtral8" = "Mixtral prompt 8",
+                                    "mixtral7" = "Mixtral prompt 7",
+                                    "mixtral8" = "Mixtral prompt 8",
                                     "gpt40" = "GPT 4 prompt 0",
                                     "gpt41" = "GPT 4 prompt 1",
                                     "gpt45" = "GPT 4 prompt 5",
@@ -585,7 +489,8 @@ class_all_agree <- class_agree_gpt0 %>%
          Precision = round(Precision, 4),
          Recall = round(Recall, 4),
          `Balanced accuracy` = round(`Balanced accuracy`, 4)) %>% 
-  select(Method, Prompt, Stance, `F1 score`, Sensitivity, Specificity)
+  select(Method, Prompt, Stance, `F1 score`, Sensitivity, Specificity) %>% 
+  mutate(agreement = "Full agreement")
 
 class_all_agree %>% 
   write_csv("outputs/confusion_matrix_per_class_all_agree.csv")
