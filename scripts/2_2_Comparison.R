@@ -74,48 +74,43 @@ for (i in prompts) {
   
 }
 
-## Mturk vs GPT --------------
+## EPFL vs Mixtral ---------------
 for (i in prompts) {
-  df_con_matrix_mturk_gpt <- df_all_clean %>% 
+  df_con_matrix_mixtral <- df_all_clean %>% 
     filter(prompt == i) %>% 
-    select(agree_mturk, sentiment_gpt) %>% 
-    mutate(agree_mturk = factor(agree_mturk, ordered = TRUE,
+    select(stance_epfl, sentiment_mixtral) %>% 
+    mutate(stance_epfl = factor(stance_epfl, ordered = TRUE,
                                 levels = c("positive","neutral", "negative")),
-           sentiment_gpt = factor(sentiment_gpt, ordered = TRUE,
-                                levels = c("positive", "neutral", "negative"))) 
-  assign(paste('df_con_matrix_mturk_gpt',i,sep='_'),df_con_matrix_mturk_gpt)
+           sentiment_mixtral = factor(sentiment_mixtral, ordered = TRUE,
+                                      levels = c("positive", "neutral", "negative"))) 
+  assign(paste('df_con_matrix_mixtral',i,sep='_'), df_con_matrix_mixtral)
   #prompt_loop[i] <- prompts[i]
-  conf_mturk_gpt <- confusionMatrix(df_con_matrix_mturk_gpt$sentiment_gpt,
-                                    df_con_matrix_mturk_gpt$agree_mturk, mode = "everything")
-  conf_mturk_gpt$prompt <- prompts[i]
-  # assign(paste('conf_mturk_gpt_all',i,sep='_'),conf_epfl_mturk) %>% 
-  #   capture.output(., file = paste0("outputs/confusion_matrices/conf_mturk_gpt_all", i, ".csv"))
+  conf_epfl_mixtral <- confusionMatrix(df_con_matrix_mixtral$sentiment_mixtral,
+                                       df_con_matrix_mixtral$stance_epfl, mode = "everything")
+  conf_epfl_mixtral$prompt <- prompts[i]
+  assign(paste('conf_epfl_mixtral_all',i,sep='_'),conf_epfl_mixtral) 
+  # assign(paste('conf_epfl_mistral_all',i,sep='_'),conf_epfl_mistral) %>% 
+  #   capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mistral_all", i, ".csv"))
   
 }
 
-## GPT vs Mturk --------------------
-for (i in prompts) {
-  df_con_matrix_mturk_gpt <- df_all_clean %>% 
-    filter(prompt == i) %>% 
-    select(agree_mturk, sentiment_gpt) %>% 
-    mutate(agree_mturk = factor(agree_mturk, ordered = TRUE,
-                                levels = c("positive","neutral", "negative")),
-           sentiment_gpt = factor(sentiment_gpt, ordered = TRUE,
+## EPFL vs selecting majority class ------------  
+df_con_matrix_majority <- df_all_clean %>% 
+  filter(!duplicated(id_tweets)) %>% 
+  select(stance_epfl) %>%
+  mutate(stance_majority = "neutral", 
+         stance_epfl = factor(stance_epfl, ordered = TRUE,
+                              levels = c("positive","neutral", "negative")),
+         stance_majority = factor(stance_majority, ordered = TRUE,
                                   levels = c("positive", "neutral", "negative"))) 
-  
-  assign(paste('df_con_matrix_mturk_gpt',i,sep='_'),df_con_matrix_mturk_gpt)
-  #prompt_loop[i] <- prompts[i]
-  conf_gpt_mturk <- confusionMatrix(df_con_matrix_mturk_gpt$agree_mturk,
-                                    df_con_matrix_mturk_gpt$sentiment_gpt, mode = "everything")
-  conf_gpt_mturk$prompt <- prompts[i]
-  # assign(paste('conf_gpt_mturk_all',i,sep='_'),conf_epfl_mturk) %>% 
-  #   capture.output(., file = paste0("outputs/confusion_matrices/conf_gpt_mturk_all", i, ".csv"))
-  
-}
+
+
+conf_epfl_majority <- confusionMatrix(df_con_matrix_majority$stance_majority,
+                                            df_con_matrix_majority$stance_epfl)
 
 # Merging all confusion matrices ------------
 ## Accuracy -------------
-overall_all <- as.data.frame(conf_epfl_mturk$overall) %>% 
+overall_all_fig <- as.data.frame(conf_epfl_mturk$overall) %>% 
   cbind(as.data.frame(conf_epfl_gpt_all_0$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_all_1$overall)) %>% 
   cbind(as.data.frame(conf_epfl_gpt_all_3$overall)) %>% 
@@ -140,6 +135,14 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
   cbind(as.data.frame(conf_epfl_mistral_all_6$overall)) %>%
   cbind(as.data.frame(conf_epfl_mistral_all_7$overall)) %>%
   cbind(as.data.frame(conf_epfl_mistral_all_8$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mixtral_all_0$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mixtral_all_1$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_mixtral_all_3$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mixtral_all_4$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mixtral_all_5$overall)) %>%
+  cbind(as.data.frame(conf_epfl_mixtral_all_6$overall)) %>%
+  # cbind(as.data.frame(conf_epfl_mixtral_all_7$overall)) %>%
+  # cbind(as.data.frame(conf_epfl_mixtral_all_8$overall)) %>% 
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
@@ -156,6 +159,14 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
                                     "mistral_all_6" = "Mistral prompt 6",
                                     "mistral_all_7" = "Mistral prompt 7",
                                     "mistral_all_8" = "Mistral prompt 8",
+                                    "mixtral_all_0" = "Mixtral prompt 0",
+                                    "mixtral_all_1" = "Mixtral prompt 1",
+                                    "mixtral_all_3" = "Mixtral prompt 3",
+                                    "mixtral_all_4" = "Mixtral prompt 4",
+                                    "mixtral_all_5" = "Mixtral prompt 5",
+                                    "mixtral_all_6" = "Mixtral prompt 6",
+                                    # "mixtral_all_7" = "Mixtral prompt 7",
+                                    # "mixtral_all_8" = "Mixtral prompt 8",
                                     "gpt_all_40" = "GPT 4 prompt 0",
                                     "gpt_all_41" = "GPT 4 prompt 1",
                                     "gpt_all_43" = "GPT 4 prompt 3",
@@ -174,19 +185,49 @@ overall_all <- as.data.frame(conf_epfl_mturk$overall) %>%
                                     "gpt_all_8" = "GPT 3.5 prompt 8",
                                     "mturk" = "Amazon Mturk"))) %>% 
   select(method, Accuracy, AccuracyLower, AccuracyUpper, AccuracyPValue) %>% 
+  separate(col = "method", into = c("Method", "Prompt"), sep = " prompt ") %>% 
+  mutate(Pvalue = case_when(AccuracyPValue <= 0.05 ~ "<= 0.05",
+                            .default = "> 0.05"),
+         agreement = "Partial agreement",
+         Prompt = replace_na(Prompt, "None"))
+
+
+overall_all <- overall_all_fig %>% 
   mutate(Accuracy = round(Accuracy, 4),
-         AccuracyLower = round(AccuracyLower, 4), 
+         AccuracyLower = round(AccuracyLower, 4),
          AccuracyUpper = round(AccuracyUpper, 4),
          AccuracyPValue = round(AccuracyPValue, 6),
-         AccuracyCI = paste("(", AccuracyLower, " - ", AccuracyUpper, ")", sep = "")) %>% 
-  separate(col = "method", into = c("Method", "Prompt"), sep = " prompt ") %>% 
+         AccuracyCI = paste("(", AccuracyLower, " - ", AccuracyUpper, ")", sep = "")) %>%
   select(Method, Prompt, Accuracy, AccuracyCI, AccuracyPValue) %>% 
-  rename("Accuracy (95% CI)" = "AccuracyCI",
-         "Accuracy (p-value)" = "AccuracyPValue") 
-
+    rename("Accuracy (95% CI)" = "AccuracyCI",
+           "Accuracy (p-value)" = "AccuracyPValue")
+  
 overall_all %>%
   write_csv("outputs/confusion_matrix_accuracy.csv")
 
+### Plot accuracy ----------------
+accuracy_fig_partial <- overall_all_fig %>% 
+  #filter(Method == "GPT 4") %>% 
+  filter(!is.na(Prompt)) %>% 
+  ggplot(aes(x = Prompt, y = Accuracy)) +
+  geom_point(aes(color = Pvalue)) +
+  geom_errorbar(aes(ymin = AccuracyLower,
+                    ymax = AccuracyUpper,
+                    color = Pvalue),
+                width = 0.2) +
+  # geom_text(aes(label = sprintf("%s", AccuracyPValue), 
+  #               y = AccuracyUpper)
+  #           #,
+  #               # box.padding = 1,
+  #               # point.padding = 1,
+  #               # segment.color = "transparent",
+  #               # max.overlaps = 20
+  #               , vjust = -0.4
+  #           ) +
+  facet_grid(~Method, scales = "free_x") 
+
+accuracy_fig_partial
+  
 ## Per class ---------
 class_mturk <- as.data.frame(conf_epfl_mturk$byClass) %>% 
   mutate(class_tweet = c("positive_mturk", "neutral_mturk", "negative_mturk"))%>% 
@@ -313,6 +354,46 @@ class_mistral8 <- as.data.frame(conf_epfl_mistral_all_8$byClass) %>%
   rownames_to_column() %>% 
   select(-rowname)
 
+class_mixtral0 <- as.data.frame(conf_epfl_mixtral_all_0$byClass) %>% 
+  mutate(class_tweet = c("positive_mixtral0", "neutral_mixtral0", "negative_mixtral0"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_mixtral1 <- as.data.frame(conf_epfl_mixtral_all_1$byClass) %>% 
+  mutate(class_tweet = c("positive_mixtral1", "neutral_mixtral1", "negative_mixtral1"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_mixtral3 <- as.data.frame(conf_epfl_mixtral_all_3$byClass) %>%
+  mutate(class_tweet = c("positive_mixtral3", "neutral_mixtral3", "negative_mixtral3"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
+
+class_mixtral4 <- as.data.frame(conf_epfl_mixtral_all_4$byClass) %>%
+  mutate(class_tweet = c("positive_mixtral4", "neutral_mixtral4", "negative_mixtral4"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
+
+class_mixtral5 <- as.data.frame(conf_epfl_mixtral_all_5$byClass) %>%
+  mutate(class_tweet = c("positive_mixtral5", "neutral_mixtral5", "negative_mixtral5"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
+
+class_mixtral6 <- as.data.frame(conf_epfl_mixtral_all_6$byClass) %>%
+  mutate(class_tweet = c("positive_mixtral6", "neutral_mixtral6", "negative_mixtral6"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
+
+# class_mixtral7 <- as.data.frame(conf_epfl_mixtral_all_7$byClass) %>%
+#   mutate(class_tweet = c("positive_mixtral7", "neutral_mixtral7", "negative_mixtral7"))%>%
+#   rownames_to_column() %>%
+#   select(-rowname)
+# 
+# class_mixtral8 <- as.data.frame(conf_epfl_mixtral_all_8$byClass) %>% 
+#   mutate(class_tweet = c("positive_mixtral8", "neutral_mixtral8", "negative_mixtral8"))%>% 
+#   rownames_to_column() %>% 
+#   select(-rowname)
+
 class_all <- class_gpt0 %>% 
   full_join(class_gpt1) %>% 
   full_join(class_gpt3) %>% 
@@ -338,6 +419,14 @@ class_all <- class_gpt0 %>%
   full_join(class_mistral6) %>% 
   full_join(class_mistral7) %>%
   full_join(class_mistral8) %>% 
+  full_join(class_mixtral0) %>% 
+  full_join(class_mixtral1) %>% 
+  full_join(class_mixtral3) %>%
+  full_join(class_mixtral4) %>%
+  full_join(class_mixtral5) %>%
+  full_join(class_mixtral6) %>%
+  # full_join(class_mixtral7) %>%
+  # full_join(class_mixtral8) %>% 
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
@@ -351,6 +440,14 @@ class_all <- class_gpt0 %>%
                                     "mistral6" = "Mistral prompt 6",
                                     "mistral7" = "Mistral prompt 7",
                                     "mistral8" = "Mistral prompt 8",
+                                    "mixtral0" = "Mixtral prompt 0",
+                                    "mixtral1" = "Mixtral prompt 1",
+                                    "mixtral3" = "Mixtral prompt 3",
+                                    "mixtral4" = "Mixtral prompt 4",
+                                    "mixtral5" = "Mixtral prompt 5",
+                                    "mixtral6" = "Mixtral prompt 6",
+                                    # "mixtral7" = "Mixtral prompt 7",
+                                    # "mixtral8" = "Mixtral prompt 8",
                                     "gpt40" = "GPT 4 prompt 0",
                                     "gpt41" = "GPT 4 prompt 1",
                                     "gpt43" = "GPT 4 prompt 3",

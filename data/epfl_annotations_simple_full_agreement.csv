@@ -1,279 +1,279 @@
-id_tweets,stance_epfl,agree_stance
-10,positive,1
-14,neutral,1
-17,positive,1
-18,positive,1
-25,positive,1
-27,positive,1
-33,neutral,1
-37,neutral,1
-41,positive,1
-44,positive,1
-46,neutral,1
-62,positive,1
-65,neutral,1
-76,neutral,1
-78,negative,1
-79,positive,1
-81,neutral,1
-83,neutral,1
-84,positive,1
-90,neutral,1
-98,positive,1
-100,negative,1
-101,neutral,1
-105,positive,1
-108,positive,1
-124,neutral,1
-125,neutral,1
-129,neutral,1
-137,negative,1
-139,neutral,1
-140,positive,1
-151,neutral,1
-155,neutral,1
-159,neutral,1
-163,neutral,1
-169,neutral,1
-175,neutral,1
-176,neutral,1
-178,negative,1
-186,neutral,1
-187,positive,1
-189,positive,1
-191,neutral,1
-199,neutral,1
-203,neutral,1
-205,neutral,1
-207,neutral,1
-211,neutral,1
-212,neutral,1
-221,neutral,1
-223,neutral,1
-225,neutral,1
-229,neutral,1
-237,neutral,1
-238,neutral,1
-242,positive,1
-245,positive,1
-247,neutral,1
-249,positive,1
-250,positive,1
-252,negative,1
-254,neutral,1
-260,neutral,1
-267,neutral,1
-272,neutral,1
-287,neutral,1
-300,neutral,1
-302,neutral,1
-304,neutral,1
-330,neutral,1
-331,neutral,1
-334,neutral,1
-336,neutral,1
-337,neutral,1
-344,neutral,1
-352,negative,1
-356,neutral,1
-357,neutral,1
-360,positive,1
-369,neutral,1
-372,neutral,1
-375,neutral,1
-377,neutral,1
-384,neutral,1
-385,neutral,1
-387,neutral,1
-390,neutral,1
-391,neutral,1
-392,neutral,1
-393,neutral,1
-394,neutral,1
-400,neutral,1
-401,neutral,1
-403,neutral,1
-406,neutral,1
-408,neutral,1
-409,neutral,1
-415,neutral,1
-416,neutral,1
-420,neutral,1
-425,neutral,1
-426,neutral,1
-428,negative,1
-429,neutral,1
-430,neutral,1
-431,neutral,1
-436,neutral,1
-441,neutral,1
-442,neutral,1
-443,neutral,1
-444,neutral,1
-445,neutral,1
-446,neutral,1
-447,neutral,1
-449,neutral,1
-454,neutral,1
-459,neutral,1
-462,neutral,1
-466,neutral,1
-467,neutral,1
-469,neutral,1
-470,neutral,1
-474,neutral,1
-479,neutral,1
-485,neutral,1
-487,negative,1
-488,neutral,1
-491,neutral,1
-492,neutral,1
-493,positive,1
-495,neutral,1
-496,neutral,1
-500,neutral,1
-505,neutral,1
-509,positive,1
-511,neutral,1
-513,neutral,1
-516,positive,1
-517,neutral,1
-520,neutral,1
-525,neutral,1
-526,neutral,1
-527,positive,1
-528,neutral,1
-531,neutral,1
-534,positive,1
-536,neutral,1
-539,neutral,1
-540,neutral,1
-542,neutral,1
-545,neutral,1
-555,neutral,1
-559,neutral,1
-560,neutral,1
-561,neutral,1
-568,neutral,1
-569,neutral,1
-570,negative,1
-571,negative,1
-572,neutral,1
-573,neutral,1
-575,neutral,1
-578,positive,1
-579,neutral,1
-580,neutral,1
-583,neutral,1
-585,neutral,1
-588,positive,1
-590,neutral,1
-591,neutral,1
-593,neutral,1
-594,neutral,1
-595,neutral,1
-600,positive,1
-603,neutral,1
-607,positive,1
-608,neutral,1
-609,positive,1
-618,positive,1
-624,neutral,1
-628,neutral,1
-629,neutral,1
-639,neutral,1
-646,neutral,1
-653,neutral,1
-654,neutral,1
-667,positive,1
-669,neutral,1
-672,neutral,1
-678,neutral,1
-680,positive,1
-682,neutral,1
-683,positive,1
-684,neutral,1
-685,neutral,1
-689,negative,1
-691,positive,1
-698,neutral,1
-704,neutral,1
-707,positive,1
-711,neutral,1
-712,neutral,1
-716,neutral,1
-719,neutral,1
-721,neutral,1
-722,neutral,1
-726,neutral,1
-733,neutral,1
-734,positive,1
-740,negative,1
-748,positive,1
-750,positive,1
-764,neutral,1
-770,neutral,1
-776,neutral,1
-778,neutral,1
-790,neutral,1
-791,positive,1
-810,neutral,1
-811,neutral,1
-813,neutral,1
-820,neutral,1
-822,neutral,1
-823,neutral,1
-829,neutral,1
-830,positive,1
-836,neutral,1
-840,positive,1
-841,positive,1
-845,negative,1
-848,positive,1
-849,neutral,1
-852,neutral,1
-853,neutral,1
-854,neutral,1
-856,neutral,1
-858,neutral,1
-859,positive,1
-860,neutral,1
-864,positive,1
-867,neutral,1
-868,neutral,1
-870,neutral,1
-875,neutral,1
-876,neutral,1
-880,neutral,1
-882,neutral,1
-883,neutral,1
-884,neutral,1
-885,neutral,1
-886,neutral,1
-892,neutral,1
-895,neutral,1
-896,neutral,1
-899,neutral,1
-900,neutral,1
-904,positive,1
-906,neutral,1
-908,neutral,1
-923,neutral,1
-924,neutral,1
-930,neutral,1
-931,neutral,1
-937,neutral,1
-938,neutral,1
-943,negative,1
-946,neutral,1
-947,neutral,1
-952,neutral,1
-961,neutral,1
-962,neutral,1
-963,positive,1
-973,neutral,1
-975,neutral,1
-979,neutral,1
-981,neutral,1
-992,neutral,1
-993,neutral,1
+id_tweets,stance_epfl,agreement
+10,positive,Full agreement
+14,neutral,Full agreement
+17,positive,Full agreement
+18,positive,Full agreement
+25,positive,Full agreement
+27,positive,Full agreement
+33,neutral,Full agreement
+37,neutral,Full agreement
+41,positive,Full agreement
+44,positive,Full agreement
+46,neutral,Full agreement
+62,positive,Full agreement
+65,neutral,Full agreement
+76,neutral,Full agreement
+78,negative,Full agreement
+79,positive,Full agreement
+81,neutral,Full agreement
+83,neutral,Full agreement
+84,positive,Full agreement
+90,neutral,Full agreement
+98,positive,Full agreement
+100,negative,Full agreement
+101,neutral,Full agreement
+105,positive,Full agreement
+108,positive,Full agreement
+124,neutral,Full agreement
+125,neutral,Full agreement
+129,neutral,Full agreement
+137,negative,Full agreement
+139,neutral,Full agreement
+140,positive,Full agreement
+151,neutral,Full agreement
+155,neutral,Full agreement
+159,neutral,Full agreement
+163,neutral,Full agreement
+169,neutral,Full agreement
+175,neutral,Full agreement
+176,neutral,Full agreement
+178,negative,Full agreement
+186,neutral,Full agreement
+187,positive,Full agreement
+189,positive,Full agreement
+191,neutral,Full agreement
+199,neutral,Full agreement
+203,neutral,Full agreement
+205,neutral,Full agreement
+207,neutral,Full agreement
+211,neutral,Full agreement
+212,neutral,Full agreement
+221,neutral,Full agreement
+223,neutral,Full agreement
+225,neutral,Full agreement
+229,neutral,Full agreement
+237,neutral,Full agreement
+238,neutral,Full agreement
+242,positive,Full agreement
+245,positive,Full agreement
+247,neutral,Full agreement
+249,positive,Full agreement
+250,positive,Full agreement
+252,negative,Full agreement
+254,neutral,Full agreement
+260,neutral,Full agreement
+267,neutral,Full agreement
+272,neutral,Full agreement
+287,neutral,Full agreement
+300,neutral,Full agreement
+302,neutral,Full agreement
+304,neutral,Full agreement
+330,neutral,Full agreement
+331,neutral,Full agreement
+334,neutral,Full agreement
+336,neutral,Full agreement
+337,neutral,Full agreement
+344,neutral,Full agreement
+352,negative,Full agreement
+356,neutral,Full agreement
+357,neutral,Full agreement
+360,positive,Full agreement
+369,neutral,Full agreement
+372,neutral,Full agreement
+375,neutral,Full agreement
+377,neutral,Full agreement
+384,neutral,Full agreement
+385,neutral,Full agreement
+387,neutral,Full agreement
+390,neutral,Full agreement
+391,neutral,Full agreement
+392,neutral,Full agreement
+393,neutral,Full agreement
+394,neutral,Full agreement
+400,neutral,Full agreement
+401,neutral,Full agreement
+403,neutral,Full agreement
+406,neutral,Full agreement
+408,neutral,Full agreement
+409,neutral,Full agreement
+415,neutral,Full agreement
+416,neutral,Full agreement
+420,neutral,Full agreement
+425,neutral,Full agreement
+426,neutral,Full agreement
+428,negative,Full agreement
+429,neutral,Full agreement
+430,neutral,Full agreement
+431,neutral,Full agreement
+436,neutral,Full agreement
+441,neutral,Full agreement
+442,neutral,Full agreement
+443,neutral,Full agreement
+444,neutral,Full agreement
+445,neutral,Full agreement
+446,neutral,Full agreement
+447,neutral,Full agreement
+449,neutral,Full agreement
+454,neutral,Full agreement
+459,neutral,Full agreement
+462,neutral,Full agreement
+466,neutral,Full agreement
+467,neutral,Full agreement
+469,neutral,Full agreement
+470,neutral,Full agreement
+474,neutral,Full agreement
+479,neutral,Full agreement
+485,neutral,Full agreement
+487,negative,Full agreement
+488,neutral,Full agreement
+491,neutral,Full agreement
+492,neutral,Full agreement
+493,positive,Full agreement
+495,neutral,Full agreement
+496,neutral,Full agreement
+500,neutral,Full agreement
+505,neutral,Full agreement
+509,positive,Full agreement
+511,neutral,Full agreement
+513,neutral,Full agreement
+516,positive,Full agreement
+517,neutral,Full agreement
+520,neutral,Full agreement
+525,neutral,Full agreement
+526,neutral,Full agreement
+527,positive,Full agreement
+528,neutral,Full agreement
+531,neutral,Full agreement
+534,positive,Full agreement
+536,neutral,Full agreement
+539,neutral,Full agreement
+540,neutral,Full agreement
+542,neutral,Full agreement
+545,neutral,Full agreement
+555,neutral,Full agreement
+559,neutral,Full agreement
+560,neutral,Full agreement
+561,neutral,Full agreement
+568,neutral,Full agreement
+569,neutral,Full agreement
+570,negative,Full agreement
+571,negative,Full agreement
+572,neutral,Full agreement
+573,neutral,Full agreement
+575,neutral,Full agreement
+578,positive,Full agreement
+579,neutral,Full agreement
+580,neutral,Full agreement
+583,neutral,Full agreement
+585,neutral,Full agreement
+588,positive,Full agreement
+590,neutral,Full agreement
+591,neutral,Full agreement
+593,neutral,Full agreement
+594,neutral,Full agreement
+595,neutral,Full agreement
+600,positive,Full agreement
+603,neutral,Full agreement
+607,positive,Full agreement
+608,neutral,Full agreement
+609,positive,Full agreement
+618,positive,Full agreement
+624,neutral,Full agreement
+628,neutral,Full agreement
+629,neutral,Full agreement
+639,neutral,Full agreement
+646,neutral,Full agreement
+653,neutral,Full agreement
+654,neutral,Full agreement
+667,positive,Full agreement
+669,neutral,Full agreement
+672,neutral,Full agreement
+678,neutral,Full agreement
+680,positive,Full agreement
+682,neutral,Full agreement
+683,positive,Full agreement
+684,neutral,Full agreement
+685,neutral,Full agreement
+689,negative,Full agreement
+691,positive,Full agreement
+698,neutral,Full agreement
+704,neutral,Full agreement
+707,positive,Full agreement
+711,neutral,Full agreement
+712,neutral,Full agreement
+716,neutral,Full agreement
+719,neutral,Full agreement
+721,neutral,Full agreement
+722,neutral,Full agreement
+726,neutral,Full agreement
+733,neutral,Full agreement
+734,positive,Full agreement
+740,negative,Full agreement
+748,positive,Full agreement
+750,positive,Full agreement
+764,neutral,Full agreement
+770,neutral,Full agreement
+776,neutral,Full agreement
+778,neutral,Full agreement
+790,neutral,Full agreement
+791,positive,Full agreement
+810,neutral,Full agreement
+811,neutral,Full agreement
+813,neutral,Full agreement
+820,neutral,Full agreement
+822,neutral,Full agreement
+823,neutral,Full agreement
+829,neutral,Full agreement
+830,positive,Full agreement
+836,neutral,Full agreement
+840,positive,Full agreement
+841,positive,Full agreement
+845,negative,Full agreement
+848,positive,Full agreement
+849,neutral,Full agreement
+852,neutral,Full agreement
+853,neutral,Full agreement
+854,neutral,Full agreement
+856,neutral,Full agreement
+858,neutral,Full agreement
+859,positive,Full agreement
+860,neutral,Full agreement
+864,positive,Full agreement
+867,neutral,Full agreement
+868,neutral,Full agreement
+870,neutral,Full agreement
+875,neutral,Full agreement
+876,neutral,Full agreement
+880,neutral,Full agreement
+882,neutral,Full agreement
+883,neutral,Full agreement
+884,neutral,Full agreement
+885,neutral,Full agreement
+886,neutral,Full agreement
+892,neutral,Full agreement
+895,neutral,Full agreement
+896,neutral,Full agreement
+899,neutral,Full agreement
+900,neutral,Full agreement
+904,positive,Full agreement
+906,neutral,Full agreement
+908,neutral,Full agreement
+923,neutral,Full agreement
+924,neutral,Full agreement
+930,neutral,Full agreement
+931,neutral,Full agreement
+937,neutral,Full agreement
+938,neutral,Full agreement
+943,negative,Full agreement
+946,neutral,Full agreement
+947,neutral,Full agreement
+952,neutral,Full agreement
+961,neutral,Full agreement
+962,neutral,Full agreement
+963,positive,Full agreement
+973,neutral,Full agreement
+975,neutral,Full agreement
+979,neutral,Full agreement
+981,neutral,Full agreement
+992,neutral,Full agreement
+993,neutral,Full agreement

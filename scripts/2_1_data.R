@@ -73,11 +73,12 @@ epfl_df_class_agreement_all <- epfl_df_all %>%
 
 ## Descriptive analysis (partial agreement) --------
 epfl_df <- epfl_df_all %>% 
-  dplyr::filter(agree_stan == 1)
+  dplyr::filter(agree_stan == 1) %>% 
+  mutate(agreement = "Partial agreement")
 
 
 epfl_df_s <- epfl_df  %>% 
-  select(id_tweets, stance_epfl, agree_stance, agree_stan) %>% 
+  select(id_tweets, stance_epfl, agreement) %>% 
   write_csv("data/epfl_annotations_simple_partial_agreement.csv")
 
 ### Tweets per agreement and class -----------
@@ -85,15 +86,17 @@ epfl_df_class_agreement <- epfl_df %>%
   dplyr::filter(agree_stan == 1 ) %>% 
   group_by(stance_epfl) %>% 
   tally() %>% 
-  mutate(percent = n / sum(n) * 100)
+  mutate(percent = n / sum(n) * 100,
+         agreement = "Partial agreement")
 
 ## Descriptive analysis (full agreement) --------
 epfl_df_full <- epfl_df_all %>% 
-  dplyr::filter(agree_stance == 1)
+  dplyr::filter(agree_stance == 1) %>% 
+  mutate(agreement = "Full agreement")
 
 
 epfl_df_full_s <- epfl_df_full  %>% 
-  select(id_tweets, stance_epfl, agree_stance) %>% 
+  select(id_tweets, stance_epfl, agreement) %>% 
   write_csv("data/epfl_annotations_simple_full_agreement.csv")
 
 ### Tweets per agreement and class -----------
@@ -101,7 +104,8 @@ epfl_df_class_agreement_full <- epfl_df_full %>%
   dplyr::filter(agree_stance == 1 ) %>% 
   group_by(stance_epfl) %>% 
   tally() %>% 
-  mutate(percent = n / sum(n) * 100)
+  mutate(percent = n / sum(n) * 100,
+         agreement = "Full agreement")
 
 # Get mturk annotations ---------------
 message("Getting Mturk annotations")
@@ -150,6 +154,29 @@ df_mturk_annot_clean %>%
 df_mturk_annot_clean_s <- df_mturk_annot_clean %>% 
   select(id_tweets, total, neutral, negative, positive, partial_agree, full_agree, agree_mturk) %>% 
   write_csv("data/mturk_annotations_simple.csv")  
+
+## Dataset for figure on stance distribution ------------------
+df_mturk_fig <- epfl_df_all %>% 
+  select(text, agree_stan, agree_stance) %>% 
+  right_join(df_mturk_annot, by = "text") %>% 
+  mutate(agreement = case_when(agree_stan == 1 & agree_stance == 0 ~ "Partial agreement",
+                               agree_stan == 1 & agree_stance == 1 ~ "Full agreement",
+                               .default = "No agreement")) %>% 
+  filter(agreement != "No agreement") %>% 
+  group_by(agree_mturk, agreement) %>% 
+  tally() %>% 
+  mutate(Model = "Amazon Mturk",
+         Prompt = "None") %>% 
+  rename(stance = agree_mturk) %>% 
+  arrange(agreement) %>% 
+  ungroup() %>% 
+  group_by(agreement) %>% 
+  mutate(percentage = (n / sum(n)) * 100,
+         stance = case_when(stance == "neutral" ~ "Neutral",
+                            stance == "positive" ~ "Positive",
+                            stance == "negative" ~ "Negative")) %>% 
+  select(Model, Prompt, stance, percentage, agreement)
+
 
 ## Get tweets' dates --------------
 mturk_dates <- df_mturk %>%
@@ -291,7 +318,82 @@ gpt_descriptive_all <- gpt_descriptive %>%
 gpt_descriptive_all %>% 
   write_csv("outputs/descriptive_gpt_all.csv")
 
-# Get Mistral data ------------------
+# Get Mixtral data ------------------
+message("Getting Mixtral annotations")
+setwd("data/local")
+files_mixtral <- fs::dir_ls(glob = "mixtral_sentiment_prompt*csv")
+mixtral <- vroom(files_mixtral)
+setwd("../..")
+
+mixtral_clean <- mixtral %>% 
+  select(text, sentiment_mixtral, prompt) %>% 
+  mutate(sentiment_mixtral_raw = tolower(sentiment_mixtral),
+         # sentiment_mixtral_raw = str_replace_all(sentiment_mixtral_raw,
+         #                                         c("neutural" = "neutral",
+         #                                         "neutional" = "neutral")
+         #                                         ),
+         # get the first instance of the three classes
+         sentiment_mixtral = str_match(sentiment_mixtral_raw, "\\b(neutral|negative|positive)\\b")[,2])
+
+## Descriptive analysis of Mistral -----------
+mixtral_descriptive <- mixtral_clean %>% 
+  mutate(prompt = str_replace_all(prompt, 
+                                  c("^0$" = "Mixtral prompt 0",
+                                    "^1$" = "Mixtral prompt 1"
+                                    ,"^3$" = "Mixtral prompt 3"
+                                    ,"^4$" = "Mixtral prompt 4"
+                                    ,"^5$" = "Mixtral prompt 5"
+                                    ,"^6$" = "Mixtral prompt 6"
+                                    # ,"^7$" = "Mixtral prompt 7"
+                                    # ,"^8$" = "Mixtral prompt 8"
+                                    ))) %>% 
+  group_by(prompt, sentiment_mixtral) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sentiment_mixtral",
+              id_cols = c("Model" , "Prompt")) 
+
+mixtral_descriptive %>% 
+  write_csv("outputs/descriptive_mixtral.csv")
+
+mixtral_descriptive_agree <- mixtral_clean %>% 
+  mutate(prompt = str_replace_all(prompt, 
+                                  c("^0$" = "Mixtral prompt 0",
+                                    "^1$" = "Mixtral prompt 1"
+                                    ,"^3$" = "Mixtral prompt 3"
+                                    ,"^4$" = "Mixtral prompt 4"
+                                    ,"^5$" = "Mixtral prompt 5"
+                                    ,"^6$" = "Mixtral prompt 6"
+                                    # ,"^7$" = "Mixtral prompt 7"
+                                    # ,"^8$" = "Mixtral prompt 8"
+                                    ))) %>% 
+  semi_join(epfl_df_full['text']) %>% 
+  group_by(prompt, sentiment_mixtral) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sentiment_mixtral",
+              id_cols = c("Model" , "Prompt")) 
+
+mixtral_descriptive_agree %>% 
+  write_csv("outputs/descriptive_mixtral_agree.csv")
+
+mixtral_descriptive_all <- mixtral_descriptive %>% 
+  left_join(mixtral_descriptive_agree, by = c("Model", "Prompt")) %>% 
+  rename("Neutral (partial agreement)" = neutral.x,
+         "Positive (partial agreement)" = positive.x,
+         "Negative (partial agreement)" = negative.x,
+         "Neutral (full agreement)" = neutral.y,
+         "Positive (full agreement)" = positive.y,
+         "Negative (full agreement)" = negative.y)
+
+mixtral_descriptive_all %>% 
+  write_csv("outputs/descriptive_mixtral_all.csv")
+
+# Get Mistral data ------------
 message("Getting Mistral annotations")
 setwd("data/local")
 files_mistral <- fs::dir_ls(glob = "mistral_sentiment_prompt*csv")
@@ -303,7 +405,7 @@ mistral_clean <- mistral %>%
   mutate(sentiment_mistral_raw = tolower(sentiment_mistral),
          sentiment_mistral_raw = str_replace_all(sentiment_mistral_raw,
                                                  c("neutural" = "neutral",
-                                                 "neutional" = "neutral")),
+                                                   "neutional" = "neutral")),
          # get the first instance of the three classes
          sentiment_mistral = str_match(sentiment_mistral_raw, "\\b(neutral|negative|positive)\\b")[,2])
 
@@ -363,29 +465,31 @@ mistral_descriptive_all <- mistral_descriptive %>%
 mistral_descriptive_all %>% 
   write_csv("outputs/descriptive_mistral_all.csv")
 
-# Merge mistral and gpt -----------
-mistral_gpt_descriptive <- gpt_descriptive %>% 
-  rbind(mistral_descriptive) %>% 
+# Merge mistral, mixtral and gpt -----------
+mistral_mixtral_gpt_descriptive <- gpt_descriptive %>% 
+  rbind(mistral_descriptive) %>%
+  rbind(mixtral_descriptive) %>% 
   rename("Positive" = "positive",
          "Neutral" = "neutral",
          "Negative" = "negative") %>% 
   arrange(Prompt)
 
-mistral_gpt_descriptive %>% 
-  write_csv("outputs/descriptive_mistral_gpt.csv")
+mistral_mixtral_gpt_descriptive %>% 
+  write_csv("outputs/descriptive_mistral_mixtral_gpt.csv")
 
-mistral_gpt_descriptive_agree <- gpt_descriptive_agree %>% 
+mistral_mixtral_gpt_descriptive_agree <- gpt_descriptive_agree %>% 
   rbind(mistral_descriptive_agree) %>% 
+  rbind(mixtral_descriptive_agree) %>% 
   rename("Positive" = "positive",
          "Neutral" = "neutral",
          "Negative" = "negative") %>% 
   arrange(Prompt)
 
-mistral_gpt_descriptive_agree %>% 
-  write_csv("outputs/descriptive_mistral_gpt_agree.csv")
+mistral_mixtral_gpt_descriptive_agree %>% 
+  write_csv("outputs/descriptive_mistral_mixtral_gpt_agree.csv")
 
-mistral_gpt_descriptive_all <- mistral_gpt_descriptive %>% 
-  left_join(mistral_gpt_descriptive_agree, by = c("Model", "Prompt")) %>% 
+mistral_mixtral_gpt_descriptive_all <- mistral_mixtral_gpt_descriptive %>% 
+  left_join(mistral_mixtral_gpt_descriptive_agree, by = c("Model", "Prompt")) %>% 
   rename("Neutral (partial agreement)" = Neutral.x,
          "Positive (partial agreement)" = Positive.x,
          "Negative (partial agreement)" = Negative.x,
@@ -393,43 +497,80 @@ mistral_gpt_descriptive_all <- mistral_gpt_descriptive %>%
          "Positive (full agreement)" = Positive.y,
          "Negative (full agreement)" = Negative.y)
 
-mistral_gpt_descriptive_all %>% 
-  write_csv("outputs/descriptive_mistral_gpt_all.csv")
+mistral_mixtral_gpt_descriptive_all %>% 
+  write_csv("outputs/descriptive_mistral_mixtral_gpt_all.csv")
 
-## Figure stance distribution per method and prompt ----------------
-mistral_gpt_descriptive_all_fig <- mistral_gpt_descriptive %>% 
-  left_join(mistral_gpt_descriptive_agree, by = c("Model", "Prompt")) %>% 
+# Figure stance distribution per method and prompt ----------------
+mistral_mixtral_gpt_descriptive_all_fig <- mistral_mixtral_gpt_descriptive %>% 
+  left_join(mistral_mixtral_gpt_descriptive_agree, by = c("Model", "Prompt")) %>% 
   pivot_longer(cols = c(starts_with("ne"), starts_with("pos")),
                names_to = "stance",
-               values_to = "percentaje") %>% 
+               values_to = "percentage") %>% 
   mutate(agreement = case_when(str_detect(stance,
                                           "x") ~ "Partial agreement",
                                .default = "Full agreement"),
          stance = str_replace_all(stance, ".x", ""),
-         stance = str_replace_all(stance, ".y", ""))
-  
+         stance = str_replace_all(stance, ".y", ""),
+         Prompt = paste0("Prompt ", as.character(Prompt))) %>% 
+  rbind(df_mturk_fig)
 
-mistral_gpt_descriptive_all_fig %>% 
+## Data for hline per facet -----------
+hline_stance_epfl <- epfl_df_class_agreement %>% 
+  rbind(epfl_df_class_agreement_full) %>% 
+  rename(y_intercept = percent) %>% 
+  select(agreement, y_intercept) %>% 
+  group_by(agreement) %>%
+  mutate(y_intercept_cum = cumsum(y_intercept)) %>%
+  ungroup()
+
+##Figure ----------
+stance_distribution_fig <- mistral_mixtral_gpt_descriptive_all_fig %>% 
   #filter(agreement == "Partial") %>% 
   ggplot() +
   geom_bar(aes(x = Model, 
-               y = percentaje, 
+               y = percentage, 
                fill = stance),
            position = "stack",
            stat = "identity") +
+  geom_hline(data = hline_stance_epfl,
+             aes(yintercept = y_intercept_cum),
+             color = "black",
+             size = 0.8,
+             linetype = "dashed") +
+  geom_hline(yintercept = 0, color = "black", size = 0.5) +
+  scale_y_continuous(expand = c(0,0)) +
   facet_grid(agreement ~ Prompt
              , switch = "x"
-             ) +
+             , scales = "free_x") +
+  scale_linetype_manual("dashed") +
+  theme_classic() +
   theme(strip.placement = "outside",
         strip.background = element_rect(fill = NA, 
                                         color = "white"),
-        panel.spacing = unit(-.01,"cm"))
+        panel.spacing.x = unit(0.1,"cm"),
+        #axis.text = element_text(size = 14),
+        text = element_text(size = 14),
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        strip.text.x = element_text(size = 14),  
+        strip.text.y = element_text(size = 14),
+        axis.title = element_text(size = 16),
+        panel.spacing.y = unit(1, "lines"),
+        axis.text = element_text(color = "black")) +
+  labs(y = "Percentage",
+       fill = "Stance",
+       linetype = "Stance distribution \naccording to experts")
+
+stance_distribution_fig
+
+ggsave("outputs/stance_distribution.jpeg", stance_distribution_fig,
+       width=10, height=6)
 
 # Get all datasets -------------
 df_all <- df_mturk_annot_clean %>% 
   full_join(epfl_df, by = "text") %>% 
   full_join(gpt_clean, by = "text") %>%
   full_join(mistral_clean, by = c("text", "prompt")) %>% 
+  full_join(mixtral_clean, by = c("text", "prompt")) %>% 
   dplyr::filter(!is.na(sent_l)) %>% 
   select(-id_tweets.x, -id_tweets.y) # id_tweets comes from gpt_clean (supposedly same as epfl_df)
 

@@ -24,3 +24,9 @@ Mistral,5,negative,0.278,0.8367,0.7092
 Mistral,6,negative,0.2989,0.8571,0.7305
 Mistral,7,negative,0.2957,0.6939,0.7915
 Mistral,8,negative,0.3402,0.8367,0.7858
+Mixtral,0,negative,0.2867,0.8367,0.722
+Mixtral,1,negative,0.2575,0.8776,0.6567
+Mixtral,3,negative,0.3139,0.8776,0.7418
+Mixtral,4,negative,0.3781,0.7755,0.8383
+Mixtral,5,negative,0.4444,0.7347,0.8908
+Mixtral,6,negative,0.3667,0.6735,0.861

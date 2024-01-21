@@ -1,758 +1,758 @@
-id_tweets,stance_epfl,agree_stance,agree_stan
-1,neutral,0,1
-2,negative,0,1
-3,negative,0,1
-4,positive,0,1
-5,neutral,0,1
-7,positive,0,1
-8,neutral,0,1
-9,neutral,0,1
-10,positive,1,1
-13,neutral,0,1
-14,neutral,1,1
-15,neutral,0,1
-17,positive,1,1
-18,positive,1,1
-20,neutral,0,1
-21,neutral,0,1
-25,positive,1,1
-26,positive,0,1
-27,positive,1,1
-28,neutral,0,1
-30,neutral,0,1
-31,neutral,0,1
-32,positive,0,1
-33,neutral,1,1
-34,neutral,0,1
-36,negative,0,1
-37,neutral,1,1
-39,positive,0,1
-40,positive,0,1
-41,positive,1,1
-43,neutral,0,1
-44,positive,1,1
-45,negative,0,1
-46,neutral,1,1
-47,positive,0,1
-50,positive,0,1
-51,neutral,0,1
-54,negative,0,1
-57,neutral,0,1
-58,neutral,0,1
-59,positive,0,1
-60,neutral,0,1
-61,neutral,0,1
-62,positive,1,1
-63,neutral,0,1
-64,negative,0,1
-65,neutral,1,1
-66,neutral,0,1
-67,neutral,0,1
-68,neutral,0,1
-69,neutral,0,1
-70,positive,0,1
-76,neutral,1,1
-77,neutral,0,1
-78,negative,1,1
-79,positive,1,1
-80,positive,0,1
-81,neutral,1,1
-82,neutral,0,1
-83,neutral,1,1
-84,positive,1,1
-87,neutral,0,1
-89,neutral,0,1
-90,neutral,1,1
-92,neutral,0,1
-94,neutral,0,1
-95,neutral,0,1
-97,neutral,0,1
-98,positive,1,1
-99,neutral,0,1
-100,negative,1,1
-101,neutral,1,1
-102,positive,0,1
-103,neutral,0,1
-104,neutral,0,1
-105,positive,1,1
-107,neutral,0,1
-108,positive,1,1
-109,neutral,0,1
-110,neutral,0,1
-111,positive,0,1
-112,neutral,0,1
-114,positive,0,1
-116,positive,0,1
-117,positive,0,1
-118,neutral,0,1
-119,negative,0,1
-120,positive,0,1
-123,positive,0,1
-124,neutral,1,1
-125,neutral,1,1
-126,neutral,0,1
-128,neutral,0,1
-129,neutral,1,1
-130,neutral,0,1
-131,neutral,0,1
-132,negative,0,1
-133,positive,0,1
-137,negative,1,1
-138,negative,0,1
-139,neutral,1,1
-140,positive,1,1
-141,positive,0,1
-143,neutral,0,1
-144,positive,0,1
-145,positive,0,1
-146,positive,0,1
-147,neutral,0,1
-149,neutral,0,1
-151,neutral,1,1
-152,neutral,0,1
-153,neutral,0,1
-154,neutral,0,1
-155,neutral,1,1
-156,neutral,0,1
-157,positive,0,1
-158,positive,0,1
-159,neutral,1,1
-163,neutral,1,1
-165,positive,0,1
-168,neutral,0,1
-169,neutral,1,1
-170,neutral,0,1
-171,positive,0,1
-173,neutral,0,1
-174,positive,0,1
-175,neutral,1,1
-176,neutral,1,1
-177,positive,0,1
-178,negative,1,1
-181,neutral,0,1
-182,neutral,0,1
-183,positive,0,1
-184,neutral,0,1
-186,neutral,1,1
-187,positive,1,1
-189,positive,1,1
-191,neutral,1,1
-192,positive,0,1
-194,neutral,0,1
-195,neutral,0,1
-197,positive,0,1
-198,neutral,0,1
-199,neutral,1,1
-200,positive,0,1
-201,neutral,0,1
-202,positive,0,1
-203,neutral,1,1
-204,positive,0,1
-205,neutral,1,1
-206,positive,0,1
-207,neutral,1,1
-208,neutral,0,1
-209,neutral,0,1
-211,neutral,1,1
-212,neutral,1,1
-214,positive,0,1
-215,positive,0,1
-216,neutral,0,1
-219,neutral,0,1
-220,neutral,0,1
-221,neutral,1,1
-222,neutral,0,1
-223,neutral,1,1
-224,positive,0,1
-225,neutral,1,1
-227,positive,0,1
-229,neutral,1,1
-230,positive,0,1
-231,negative,0,1
-234,neutral,0,1
-236,positive,0,1
-237,neutral,1,1
-238,neutral,1,1
-240,neutral,0,1
-242,positive,1,1
-243,neutral,0,1
-244,negative,0,1
-245,positive,1,1
-247,neutral,1,1
-248,neutral,0,1
-249,positive,1,1
-250,positive,1,1
-252,negative,1,1
-254,neutral,1,1
-255,positive,0,1
-256,positive,0,1
-257,positive,0,1
-258,neutral,0,1
-260,neutral,1,1
-262,neutral,0,1
-263,neutral,0,1
-265,neutral,0,1
-266,neutral,0,1
-267,neutral,1,1
-270,neutral,0,1
-271,neutral,0,1
-272,neutral,1,1
-273,neutral,0,1
-274,neutral,0,1
-275,negative,0,1
-276,neutral,0,1
-279,positive,0,1
-284,positive,0,1
-285,neutral,0,1
-287,neutral,1,1
-288,positive,0,1
-291,neutral,0,1
-292,neutral,0,1
-293,positive,0,1
-294,neutral,0,1
-295,neutral,0,1
-296,positive,0,1
-299,neutral,0,1
-300,neutral,1,1
-302,neutral,1,1
-303,neutral,0,1
-304,neutral,1,1
-306,positive,0,1
-307,positive,0,1
-309,neutral,0,1
-310,positive,0,1
-311,neutral,0,1
-312,neutral,0,1
-313,neutral,0,1
-314,neutral,0,1
-315,neutral,0,1
-317,neutral,0,1
-318,positive,0,1
-319,negative,0,1
-320,neutral,0,1
-321,neutral,0,1
-322,positive,0,1
-324,neutral,0,1
-325,neutral,0,1
-326,neutral,0,1
-327,neutral,0,1
-328,neutral,0,1
-330,neutral,1,1
-331,neutral,1,1
-332,neutral,0,1
-334,neutral,1,1
-335,positive,0,1
-336,neutral,1,1
-337,neutral,1,1
-338,neutral,0,1
-339,neutral,0,1
-340,neutral,0,1
-341,neutral,0,1
-344,neutral,1,1
-345,neutral,0,1
-346,neutral,0,1
-350,neutral,0,1
-352,negative,1,1
-354,positive,0,1
-355,neutral,0,1
-356,neutral,1,1
-357,neutral,1,1
-358,negative,0,1
-360,positive,1,1
-361,positive,0,1
-362,neutral,0,1
-363,neutral,0,1
-364,neutral,0,1
-365,neutral,0,1
-366,positive,0,1
-368,neutral,0,1
-369,neutral,1,1
-370,neutral,0,1
-371,neutral,0,1
-372,neutral,1,1
-373,neutral,0,1
-375,neutral,1,1
-376,positive,0,1
-377,neutral,1,1
-378,neutral,0,1
-379,neutral,0,1
-381,neutral,0,1
-382,negative,0,1
-383,neutral,0,1
-384,neutral,1,1
-385,neutral,1,1
-386,negative,0,1
-387,neutral,1,1
-388,neutral,0,1
-389,neutral,0,1
-390,neutral,1,1
-391,neutral,1,1
-392,neutral,1,1
-393,neutral,1,1
-394,neutral,1,1
-395,neutral,0,1
-396,positive,0,1
-397,neutral,0,1
-399,positive,0,1
-400,neutral,1,1
-401,neutral,1,1
-402,positive,0,1
-403,neutral,1,1
-404,neutral,0,1
-405,neutral,0,1
-406,neutral,1,1
-407,neutral,0,1
-408,neutral,1,1
-409,neutral,1,1
-410,neutral,0,1
-411,neutral,0,1
-412,neutral,0,1
-415,neutral,1,1
-416,neutral,1,1
-417,neutral,0,1
-418,neutral,0,1
-419,neutral,0,1
-420,neutral,1,1
-421,neutral,0,1
-422,neutral,0,1
-423,neutral,0,1
-425,neutral,1,1
-426,neutral,1,1
-428,negative,1,1
-429,neutral,1,1
-430,neutral,1,1
-431,neutral,1,1
-432,neutral,0,1
-433,neutral,0,1
-435,neutral,0,1
-436,neutral,1,1
-438,neutral,0,1
-440,positive,0,1
-441,neutral,1,1
-442,neutral,1,1
-443,neutral,1,1
-444,neutral,1,1
-445,neutral,1,1
-446,neutral,1,1
-447,neutral,1,1
-449,neutral,1,1
-452,neutral,0,1
-453,positive,0,1
-454,neutral,1,1
-455,neutral,0,1
-456,neutral,0,1
-458,neutral,0,1
-459,neutral,1,1
-460,positive,0,1
-461,neutral,0,1
-462,neutral,1,1
-463,neutral,0,1
-464,neutral,0,1
-465,neutral,0,1
-466,neutral,1,1
-467,neutral,1,1
-468,neutral,0,1
-469,neutral,1,1
-470,neutral,1,1
-474,neutral,1,1
-477,positive,0,1
-478,neutral,0,1
-479,neutral,1,1
-480,neutral,0,1
-482,neutral,0,1
-484,neutral,0,1
-485,neutral,1,1
-486,neutral,0,1
-487,negative,1,1
-488,neutral,1,1
-489,neutral,0,1
-490,neutral,0,1
-491,neutral,1,1
-492,neutral,1,1
-493,positive,1,1
-494,neutral,0,1
-495,neutral,1,1
-496,neutral,1,1
-498,positive,0,1
-499,neutral,0,1
-500,neutral,1,1
-501,neutral,0,1
-503,neutral,0,1
-505,neutral,1,1
-508,neutral,0,1
-509,positive,1,1
-510,neutral,0,1
-511,neutral,1,1
-513,neutral,1,1
-514,neutral,0,1
-516,positive,1,1
-517,neutral,1,1
-518,positive,0,1
-519,neutral,0,1
-520,neutral,1,1
-521,neutral,0,1
-522,neutral,0,1
-523,neutral,0,1
-525,neutral,1,1
-526,neutral,1,1
-527,positive,1,1
-528,neutral,1,1
-531,neutral,1,1
-532,positive,0,1
-533,neutral,0,1
-534,positive,1,1
-535,positive,0,1
-536,neutral,1,1
-537,neutral,0,1
-538,neutral,0,1
-539,neutral,1,1
-540,neutral,1,1
-542,neutral,1,1
-543,neutral,0,1
-544,neutral,0,1
-545,neutral,1,1
-546,neutral,0,1
-548,neutral,0,1
-549,neutral,0,1
-552,neutral,0,1
-553,neutral,0,1
-554,neutral,0,1
-555,neutral,1,1
-556,neutral,0,1
-557,neutral,0,1
-559,neutral,1,1
-560,neutral,1,1
-561,neutral,1,1
-562,neutral,0,1
-563,neutral,0,1
-564,neutral,0,1
-565,positive,0,1
-566,neutral,0,1
-567,neutral,0,1
-568,neutral,1,1
-569,neutral,1,1
-570,negative,1,1
-571,negative,1,1
-572,neutral,1,1
-573,neutral,1,1
-574,neutral,0,1
-575,neutral,1,1
-577,neutral,0,1
-578,positive,1,1
-579,neutral,1,1
-580,neutral,1,1
-581,neutral,0,1
-583,neutral,1,1
-584,neutral,0,1
-585,neutral,1,1
-586,neutral,0,1
-587,positive,0,1
-588,positive,1,1
-590,neutral,1,1
-591,neutral,1,1
-592,negative,0,1
-593,neutral,1,1
-594,neutral,1,1
-595,neutral,1,1
-596,neutral,0,1
-597,neutral,0,1
-598,neutral,0,1
-600,positive,1,1
-602,neutral,0,1
-603,neutral,1,1
-604,neutral,0,1
-605,neutral,0,1
-606,neutral,0,1
-607,positive,1,1
-608,neutral,1,1
-609,positive,1,1
-610,neutral,0,1
-611,negative,0,1
-612,negative,0,1
-615,positive,0,1
-618,positive,1,1
-620,neutral,0,1
-622,positive,0,1
-623,neutral,0,1
-624,neutral,1,1
-627,neutral,0,1
-628,neutral,1,1
-629,neutral,1,1
-630,neutral,0,1
-632,positive,0,1
-633,neutral,0,1
-637,neutral,0,1
-638,positive,0,1
-639,neutral,1,1
-644,positive,0,1
-645,negative,0,1
-646,neutral,1,1
-647,positive,0,1
-650,neutral,0,1
-651,neutral,0,1
-653,neutral,1,1
-654,neutral,1,1
-655,neutral,0,1
-660,neutral,0,1
-664,neutral,0,1
-665,neutral,0,1
-667,positive,1,1
-669,neutral,1,1
-670,neutral,0,1
-671,neutral,0,1
-672,neutral,1,1
-674,neutral,0,1
-675,neutral,0,1
-676,neutral,0,1
-678,neutral,1,1
-679,neutral,0,1
-680,positive,1,1
-681,neutral,0,1
-682,neutral,1,1
-683,positive,1,1
-684,neutral,1,1
-685,neutral,1,1
-686,neutral,0,1
-688,neutral,0,1
-689,negative,1,1
-690,neutral,0,1
-691,positive,1,1
-692,positive,0,1
-693,neutral,0,1
-695,neutral,0,1
-696,neutral,0,1
-697,negative,0,1
-698,neutral,1,1
-699,neutral,0,1
-700,neutral,0,1
-701,neutral,0,1
-703,neutral,0,1
-704,neutral,1,1
-706,neutral,0,1
-707,positive,1,1
-708,neutral,0,1
-710,neutral,0,1
-711,neutral,1,1
-712,neutral,1,1
-713,neutral,0,1
-715,negative,0,1
-716,neutral,1,1
-717,neutral,0,1
-718,negative,0,1
-719,neutral,1,1
-721,neutral,1,1
-722,neutral,1,1
-724,neutral,0,1
-725,neutral,0,1
-726,neutral,1,1
-727,neutral,0,1
-728,positive,0,1
-730,positive,0,1
-731,negative,0,1
-733,neutral,1,1
-734,positive,1,1
-735,neutral,0,1
-736,positive,0,1
-737,neutral,0,1
-738,neutral,0,1
-740,negative,1,1
-743,neutral,0,1
-745,positive,0,1
-746,neutral,0,1
-748,positive,1,1
-749,neutral,0,1
-750,positive,1,1
-752,neutral,0,1
-753,neutral,0,1
-754,neutral,0,1
-755,neutral,0,1
-757,negative,0,1
-758,neutral,0,1
-762,neutral,0,1
-764,neutral,1,1
-765,neutral,0,1
-766,neutral,0,1
-767,neutral,0,1
-769,neutral,0,1
-770,neutral,1,1
-772,neutral,0,1
-774,neutral,0,1
-775,negative,0,1
-776,neutral,1,1
-777,positive,0,1
-778,neutral,1,1
-779,neutral,0,1
-780,neutral,0,1
-782,neutral,0,1
-783,neutral,0,1
-786,neutral,0,1
-787,neutral,0,1
-788,neutral,0,1
-789,neutral,0,1
-790,neutral,1,1
-791,positive,1,1
-793,neutral,0,1
-794,neutral,0,1
-796,neutral,0,1
-798,negative,0,1
-799,neutral,0,1
-802,neutral,0,1
-810,neutral,1,1
-811,neutral,1,1
-812,positive,0,1
-813,neutral,1,1
-815,positive,0,1
-816,negative,0,1
-817,neutral,0,1
-819,neutral,0,1
-820,neutral,1,1
-821,positive,0,1
-822,neutral,1,1
-823,neutral,1,1
-829,neutral,1,1
-830,positive,1,1
-832,neutral,0,1
-834,positive,0,1
-835,neutral,0,1
-836,neutral,1,1
-837,neutral,0,1
-839,neutral,0,1
-840,positive,1,1
-841,positive,1,1
-842,positive,0,1
-843,neutral,0,1
-844,neutral,0,1
-845,negative,1,1
-846,positive,0,1
-848,positive,1,1
-849,neutral,1,1
-850,neutral,0,1
-852,neutral,1,1
-853,neutral,1,1
-854,neutral,1,1
-855,neutral,0,1
-856,neutral,1,1
-858,neutral,1,1
-859,positive,1,1
-860,neutral,1,1
-861,neutral,0,1
-862,neutral,0,1
-863,neutral,0,1
-864,positive,1,1
-866,neutral,0,1
-867,neutral,1,1
-868,neutral,1,1
-869,negative,0,1
-870,neutral,1,1
-871,neutral,0,1
-872,neutral,0,1
-874,negative,0,1
-875,neutral,1,1
-876,neutral,1,1
-877,neutral,0,1
-878,neutral,0,1
-879,neutral,0,1
-880,neutral,1,1
-881,positive,0,1
-882,neutral,1,1
-883,neutral,1,1
-884,neutral,1,1
-885,neutral,1,1
-886,neutral,1,1
-887,neutral,0,1
-888,neutral,0,1
-889,neutral,0,1
-890,neutral,0,1
-891,neutral,0,1
-892,neutral,1,1
-893,neutral,0,1
-894,neutral,0,1
-895,neutral,1,1
-896,neutral,1,1
-897,neutral,0,1
-898,neutral,0,1
-899,neutral,1,1
-900,neutral,1,1
-901,neutral,0,1
-903,negative,0,1
-904,positive,1,1
-905,neutral,0,1
-906,neutral,1,1
-907,neutral,0,1
-908,neutral,1,1
-912,neutral,0,1
-913,neutral,0,1
-914,negative,0,1
-915,neutral,0,1
-916,neutral,0,1
-917,neutral,0,1
-918,neutral,0,1
-919,neutral,0,1
-920,neutral,0,1
-921,neutral,0,1
-922,neutral,0,1
-923,neutral,1,1
-924,neutral,1,1
-925,neutral,0,1
-926,neutral,0,1
-927,negative,0,1
-928,neutral,0,1
-930,neutral,1,1
-931,neutral,1,1
-932,neutral,0,1
-934,negative,0,1
-935,neutral,0,1
-936,positive,0,1
-937,neutral,1,1
-938,neutral,1,1
-939,neutral,0,1
-940,negative,0,1
-941,neutral,0,1
-942,neutral,0,1
-943,negative,1,1
-944,neutral,0,1
-946,neutral,1,1
-947,neutral,1,1
-948,neutral,0,1
-950,neutral,0,1
-951,positive,0,1
-952,neutral,1,1
-953,neutral,0,1
-954,neutral,0,1
-955,neutral,0,1
-956,neutral,0,1
-957,neutral,0,1
-961,neutral,1,1
-962,neutral,1,1
-963,positive,1,1
-964,neutral,0,1
-965,neutral,0,1
-967,neutral,0,1
-968,neutral,0,1
-969,neutral,0,1
-970,positive,0,1
-971,neutral,0,1
-972,positive,0,1
-973,neutral,1,1
-974,neutral,0,1
-975,neutral,1,1
-976,neutral,0,1
-977,neutral,0,1
-978,neutral,0,1
-979,neutral,1,1
-981,neutral,1,1
-982,positive,0,1
-984,neutral,0,1
-986,neutral,0,1
-987,neutral,0,1
-988,neutral,0,1
-989,neutral,0,1
-990,neutral,0,1
-991,positive,0,1
-992,neutral,1,1
-993,neutral,1,1
-994,neutral,0,1
-995,neutral,0,1
-997,neutral,0,1
-999,neutral,0,1
-1000,neutral,0,1
+id_tweets,stance_epfl,agreement
+1,neutral,Partial agreement
+2,negative,Partial agreement
+3,negative,Partial agreement
+4,positive,Partial agreement
+5,neutral,Partial agreement
+7,positive,Partial agreement
+8,neutral,Partial agreement
+9,neutral,Partial agreement
+10,positive,Partial agreement
+13,neutral,Partial agreement
+14,neutral,Partial agreement
+15,neutral,Partial agreement
+17,positive,Partial agreement
+18,positive,Partial agreement
+20,neutral,Partial agreement
+21,neutral,Partial agreement
+25,positive,Partial agreement
+26,positive,Partial agreement
+27,positive,Partial agreement
+28,neutral,Partial agreement
+30,neutral,Partial agreement
+31,neutral,Partial agreement
+32,positive,Partial agreement
+33,neutral,Partial agreement
+34,neutral,Partial agreement
+36,negative,Partial agreement
+37,neutral,Partial agreement
+39,positive,Partial agreement
+40,positive,Partial agreement
+41,positive,Partial agreement
+43,neutral,Partial agreement
+44,positive,Partial agreement
+45,negative,Partial agreement
+46,neutral,Partial agreement
+47,positive,Partial agreement
+50,positive,Partial agreement
+51,neutral,Partial agreement
+54,negative,Partial agreement
+57,neutral,Partial agreement
+58,neutral,Partial agreement
+59,positive,Partial agreement
+60,neutral,Partial agreement
+61,neutral,Partial agreement
+62,positive,Partial agreement
+63,neutral,Partial agreement
+64,negative,Partial agreement
+65,neutral,Partial agreement
+66,neutral,Partial agreement
+67,neutral,Partial agreement
+68,neutral,Partial agreement
+69,neutral,Partial agreement
+70,positive,Partial agreement
+76,neutral,Partial agreement
+77,neutral,Partial agreement
+78,negative,Partial agreement
+79,positive,Partial agreement
+80,positive,Partial agreement
+81,neutral,Partial agreement
+82,neutral,Partial agreement
+83,neutral,Partial agreement
+84,positive,Partial agreement
+87,neutral,Partial agreement
+89,neutral,Partial agreement
+90,neutral,Partial agreement
+92,neutral,Partial agreement
+94,neutral,Partial agreement
+95,neutral,Partial agreement
+97,neutral,Partial agreement
+98,positive,Partial agreement
+99,neutral,Partial agreement
+100,negative,Partial agreement
+101,neutral,Partial agreement
+102,positive,Partial agreement
+103,neutral,Partial agreement
+104,neutral,Partial agreement
+105,positive,Partial agreement
+107,neutral,Partial agreement
+108,positive,Partial agreement
+109,neutral,Partial agreement
+110,neutral,Partial agreement
+111,positive,Partial agreement
+112,neutral,Partial agreement
+114,positive,Partial agreement
+116,positive,Partial agreement
+117,positive,Partial agreement
+118,neutral,Partial agreement
+119,negative,Partial agreement
+120,positive,Partial agreement
+123,positive,Partial agreement
+124,neutral,Partial agreement
+125,neutral,Partial agreement
+126,neutral,Partial agreement
+128,neutral,Partial agreement
+129,neutral,Partial agreement
+130,neutral,Partial agreement
+131,neutral,Partial agreement
+132,negative,Partial agreement
+133,positive,Partial agreement
+137,negative,Partial agreement
+138,negative,Partial agreement
+139,neutral,Partial agreement
+140,positive,Partial agreement
+141,positive,Partial agreement
+143,neutral,Partial agreement
+144,positive,Partial agreement
+145,positive,Partial agreement
+146,positive,Partial agreement
+147,neutral,Partial agreement
+149,neutral,Partial agreement
+151,neutral,Partial agreement
+152,neutral,Partial agreement
+153,neutral,Partial agreement
+154,neutral,Partial agreement
+155,neutral,Partial agreement
+156,neutral,Partial agreement
+157,positive,Partial agreement
+158,positive,Partial agreement
+159,neutral,Partial agreement
+163,neutral,Partial agreement
+165,positive,Partial agreement
+168,neutral,Partial agreement
+169,neutral,Partial agreement
+170,neutral,Partial agreement
+171,positive,Partial agreement
+173,neutral,Partial agreement
+174,positive,Partial agreement
+175,neutral,Partial agreement
+176,neutral,Partial agreement
+177,positive,Partial agreement
+178,negative,Partial agreement
+181,neutral,Partial agreement
+182,neutral,Partial agreement
+183,positive,Partial agreement
+184,neutral,Partial agreement
+186,neutral,Partial agreement
+187,positive,Partial agreement
+189,positive,Partial agreement
+191,neutral,Partial agreement
+192,positive,Partial agreement
+194,neutral,Partial agreement
+195,neutral,Partial agreement
+197,positive,Partial agreement
+198,neutral,Partial agreement
+199,neutral,Partial agreement
+200,positive,Partial agreement
+201,neutral,Partial agreement
+202,positive,Partial agreement
+203,neutral,Partial agreement
+204,positive,Partial agreement
+205,neutral,Partial agreement
+206,positive,Partial agreement
+207,neutral,Partial agreement
+208,neutral,Partial agreement
+209,neutral,Partial agreement
+211,neutral,Partial agreement
+212,neutral,Partial agreement
+214,positive,Partial agreement
+215,positive,Partial agreement
+216,neutral,Partial agreement
+219,neutral,Partial agreement
+220,neutral,Partial agreement
+221,neutral,Partial agreement
+222,neutral,Partial agreement
+223,neutral,Partial agreement
+224,positive,Partial agreement
+225,neutral,Partial agreement
+227,positive,Partial agreement
+229,neutral,Partial agreement
+230,positive,Partial agreement
+231,negative,Partial agreement
+234,neutral,Partial agreement
+236,positive,Partial agreement
+237,neutral,Partial agreement
+238,neutral,Partial agreement
+240,neutral,Partial agreement
+242,positive,Partial agreement
+243,neutral,Partial agreement
+244,negative,Partial agreement
+245,positive,Partial agreement
+247,neutral,Partial agreement
+248,neutral,Partial agreement
+249,positive,Partial agreement
+250,positive,Partial agreement
+252,negative,Partial agreement
+254,neutral,Partial agreement
+255,positive,Partial agreement
+256,positive,Partial agreement
+257,positive,Partial agreement
+258,neutral,Partial agreement
+260,neutral,Partial agreement
+262,neutral,Partial agreement
+263,neutral,Partial agreement
+265,neutral,Partial agreement
+266,neutral,Partial agreement
+267,neutral,Partial agreement
+270,neutral,Partial agreement
+271,neutral,Partial agreement
+272,neutral,Partial agreement
+273,neutral,Partial agreement
+274,neutral,Partial agreement
+275,negative,Partial agreement
+276,neutral,Partial agreement
+279,positive,Partial agreement
+284,positive,Partial agreement
+285,neutral,Partial agreement
+287,neutral,Partial agreement
+288,positive,Partial agreement
+291,neutral,Partial agreement
+292,neutral,Partial agreement
+293,positive,Partial agreement
+294,neutral,Partial agreement
+295,neutral,Partial agreement
+296,positive,Partial agreement
+299,neutral,Partial agreement
+300,neutral,Partial agreement
+302,neutral,Partial agreement
+303,neutral,Partial agreement
+304,neutral,Partial agreement
+306,positive,Partial agreement
+307,positive,Partial agreement
+309,neutral,Partial agreement
+310,positive,Partial agreement
+311,neutral,Partial agreement
+312,neutral,Partial agreement
+313,neutral,Partial agreement
+314,neutral,Partial agreement
+315,neutral,Partial agreement
+317,neutral,Partial agreement
+318,positive,Partial agreement
+319,negative,Partial agreement
+320,neutral,Partial agreement
+321,neutral,Partial agreement
+322,positive,Partial agreement
+324,neutral,Partial agreement
+325,neutral,Partial agreement
+326,neutral,Partial agreement
+327,neutral,Partial agreement
+328,neutral,Partial agreement
+330,neutral,Partial agreement
+331,neutral,Partial agreement
+332,neutral,Partial agreement
+334,neutral,Partial agreement
+335,positive,Partial agreement
+336,neutral,Partial agreement
+337,neutral,Partial agreement
+338,neutral,Partial agreement
+339,neutral,Partial agreement
+340,neutral,Partial agreement
+341,neutral,Partial agreement
+344,neutral,Partial agreement
+345,neutral,Partial agreement
+346,neutral,Partial agreement
+350,neutral,Partial agreement
+352,negative,Partial agreement
+354,positive,Partial agreement
+355,neutral,Partial agreement
+356,neutral,Partial agreement
+357,neutral,Partial agreement
+358,negative,Partial agreement
+360,positive,Partial agreement
+361,positive,Partial agreement
+362,neutral,Partial agreement
+363,neutral,Partial agreement
+364,neutral,Partial agreement
+365,neutral,Partial agreement
+366,positive,Partial agreement
+368,neutral,Partial agreement
+369,neutral,Partial agreement
+370,neutral,Partial agreement
+371,neutral,Partial agreement
+372,neutral,Partial agreement
+373,neutral,Partial agreement
+375,neutral,Partial agreement
+376,positive,Partial agreement
+377,neutral,Partial agreement
+378,neutral,Partial agreement
+379,neutral,Partial agreement
+381,neutral,Partial agreement
+382,negative,Partial agreement
+383,neutral,Partial agreement
+384,neutral,Partial agreement
+385,neutral,Partial agreement
+386,negative,Partial agreement
+387,neutral,Partial agreement
+388,neutral,Partial agreement
+389,neutral,Partial agreement
+390,neutral,Partial agreement
+391,neutral,Partial agreement
+392,neutral,Partial agreement
+393,neutral,Partial agreement
+394,neutral,Partial agreement
+395,neutral,Partial agreement
+396,positive,Partial agreement
+397,neutral,Partial agreement
+399,positive,Partial agreement
+400,neutral,Partial agreement
+401,neutral,Partial agreement
+402,positive,Partial agreement
+403,neutral,Partial agreement
+404,neutral,Partial agreement
+405,neutral,Partial agreement
+406,neutral,Partial agreement
+407,neutral,Partial agreement
+408,neutral,Partial agreement
+409,neutral,Partial agreement
+410,neutral,Partial agreement
+411,neutral,Partial agreement
+412,neutral,Partial agreement
+415,neutral,Partial agreement
+416,neutral,Partial agreement
+417,neutral,Partial agreement
+418,neutral,Partial agreement
+419,neutral,Partial agreement
+420,neutral,Partial agreement
+421,neutral,Partial agreement
+422,neutral,Partial agreement
+423,neutral,Partial agreement
+425,neutral,Partial agreement
+426,neutral,Partial agreement
+428,negative,Partial agreement
+429,neutral,Partial agreement
+430,neutral,Partial agreement
+431,neutral,Partial agreement
+432,neutral,Partial agreement
+433,neutral,Partial agreement
+435,neutral,Partial agreement
+436,neutral,Partial agreement
+438,neutral,Partial agreement
+440,positive,Partial agreement
+441,neutral,Partial agreement
+442,neutral,Partial agreement
+443,neutral,Partial agreement
+444,neutral,Partial agreement
+445,neutral,Partial agreement
+446,neutral,Partial agreement
+447,neutral,Partial agreement
+449,neutral,Partial agreement
+452,neutral,Partial agreement
+453,positive,Partial agreement
+454,neutral,Partial agreement
+455,neutral,Partial agreement
+456,neutral,Partial agreement
+458,neutral,Partial agreement
+459,neutral,Partial agreement
+460,positive,Partial agreement
+461,neutral,Partial agreement
+462,neutral,Partial agreement
+463,neutral,Partial agreement
+464,neutral,Partial agreement
+465,neutral,Partial agreement
+466,neutral,Partial agreement
+467,neutral,Partial agreement
+468,neutral,Partial agreement
+469,neutral,Partial agreement
+470,neutral,Partial agreement
+474,neutral,Partial agreement
+477,positive,Partial agreement
+478,neutral,Partial agreement
+479,neutral,Partial agreement
+480,neutral,Partial agreement
+482,neutral,Partial agreement
+484,neutral,Partial agreement
+485,neutral,Partial agreement
+486,neutral,Partial agreement
+487,negative,Partial agreement
+488,neutral,Partial agreement
+489,neutral,Partial agreement
+490,neutral,Partial agreement
+491,neutral,Partial agreement
+492,neutral,Partial agreement
+493,positive,Partial agreement
+494,neutral,Partial agreement
+495,neutral,Partial agreement
+496,neutral,Partial agreement
+498,positive,Partial agreement
+499,neutral,Partial agreement
+500,neutral,Partial agreement
+501,neutral,Partial agreement
+503,neutral,Partial agreement
+505,neutral,Partial agreement
+508,neutral,Partial agreement
+509,positive,Partial agreement
+510,neutral,Partial agreement
+511,neutral,Partial agreement
+513,neutral,Partial agreement
+514,neutral,Partial agreement
+516,positive,Partial agreement
+517,neutral,Partial agreement
+518,positive,Partial agreement
+519,neutral,Partial agreement
+520,neutral,Partial agreement
+521,neutral,Partial agreement
+522,neutral,Partial agreement
+523,neutral,Partial agreement
+525,neutral,Partial agreement
+526,neutral,Partial agreement
+527,positive,Partial agreement
+528,neutral,Partial agreement
+531,neutral,Partial agreement
+532,positive,Partial agreement
+533,neutral,Partial agreement
+534,positive,Partial agreement
+535,positive,Partial agreement
+536,neutral,Partial agreement
+537,neutral,Partial agreement
+538,neutral,Partial agreement
+539,neutral,Partial agreement
+540,neutral,Partial agreement
+542,neutral,Partial agreement
+543,neutral,Partial agreement
+544,neutral,Partial agreement
+545,neutral,Partial agreement
+546,neutral,Partial agreement
+548,neutral,Partial agreement
+549,neutral,Partial agreement
+552,neutral,Partial agreement
+553,neutral,Partial agreement
+554,neutral,Partial agreement
+555,neutral,Partial agreement
+556,neutral,Partial agreement
+557,neutral,Partial agreement
+559,neutral,Partial agreement
+560,neutral,Partial agreement
+561,neutral,Partial agreement
+562,neutral,Partial agreement
+563,neutral,Partial agreement
+564,neutral,Partial agreement
+565,positive,Partial agreement
+566,neutral,Partial agreement
+567,neutral,Partial agreement
+568,neutral,Partial agreement
+569,neutral,Partial agreement
+570,negative,Partial agreement
+571,negative,Partial agreement
+572,neutral,Partial agreement
+573,neutral,Partial agreement
+574,neutral,Partial agreement
+575,neutral,Partial agreement
+577,neutral,Partial agreement
+578,positive,Partial agreement
+579,neutral,Partial agreement
+580,neutral,Partial agreement
+581,neutral,Partial agreement
+583,neutral,Partial agreement
+584,neutral,Partial agreement
+585,neutral,Partial agreement
+586,neutral,Partial agreement
+587,positive,Partial agreement
+588,positive,Partial agreement
+590,neutral,Partial agreement
+591,neutral,Partial agreement
+592,negative,Partial agreement
+593,neutral,Partial agreement
+594,neutral,Partial agreement
+595,neutral,Partial agreement
+596,neutral,Partial agreement
+597,neutral,Partial agreement
+598,neutral,Partial agreement
+600,positive,Partial agreement
+602,neutral,Partial agreement
+603,neutral,Partial agreement
+604,neutral,Partial agreement
+605,neutral,Partial agreement
+606,neutral,Partial agreement
+607,positive,Partial agreement
+608,neutral,Partial agreement
+609,positive,Partial agreement
+610,neutral,Partial agreement
+611,negative,Partial agreement
+612,negative,Partial agreement
+615,positive,Partial agreement
+618,positive,Partial agreement
+620,neutral,Partial agreement
+622,positive,Partial agreement
+623,neutral,Partial agreement
+624,neutral,Partial agreement
+627,neutral,Partial agreement
+628,neutral,Partial agreement
+629,neutral,Partial agreement
+630,neutral,Partial agreement
+632,positive,Partial agreement
+633,neutral,Partial agreement
+637,neutral,Partial agreement
+638,positive,Partial agreement
+639,neutral,Partial agreement
+644,positive,Partial agreement
+645,negative,Partial agreement
+646,neutral,Partial agreement
+647,positive,Partial agreement
+650,neutral,Partial agreement
+651,neutral,Partial agreement
+653,neutral,Partial agreement
+654,neutral,Partial agreement
+655,neutral,Partial agreement
+660,neutral,Partial agreement
+664,neutral,Partial agreement
+665,neutral,Partial agreement
+667,positive,Partial agreement
+669,neutral,Partial agreement
+670,neutral,Partial agreement
+671,neutral,Partial agreement
+672,neutral,Partial agreement
+674,neutral,Partial agreement
+675,neutral,Partial agreement
+676,neutral,Partial agreement
+678,neutral,Partial agreement
+679,neutral,Partial agreement
+680,positive,Partial agreement
+681,neutral,Partial agreement
+682,neutral,Partial agreement
+683,positive,Partial agreement
+684,neutral,Partial agreement
+685,neutral,Partial agreement
+686,neutral,Partial agreement
+688,neutral,Partial agreement
+689,negative,Partial agreement
+690,neutral,Partial agreement
+691,positive,Partial agreement
+692,positive,Partial agreement
+693,neutral,Partial agreement
+695,neutral,Partial agreement
+696,neutral,Partial agreement
+697,negative,Partial agreement
+698,neutral,Partial agreement
+699,neutral,Partial agreement
+700,neutral,Partial agreement
+701,neutral,Partial agreement
+703,neutral,Partial agreement
+704,neutral,Partial agreement
+706,neutral,Partial agreement
+707,positive,Partial agreement
+708,neutral,Partial agreement
+710,neutral,Partial agreement
+711,neutral,Partial agreement
+712,neutral,Partial agreement
+713,neutral,Partial agreement
+715,negative,Partial agreement
+716,neutral,Partial agreement
+717,neutral,Partial agreement
+718,negative,Partial agreement
+719,neutral,Partial agreement
+721,neutral,Partial agreement
+722,neutral,Partial agreement
+724,neutral,Partial agreement
+725,neutral,Partial agreement
+726,neutral,Partial agreement
+727,neutral,Partial agreement
+728,positive,Partial agreement
+730,positive,Partial agreement
+731,negative,Partial agreement
+733,neutral,Partial agreement
+734,positive,Partial agreement
+735,neutral,Partial agreement
+736,positive,Partial agreement
+737,neutral,Partial agreement
+738,neutral,Partial agreement
+740,negative,Partial agreement
+743,neutral,Partial agreement
+745,positive,Partial agreement
+746,neutral,Partial agreement
+748,positive,Partial agreement
+749,neutral,Partial agreement
+750,positive,Partial agreement
+752,neutral,Partial agreement
+753,neutral,Partial agreement
+754,neutral,Partial agreement
+755,neutral,Partial agreement
+757,negative,Partial agreement
+758,neutral,Partial agreement
+762,neutral,Partial agreement
+764,neutral,Partial agreement
+765,neutral,Partial agreement
+766,neutral,Partial agreement
+767,neutral,Partial agreement
+769,neutral,Partial agreement
+770,neutral,Partial agreement
+772,neutral,Partial agreement
+774,neutral,Partial agreement
+775,negative,Partial agreement
+776,neutral,Partial agreement
+777,positive,Partial agreement
+778,neutral,Partial agreement
+779,neutral,Partial agreement
+780,neutral,Partial agreement
+782,neutral,Partial agreement
+783,neutral,Partial agreement
+786,neutral,Partial agreement
+787,neutral,Partial agreement
+788,neutral,Partial agreement
+789,neutral,Partial agreement
+790,neutral,Partial agreement
+791,positive,Partial agreement
+793,neutral,Partial agreement
+794,neutral,Partial agreement
+796,neutral,Partial agreement
+798,negative,Partial agreement
+799,neutral,Partial agreement
+802,neutral,Partial agreement
+810,neutral,Partial agreement
+811,neutral,Partial agreement
+812,positive,Partial agreement
+813,neutral,Partial agreement
+815,positive,Partial agreement
+816,negative,Partial agreement
+817,neutral,Partial agreement
+819,neutral,Partial agreement
+820,neutral,Partial agreement
+821,positive,Partial agreement
+822,neutral,Partial agreement
+823,neutral,Partial agreement
+829,neutral,Partial agreement
+830,positive,Partial agreement
+832,neutral,Partial agreement
+834,positive,Partial agreement
+835,neutral,Partial agreement
+836,neutral,Partial agreement
+837,neutral,Partial agreement
+839,neutral,Partial agreement
+840,positive,Partial agreement
+841,positive,Partial agreement
+842,positive,Partial agreement
+843,neutral,Partial agreement
+844,neutral,Partial agreement
+845,negative,Partial agreement
+846,positive,Partial agreement
+848,positive,Partial agreement
+849,neutral,Partial agreement
+850,neutral,Partial agreement
+852,neutral,Partial agreement
+853,neutral,Partial agreement
+854,neutral,Partial agreement
+855,neutral,Partial agreement
+856,neutral,Partial agreement
+858,neutral,Partial agreement
+859,positive,Partial agreement
+860,neutral,Partial agreement
+861,neutral,Partial agreement
+862,neutral,Partial agreement
+863,neutral,Partial agreement
+864,positive,Partial agreement
+866,neutral,Partial agreement
+867,neutral,Partial agreement
+868,neutral,Partial agreement
+869,negative,Partial agreement
+870,neutral,Partial agreement
+871,neutral,Partial agreement
+872,neutral,Partial agreement
+874,negative,Partial agreement
+875,neutral,Partial agreement
+876,neutral,Partial agreement
+877,neutral,Partial agreement
+878,neutral,Partial agreement
+879,neutral,Partial agreement
+880,neutral,Partial agreement
+881,positive,Partial agreement
+882,neutral,Partial agreement
+883,neutral,Partial agreement
+884,neutral,Partial agreement
+885,neutral,Partial agreement
+886,neutral,Partial agreement
+887,neutral,Partial agreement
+888,neutral,Partial agreement
+889,neutral,Partial agreement
+890,neutral,Partial agreement
+891,neutral,Partial agreement
+892,neutral,Partial agreement
+893,neutral,Partial agreement
+894,neutral,Partial agreement
+895,neutral,Partial agreement
+896,neutral,Partial agreement
+897,neutral,Partial agreement
+898,neutral,Partial agreement
+899,neutral,Partial agreement
+900,neutral,Partial agreement
+901,neutral,Partial agreement
+903,negative,Partial agreement
+904,positive,Partial agreement
+905,neutral,Partial agreement
+906,neutral,Partial agreement
+907,neutral,Partial agreement
+908,neutral,Partial agreement
+912,neutral,Partial agreement
+913,neutral,Partial agreement
+914,negative,Partial agreement
+915,neutral,Partial agreement
+916,neutral,Partial agreement
+917,neutral,Partial agreement
+918,neutral,Partial agreement
+919,neutral,Partial agreement
+920,neutral,Partial agreement
+921,neutral,Partial agreement
+922,neutral,Partial agreement
+923,neutral,Partial agreement
+924,neutral,Partial agreement
+925,neutral,Partial agreement
+926,neutral,Partial agreement
+927,negative,Partial agreement
+928,neutral,Partial agreement
+930,neutral,Partial agreement
+931,neutral,Partial agreement
+932,neutral,Partial agreement
+934,negative,Partial agreement
+935,neutral,Partial agreement
+936,positive,Partial agreement
+937,neutral,Partial agreement
+938,neutral,Partial agreement
+939,neutral,Partial agreement
+940,negative,Partial agreement
+941,neutral,Partial agreement
+942,neutral,Partial agreement
+943,negative,Partial agreement
+944,neutral,Partial agreement
+946,neutral,Partial agreement
+947,neutral,Partial agreement
+948,neutral,Partial agreement
+950,neutral,Partial agreement
+951,positive,Partial agreement
+952,neutral,Partial agreement
+953,neutral,Partial agreement
+954,neutral,Partial agreement
+955,neutral,Partial agreement
+956,neutral,Partial agreement
+957,neutral,Partial agreement
+961,neutral,Partial agreement
+962,neutral,Partial agreement
+963,positive,Partial agreement
+964,neutral,Partial agreement
+965,neutral,Partial agreement
+967,neutral,Partial agreement
+968,neutral,Partial agreement
+969,neutral,Partial agreement
+970,positive,Partial agreement
+971,neutral,Partial agreement
+972,positive,Partial agreement
+973,neutral,Partial agreement
+974,neutral,Partial agreement
+975,neutral,Partial agreement
+976,neutral,Partial agreement
+977,neutral,Partial agreement
+978,neutral,Partial agreement
+979,neutral,Partial agreement
+981,neutral,Partial agreement
+982,positive,Partial agreement
+984,neutral,Partial agreement
+986,neutral,Partial agreement
+987,neutral,Partial agreement
+988,neutral,Partial agreement
+989,neutral,Partial agreement
+990,neutral,Partial agreement
+991,positive,Partial agreement
+992,neutral,Partial agreement
+993,neutral,Partial agreement
+994,neutral,Partial agreement
+995,neutral,Partial agreement
+997,neutral,Partial agreement
+999,neutral,Partial agreement
+1000,neutral,Partial agreement
