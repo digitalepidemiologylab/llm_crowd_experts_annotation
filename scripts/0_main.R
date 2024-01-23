@@ -10,11 +10,15 @@ source("scripts/1_packages.R")
 # Get data ------------
 source("scripts/2_1_data.R")
 
-# Comparison of annotation's methods -------------
+# Comparison of annotation's methods 
+## With partial experts' agreement -------------
 source("scripts/2_2_Comparison.R")
 
-## With full agreement EPFL ------------
+## With full experts' agreement -------------
 source("scripts/2_2_Comparison_full_agreement.R")
+
+## All tweets -----------------
+source("scripts/2_3_Overall_comparison.R")
 
 ## Get datasets for Shiny app (public) -------------
 source("scripts/3_shiny_data.R")

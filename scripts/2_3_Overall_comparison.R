@@ -143,6 +143,9 @@ metrics_full_negative_fig <- class_total %>%
              size = 1) +
   scale_color_manual(values = cb_palette) +
   scale_shape_manual(values = c(19, 3, 4)) +
+  scale_y_continuous(limits = c(0,1.05), 
+                     expand = c(0, 0),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   theme_bw() +
   theme(axis.text = element_text(color = "black", size = 10),
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
@@ -171,6 +174,9 @@ metrics_full_neutral_fig <- class_total %>%
              shape = 3, size = 1, color = cb_palette[2]) +
   geom_point(aes(y = Specificity), stroke = 1,
              shape = 4, size = 1, color = cb_palette[3]) +
+  scale_y_continuous(limits = c(0,1.05), 
+                     expand = c(0,0),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   theme_bw() +
   theme(axis.text = element_text(color = "black", size = 10),
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
@@ -193,6 +199,9 @@ metrics_full_positive_fig <- class_total %>%
              shape = 3, size = 1, color = cb_palette[2]) +
   geom_point(aes(y = Specificity), stroke = 1,
              shape = 4, size = 1, color = cb_palette[3]) +
+  scale_y_continuous(limits = c(0,1.05), 
+                     expand = c(0,0),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   theme_bw() +
   theme(axis.text = element_text(color = "black", size = 10),
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
@@ -217,6 +226,9 @@ metrics_partial_negative_fig <- class_total %>%
   geom_point(aes(y = Specificity), stroke = 1,
              shape = 4, size = 1, color = cb_palette[3]) +
   scale_color_manual(values = cb_palette) +
+  scale_y_continuous(limits = c(0,1.05), 
+                     expand = c(0,0), 
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   theme_bw() +
   theme(axis.text = element_text(color = "black", size = 10),
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
@@ -239,6 +251,9 @@ metrics_partial_neutral_fig <- class_total %>%
              shape = 3, size = 1, color = cb_palette[2]) +
   geom_point(aes(y = Specificity), stroke = 1,
              shape = 4, size = 1, color = cb_palette[3]) +
+  scale_y_continuous(limits = c(0,1.05), 
+                     expand = c(0,0), 
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   theme_bw() +
   theme(axis.text = element_text(color = "black", size = 10),
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
@@ -261,6 +276,10 @@ metrics_partial_positive_fig <- class_total %>%
              shape = 3, size = 1, color = cb_palette[2]) +
   geom_point(aes(y = Specificity), stroke = 1,
              shape = 4, size = 1, color = cb_palette[3]) +
+  scale_y_continuous(limits = c(0,1.05), 
+                     expand = c(0,0), 
+                     expand = c(0,0),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   theme_bw() +
   theme(axis.text = element_text(color = "black", size = 10),
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
@@ -279,8 +298,9 @@ metrics_all_fig <- ggarrange(metrics_full_negative_fig,
                              metrics_partial_negative_fig,
                              metrics_partial_neutral_fig,
                              metrics_partial_positive_fig,
-                             common.legend = TRUE, legend = "right")
+                             common.legend = TRUE, legend = "right",
+                             vjust = 1)
 metrics_all_fig
 
-ggsave("outputs/metrics_figure.jpeg", metrics_all_fig,
-       height = 5, width = 10)
+# ggsave("outputs/metrics_figure.jpeg", metrics_all_fig,
+#        height = 5, width = 10)

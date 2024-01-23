@@ -84,6 +84,17 @@ shiny_mistral <- read_csv("outputs/descriptive_mistral_all.csv") %>%
          `Neutral (full agreement)` = round(`Neutral (full agreement)`, 1),
          Prompt = as.character(Prompt))
 
+## Mixtral ----------------
+message("Getting Mixtral dataset for Shiny app")
+shiny_mixtral <- read_csv("outputs/descriptive_mixtral_all.csv") %>% 
+  mutate(`Negative (partial agreement)` = round(`Negative (partial agreement)`, 1),
+         `Positive (partial agreement)` = round(`Positive (partial agreement)`, 1),
+         `Neutral (partial agreement)` = round(`Neutral (partial agreement)`, 1),
+         `Negative (full agreement)` = round(`Negative (full agreement)`, 1),
+         `Positive (full agreement)` = round(`Positive (full agreement)`, 1),
+         `Neutral (full agreement)` = round(`Neutral (full agreement)`, 1),
+         Prompt = as.character(Prompt))
+
 # Getting performance indicators ------------
 ## Without full agreement  ----------
 message("Getting datasets with partial agreement for Shiny app")
