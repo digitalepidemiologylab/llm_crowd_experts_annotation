@@ -14,5 +14,5 @@ while (require("pacman") == FALSE) {
 }
 
 # load packages
-p_load(tidyverse, reticulate, readxl, janitor, flextable,
-       caret, vroom, data.table, reactable, shiny)
+p_load(tidyverse, reticulate, readxl, janitor, flextable, ggpubr,
+       caret, vroom, data.table, reactable, shiny, RColorBrewer)

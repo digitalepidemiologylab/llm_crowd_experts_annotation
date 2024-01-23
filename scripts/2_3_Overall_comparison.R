@@ -115,4 +115,172 @@ ggsave("outputs/accuracy_figure.jpeg",
 # Combined figure for F1, sensitivity and specificity ------------------
 ## Merged database ----------
 class_total <- class_all %>% 
-  rbind(class_all_agree)
+  rbind(class_all_agree) %>% 
+  mutate(Model = ifelse(Method == "Amazon Mturk", "Mturk", 
+                        paste0(Method, " (", Prompt, ")"))) %>% 
+  select(Model, Stance, agreement, `F1 score`, Sensitivity, Specificity)
+
+## Individual figures ----------------
+### Color palettes ---------
+cb_palette <- brewer.pal(3, "Set1")
+
+### Full agreement -----------------
+#### Negative ----------------
+metrics_full_negative_fig <- class_total %>% 
+  filter(agreement == "Full agreement" & Stance == "negative") %>% 
+  ggplot(aes(x = reorder(Model, -`F1 score`))) +
+  geom_point(aes(y = `F1 score`, 
+                 color = "F1 score",
+                 shape = "F1 score"),
+             size = 2) +
+  geom_point(aes(y = Sensitivity, 
+             color = "Sensitivity",
+             shape = "Sensitivity"), stroke = 1,
+             size = 1) +
+  geom_point(aes(y = Specificity, 
+             color = "Specificity",
+             shape = "Specificity"), stroke = 1,
+             size = 1) +
+  scale_color_manual(values = cb_palette) +
+  scale_shape_manual(values = c(19, 3, 4)) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+        axis.title = element_text(size = 12),
+        legend.position = "right",
+        plot.background = element_rect(color = "black", fill=NA, size=1),
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black", size = 1),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 14)) +
+  labs(x = "Model (prompt if applicable)",
+       title = "Negative (Full agreement)",
+       colour = "Metric", shape = "Metric")
+
+metrics_full_negative_fig
+
+#### Neutral ----------------
+metrics_full_neutral_fig <- class_total %>% 
+  filter(agreement == "Full agreement" & Stance == "neutral") %>% 
+  ggplot(aes(x = reorder(Model, -`F1 score`))) +
+  geom_point(aes(y = `F1 score`),
+             shape = "circle",
+             size = 2, color = cb_palette[1]) +
+  geom_point(aes(y = Sensitivity), stroke = 1,
+             shape = 3, size = 1, color = cb_palette[2]) +
+  geom_point(aes(y = Specificity), stroke = 1,
+             shape = 4, size = 1, color = cb_palette[3]) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+        axis.title = element_text(size = 12),
+        plot.background = element_rect(color = "black", fill=NA, size=1)) +
+  labs(x = "Model (prompt if applicable)",
+       title = "Neutral (Full agreement)")
+
+metrics_full_neutral_fig
+
+#### Positive ----------------
+metrics_full_positive_fig <- class_total %>% 
+  filter(agreement == "Full agreement" & Stance == "positive") %>% 
+  ggplot(aes(x = reorder(Model, -`F1 score`))) +
+  geom_point(aes(y = `F1 score`),
+             shape = "circle",
+             size = 2, color = cb_palette[1]) +
+  geom_point(aes(y = Sensitivity), stroke = 1,
+             shape = 3, size = 1, color = cb_palette[2]) +
+  geom_point(aes(y = Specificity), stroke = 1,
+             shape = 4, size = 1, color = cb_palette[3]) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+        axis.title = element_text(size = 12),
+        plot.background = element_rect(color = "black", fill=NA, size=1))  +
+  labs(x = "Model (prompt if applicable)",
+       title = "Positive (Full agreement)")
+
+metrics_full_positive_fig
+
+### Partial agreement -----------------
+#### Negative ----------------
+metrics_partial_negative_fig <- class_total %>% 
+  filter(agreement == "Partial agreement" & Stance == "negative") %>% 
+  ggplot(aes(x = reorder(Model, -`F1 score`))) +
+  geom_point(aes(y = `F1 score`),
+             shape = "circle",
+             size = 2, color = cb_palette[1]) +
+  geom_point(aes(y = Sensitivity), stroke = 1,
+             shape = 3, size = 1, color = cb_palette[2]) +
+  geom_point(aes(y = Specificity), stroke = 1,
+             shape = 4, size = 1, color = cb_palette[3]) +
+  scale_color_manual(values = cb_palette) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+        axis.title = element_text(size = 12),
+        plot.background = element_rect(color = "black", fill=NA, size=1))  +
+  labs(x = "Model (prompt if applicable)",
+       title = "Negative (Partial agreement)")
+
+metrics_partial_negative_fig
+
+#### Neutral ----------------
+metrics_partial_neutral_fig <- class_total %>% 
+  filter(agreement == "Partial agreement" & Stance == "neutral") %>% 
+  ggplot(aes(x = reorder(Model, -`F1 score`))) +
+  geom_point(aes(y = `F1 score`),
+             shape = "circle",
+             size = 2, color = cb_palette[1]) +
+  geom_point(aes(y = Sensitivity), stroke = 1,
+             shape = 3, size = 1, color = cb_palette[2]) +
+  geom_point(aes(y = Specificity), stroke = 1,
+             shape = 4, size = 1, color = cb_palette[3]) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+        axis.title = element_text(size = 12),
+        plot.background = element_rect(color = "black", fill=NA, size=1))  +
+  labs(x = "Model (prompt if applicable)",
+       title = "Neutral (Partial agreement)")
+
+metrics_partial_neutral_fig
+
+#### Positive ----------------
+metrics_partial_positive_fig <- class_total %>% 
+  filter(agreement == "Partial agreement" & Stance == "positive") %>% 
+  ggplot(aes(x = reorder(Model, -`F1 score`))) +
+  geom_point(aes(y = `F1 score`),
+             shape = "circle",
+             size = 2, color = cb_palette[1]) +
+  geom_point(aes(y = Sensitivity), stroke = 1,
+             shape = 3, size = 1, color = cb_palette[2]) +
+  geom_point(aes(y = Specificity), stroke = 1,
+             shape = 4, size = 1, color = cb_palette[3]) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+        axis.title = element_text(size = 12),
+        plot.background = element_rect(color = "black", fill=NA, size=1)) +
+  labs(x = "Model (prompt if applicable)",
+       title = "Positive (Partial agreement)")
+
+metrics_partial_positive_fig
+
+## Combine individual plots into one ---------
+metrics_all_fig <- ggarrange(metrics_full_negative_fig,
+                             metrics_full_neutral_fig,
+                             metrics_full_positive_fig,
+                             metrics_partial_negative_fig,
+                             metrics_partial_neutral_fig,
+                             metrics_partial_positive_fig,
+                             common.legend = TRUE, legend = "right")
+metrics_all_fig
+
+ggsave("outputs/metrics_figure.jpeg", metrics_all_fig,
+       height = 5, width = 10)
