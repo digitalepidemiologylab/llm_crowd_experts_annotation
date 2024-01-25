@@ -36,8 +36,8 @@ ci_majority_accuracy <- data.frame(
                 "Partial agreement", "Full agreement",
                 "Full agreement", "Full agreement",
                 "Full agreement", "Full agreement"),
-  Method = c("Amazon Mturk", "GPT 3.5", "GPT 4",
-             "Mistral", "Mixtral", "Amazon Mturk", 
+  Method = c("Mturk", "GPT 3.5", "GPT 4",
+             "Mistral", "Mixtral", "Mturk", 
              "GPT 3.5", "GPT 4", "Mistral", 
              "Mixtral"))
 
@@ -52,10 +52,12 @@ majority_accuracy <- data.frame(
 overall_all_total <- overall_all_fig %>% 
   rbind(overall_all_agree_fig) %>% 
   left_join(majority_accuracy,
-            by = "agreement")
+            by = "agreement") %>%
+  mutate(Method = case_when(Method == "Amazon Mturk" ~ "Mturk",
+                            .default = Method))
 
 #### Figure ----------------
-accuracy_fig_all <- overall_all_total %>% 
+accuracy_fig_all <- overall_all_total  %>% 
   ggplot(aes(x = Prompt, y = Accuracy)) +
   geom_point(aes(color = factor(Pvalue), 
                  shape = factor(Pvalue),
@@ -78,8 +80,8 @@ accuracy_fig_all <- overall_all_total %>%
   theme_bw() +
   scale_linetype_manual(values = c("Partial agreement" = 2,
                                    "Full agreement" = 3)) +
-  scale_color_manual(values = c("<= 0.05" = "red",
-                                "> 0.05" = "blue"),
+  scale_color_manual(values = c("<= 0.05" = "darkviolet",
+                                "> 0.05" = "black"),
                      labels = c("<= 0.05", 
                                 "> 0.05")) +
   scale_shape_manual(values = c("<= 0.05" = "square",
@@ -99,10 +101,10 @@ accuracy_fig_all <- overall_all_total %>%
        size = "P value",
        linetype = "Accuracy for selecting \nmajority class",
        fill = "Confidence interval for \nselecting majority class") +
-  theme(text = element_text(size = 16),
-        strip.text.x = element_text(size = 16),  
-        strip.text.y = element_text(size = 16),
-        axis.title = element_text(size = 16),
+  theme(text = element_text(size = 14),
+        strip.text.x = element_text(size = 14),  
+        strip.text.y = element_text(size = 14),
+        axis.title = element_text(size = 14),
         panel.spacing.y = unit(0, "lines"),
         axis.text = element_text(color = "black")) 
 
@@ -304,3 +306,74 @@ metrics_all_fig
 
 # ggsave("outputs/metrics_figure.jpeg", metrics_all_fig,
 #        height = 5, width = 10)
+
+# Comparing ranking of methods by F1 score and class ---------
+## Neutral --------
+class_all_neutral_rank <- class_all_neutral %>% 
+  arrange(desc(`F1 score`)) %>% 
+  mutate(rank_neutral_partial = 1:n(),
+         Model = paste0(Method, "-", Prompt)) %>% 
+  select(Model, rank_neutral_partial) %>% 
+  arrange(Model)
+
+class_all_agree_neutral_rank <- class_all_agree_neutral %>% 
+  arrange(desc(`F1 score`)) %>% 
+  mutate(rank_neutral_full = 1:n(),
+         Model = paste0(Method, "-", Prompt)) %>% 
+  select(Model, rank_neutral_full) %>% 
+  arrange(Model)
+
+class_neutral_rank <- class_all_neutral_rank %>% 
+  left_join(class_all_agree_neutral_rank, by = "Model") %>% 
+  mutate(comparison = case_when(rank_neutral_partial == rank_neutral_full ~ 1,
+                                .default = 0),
+         similarity = case_when(rank_neutral_partial == rank_neutral_full - 2 | 
+                                  rank_neutral_partial == rank_neutral_full + 2 ~ 1,
+                                .default = 0))
+
+
+## Negative ----------
+class_all_negative_rank <- class_all_negative %>% 
+  arrange(desc(`F1 score`)) %>% 
+  mutate(rank_negative_partial = 1:n(),
+         Model = paste0(Method, "-", Prompt)) %>% 
+  select(Model, rank_negative_partial) %>% 
+  arrange(Model)
+
+class_all_agree_negative_rank <- class_all_agree_negative %>% 
+  arrange(desc(`F1 score`)) %>% 
+  mutate(rank_negative_full = 1:n(),
+         Model = paste0(Method, "-", Prompt)) %>% 
+  select(Model, rank_negative_full) %>% 
+  arrange(Model)
+
+class_negative_rank <- class_all_negative_rank %>% 
+  left_join(class_all_agree_negative_rank, by = "Model") %>% 
+  mutate(comparison = case_when(rank_negative_partial == rank_negative_full ~ 1,
+                                .default = 0),
+         similarity = case_when(rank_negative_partial == rank_negative_full - 2 | 
+                                  rank_negative_partial == rank_negative_full + 2 ~ 1,
+                                .default = 0))
+
+## Positive ------------
+class_all_positive_rank <- class_all_positive %>% 
+  arrange(desc(`F1 score`)) %>% 
+  mutate(rank_positive_partial = 1:n(),
+         Model = paste0(Method, "-", Prompt)) %>% 
+  select(Model, rank_positive_partial) %>% 
+  arrange(Model)
+
+class_all_agree_positive_rank <- class_all_agree_positive %>% 
+  arrange(desc(`F1 score`)) %>% 
+  mutate(rank_positive_full = 1:n(),
+         Model = paste0(Method, "-", Prompt)) %>% 
+  select(Model, rank_positive_full) %>% 
+  arrange(Model)
+
+class_positive_rank <- class_all_positive_rank %>% 
+  left_join(class_all_agree_positive_rank, by = "Model") %>% 
+  mutate(comparison = case_when(rank_positive_partial == rank_positive_full ~ 1,
+                                .default = 0),
+         similarity = case_when(rank_positive_partial == rank_positive_full - 2 | 
+                                  rank_positive_partial == rank_positive_full + 2 ~ 1,
+                                .default = 0))

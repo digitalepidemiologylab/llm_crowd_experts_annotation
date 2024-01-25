@@ -8,20 +8,20 @@
 source("scripts/1_packages.R")
 
 # Get data ------------
-source("scripts/2_1_data.R")
+source("scripts/2_data.R")
 
 # Comparison of annotation's methods 
 ## With partial experts' agreement -------------
-source("scripts/2_2_Comparison.R")
+source("scripts/3_1_Comparison_partial_agreement.R")
 
 ## With full experts' agreement -------------
-source("scripts/2_2_Comparison_full_agreement.R")
+source("scripts/3_2_Comparison_full_agreement.R")
 
 ## All tweets -----------------
-source("scripts/2_3_Overall_comparison.R")
+source("scripts/3_3_Overall_comparison.R")
 
 ## Get datasets for Shiny app (public) -------------
-source("scripts/3_shiny_data.R")
+source("scripts/4_shiny_data.R")
 
 # Launch Shiny app (public) -------------
 source("shiny_app.R")

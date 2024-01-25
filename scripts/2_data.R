@@ -525,9 +525,18 @@ hline_stance_epfl <- epfl_df_class_agreement %>%
 
 ##Figure ----------
 stance_distribution_fig <- mistral_mixtral_gpt_descriptive_all_fig %>% 
+  mutate(Prompt = case_when(Prompt == "Prompt 0" ~ "0",
+                            Prompt == "Prompt 1" ~ "1",
+                            Prompt == "Prompt 3" ~ "3",
+                            Prompt == "Prompt 4" ~ "4",
+                            Prompt == "Prompt 5" ~ "5",
+                            Prompt == "Prompt 6" ~ "6",
+                            Prompt == "Prompt 7" ~ "7",
+                            Prompt == "Prompt 8" ~ "8",
+                            Prompt == "None" ~ "None")) %>% 
   #filter(agreement == "Partial") %>% 
   ggplot() +
-  geom_bar(aes(x = Model, 
+  geom_bar(aes(x = Prompt, 
                y = percentage, 
                fill = stance),
            position = "stack",
@@ -539,9 +548,10 @@ stance_distribution_fig <- mistral_mixtral_gpt_descriptive_all_fig %>%
              linetype = "dashed") +
   geom_hline(yintercept = 0, color = "black", size = 0.5) +
   scale_y_continuous(expand = c(0,0)) +
-  facet_grid(agreement ~ Prompt
-             , switch = "x"
-             , scales = "free_x") +
+  facet_grid(agreement ~ Model
+             #, switch = "x"
+             , scales = "free_x"
+             ) +
   scale_linetype_manual("dashed") +
   theme_classic() +
   theme(strip.placement = "outside",
@@ -550,7 +560,7 @@ stance_distribution_fig <- mistral_mixtral_gpt_descriptive_all_fig %>%
         panel.spacing.x = unit(0.1,"cm"),
         #axis.text = element_text(size = 14),
         text = element_text(size = 14),
-        axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.text.x = element_text(hjust = 0.5),
         strip.text.x = element_text(size = 14),  
         strip.text.y = element_text(size = 14),
         axis.title = element_text(size = 16),

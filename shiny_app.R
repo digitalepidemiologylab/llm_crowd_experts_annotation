@@ -43,14 +43,14 @@ server <- function(input, output) {
   # Show the selected dataset
   output$view_describe <- renderDT({
     datasetInput_describe()},
-    #filter = "top",
+    filter = "top",
     options = list(pageLength = 16)
   )
   
   # Show the selected dataset
   output$view <- renderDT({
     datasetInput()},
-    #filter = "top",
+    filter = "top",
     options = list(pageLength = 25))
     
   # # Generate a summary of the dataset
@@ -61,7 +61,7 @@ server <- function(input, output) {
   # Show the selected dataset
   output$view_full <- renderDT({
     datasetInput_full()},
-  #filter = "top",
+  filter = "top",
   options = list(pageLength = 25))
   
   # Generate a summary of the dataset
