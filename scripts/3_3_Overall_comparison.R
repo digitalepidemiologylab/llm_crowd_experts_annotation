@@ -114,6 +114,64 @@ ggsave("outputs/accuracy_figure.jpeg",
        accuracy_fig_all,
        width = 10, height = 6)
 
+
+# Combined figure for F1 ------------
+## Merged database ----------
+class_total_f1 <- class_all %>% 
+  rbind(class_all_agree) %>% 
+  mutate(Method = ifelse(Method == "Amazon Mturk", "Mturk",Method),
+         Prompt = ifelse(is.na(Prompt), "None", Prompt),
+         Stance = case_when(Stance == "negative" ~ "Negative",
+                            Stance == "positive" ~ "Positive",
+                            Stance == "neutral" ~ "Neutral")) %>% 
+  select(Method, Prompt, Stance, agreement, `F1 score`)
+
+## Database for majority class selection --------------
+majority_f1 <- data.frame(
+  hline_f1 = c(class_majority$`F1 score`,
+                     class_majority_agree$`F1 score`),
+  agreement = c("Partial agreement", 
+                "Full agreement")
+)
+
+## Figure -----------
+f1_class_agreement_fig <- class_total_f1 %>% 
+  left_join(majority_f1) %>% 
+  ggplot(aes(x = Prompt)) +
+  geom_point(aes(y = `F1 score`, color = Stance),
+             size = 1, shape = 19)  +
+  geom_segment(aes(x = -Inf, xend = Inf,
+                   y = hline_f1,
+                   yend = hline_f1,
+                   linetype = agreement),
+               size = 0.5) +
+  facet_grid(agreement~Method, scales = "free_x") +
+  scale_y_continuous(limits = c(0,1.05),
+                     expand = c(0, 0),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.text.x = element_text(vjust = 2, hjust = 0.5),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+        axis.title = element_text(size = 12),
+        strip.text.x = element_text(size = 12),  
+        strip.text.y = element_text(size = 12),
+        legend.position = "right",
+        plot.background = element_rect(color = "black", fill="white", size=1),
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black", size = 0.5),
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 12)) +
+  labs(x = "Model (prompt if applicable)",
+       colour = "Stance towards \nvaccination", 
+       shape = "Stance towards vaccination",
+       linetype = "Agreement")
+
+f1_class_agreement_fig
+
+ggsave("outputs/f1_class_assessment.jpeg", f1_class_agreement_fig,
+       width = 10, height = 6)
+
 # Combined figure for F1, sensitivity and specificity ------------------
 ## Merged database ----------
 class_total <- class_all %>% 
@@ -154,7 +212,7 @@ metrics_full_negative_fig <- class_total %>%
         plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
         axis.title = element_text(size = 12),
         legend.position = "right",
-        plot.background = element_rect(color = "black", fill=NA, size=1),
+        plot.background = element_rect(color = "black", fill="white", size=1),
         legend.background = element_blank(),
         legend.box.background = element_rect(colour = "black", size = 1),
         legend.text = element_text(size = 14),
@@ -184,7 +242,7 @@ metrics_full_neutral_fig <- class_total %>%
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
         plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
         axis.title = element_text(size = 12),
-        plot.background = element_rect(color = "black", fill=NA, size=1)) +
+        plot.background = element_rect(color = "black", fill="white", size=1)) +
   labs(x = "Model (prompt if applicable)",
        title = "Neutral (Full agreement)")
 
@@ -209,7 +267,7 @@ metrics_full_positive_fig <- class_total %>%
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
         plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
         axis.title = element_text(size = 12),
-        plot.background = element_rect(color = "black", fill=NA, size=1))  +
+        plot.background = element_rect(color = "black", fill="white", size=1))  +
   labs(x = "Model (prompt if applicable)",
        title = "Positive (Full agreement)")
 
@@ -236,7 +294,7 @@ metrics_partial_negative_fig <- class_total %>%
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
         plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
         axis.title = element_text(size = 12),
-        plot.background = element_rect(color = "black", fill=NA, size=1))  +
+        plot.background = element_rect(color = "black", fill="white", size=1))  +
   labs(x = "Model (prompt if applicable)",
        title = "Negative (Partial agreement)")
 
@@ -261,7 +319,7 @@ metrics_partial_neutral_fig <- class_total %>%
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
         plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
         axis.title = element_text(size = 12),
-        plot.background = element_rect(color = "black", fill=NA, size=1))  +
+        plot.background = element_rect(color = "black", fill="white", size=1))  +
   labs(x = "Model (prompt if applicable)",
        title = "Neutral (Partial agreement)")
 
@@ -287,7 +345,7 @@ metrics_partial_positive_fig <- class_total %>%
         axis.text.x = element_text(angle = 90, vjust = 0, hjust = 1),
         plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
         axis.title = element_text(size = 12),
-        plot.background = element_rect(color = "black", fill=NA, size=1)) +
+        plot.background = element_rect(color = "black", fill="white", size=1)) +
   labs(x = "Model (prompt if applicable)",
        title = "Positive (Partial agreement)")
 
@@ -304,8 +362,8 @@ metrics_all_fig <- ggarrange(metrics_full_negative_fig,
                              vjust = 1)
 metrics_all_fig
 
-# ggsave("outputs/metrics_figure.jpeg", metrics_all_fig,
-#        height = 5, width = 10)
+ggsave("outputs/metrics_figure.jpeg", metrics_all_fig,
+        height = 5, width = 10)
 
 # Comparing ranking of methods by F1 score and class ---------
 ## Neutral --------

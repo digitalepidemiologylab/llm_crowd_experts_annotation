@@ -533,7 +533,9 @@ stance_distribution_fig <- mistral_mixtral_gpt_descriptive_all_fig %>%
                             Prompt == "Prompt 6" ~ "6",
                             Prompt == "Prompt 7" ~ "7",
                             Prompt == "Prompt 8" ~ "8",
-                            Prompt == "None" ~ "None")) %>% 
+                            Prompt == "None" ~ "None"),
+         Model = case_when(Model == "Amazon Mturk" ~ "Mturk",
+                           .default = Model)) %>% 
   #filter(agreement == "Partial") %>% 
   ggplot() +
   geom_bar(aes(x = Prompt, 

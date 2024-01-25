@@ -234,6 +234,37 @@ accuracy_fig_full <- overall_all_agree_fig %>%
 accuracy_fig_full
 
 ## Per class ---------
+class_majority_agree <- as.data.frame(conf_epfl_majority_agree$byClass) %>% 
+  mutate(class_tweet = c("positive_majority_agree", "neutral_majority_agree", "negative_majority_agree"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname) %>%
+  separate(., class_tweet, into = c("class", "classifier"), 
+           sep = "_") %>% 
+  mutate(method = str_replace_all(classifier, 
+                                  c("conf_epfl_" = "", 
+                                    "\\$overall" = ""))) %>% 
+  select(-classifier) %>% 
+  rename("PPV" = "Pos Pred Value",
+         "NPV" = "Neg Pred Value",
+         "F1 score" = "F1",
+         "Method" = "method",
+         "Balanced accuracy" = "Balanced Accuracy",
+         "Stance" = "class") %>% 
+  separate(col = "Method", into = c("Method", "Prompt"), sep = " prompt ") %>% 
+  select(Method, Prompt, Stance, "F1 score", Sensitivity, Specificity, PPV, NPV, Precision, Recall, 
+         "Balanced accuracy") %>% 
+  mutate(`F1 score` = round(`F1 score`, 4),
+         Sensitivity = round(Sensitivity, 4),
+         Specificity = round(Specificity, 4),
+         PPV = round(PPV, 4),
+         NPV = round(NPV, 4),
+         Precision = round(Precision, 4),
+         Recall = round(Recall, 4),
+         `Balanced accuracy` = round(`Balanced accuracy`, 4)) %>% 
+  select(Method, Prompt, Stance, `F1 score`) %>% 
+  mutate(agreement = "Full agreement") %>% 
+  filter(!is.na(`F1 score`))
+
 class_mturk_agree <- as.data.frame(conf_epfl_mturk_agree$byClass) %>% 
   mutate(class_tweet = c("positive_mturk", "neutral_mturk", "negative_mturk"))%>% 
   rownames_to_column() %>% 
