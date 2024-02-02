@@ -1,22 +1,22 @@
 Method,Prompt,Stance,F1 score,Sensitivity,Specificity,agreement
-GPT 3.5,0,positive,0.4267,0.6531,0.6987,Full agreement
-GPT 3.5,0,neutral,0.5778,0.4233,0.8571,Full agreement
-GPT 3.5,0,negative,0.2418,0.7857,0.75,Full agreement
-GPT 3.5,1,positive,0.4511,0.6122,0.7642,Full agreement
-GPT 3.5,1,neutral,0.5577,0.4047,0.8413,Full agreement
-GPT 3.5,1,negative,0.1982,0.7857,0.6742,Full agreement
+GPT 3.5,2,positive,0.4511,0.6122,0.7642,Full agreement
+GPT 3.5,2,neutral,0.5577,0.4047,0.8413,Full agreement
+GPT 3.5,2,negative,0.1982,0.7857,0.6742,Full agreement
+GPT 3.5,1,positive,0.4267,0.6531,0.6987,Full agreement
+GPT 3.5,1,neutral,0.5778,0.4233,0.8571,Full agreement
+GPT 3.5,1,negative,0.2418,0.7857,0.75,Full agreement
 GPT 3.5,3,positive,0.4928,0.3469,0.9869,Full agreement
 GPT 3.5,3,neutral,0.9071,0.9535,0.4921,Full agreement
 GPT 3.5,3,negative,0.4571,0.5714,0.9508,Full agreement
 GPT 3.5,4,positive,0.5823,0.4694,0.9694,Full agreement
 GPT 3.5,4,neutral,0.9021,0.9209,0.5873,Full agreement
 GPT 3.5,4,negative,0.3684,0.5,0.9356,Full agreement
-GPT 4,0,positive,0.6512,0.5714,0.9607,Full agreement
-GPT 4,0,neutral,0.9074,0.8884,0.7619,Full agreement
-GPT 4,0,negative,0.4082,0.7143,0.9053,Full agreement
-GPT 4,1,positive,0.7436,0.5918,1,Full agreement
-GPT 4,1,neutral,0.951,0.9488,0.8413,Full agreement
-GPT 4,1,negative,0.5306,0.9286,0.9167,Full agreement
+GPT 4,2,positive,0.7436,0.5918,1,Full agreement
+GPT 4,2,neutral,0.951,0.9488,0.8413,Full agreement
+GPT 4,2,negative,0.5306,0.9286,0.9167,Full agreement
+GPT 4,1,positive,0.6512,0.5714,0.9607,Full agreement
+GPT 4,1,neutral,0.9074,0.8884,0.7619,Full agreement
+GPT 4,1,negative,0.4082,0.7143,0.9053,Full agreement
 GPT 4,5,positive,0.7619,0.6531,0.9869,Full agreement
 GPT 4,5,neutral,0.9428,0.9581,0.746,Full agreement
 GPT 4,5,negative,0.6857,0.8571,0.9659,Full agreement
@@ -50,12 +50,12 @@ GPT 4,7,negative,0.5455,0.6429,0.9621,Full agreement
 GPT 4,8,positive,0.809,0.7347,0.9825,Full agreement
 GPT 4,8,neutral,0.9495,0.9628,0.7778,Full agreement
 GPT 4,8,negative,0.7742,0.8571,0.9811,Full agreement
-Mistral,0,positive,0.6292,0.5714,0.9474,Full agreement
-Mistral,0,neutral,0.8812,0.8318,0.8095,Full agreement
-Mistral,0,negative,0.4262,0.9286,0.8707,Full agreement
-Mistral,1,positive,0.6,0.551,0.9386,Full agreement
-Mistral,1,neutral,0.8713,0.8224,0.7778,Full agreement
-Mistral,1,negative,0.4333,0.9286,0.8745,Full agreement
+Mistral,2,positive,0.6,0.551,0.9386,Full agreement
+Mistral,2,neutral,0.8713,0.8224,0.7778,Full agreement
+Mistral,2,negative,0.4333,0.9286,0.8745,Full agreement
+Mistral,1,positive,0.6292,0.5714,0.9474,Full agreement
+Mistral,1,neutral,0.8812,0.8318,0.8095,Full agreement
+Mistral,1,negative,0.4262,0.9286,0.8707,Full agreement
 Mistral,3,positive,0.5275,0.4898,0.9211,Full agreement
 Mistral,3,neutral,0.8114,0.7336,0.746,Full agreement
 Mistral,3,negative,0.3684,1,0.8175,Full agreement
@@ -74,12 +74,12 @@ Mistral,7,negative,0.3514,0.9286,0.8213,Full agreement
 Mistral,8,positive,0.5745,0.551,0.9211,Full agreement
 Mistral,8,neutral,0.7895,0.7009,0.746,Full agreement
 Mistral,8,negative,0.35,1,0.8023,Full agreement
-Mixtral,0,positive,0.6047,0.5306,0.9518,Full agreement
-Mixtral,0,neutral,0.8021,0.7103,0.7937,Full agreement
-Mixtral,0,negative,0.2697,0.8571,0.7605,Full agreement
-Mixtral,1,positive,0.5833,0.5714,0.9167,Full agreement
-Mixtral,1,neutral,0.7089,0.5748,0.8413,Full agreement
-Mixtral,1,negative,0.2342,0.9286,0.6806,Full agreement
+Mixtral,2,positive,0.5833,0.5714,0.9167,Full agreement
+Mixtral,2,neutral,0.7089,0.5748,0.8413,Full agreement
+Mixtral,2,negative,0.2342,0.9286,0.6806,Full agreement
+Mixtral,1,positive,0.6047,0.5306,0.9518,Full agreement
+Mixtral,1,neutral,0.8021,0.7103,0.7937,Full agreement
+Mixtral,1,negative,0.2697,0.8571,0.7605,Full agreement
 Mixtral,3,positive,0.5588,0.3878,1,Full agreement
 Mixtral,3,neutral,0.8271,0.771,0.6825,Full agreement
 Mixtral,3,negative,0.2989,0.9286,0.7719,Full agreement

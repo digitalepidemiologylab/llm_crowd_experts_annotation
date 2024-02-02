@@ -273,7 +273,12 @@ gpt_clean <- gpt %>%
          sentiment_gpt = str_match(sentiment_gpt, "\\b(neutral|negative|positive)\\b")[,2],
          sentiment_gpt = case_when(is.na(sentiment_gpt) ~ "neutral",
                                    .default = sentiment_gpt)) %>% 
-  distinct(text, prompt, .keep_all = TRUE)
+  distinct(text, prompt, .keep_all = TRUE) %>% 
+  mutate(prompt = case_when(prompt == 1 ~ 2,
+                            prompt == 0 ~ 1,
+                            prompt == 41 ~ 42,
+                            prompt == 40 ~ 41,
+                            .default = prompt))
 
 # gpt_clean$sentiment_gpt <- str_replace_all(string = gpt_clean$sentiment_gpt, 
 #                                            pattern = "\r\n", 
@@ -293,7 +298,7 @@ gpt_clean_s <- gpt_clean %>%
 ## Descriptive analysis of GPT -----------
 gpt_descriptive <- gpt_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("40" = "GPT 4 prompt 0",
+                                  c("42" = "GPT 4 prompt 2",
                                     "41" = "GPT 4 prompt 1",
                                     "45" = "GPT 4 prompt 5",
                                     "43" = "GPT 4 prompt 3",
@@ -301,7 +306,7 @@ gpt_descriptive <- gpt_clean %>%
                                     "46" = "GPT 4 prompt 6",
                                     "47" = "GPT 4 prompt 7",
                                     "48" = "GPT 4 prompt 8",
-                                    "^0$" = "GPT 3.5 prompt 0",
+                                    "^2$" = "GPT 3.5 prompt 2",
                                     "^1$" = "GPT 3.5 prompt 1",
                                     "^3$" = "GPT 3.5 prompt 3",
                                     "^4$" = "GPT 3.5 prompt 4",
@@ -322,7 +327,7 @@ gpt_descriptive %>%
 
 gpt_descriptive_agree <- gpt_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("40" = "GPT 4 prompt 0",
+                                  c("42" = "GPT 4 prompt 2",
                                     "41" = "GPT 4 prompt 1",
                                     "45" = "GPT 4 prompt 5",
                                     "43" = "GPT 4 prompt 3",
@@ -330,7 +335,7 @@ gpt_descriptive_agree <- gpt_clean %>%
                                     "46" = "GPT 4 prompt 6",
                                     "47" = "GPT 4 prompt 7",
                                     "48" = "GPT 4 prompt 8",
-                                    "^0$" = "GPT 3.5 prompt 0",
+                                    "^2$" = "GPT 3.5 prompt 2",
                                     "^1$" = "GPT 3.5 prompt 1",
                                     "^3$" = "GPT 3.5 prompt 3",
                                     "^4$" = "GPT 3.5 prompt 4",
@@ -372,17 +377,21 @@ setwd("../..")
 mixtral_clean <- mixtral %>% 
   select(text, sentiment_mixtral, prompt) %>% 
   mutate(sentiment_mixtral_raw = tolower(sentiment_mixtral),
+         prompt = case_when(prompt == 1 ~ 2,
+                            prompt == 0 ~ 1,
+                            .default = prompt),
          # sentiment_mixtral_raw = str_replace_all(sentiment_mixtral_raw,
          #                                         c("neutural" = "neutral",
          #                                         "neutional" = "neutral")
          #                                         ),
          # get the first instance of the three classes
-         sentiment_mixtral = str_match(sentiment_mixtral_raw, "\\b(neutral|negative|positive)\\b")[,2])
+         sentiment_mixtral = str_match(sentiment_mixtral_raw, 
+                                       "\\b(neutral|negative|positive)\\b")[,2])
 
 ## Descriptive analysis of Mixtral -----------
 mixtral_descriptive <- mixtral_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("^0$" = "Mixtral prompt 0",
+                                  c("^2$" = "Mixtral prompt 2",
                                     "^1$" = "Mixtral prompt 1"
                                     ,"^3$" = "Mixtral prompt 3"
                                     ,"^4$" = "Mixtral prompt 4"
@@ -404,7 +413,7 @@ mixtral_descriptive %>%
 
 mixtral_descriptive_agree <- mixtral_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("^0$" = "Mixtral prompt 0",
+                                  c("^2$" = "Mixtral prompt 2",
                                     "^1$" = "Mixtral prompt 1"
                                     ,"^3$" = "Mixtral prompt 3"
                                     ,"^4$" = "Mixtral prompt 4"
@@ -446,17 +455,21 @@ setwd("../..")
 
 mistral_clean <- mistral %>% 
   select(text, sentiment_mistral, prompt) %>% 
-  mutate(sentiment_mistral_raw = tolower(sentiment_mistral),
+  mutate(prompt = case_when(prompt == 1 ~ 2,
+                            prompt == 0 ~ 1,
+                            .default = prompt),
+         sentiment_mistral_raw = tolower(sentiment_mistral),
          sentiment_mistral_raw = str_replace_all(sentiment_mistral_raw,
                                                  c("neutural" = "neutral",
                                                    "neutional" = "neutral")),
          # get the first instance of the three classes
-         sentiment_mistral = str_match(sentiment_mistral_raw, "\\b(neutral|negative|positive)\\b")[,2])
+         sentiment_mistral = str_match(sentiment_mistral_raw, 
+                                       "\\b(neutral|negative|positive)\\b")[,2])
 
 ## Descriptive analysis of Mistral -----------
 mistral_descriptive <- mistral_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("^0$" = "Mistral prompt 0",
+                                  c("^2$" = "Mistral prompt 2",
                                     "^1$" = "Mistral prompt 1",
                                     "^3$" = "Mistral prompt 3",
                                     "^4$" = "Mistral prompt 4",
@@ -477,7 +490,7 @@ mistral_descriptive %>%
 
 mistral_descriptive_agree <- mistral_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("^0$" = "Mistral prompt 0",
+                                  c("^2$" = "Mistral prompt 2",
                                     "^1$" = "Mistral prompt 1",
                                     "^3$" = "Mistral prompt 3",
                                     "^4$" = "Mistral prompt 4",
@@ -570,7 +583,7 @@ hline_stance_epfl <- epfl_df_class_agreement %>%
 
 ##Figure ----------
 stance_distribution_fig <- mistral_mixtral_gpt_descriptive_all_fig %>% 
-  mutate(Prompt = case_when(Prompt == "Prompt 0" ~ "0",
+  mutate(Prompt = case_when(Prompt == "Prompt 2" ~ "2",
                             Prompt == "Prompt 1" ~ "1",
                             Prompt == "Prompt 3" ~ "3",
                             Prompt == "Prompt 4" ~ "4",
@@ -591,9 +604,10 @@ stance_distribution_fig <- mistral_mixtral_gpt_descriptive_all_fig %>%
   geom_hline(data = hline_stance_epfl,
              aes(yintercept = y_intercept_cum),
              color = "black",
-             size = 0.8,
+             linewidth = 0.8,
              linetype = "dashed") +
-  geom_hline(yintercept = 0, color = "black", size = 0.5) +
+  geom_hline(yintercept = 0, color = "black", 
+             linewidth = 0.5) +
   scale_y_continuous(expand = c(0,0)) +
   facet_grid(agreement ~ Model
              #, switch = "x"

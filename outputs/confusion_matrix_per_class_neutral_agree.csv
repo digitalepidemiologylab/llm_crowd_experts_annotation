@@ -1,5 +1,5 @@
 Method,Prompt,Stance,F1 score,Sensitivity,Specificity,agreement
-GPT 4,1,neutral,0.951,0.9488,0.8413,Full agreement
+GPT 4,2,neutral,0.951,0.9488,0.8413,Full agreement
 GPT 4,8,neutral,0.9495,0.9628,0.7778,Full agreement
 GPT 4,6,neutral,0.9476,0.9674,0.746,Full agreement
 GPT 4,3,neutral,0.9431,0.9673,0.7143,Full agreement
@@ -8,7 +8,7 @@ GPT 4,4,neutral,0.9406,0.9581,0.7302,Full agreement
 GPT 4,7,neutral,0.9372,0.9721,0.6508,Full agreement
 Mixtral,5,neutral,0.9153,0.9346,0.6349,Full agreement
 Mixtral,8,neutral,0.9095,0.8925,0.7619,Full agreement
-GPT 4,0,neutral,0.9074,0.8884,0.7619,Full agreement
+GPT 4,1,neutral,0.9074,0.8884,0.7619,Full agreement
 GPT 3.5,3,neutral,0.9071,0.9535,0.4921,Full agreement
 GPT 3.5,5,neutral,0.9025,0.9256,0.5714,Full agreement
 GPT 3.5,4,neutral,0.9021,0.9209,0.5873,Full agreement
@@ -17,19 +17,19 @@ Mixtral,4,neutral,0.9005,0.8879,0.7143,Full agreement
 GPT 3.5,6,neutral,0.8986,0.907,0.619,Full agreement
 Amazon Mturk,NA,neutral,0.8915,0.8977,0.6032,Full agreement
 Mixtral,6,neutral,0.8894,0.9019,0.5714,Full agreement
-Mistral,0,neutral,0.8812,0.8318,0.8095,Full agreement
+Mistral,1,neutral,0.8812,0.8318,0.8095,Full agreement
 GPT 3.5,8,neutral,0.8756,0.8837,0.5397,Full agreement
-Mistral,1,neutral,0.8713,0.8224,0.7778,Full agreement
+Mistral,2,neutral,0.8713,0.8224,0.7778,Full agreement
 Vader,NA,neutral,0.8578,0.8279,0.6508,Full agreement
 Mixtral,3,neutral,0.8271,0.771,0.6825,Full agreement
 Mistral,3,neutral,0.8114,0.7336,0.746,Full agreement
-Mixtral,0,neutral,0.8021,0.7103,0.7937,Full agreement
+Mixtral,1,neutral,0.8021,0.7103,0.7937,Full agreement
 Mistral,8,neutral,0.7895,0.7009,0.746,Full agreement
 Mistral,7,neutral,0.7582,0.6449,0.8095,Full agreement
 Mistral,4,neutral,0.7568,0.6542,0.746,Full agreement
 Mistral,6,neutral,0.7459,0.6449,0.7143,Full agreement
 Mistral,5,neutral,0.7383,0.6262,0.7619,Full agreement
 GPT 3.5,7,neutral,0.7354,0.614,0.8095,Full agreement
-Mixtral,1,neutral,0.7089,0.5748,0.8413,Full agreement
-GPT 3.5,0,neutral,0.5778,0.4233,0.8571,Full agreement
-GPT 3.5,1,neutral,0.5577,0.4047,0.8413,Full agreement
+Mixtral,2,neutral,0.7089,0.5748,0.8413,Full agreement
+GPT 3.5,1,neutral,0.5778,0.4233,0.8571,Full agreement
+GPT 3.5,2,neutral,0.5577,0.4047,0.8413,Full agreement
