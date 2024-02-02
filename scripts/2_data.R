@@ -107,6 +107,50 @@ epfl_df_class_agreement_full <- epfl_df_full %>%
   mutate(percent = n / sum(n) * 100,
          agreement = "Full agreement")
 
+# Get vader sentiment -------------
+df_vader <- read_csv("data/local/vader_sentiment.csv") %>% 
+  mutate(sent_vader = case_when(sentiment_score < -0.5 ~ 'Negative',
+                               sentiment_score > 0.5 ~ 'Positive',
+                               .default = 'Neutral')) %>% 
+  select(text, sent_vader) 
+
+## Descriptive analysis of vader ----------
+### Partial agreement from experts --------
+df_vader_partial <- df_vader %>% 
+  inner_join(epfl_df['text'], by = 'text') %>% 
+  group_by(sent_vader) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100,
+         Model = "Vader",
+         Prompt = 'None') %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sent_vader",
+              id_cols = c("Model" , "Prompt")) %>% 
+  mutate(agreement = "Partial agreement")
+
+### Full agreement from experts --------
+df_vader_full <- df_vader %>% 
+  inner_join(epfl_df_full['text'], by = 'text') %>% 
+  group_by(sent_vader) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100,
+         Model = "Vader",
+         Prompt = 'None') %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sent_vader",
+              id_cols = c("Model" , "Prompt")) %>% 
+  mutate(agreement = "Full agreement")
+
+### All -------------
+df_vader_descriptive <- df_vader_full %>% 
+  rbind(df_vader_partial)
+  
+df_vader_descriptive_fig <- df_vader_descriptive %>% 
+  pivot_longer(cols = c(starts_with("ne"), starts_with("pos")),
+               names_to = "stance",
+               values_to = "percentage") %>% 
+  select(Model, Prompt, stance, percentage, agreement)
+
 # Get mturk annotations ---------------
 message("Getting Mturk annotations")
 setwd("data/local/mturk")
@@ -335,7 +379,7 @@ mixtral_clean <- mixtral %>%
          # get the first instance of the three classes
          sentiment_mixtral = str_match(sentiment_mixtral_raw, "\\b(neutral|negative|positive)\\b")[,2])
 
-## Descriptive analysis of Mistral -----------
+## Descriptive analysis of Mixtral -----------
 mixtral_descriptive <- mixtral_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
                                   c("^0$" = "Mixtral prompt 0",
@@ -512,7 +556,8 @@ mistral_mixtral_gpt_descriptive_all_fig <- mistral_mixtral_gpt_descriptive %>%
          stance = str_replace_all(stance, ".x", ""),
          stance = str_replace_all(stance, ".y", ""),
          Prompt = paste0("Prompt ", as.character(Prompt))) %>% 
-  rbind(df_mturk_fig)
+  rbind(df_mturk_fig) %>% 
+  rbind(df_vader_descriptive_fig)
 
 ## Data for hline per facet -----------
 hline_stance_epfl <- epfl_df_class_agreement %>% 
@@ -583,6 +628,8 @@ df_all <- df_mturk_annot_clean %>%
   full_join(gpt_clean, by = "text") %>%
   full_join(mistral_clean, by = c("text", "prompt")) %>% 
   full_join(mixtral_clean, by = c("text", "prompt")) %>% 
+  full_join(df_vader, by = "text") %>% 
+  mutate(sent_vader = tolower(sent_vader)) %>% 
   dplyr::filter(!is.na(sent_l)) %>% 
   select(-id_tweets.x, -id_tweets.y) # id_tweets comes from gpt_clean (supposedly same as epfl_df)
 

@@ -20,6 +20,7 @@ Mixtral,6,neutral,0.8894,0.9019,0.5714,Full agreement
 Mistral,0,neutral,0.8812,0.8318,0.8095,Full agreement
 GPT 3.5,8,neutral,0.8756,0.8837,0.5397,Full agreement
 Mistral,1,neutral,0.8713,0.8224,0.7778,Full agreement
+Vader,NA,neutral,0.8578,0.8279,0.6508,Full agreement
 Mixtral,3,neutral,0.8271,0.771,0.6825,Full agreement
 Mistral,3,neutral,0.8114,0.7336,0.746,Full agreement
 Mixtral,0,neutral,0.8021,0.7103,0.7937,Full agreement

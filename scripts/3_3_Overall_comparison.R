@@ -9,13 +9,15 @@
 ## Dataset for CI and accuracy selecting majority class per agreement facet ---------
 ci_majority_accuracy <- data.frame(
   xmin = 0,
-  xmax = c(2, 9, 9, 9, 9,
-           2, 9, 9, 9, 9),
+  xmax = c(2, 2, 9, 9, 9, 9,
+           2, 2, 9, 9, 9, 9),
   ymin = c(conf_epfl_majority$overall[[3]],
            conf_epfl_majority$overall[[3]],
            conf_epfl_majority$overall[[3]],
            conf_epfl_majority$overall[[3]],
            conf_epfl_majority$overall[[3]],
+           conf_epfl_majority$overall[[3]],
+           conf_epfl_majority_agree$overall[[3]],
            conf_epfl_majority_agree$overall[[3]],
            conf_epfl_majority_agree$overall[[3]],
            conf_epfl_majority_agree$overall[[3]],
@@ -26,6 +28,8 @@ ci_majority_accuracy <- data.frame(
            conf_epfl_majority$overall[[4]],
            conf_epfl_majority$overall[[4]],
            conf_epfl_majority$overall[[4]],
+           conf_epfl_majority$overall[[4]],
+           conf_epfl_majority_agree$overall[[4]],
            conf_epfl_majority_agree$overall[[4]],
            conf_epfl_majority_agree$overall[[4]],
            conf_epfl_majority_agree$overall[[4]],
@@ -33,11 +37,12 @@ ci_majority_accuracy <- data.frame(
            conf_epfl_majority_agree$overall[[4]]),
   agreement = c("Partial agreement", "Partial agreement", 
                 "Partial agreement", "Partial agreement",
-                "Partial agreement", "Full agreement",
+                "Partial agreement", "Partial agreement",
+                "Full agreement",
                 "Full agreement", "Full agreement",
-                "Full agreement", "Full agreement"),
-  Method = c("Mturk", "GPT 3.5", "GPT 4",
-             "Mistral", "Mixtral", "Mturk", 
+                "Full agreement", "Full agreement", "Full agreement"),
+  Method = c("Mturk", "Vader","GPT 3.5", "GPT 4",
+             "Mistral", "Mixtral",  "Mturk", "Vader" ,
              "GPT 3.5", "GPT 4", "Mistral", 
              "Mixtral"))
 
@@ -138,13 +143,135 @@ majority_f1 <- data.frame(
 f1_class_agreement_fig <- class_total_f1 %>% 
   left_join(majority_f1) %>% 
   ggplot(aes(x = Prompt)) +
-  geom_point(aes(y = `F1 score`, color = Stance),
-             size = 1, shape = 19)  +
   geom_segment(aes(x = -Inf, xend = Inf,
                    y = hline_f1,
                    yend = hline_f1,
                    linetype = agreement),
-               size = 0.5) +
+               size = 0.5, color = "#00BA38") +
+  geom_point(aes(y = `F1 score`, color = Stance),
+             size = 1, shape = 19)  +
+  facet_grid(agreement~Method, scales = "free_x") +
+  scale_y_continuous(limits = c(0,1.05),
+                     expand = c(0, 0),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.text.x = element_text(vjust = 2, hjust = 0.5),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+        axis.title = element_text(size = 12),
+        strip.text.x = element_text(size = 12),  
+        strip.text.y = element_text(size = 12),
+        legend.position = "right",
+        plot.background = element_rect(color = "black", fill="white", size=1),
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black", size = 0.5),
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 12)) +
+  labs(x = "Model (prompt if applicable)",
+       y = "F1 score",
+       colour = "Stance towards \nvaccination", 
+       shape = "Stance towards vaccination",
+       linetype = "F1 score for selecting \n majority class")
+
+f1_class_agreement_fig
+
+ggsave("outputs/f1_class_assessment.jpeg", f1_class_agreement_fig,
+       width = 10, height = 6)
+
+# Combined figure for all metrics ------------
+## Merged database ----------
+class_total_metrics <- class_all %>% 
+  rbind(class_all_agree) %>% 
+  mutate(Method = ifelse(Method == "Amazon Mturk", "Mturk",Method),
+         Prompt = ifelse(is.na(Prompt), "None", Prompt),
+         Stance = case_when(Stance == "negative" ~ "Negative",
+                            Stance == "positive" ~ "Positive",
+                            Stance == "neutral" ~ "Neutral")) %>% 
+  select(Method, Prompt, Stance, agreement, `F1 score`, Sensitivity, Specificity) %>% 
+  pivot_longer(cols = c(`F1 score`, Sensitivity, Specificity),
+               names_to = "metric",
+               values_to = "metric_value")
+
+## Database for majority class selection --------------
+majority_f1 <- data.frame(
+  hline_f1 = c(class_majority$`F1 score`,
+               class_majority_agree$`F1 score`),
+  agreement = c("Partial agreement", 
+                "Full agreement")
+)
+
+## Figure -----------
+metrics_class_agreement_fig <- class_total_metrics %>% 
+  #left_join(majority_f1) %>% 
+  ggplot(aes(x = Prompt)) +
+  # geom_segment(aes(x = -Inf, xend = Inf,
+  #                  y = hline_f1,
+  #                  yend = hline_f1,
+  #                  linetype = agreement),
+  #              size = 0.5, color = "#00BA38") +
+  geom_point(aes(y = metric_value, color = Stance),
+             size = 2, shape = 19)  +
+  #facet_grid(agreement~Method, scales = "free_x") +
+  #facet_nested(agreement~metric + Method, scales = "free_x") +
+  facet_nested(metric~agreement + Method, scales = "free_x") +
+  scale_y_continuous(limits = c(0,1.05),
+                     expand = c(0, 0),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
+  #scale_shape_manual(values = c(19, 3, 4)) +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.text.x = element_text(vjust = 2, hjust = 0.5),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+        axis.title = element_text(size = 12),
+        strip.text.x = element_text(size = 12),  
+        strip.text.y = element_text(size = 12),
+        legend.position = "right",
+        plot.background = element_rect(color = "black", fill="white", size=1),
+        legend.background = element_blank(),
+        legend.box.background = element_rect(colour = "black", size = 0.5),
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 12)) +
+  labs(x = "Model (prompt if applicable)",
+       y = "Performance metric's value",
+       colour = "Stance towards \nvaccination", 
+       shape = "Performance metric",
+       linetype = "F1 score for selecting \n majority class") 
+
+metrics_class_agreement_fig
+
+ggsave("outputs/f1_class_assessment.jpeg", f1_class_agreement_fig,
+       width = 10, height = 6)
+
+# Combined figure for sensitivity ------------
+## Merged database ----------
+class_total_sensitivity <- class_all %>% 
+  rbind(class_all_agree) %>% 
+  mutate(Method = ifelse(Method == "Amazon Mturk", "Mturk",Method),
+         Prompt = ifelse(is.na(Prompt), "None", Prompt),
+         Stance = case_when(Stance == "negative" ~ "Negative",
+                            Stance == "positive" ~ "Positive",
+                            Stance == "neutral" ~ "Neutral")) %>% 
+  select(Method, Prompt, Stance, agreement, Sensitivity)
+
+## Database for majority class selection --------------
+majority_sensitivity <- data.frame(
+  hline_sensitivity = c(class_majority$Sensitivity,
+               class_majority_agree$Sensitivity),
+  agreement = c("Partial agreement", 
+                "Full agreement")
+)
+
+## Figure -----------
+sensitivity_class_agreement_fig <- class_total_sensitivity %>% 
+  left_join(majority_sensitivity) %>% 
+  ggplot(aes(x = Prompt)) +
+  geom_segment(aes(x = -Inf, xend = Inf,
+                   y = hline_f1,
+                   yend = hline_f1,
+                   linetype = agreement),
+               size = 0.5, color = "#00BA38") +
+  geom_point(aes(y = `F1 score`, color = Stance),
+             size = 1, shape = 19)  +
   facet_grid(agreement~Method, scales = "free_x") +
   scale_y_continuous(limits = c(0,1.05),
                      expand = c(0, 0),
@@ -165,12 +292,13 @@ f1_class_agreement_fig <- class_total_f1 %>%
   labs(x = "Model (prompt if applicable)",
        colour = "Stance towards \nvaccination", 
        shape = "Stance towards vaccination",
-       linetype = "Agreement")
+       linetype = "F1 score for selecting \n majority class")
 
 f1_class_agreement_fig
 
 ggsave("outputs/f1_class_assessment.jpeg", f1_class_agreement_fig,
        width = 10, height = 6)
+
 
 # Combined figure for F1, sensitivity and specificity ------------------
 ## Merged database ----------
@@ -338,7 +466,6 @@ metrics_partial_positive_fig <- class_total %>%
              shape = 4, size = 1, color = cb_palette[3]) +
   scale_y_continuous(limits = c(0,1.05), 
                      expand = c(0,0), 
-                     expand = c(0,0),
                      breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   theme_bw() +
   theme(axis.text = element_text(color = "black", size = 10),

@@ -9,7 +9,8 @@ df_all_agree <- df_mturk_annot_clean %>%
   full_join(epfl_df, by = "text") %>% 
   full_join(gpt_clean, by = "text") %>% 
   full_join(mistral_clean, by = c("text", "prompt")) %>% 
-  full_join(mixtral_clean, by = c("text", "prompt")) %>% 
+  full_join(mixtral_clean, by = c("text", "prompt")) %>%
+  full_join(df_vader, by = "text") %>% 
   filter(!is.na(sent_l)) %>% 
   select(-id_tweets.x, -id_tweets.y) %>% # id_tweets comes from gpt_clean (supossedly same as epfl_df)
   filter(agree_stance == 1)
@@ -107,6 +108,21 @@ df_con_matrix_mturk_agree <- df_all_agree_clean %>%
   # conf_epfl_mturk_agree %>% 
   #   capture.output(., file = paste0("outputs/confusion_matrices/conf_epfl_mturk_agree.csv"))
 
+## EPFL vs Vader --------------
+  df_con_matrix_vader_agree <- df_all_agree_clean %>% 
+    filter(!duplicated(id_tweets)) %>% 
+    select(stance_epfl, sent_vader) %>% 
+    mutate(sent_vader = tolower(sent_vader)) %>% 
+    mutate(stance_epfl = factor(stance_epfl, ordered = TRUE,
+                                levels = c("positive","neutral", "negative")),
+           sent_vader = factor(sent_vader, ordered = TRUE,
+                                levels = c("positive", "neutral", "negative"))) 
+  
+  
+  conf_epfl_vader_agree <- confusionMatrix(df_con_matrix_vader_agree$sent_vader,
+                                           df_con_matrix_vader_agree$stance_epfl)
+  
+  
 ## EPFL vs selecting majority class ------------  
   df_con_matrix_majority_agree <- df_all_agree_clean %>% 
     filter(!duplicated(id_tweets)) %>% 
@@ -158,7 +174,8 @@ overall_all_agree_fig <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
     cbind(as.data.frame(conf_epfl_mixtral_agree_all_6$overall)) %>%
     cbind(as.data.frame(conf_epfl_mixtral_agree_all_7$overall)) %>%
     cbind(as.data.frame(conf_epfl_mixtral_agree_all_8$overall)) %>%
-  t() %>% 
+    cbind(as.data.frame(conf_epfl_vader$overall)) %>%
+    t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
   select(-Kappa) %>% 
@@ -198,7 +215,8 @@ overall_all_agree_fig <- as.data.frame(conf_epfl_mturk_agree$overall) %>%
                                     "gpt_agree_all_6" = "GPT 3.5 prompt 6",
                                     "gpt_agree_all_7" = "GPT 3.5 prompt 7",
                                     "gpt_agree_all_8" = "GPT 3.5 prompt 8",
-                                    "mturk_agree" = "Amazon Mturk"))) %>% 
+                                    "mturk_agree" = "Amazon Mturk",
+                                    "vader" = "Vader"))) %>% 
     select(method, Accuracy, AccuracyLower, AccuracyUpper, AccuracyPValue) %>% 
     separate(col = "method", into = c("Method", "Prompt"), sep = " prompt ") %>% 
     mutate(Pvalue = case_when(AccuracyPValue <= 0.05 ~ "<= 0.05",
@@ -261,12 +279,17 @@ class_majority_agree <- as.data.frame(conf_epfl_majority_agree$byClass) %>%
          Precision = round(Precision, 4),
          Recall = round(Recall, 4),
          `Balanced accuracy` = round(`Balanced accuracy`, 4)) %>% 
-  select(Method, Prompt, Stance, `F1 score`) %>% 
-  mutate(agreement = "Full agreement") %>% 
-  filter(!is.na(`F1 score`))
+  select(Method, Prompt, Stance, `F1 score`, Sensitivity, Specificity)  %>% 
+  mutate(agreement = "Full agreement") 
+  
 
 class_mturk_agree <- as.data.frame(conf_epfl_mturk_agree$byClass) %>% 
   mutate(class_tweet = c("positive_mturk", "neutral_mturk", "negative_mturk"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_vader_agree <- as.data.frame(conf_epfl_vader_agree$byClass) %>% 
+  mutate(class_tweet = c("positive_vader", "neutral_vader", "negative_vader"))%>% 
   rownames_to_column() %>% 
   select(-rowname)
 
@@ -464,6 +487,7 @@ class_all_agree <- class_agree_gpt0 %>%
   full_join(class_agree_mixtral6) %>% 
   full_join(class_agree_mixtral7) %>%
   full_join(class_agree_mixtral8) %>%
+  full_join(class_vader_agree) %>%
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
@@ -501,7 +525,8 @@ class_all_agree <- class_agree_gpt0 %>%
                                     "gpt6" = "GPT 3.5 prompt 6",
                                     "gpt7" = "GPT 3.5 prompt 7",
                                     "gpt8" = "GPT 3.5 prompt 8",
-                                    "mturk" = "Amazon Mturk"))) %>% 
+                                    "mturk" = "Amazon Mturk",
+                                    "vader" = "Vader"))) %>% 
   select(-classifier) %>% 
   rename("PPV" = "Pos Pred Value",
          "NPV" = "Neg Pred Value",

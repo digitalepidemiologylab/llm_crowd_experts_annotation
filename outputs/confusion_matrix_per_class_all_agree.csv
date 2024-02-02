@@ -98,3 +98,6 @@ Mixtral,7,negative,0.4074,0.7857,0.8897,Full agreement
 Mixtral,8,positive,0.6905,0.5918,0.9737,Full agreement
 Mixtral,8,neutral,0.9095,0.8925,0.7619,Full agreement
 Mixtral,8,negative,0.44,0.7857,0.9049,Full agreement
+Vader,NA,positive,0.4086,0.3878,0.8908,Full agreement
+Vader,NA,neutral,0.8578,0.8279,0.6508,Full agreement
+Vader,NA,negative,0.2917,0.5,0.8977,Full agreement

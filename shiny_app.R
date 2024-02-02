@@ -9,7 +9,7 @@
 
 library(shiny)
 library(DT)
-source("scripts/3_shiny_data.R")
+source("scripts/4_shiny_data.R")
 
 server <- function(input, output) {
   # Reactive expression to return the selected dataset

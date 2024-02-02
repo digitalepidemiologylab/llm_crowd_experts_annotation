@@ -44,6 +44,18 @@ df_con_matrix_mturk <- df_all_clean %>%
 conf_epfl_mturk <- confusionMatrix(df_con_matrix_mturk$agree_mturk,
                                      df_con_matrix_mturk$stance_epfl, mode = "everything")
 
+## EPFL vs vader --------------
+df_con_matrix_vader <- df_all_clean %>% 
+  filter(!duplicated(id_tweets)) %>% 
+  select(stance_epfl, sent_vader) %>% 
+  mutate(stance_epfl = factor(stance_epfl, ordered = TRUE,
+                              levels = c("positive","neutral", "negative")),
+         sent_vader = factor(sent_vader, ordered = TRUE,
+                              levels = c("positive", "neutral", "negative"))) 
+
+conf_epfl_vader <- confusionMatrix(df_con_matrix_vader$sent_vader,
+                                   df_con_matrix_vader$stance_epfl, mode = "everything")
+
 
   
 # conf_epfl_mturk %>% 
@@ -139,6 +151,7 @@ overall_all_fig <- as.data.frame(conf_epfl_mturk$overall) %>%
   cbind(as.data.frame(conf_epfl_mixtral_all_6$overall)) %>%
   cbind(as.data.frame(conf_epfl_mixtral_all_7$overall)) %>%
   cbind(as.data.frame(conf_epfl_mixtral_all_8$overall)) %>%
+  cbind(as.data.frame(conf_epfl_vader$overall)) %>%
   t() %>% 
   as.data.frame() %>% 
   arrange(desc(Accuracy)) %>% 
@@ -179,7 +192,8 @@ overall_all_fig <- as.data.frame(conf_epfl_mturk$overall) %>%
                                     "gpt_all_6" = "GPT 3.5 prompt 6",
                                     "gpt_all_7" = "GPT 3.5 prompt 7",
                                     "gpt_all_8" = "GPT 3.5 prompt 8",
-                                    "mturk" = "Amazon Mturk"))) %>% 
+                                    "mturk" = "Amazon Mturk",
+                                    "vader" = "Vader"))) %>% 
   select(method, Accuracy, AccuracyLower, AccuracyUpper, AccuracyPValue) %>% 
   separate(col = "method", into = c("Method", "Prompt"), sep = " prompt ") %>% 
   mutate(Pvalue = case_when(AccuracyPValue <= 0.05 ~ "<= 0.05",
@@ -252,14 +266,18 @@ class_majority <- as.data.frame(conf_epfl_majority$byClass) %>%
          Precision = round(Precision, 4),
          Recall = round(Recall, 4),
          `Balanced accuracy` = round(`Balanced accuracy`, 4)) %>% 
-  select(Method, Prompt, Stance, `F1 score`) %>% 
-  mutate(agreement = "Partial agreement") %>% 
-  filter(!is.na(`F1 score`))
+  select(Method, Prompt, Stance, `F1 score`, Sensitivity, Specificity) %>% 
+  mutate(agreement = "Partial agreement") 
 
   
   
 class_mturk <- as.data.frame(conf_epfl_mturk$byClass) %>% 
   mutate(class_tweet = c("positive_mturk", "neutral_mturk", "negative_mturk"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_vader <- as.data.frame(conf_epfl_vader$byClass) %>% 
+  mutate(class_tweet = c("positive_vader", "neutral_vader", "negative_vader"))%>% 
   rownames_to_column() %>% 
   select(-rowname)
 
@@ -456,6 +474,7 @@ class_all <- class_gpt0 %>%
   full_join(class_mixtral6) %>%
   full_join(class_mixtral7) %>%
   full_join(class_mixtral8) %>%
+  full_join(class_vader) %>%
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
   mutate(method = str_replace_all(classifier, 
@@ -493,7 +512,8 @@ class_all <- class_gpt0 %>%
                                     "gpt6" = "GPT 3.5 prompt 6",
                                     "gpt7" = "GPT 3.5 prompt 7",
                                     "gpt8" = "GPT 3.5 prompt 8",
-                                    "mturk" = "Amazon Mturk"))) %>% 
+                                    "mturk" = "Amazon Mturk",
+                                    "vader" = "Vader"))) %>% 
   select(-classifier) %>% 
   rename("PPV" = "Pos Pred Value",
          "NPV" = "Neg Pred Value",

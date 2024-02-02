@@ -98,3 +98,6 @@ Mixtral,7,negative,0.3425,0.6327,0.8567,Partial agreement
 Mixtral,8,positive,0.5085,0.4082,0.9522,Partial agreement
 Mixtral,8,neutral,0.8595,0.8548,0.6173,Partial agreement
 Mixtral,8,negative,0.4198,0.6939,0.8879,Partial agreement
+Vader,NA,positive,0.3258,0.2925,0.8785,Partial agreement
+Vader,NA,neutral,0.7996,0.7804,0.5102,Partial agreement
+Vader,NA,negative,0.2194,0.3469,0.8741,Partial agreement
