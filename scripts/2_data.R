@@ -108,11 +108,23 @@ epfl_df_class_agreement_full <- epfl_df_full %>%
          agreement = "Full agreement")
 
 # Get vader sentiment -------------
-df_vader <- read_csv("data/local/vader_sentiment.csv") %>% 
+df_vader_raw <- read_csv("data/local/vader_sentiment.csv") %>% 
   mutate(sent_vader = case_when(sentiment_score < -0.5 ~ 'Negative',
-                               sentiment_score > 0.5 ~ 'Positive',
-                               .default = 'Neutral')) %>% 
+                                sentiment_score > 0.5 ~ 'Positive',
+                                .default = 'Neutral'))
+
+df_vader <- df_vader_raw  %>% 
   select(text, sent_vader) 
+
+## Summary stats --------
+df_vader_raw %>% 
+  inner_join(epfl_df['text'], by = 'text') %>% 
+  split(.$sent_vader) %>% map(summary)
+
+df_vader_raw %>% 
+  inner_join(epfl_df['text'], by = 'text') %>% 
+  map(summary)
+
 
 ## Descriptive analysis of vader ----------
 ### Partial agreement from experts --------

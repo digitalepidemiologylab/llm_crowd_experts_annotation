@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Using experts, crowdsourcing and artificial intelligence
+  to classify the public stance towards vaccination
+  leveraging social media data
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Laura
+    family-names: Espinosa
+    orcid: 'https://orcid.org/0000-0003-0748-9657'
+  - given-names: Marcel
+    family-names: Salathé
+    orcid: 'https://orcid.org/0000-0002-5079-7797'
+repository-code: >-
+  https://github.com/digitalepidemiologylab/llm_crowd_experts_annotation
+license: EUPL-1.2
+version: '1.0'
+date-released: '2024-02-05'

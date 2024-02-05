@@ -1,8 +1,8 @@
 ﻿prompt,text
-0,"""Give me the sentiment regarding vaccination in tweet text delimited by triple backticks. \
+1,"""Give me the sentiment regarding vaccination in tweet text delimited by triple backticks. \
 Use one of the following words: neutral, negative, positive. \
 ```{TWEET_TEXT_HERE}```"""
-1,"""Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
+2,"""Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
 Use one of the following words: neutral, negative, positive. Include an explanation for the selection of the sentiment. \
 ```{TWEET_TEXT_HERE}```"""
 3,"""Give me the sentiment regarding vaccination expressed by the user in the tweet text delimited by triple backticks. \
