@@ -3,9 +3,7 @@
 
 cff-version: 1.2.0
 title: >-
-  Using experts, crowdsourcing and artificial intelligence
-  to classify the public stance towards vaccination
-  leveraging social media data
+  Use of large language models as a scalable approach to understanding public health discourse
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -20,5 +18,5 @@ authors:
 repository-code: >-
   https://github.com/digitalepidemiologylab/llm_crowd_experts_annotation
 license: EUPL-1.2
-version: '1.0'
-date-released: '2024-02-05'
+version: '1.1'
+date-released: '2024-02-06'
