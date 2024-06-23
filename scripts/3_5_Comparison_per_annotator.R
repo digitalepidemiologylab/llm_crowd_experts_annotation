@@ -5,8 +5,7 @@
 #' Date updated: 8 June 2024
 
 
-# Confusion matrix --------
-## Get merged datasets ----------
+# Get merged datasets ----------
 df_annotator_all <- df_mturk_annot_clean %>% 
   full_join(epfl_df_all, by = "text") %>% 
   full_join(gpt_clean, by = "text") %>%
@@ -26,6 +25,42 @@ df_annotator_all_clean <- df_annotator_all %>%
   left_join(select(tweets_id_real, tweet_id, id_tweets),
             by = "id_tweets") 
 
+# Figure stance distribution per annotator ----------------
+stance_m_grouped <- epfl_df_all %>% 
+  group_by(stance_m) %>% 
+  tally() %>% 
+  mutate(percent = round(n/1000 * 100, digits = 2),
+         annotator = "Co-author (1)") %>% 
+  dplyr::rename(., stance = stance_m)
+
+stance_c_grouped <- epfl_df_all %>% 
+  group_by(stance_c) %>% 
+  tally() %>% 
+  mutate(percent = round(n/1000 * 100, digits = 2),
+         annotator = "General public") %>% 
+  dplyr::rename(., stance = stance_c)
+
+stance_l_grouped <- epfl_df_all %>% 
+  group_by(stance_l) %>% 
+  tally() %>% 
+  mutate(percent = round(n/1000 * 100, digits = 2),
+         annotator = "Co-author (2)") %>% 
+  dplyr::rename(., stance = stance_l)
+
+stance_g_grouped <- epfl_df_all %>% 
+  group_by(stance_g) %>% 
+  tally() %>% 
+  mutate(percent = round(n/1000 * 100, digits = 2),
+         annotator = "Annotator") %>% 
+  dplyr::rename(., stance = stance_g)
+
+stance_per_annotator <- stance_g_grouped %>% 
+  rbind(stance_m_grouped) %>% 
+  rbind(stance_l_grouped) %>% 
+  rbind(stance_c_grouped) %>% 
+  filter(!is.na(stance))
+
+# Confusion matrix --------
 ## Get unique prompts ---------------
 prompts <- df_annotator_all_clean$prompt %>% 
   unique()
@@ -200,6 +235,25 @@ overall_all_fig_m <- as.data.frame(conf_epfl_mturk_m$overall) %>%
                                     "gpt_all_m_46" = "GPT 4 prompt 6",
                                     "gpt_all_m_47" = "GPT 4 prompt 7",
                                     "gpt_all_m_48" = "GPT 4 prompt 8",
+                                    
+                                    "llama_all_m_42" = "Llama3 (8B) prompt 2",
+                                    "llama_all_m_41" = "Llama3 (8B) prompt 1",
+                                    "llama_all_m_43" = "Llama3 (8B) prompt 3",
+                                    "llama_all_m_44" = "Llama3 (8B) prompt 4",
+                                    "llama_all_m_45" = "Llama3 (8B) prompt 5",
+                                    "llama_all_m_46" = "Llama3 (8B) prompt 6",
+                                    "llama_all_m_47" = "Llama3 (8B) prompt 7",
+                                    "llama_all_m_48" = "Llama3 (8B) prompt 8",
+                                    
+                                    "llama70b_all_m_42" = "Llama3 (70B) prompt 2",
+                                    "llama70b_all_m_41" = "Llama3 (70B) prompt 1",
+                                    "llama70b_all_m_43" = "Llama3 (70B) prompt 3",
+                                    "llama70b_all_m_44" = "Llama3 (70B) prompt 4",
+                                    "llama70b_all_m_45" = "Llama3 (70B) prompt 5",
+                                    "llama70b_all_m_46" = "Llama3 (70B) prompt 6",
+                                    "llama70b_all_m_47" = "Llama3 (70B) prompt 7",
+                                    "llama70b_all_m_48" = "Llama3 (70B) prompt 8",
+                                    
                                     "gpt_all_m_2" = "GPT 3.5 prompt 2",
                                     "gpt_all_m_1" = "GPT 3.5 prompt 1",
                                     "gpt_all_m_3" = "GPT 3.5 prompt 3",
@@ -1852,7 +1906,7 @@ accuracy_fig_l <- overall_all_fig_l %>%
                 width = 0.2) +
   facet_grid(~Method, scales = "free_x") 
 
-accuracy_fig_c
+accuracy_fig_l
 
 ## Per class ---------
 class_majority_l <- as.data.frame(conf_epfl_majority_l$byClass) %>% 
@@ -2324,6 +2378,6 @@ accuracy_fig_all_annotators <- overall_all_total_annotators  %>%
 
 accuracy_fig_all_annotators
 
-ggsave("outputs/accuracy_figure.jpeg",
-       accuracy_fig_all,
+ggsave("outputs/accuracy_figure_annotators.jpeg",
+       accuracy_fig_all_annotators,
        width = 10, height = 6)

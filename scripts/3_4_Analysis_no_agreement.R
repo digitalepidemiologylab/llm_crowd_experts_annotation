@@ -63,6 +63,7 @@ df_no_agree_all <- df_mturk_annot %>%
   full_join(mixtral_clean, by = c("text", "prompt")) %>% 
   full_join(df_vader, by = "text") %>% 
   full_join(llama_clean, by = c("text", "prompt")) %>% 
+  full_join(llama70b_clean, by = c("text", "prompt")) %>% 
   mutate(sent_vader = tolower(sent_vader)) %>% 
   select(-id_tweets.x, -id_tweets.y) # id_tweets comes from gpt_clean (supposedly same as epfl_df)
 
@@ -205,6 +206,24 @@ for (i in prompts) {
   
 }
 
+## EPFL vs Llama3 70b ---------------
+for (i in prompts) {
+  df_con_matrix_llama70b_2_2 <- df_no_agree_all_clean_2_2_new %>% 
+    filter(prompt == i) %>% 
+    select(random_stance_predominant, sentiment_llama70b) %>% 
+    mutate(random_stance_predominant = factor(random_stance_predominant, ordered = TRUE,
+                                              levels = c("positive","neutral", "negative")),
+           sentiment_llama70b = factor(sentiment_llama70b, ordered = TRUE,
+                                    levels = c("positive", "neutral", "negative"))) 
+  assign(paste('df_con_matrix_llama70b_2_2',i,sep='_'), df_con_matrix_llama70b_2_2)
+  #prompt_loop[i] <- prompts[i]
+  conf_epfl_llama70b_2_2 <- confusionMatrix(df_con_matrix_llama70b_2_2$sentiment_llama70b,
+                                         df_con_matrix_llama70b_2_2$random_stance_predominant, mode = "everything")
+  conf_epfl_llama70b_2_2$prompt <- prompts[i]
+  assign(paste('conf_epfl_llama70b_2_2_all',i,sep='_'), conf_epfl_llama70b_2_2) 
+  
+}
+
 ## EPFL vs selecting majority class ------------  
 df_con_matrix_majority_2_2 <- df_no_agree_all_clean_2_2_new %>% 
   filter(!duplicated(id_tweets)) %>% 
@@ -255,12 +274,21 @@ overall_2_2_all_fig <- as.data.frame(conf_epfl_mturk_2_2$overall) %>%
   cbind(as.data.frame(conf_epfl_mixtral_2_2_all_7$overall)) %>%
   cbind(as.data.frame(conf_epfl_mixtral_2_2_all_8$overall)) %>%
   cbind(as.data.frame(conf_epfl_llama_2_2_all_1$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_llama_2_2_all_2$overall)) %>%
   cbind(as.data.frame(conf_epfl_llama_2_2_all_3$overall)) %>%
   cbind(as.data.frame(conf_epfl_llama_2_2_all_4$overall)) %>%
   cbind(as.data.frame(conf_epfl_llama_2_2_all_5$overall)) %>%
   cbind(as.data.frame(conf_epfl_llama_2_2_all_6$overall)) %>%
   cbind(as.data.frame(conf_epfl_llama_2_2_all_7$overall)) %>%
   cbind(as.data.frame(conf_epfl_llama_2_2_all_8$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_2_2_all_1$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_llama70b_2_2_all_2$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_2_2_all_3$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_2_2_all_4$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_2_2_all_5$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_2_2_all_6$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_2_2_all_7$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_2_2_all_8$overall)) %>%
   cbind(as.data.frame(conf_epfl_vader_2_2$overall)) %>%
   t() %>% 
   as.data.frame() %>% 
@@ -310,6 +338,14 @@ overall_2_2_all_fig <- as.data.frame(conf_epfl_mturk_2_2$overall) %>%
                                     "llama_2_2_all_6" = "Llama3 prompt 6",
                                     "llama_2_2_all_7" = "Llama3 prompt 7",
                                     "llama_2_2_all_8" = "Llama3 prompt 8",
+                                    "llama70b_2_2_all_2" = "Llama3 70b prompt 2",
+                                    "llama70b_2_2_all_1" = "Llama3 70b prompt 1",
+                                    "llama70b_2_2_all_3" = "Llama3 70b prompt 3",
+                                    "llama70b_2_2_all_4" = "Llama3 70b prompt 4",
+                                    "llama70b_2_2_all_5" = "Llama3 70b prompt 5",
+                                    "llama70b_2_2_all_6" = "Llama3 70b prompt 6",
+                                    "llama70b_2_2_all_7" = "Llama3 70b prompt 7",
+                                    "llama70b_2_2_all_8" = "Llama3 70b prompt 8",
                                     "mturk_2_2" = "Amazon Mturk",
                                     "vader_2_2" = "Vader"))) %>% 
   select(method, Accuracy, AccuracyLower, AccuracyUpper, AccuracyPValue) %>% 
@@ -598,4 +634,121 @@ accuracy_fig_2_1_1 <- overall_2_1_1_all_fig %>%
   facet_grid(~Method, scales = "free_x") 
 
 accuracy_fig_2_1_1
+
+# Combined figure for accuracy and CI --------------
+## Dataset for CI and accuracy selecting majority class per agreement facet ---------
+ci_majority_accuracy_no_agree <- data.frame(
+  xmin = 0,
+  xmax = c(2, 2, 9, 9, 9, 9,
+           2, 2, 9, 9, 9, 9),
+  ymin = c(conf_epfl_majority_2_1_1$overall[[3]],
+           conf_epfl_majority_2_1_1$overall[[3]],
+           conf_epfl_majority_2_1_1$overall[[3]],
+           conf_epfl_majority_2_1_1$overall[[3]],
+           conf_epfl_majority_2_1_1$overall[[3]],
+           conf_epfl_majority_2_1_1$overall[[3]],
+           conf_epfl_majority_2_1_1$overall[[3]],
+           conf_epfl_majority_2_2$overall[[3]],
+           conf_epfl_majority_2_2$overall[[3]],
+           conf_epfl_majority_2_2$overall[[3]],
+           conf_epfl_majority_2_2$overall[[3]],
+           conf_epfl_majority_2_2$overall[[3]],
+           conf_epfl_majority_2_2$overall[[3]],
+           conf_epfl_majority_2_2$overall[[3]]),
+  ymax = c(conf_epfl_majority_2_1_1$overall[[4]],
+           conf_epfl_majority_2_1_1$overall[[4]],
+           conf_epfl_majority_2_1_1$overall[[4]],
+           conf_epfl_majority_2_1_1$overall[[4]],
+           conf_epfl_majority_2_1_1$overall[[4]],
+           conf_epfl_majority_2_1_1$overall[[4]],
+           conf_epfl_majority_2_1_1$overall[[4]],
+           conf_epfl_majority_2_2$overall[[4]],
+           conf_epfl_majority_2_2$overall[[4]],
+           conf_epfl_majority_2_2$overall[[4]],
+           conf_epfl_majority_2_2$overall[[4]],
+           conf_epfl_majority_2_2$overall[[4]],
+           conf_epfl_majority_2_2$overall[[4]]),
+  agreement = c("Two-Two tweets", "Two-Two tweets", "Two-Two tweets", 
+                "Two-Two tweets", "Two-Two tweets", "Two-Two tweets", 
+                "Two-Two tweets", "Two-One-One tweets", "Two-One-One tweets",
+                "Two-One-One tweets","Two-One-One tweets","Two-One-One tweets",
+                "Two-One-One tweets","Two-One-One tweets"),
+  Method = c("Mturk", "Vader","GPT 3.5", "GPT 4",
+             "Mistral", "Mixtral", "Llama3", "Mturk", "Vader" ,
+             "GPT 3.5", "GPT 4", "Mistral", 
+             "Mixtral", "Llama3"))
+
+majority_accuracy_no_agree <- data.frame(
+  hline_accuracy_no_agree = c(conf_epfl_majority_2_1_1$overall[[1]],
+                     conf_epfl_majority_2_2$overall[[1]]),
+  agreement = c("Two-Two tweets", "Two-One-One tweets")
+)
+
+## TO MODIFY
+
+#### Dataset ---------
+overall_all_total <- overall_all_fig %>% 
+  rbind(overall_all_agree_fig) %>% 
+  left_join(majority_accuracy,
+            by = "agreement") %>%
+  mutate(Method = case_when(Method == "Amazon Mturk" ~ "Mturk",
+                            .default = Method))
+
+#### Figure ----------------
+accuracy_fig_all <- overall_all_total  %>% 
+  ggplot(aes(x = Prompt, y = Accuracy)) +
+  geom_point(aes(color = factor(Pvalue), 
+                 shape = factor(Pvalue),
+                 size = factor(Pvalue))) +
+  geom_errorbar(aes(ymin = AccuracyLower,
+                    ymax = AccuracyUpper,
+                    color = Pvalue),
+                width = 0.2) +
+  geom_segment(aes(x = -Inf, xend = Inf,
+                   y = hline_accuracy,
+                   yend = hline_accuracy,
+                   linetype = agreement),
+               size = 1) +
+  geom_rect(data = ci_majority_accuracy,
+            aes(xmin = xmin, xmax = xmax,
+                ymin = ymin, ymax = ymax,
+                fill = agreement),
+            alpha = 0.2, inherit.aes = FALSE) +
+  facet_grid(agreement~Method, scales = "free_x") +
+  theme_bw() +
+  scale_linetype_manual(values = c("Partial agreement" = 2,
+                                   "Full agreement" = 3)) +
+  scale_color_manual(values = c("<= 0.05" = "darkviolet",
+                                "> 0.05" = "black"),
+                     labels = c("<= 0.05", 
+                                "> 0.05")) +
+  scale_shape_manual(values = c("<= 0.05" = "square",
+                                "> 0.05" = "circle"),
+                     labels = c("<= 0.05", 
+                                "> 0.05")) +
+  scale_size_manual(values = c("<= 0.05" = 3,
+                               "> 0.05" = 2.5),
+                    labels = c("<= 0.05", 
+                               "> 0.05")) +
+  scale_fill_manual(values = c("Partial agreement" = "darkgrey",
+                               "Full agreement" = "black"),
+                    labels = c("Partial agreement",
+                               "Full agreement")) +
+  labs(color = "P value",
+       shape = "P value",
+       size = "P value",
+       linetype = "Accuracy for selecting \nmajority class",
+       fill = "Confidence interval for \nselecting majority class") +
+  theme(text = element_text(size = 14),
+        strip.text.x = element_text(size = 14),  
+        strip.text.y = element_text(size = 14),
+        axis.title = element_text(size = 14),
+        panel.spacing.y = unit(0, "lines"),
+        axis.text = element_text(color = "black")) 
+
+accuracy_fig_all
+
+ggsave("outputs/accuracy_figure.jpeg",
+       accuracy_fig_all,
+       width = 10, height = 6)
 

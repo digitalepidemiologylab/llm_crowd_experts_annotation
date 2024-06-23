@@ -20,6 +20,12 @@ source("scripts/3_2_Comparison_full_agreement.R")
 ## All tweets -----------------
 source("scripts/3_3_Overall_comparison.R")
 
+# Analysis of the non-agreed tweets by 4 annotators ------
+source("scripts/3_4_Analysis_no_agreement.R")
+
+# Analysis per each of the 4 annotators -----------
+source("scripts/3_5_Comparison_per_annotator.R")
+
 ## Get datasets for Shiny app (public) -------------
 source("scripts/4_shiny_data.R")
 

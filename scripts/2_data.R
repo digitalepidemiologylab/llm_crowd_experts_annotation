@@ -171,15 +171,15 @@ df_mturk <- vroom(files)
 setwd("../../..")
 
 unique(df_mturk$question_tag)
-df_mturk_clean <- df_mturk %>% 
-  dplyr::filter(question_tag == "vax_sentiment" | question_tag == "sentiment") %>% 
-  select(-question_tag, -question_id, -answer_id, -id, -full_log, -total_duration_ms, -worker_id, -task_id) %>% 
+df_mturk_clean <- df_mturk %>%
+  dplyr::filter(question_tag == "vax_sentiment" | question_tag == "sentiment") %>%
+  select(-question_tag, -question_id, -answer_id, -id, -full_log, -total_duration_ms, -worker_id, -task_id) %>%
   mutate(answer_tag = case_when(answer_tag == "very_negative" | answer_tag == "rather_negative" | answer_tag == "negative" ~ "negative",
                                 answer_tag == "very_positive" | answer_tag == "rather_positive" | answer_tag == "positive" ~ "positive",
                                 answer_tag == "neutral" ~ "neutral",
                                 TRUE ~ NA_character_)#,
-         #id = format(id, scientific = FALSE) 
-  ) %>% 
+         #id = format(id, scientific = FALSE)
+  ) %>%
   mutate(id_tweets = 1:nrow(.))
 
 
@@ -534,31 +534,194 @@ mistral_descriptive_all <- mistral_descriptive %>%
 mistral_descriptive_all %>% 
   write_csv("outputs/descriptive_mistral_all.csv")
 
-# Merge mistral, mixtral and gpt -----------
-mistral_mixtral_gpt_descriptive <- gpt_descriptive %>% 
+# Get Llama 3 8b data ------------
+message("Getting Llama 3 8b annotations")
+setwd("data/local")
+files_llama <- fs::dir_ls(glob = "llama3_sentiment_prompt*csv")
+llama <- vroom(files_llama)
+setwd("../..")
+
+llama_clean <- llama %>% 
+  rename(sentiment_llama = sentiment_llama3) %>% 
+  select(text, sentiment_llama, prompt) %>% 
+  mutate(prompt = case_when(prompt == 1 ~ 2,
+                            prompt == 0 ~ 1,
+                            .default = prompt),
+         sentiment_llama_raw = tolower(sentiment_llama),
+         sentiment_llama_raw = str_replace_all(sentiment_llama_raw,
+                                                 c("neutural" = "neutral",
+                                                   "neutional" = "neutral")),
+         # get the first instance of the three classes
+         sentiment_llama = str_match(sentiment_llama_raw, 
+                                       "\\b(neutral|negative|positive)\\b")[,2],
+         sentiment_llama = case_when(is.na(sentiment_llama) ~ "neutral",
+                                     .default = sentiment_llama))
+
+## Descriptive analysis of Llama 3 -----------
+llama_descriptive <- llama_clean %>% 
+  mutate(prompt = str_replace_all(prompt, 
+                                  c("^2$" = "Llama3 (8B) prompt 2",
+                                    "^1$" = "Llama3 (8B) prompt 1",
+                                    "^3$" = "Llama3 (8B) prompt 3",
+                                    "^4$" = "Llama3 (8B) prompt 4",
+                                    "^5$" = "Llama3 (8B) prompt 5",
+                                    "^6$" = "Llama3 (8B) prompt 6",
+                                    "^7$" = "Llama3 (8B) prompt 7",
+                                    "^8$" = "Llama3 (8B) prompt 8"))) %>% 
+  group_by(prompt, sentiment_llama) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sentiment_llama",
+              id_cols = c("Model" , "Prompt")) 
+
+llama_descriptive %>% 
+  write_csv("outputs/descriptive_llama.csv")
+
+llama_descriptive_agree <- llama_clean %>% 
+  mutate(prompt = str_replace_all(prompt, 
+                                  c("^2$" = "Llama3 (8B) prompt 2",
+                                    "^1$" = "Llama3 (8B) prompt 1",
+                                    "^3$" = "Llama3 (8B) prompt 3",
+                                    "^4$" = "Llama3 (8B) prompt 4",
+                                    "^5$" = "Llama3 (8B) prompt 5",
+                                    "^6$" = "Llama3 (8B) prompt 6",
+                                    "^7$" = "Llama3 (8B) prompt 7",
+                                    "^8$" = "Llama3 (8B) prompt 8"))) %>% 
+  semi_join(epfl_df_full['text']) %>% 
+  group_by(prompt, sentiment_llama) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sentiment_llama",
+              id_cols = c("Model" , "Prompt")) 
+
+llama_descriptive_agree %>% 
+  write_csv("outputs/descriptive_llama_agree.csv")
+
+llama_descriptive_all <- llama_descriptive %>% 
+  left_join(llama_descriptive_agree, by = c("Model", "Prompt")) %>% 
+  rename("Neutral (partial agreement)" = neutral.x,
+         "Positive (partial agreement)" = positive.x,
+         "Negative (partial agreement)" = negative.x,
+         "Neutral (full agreement)" = neutral.y,
+         "Positive (full agreement)" = positive.y,
+         "Negative (full agreement)" = negative.y)
+
+llama_descriptive_all %>% 
+  write_csv("outputs/descriptive_llama_all.csv")
+
+# Get Llama 3 70b data ------------
+message("Getting Llama 3 70b annotations")
+setwd("data/local")
+files_llama70b <- fs::dir_ls(glob = "llama3_70b_sentiment_prompt*csv")
+llama70b <- vroom(files_llama70b)
+setwd("../..")
+
+llama70b_clean <- llama70b %>% 
+  rename(sentiment_llama70b = sentiment_llama3) %>% 
+  select(text, sentiment_llama70b, prompt) %>% 
+  mutate(prompt = case_when(prompt == 1 ~ 2,
+                            prompt == 0 ~ 1,
+                            .default = prompt),
+         sentiment_llama70b_raw = tolower(sentiment_llama70b),
+         sentiment_llama70b_raw = str_replace_all(sentiment_llama70b_raw,
+                                               c("neutural" = "neutral",
+                                                 "neutional" = "neutral")),
+         # get the first instance of the three classes
+         sentiment_llama70b = str_match(sentiment_llama70b_raw, 
+                                     "\\b(neutral|negative|positive)\\b")[,2],
+         sentiment_llama70b = case_when(is.na(sentiment_llama70b) ~ "neutral",
+                                     .default = sentiment_llama70b))
+
+## Descriptive analysis of Llama 3 70b -----------
+llama70b_descriptive <- llama70b_clean %>% 
+  mutate(prompt = str_replace_all(prompt, 
+                                  c("^2$" = "Llama3 (70B) prompt 2",
+                                    "^1$" = "Llama3 (70B) prompt 1",
+                                    "^3$" = "Llama3 (70B) prompt 3",
+                                    "^4$" = "Llama3 (70B) prompt 4",
+                                    "^5$" = "Llama3 (70B) prompt 5",
+                                    "^6$" = "Llama3 (70B) prompt 6",
+                                    "^7$" = "Llama3 (70B) prompt 7",
+                                    "^8$" = "Llama3 (70B) prompt 8"))) %>% 
+  group_by(prompt, sentiment_llama70b) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sentiment_llama70b",
+              id_cols = c("Model" , "Prompt")) 
+
+llama70b_descriptive %>% 
+  write_csv("outputs/descriptive_llama70b.csv")
+
+llama70b_descriptive_agree <- llama70b_clean %>% 
+  mutate(prompt = str_replace_all(prompt, 
+                                  c("^2$" = "Llama3 (70B) prompt 2",
+                                     "^1$" = "Llama3 (70B) prompt 1",
+                                     "^3$" = "Llama3 (70B) prompt 3",
+                                     "^4$" = "Llama3 (70B) prompt 4",
+                                     "^5$" = "Llama3 (70B) prompt 5",
+                                     "^6$" = "Llama3 (70B) prompt 6",
+                                     "^7$" = "Llama3 (70B) prompt 7",
+                                     "^8$" = "Llama3 (70B) prompt 8"))) %>% 
+  semi_join(epfl_df_full['text']) %>% 
+  group_by(prompt, sentiment_llama70b) %>% 
+  tally() %>% 
+  mutate(percentage = n/sum(n) *100) %>% 
+  separate(prompt, c("Model", 'Prompt'), sep = " prompt ")  %>% 
+  pivot_wider(values_from = "percentage",
+              names_from = "sentiment_llama70b",
+              id_cols = c("Model" , "Prompt")) 
+
+llama70b_descriptive_agree %>% 
+  write_csv("outputs/descriptive_llama70b_agree.csv")
+
+llama70b_descriptive_all <- llama70b_descriptive %>% 
+  left_join(llama70b_descriptive_agree, by = c("Model", "Prompt")) %>% 
+  rename("Neutral (partial agreement)" = neutral.x,
+         "Positive (partial agreement)" = positive.x,
+         "Negative (partial agreement)" = negative.x,
+         "Neutral (full agreement)" = neutral.y,
+         "Positive (full agreement)" = positive.y,
+         "Negative (full agreement)" = negative.y)
+
+llama70b_descriptive_all %>% 
+  write_csv("outputs/descriptive_llama70b_all.csv")
+
+
+# Merge mistral, mixtral, gpt and llama -----------
+mistral_mixtral_gpt_llama_descriptive <- gpt_descriptive %>% 
   rbind(mistral_descriptive) %>%
   rbind(mixtral_descriptive) %>% 
+  rbind(llama_descriptive) %>% 
+  rbind(llama70b_descriptive) %>% 
   rename("Positive" = "positive",
          "Neutral" = "neutral",
          "Negative" = "negative") %>% 
   arrange(Prompt)
 
-mistral_mixtral_gpt_descriptive %>% 
-  write_csv("outputs/descriptive_mistral_mixtral_gpt.csv")
+mistral_mixtral_gpt_llama_descriptive %>% 
+  write_csv("outputs/descriptive_mistral_mixtral_gpt_llama.csv")
 
-mistral_mixtral_gpt_descriptive_agree <- gpt_descriptive_agree %>% 
+mistral_mixtral_gpt_llama_descriptive_agree <- gpt_descriptive_agree %>% 
   rbind(mistral_descriptive_agree) %>% 
   rbind(mixtral_descriptive_agree) %>% 
+  rbind(llama_descriptive_agree) %>% 
+  rbind(llama70b_descriptive_agree) %>% 
   rename("Positive" = "positive",
          "Neutral" = "neutral",
          "Negative" = "negative") %>% 
   arrange(Prompt)
 
-mistral_mixtral_gpt_descriptive_agree %>% 
-  write_csv("outputs/descriptive_mistral_mixtral_gpt_agree.csv")
+mistral_mixtral_gpt_llama_descriptive_agree %>% 
+  write_csv("outputs/descriptive_mistral_mixtral_gpt_llama_agree.csv")
 
-mistral_mixtral_gpt_descriptive_all <- mistral_mixtral_gpt_descriptive %>% 
-  left_join(mistral_mixtral_gpt_descriptive_agree, by = c("Model", "Prompt")) %>% 
+mistral_mixtral_gpt_llama_descriptive_all <- mistral_mixtral_gpt_llama_descriptive %>% 
+  left_join(mistral_mixtral_gpt_llama_descriptive_agree, by = c("Model", "Prompt")) %>% 
   rename("Neutral (partial agreement)" = Neutral.x,
          "Positive (partial agreement)" = Positive.x,
          "Negative (partial agreement)" = Negative.x,
@@ -566,12 +729,12 @@ mistral_mixtral_gpt_descriptive_all <- mistral_mixtral_gpt_descriptive %>%
          "Positive (full agreement)" = Positive.y,
          "Negative (full agreement)" = Negative.y)
 
-mistral_mixtral_gpt_descriptive_all %>% 
-  write_csv("outputs/descriptive_mistral_mixtral_gpt_all.csv")
+mistral_mixtral_gpt_llama_descriptive_all %>% 
+  write_csv("outputs/descriptive_mistral_mixtral_gpt_llama_all.csv")
 
 # Figure stance distribution per method and prompt ----------------
-mistral_mixtral_gpt_descriptive_all_fig <- mistral_mixtral_gpt_descriptive %>% 
-  left_join(mistral_mixtral_gpt_descriptive_agree, by = c("Model", "Prompt")) %>% 
+mistral_mixtral_gpt_llama_descriptive_all_fig <- mistral_mixtral_gpt_llama_descriptive %>% 
+  left_join(mistral_mixtral_gpt_llama_descriptive_agree, by = c("Model", "Prompt")) %>% 
   pivot_longer(cols = c(starts_with("ne"), starts_with("pos")),
                names_to = "stance",
                values_to = "percentage") %>% 
@@ -588,13 +751,15 @@ mistral_mixtral_gpt_descriptive_all_fig <- mistral_mixtral_gpt_descriptive %>%
 hline_stance_epfl <- epfl_df_class_agreement %>% 
   rbind(epfl_df_class_agreement_full) %>% 
   rename(y_intercept = percent) %>% 
+  arrange(desc(agreement), desc(stance_epfl)) %>% 
   select(agreement, y_intercept) %>% 
   group_by(agreement) %>%
   mutate(y_intercept_cum = cumsum(y_intercept)) %>%
   ungroup()
 
 ##Figure ----------
-stance_distribution_fig <- mistral_mixtral_gpt_descriptive_all_fig %>% 
+stance_distribution_fig <- mistral_mixtral_gpt_llama_descriptive_all_fig %>% 
+  #filter(Model != "Llama3" & Model != "Llama3 70b" ) %>% 
   mutate(Prompt = case_when(Prompt == "Prompt 2" ~ "2",
                             Prompt == "Prompt 1" ~ "1",
                             Prompt == "Prompt 3" ~ "3",
@@ -648,12 +813,16 @@ stance_distribution_fig
 ggsave("outputs/stance_distribution.jpeg", stance_distribution_fig,
        width=10, height=6)
 
+
+
 # Get all datasets -------------
 df_all <- df_mturk_annot_clean %>% 
   full_join(epfl_df, by = "text") %>% 
   full_join(gpt_clean, by = "text") %>%
   full_join(mistral_clean, by = c("text", "prompt")) %>% 
-  full_join(mixtral_clean, by = c("text", "prompt")) %>% 
+  full_join(mixtral_clean, by = c("text", "prompt")) %>%
+  full_join(llama_clean, by = c("text", "prompt")) %>% 
+  full_join(llama70b_clean, by = c("text", "prompt")) %>% 
   full_join(df_vader, by = "text") %>% 
   mutate(sent_vader = tolower(sent_vader)) %>% 
   dplyr::filter(!is.na(sent_l)) %>% 

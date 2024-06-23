@@ -98,6 +98,43 @@ for (i in prompts) {
   
 }
 
+## EPFL vs Llama3 ---------------
+for (i in prompts) {
+  df_con_matrix_llama <- df_all_clean %>% 
+    filter(prompt == i) %>% 
+    select(stance_epfl, sentiment_llama) %>% 
+    mutate(stance_epfl = factor(stance_epfl, ordered = TRUE,
+                                levels = c("positive","neutral", "negative")),
+           sentiment_llama = factor(sentiment_llama, ordered = TRUE,
+                                      levels = c("positive", "neutral", "negative"))) 
+  assign(paste('df_con_matrix_llama',i,sep='_'), df_con_matrix_llama)
+  #prompt_loop[i] <- prompts[i]
+  conf_epfl_llama <- confusionMatrix(df_con_matrix_llama$sentiment_llama,
+                                     df_con_matrix_llama$stance_epfl, mode = "everything")
+  conf_epfl_llama$prompt <- prompts[i]
+  assign(paste('conf_epfl_llama_all',i,sep='_'), conf_epfl_llama) 
+  
+}
+
+## EPFL vs Llama3 70b ---------------
+for (i in prompts) {
+  df_con_matrix_llama70b <- df_all_clean %>% 
+    filter(!is.na(sentiment_llama70b)) %>% 
+    filter(prompt == i) %>% 
+    select(stance_epfl, sentiment_llama70b) %>% 
+    mutate(stance_epfl = factor(stance_epfl, ordered = TRUE,
+                                levels = c("positive","neutral", "negative")),
+           sentiment_llama70b = factor(sentiment_llama70b, ordered = TRUE,
+                                    levels = c("positive", "neutral", "negative"))) 
+  assign(paste('df_con_matrix_llama70b',i,sep='_'), df_con_matrix_llama70b)
+  #prompt_loop[i] <- prompts[i]
+  conf_epfl_llama70b <- confusionMatrix(df_con_matrix_llama70b$sentiment_llama70b,
+                                     df_con_matrix_llama70b$stance_epfl, mode = "everything")
+  conf_epfl_llama70b$prompt <- prompts[i]
+  assign(paste('conf_epfl_llama70b_all',i,sep='_'), conf_epfl_llama70b) 
+  
+}
+
 ## EPFL vs selecting majority class ------------  
 df_con_matrix_majority <- df_all_clean %>% 
   filter(!duplicated(id_tweets)) %>% 
@@ -147,6 +184,22 @@ overall_all_fig <- as.data.frame(conf_epfl_mturk$overall) %>%
   cbind(as.data.frame(conf_epfl_mixtral_all_6$overall)) %>%
   cbind(as.data.frame(conf_epfl_mixtral_all_7$overall)) %>%
   cbind(as.data.frame(conf_epfl_mixtral_all_8$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama_all_1$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_llama_all_3$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama_all_2$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama_all_4$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama_all_5$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama_all_6$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama_all_7$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama_all_8$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_all_1$overall)) %>% 
+  cbind(as.data.frame(conf_epfl_llama70b_all_2$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_all_3$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_all_4$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_all_5$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_all_6$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_all_7$overall)) %>%
+  cbind(as.data.frame(conf_epfl_llama70b_all_8$overall)) %>%
   cbind(as.data.frame(conf_epfl_vader$overall)) %>%
   t() %>% 
   as.data.frame() %>% 
@@ -188,6 +241,22 @@ overall_all_fig <- as.data.frame(conf_epfl_mturk$overall) %>%
                                     "gpt_all_6" = "GPT 3.5 prompt 6",
                                     "gpt_all_7" = "GPT 3.5 prompt 7",
                                     "gpt_all_8" = "GPT 3.5 prompt 8",
+                                    "llama_all_2" = "Llama3 (8B) prompt 2",
+                                    "llama_all_1" = "Llama3 (8B) prompt 1",
+                                    "llama_all_3" = "Llama3 (8B) prompt 3",
+                                    "llama_all_4" = "Llama3 (8B) prompt 4",
+                                    "llama_all_5" = "Llama3 (8B) prompt 5",
+                                    "llama_all_6" = "Llama3 (8B) prompt 6",
+                                    "llama_all_7" = "Llama3 (8B) prompt 7",
+                                    "llama_all_8" = "Llama3 (8B) prompt 8",
+                                    "llama70b_all_2" = "Llama3 (70B) prompt 2",
+                                    "llama70b_all_1" = "Llama3 (70B) prompt 1",
+                                    "llama70b_all_3" = "Llama3 (70B) prompt 3",
+                                    "llama70b_all_4" = "Llama3 (70B) prompt 4",
+                                    "llama70b_all_5" = "Llama3 (70B) prompt 5",
+                                    "llama70b_all_6" = "Llama3 (70B) prompt 6",
+                                    "llama70b_all_7" = "Llama3 (70B) prompt 7",
+                                    "llama70b_all_8" = "Llama3 (70B) prompt 8",
                                     "mturk" = "Amazon Mturk",
                                     "vader" = "Vader"))) %>% 
   select(method, Accuracy, AccuracyLower, AccuracyUpper, AccuracyPValue) %>% 
@@ -428,6 +497,87 @@ class_mixtral8 <- as.data.frame(conf_epfl_mixtral_all_8$byClass) %>%
   rownames_to_column() %>%
   select(-rowname)
 
+class_llama32 <- as.data.frame(conf_epfl_llama_all_2$byClass) %>% 
+  mutate(class_tweet = c("positive_llama2", "neutral_llama2", "negative_llama2"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama31 <- as.data.frame(conf_epfl_llama_all_1$byClass) %>% 
+  mutate(class_tweet = c("positive_llama1", "neutral_llama1", "negative_llama1"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama33 <- as.data.frame(conf_epfl_llama_all_3$byClass) %>% 
+  mutate(class_tweet = c("positive_llama3", "neutral_llama3", "negative_llama3"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama34 <- as.data.frame(conf_epfl_llama_all_4$byClass) %>% 
+  mutate(class_tweet = c("positive_llama4", "neutral_llama4", "negative_llama4"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama35 <- as.data.frame(conf_epfl_llama_all_5$byClass) %>% 
+  mutate(class_tweet = c("positive_llama5", "neutral_llama5", "negative_llama5"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama36 <- as.data.frame(conf_epfl_llama_all_6$byClass) %>% 
+  mutate(class_tweet = c("positive_llama6", "neutral_llama6", "negative_llama6"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama37 <- as.data.frame(conf_epfl_llama_all_7$byClass) %>%
+  mutate(class_tweet = c("positive_llama7", "neutral_llama7", "negative_llama7"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
+
+class_llama38 <- as.data.frame(conf_epfl_llama_all_8$byClass) %>% 
+  mutate(class_tweet = c("positive_llama8", "neutral_llama8", "negative_llama8"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama70b_2 <- as.data.frame(conf_epfl_llama70b_all_2$byClass) %>% 
+  mutate(class_tweet = c("positive_llama70b2", "neutral_llama70b2", "negative_llama70b2"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama70b_1 <- as.data.frame(conf_epfl_llama70b_all_1$byClass) %>% 
+  mutate(class_tweet = c("positive_llama70b1", "neutral_llama70b1", "negative_llama70b1"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama70b_3 <- as.data.frame(conf_epfl_llama70b_all_3$byClass) %>% 
+  mutate(class_tweet = c("positive_llama70b3", "neutral_llama70b3", "negative_llama70b3"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama70b_4 <- as.data.frame(conf_epfl_llama70b_all_4$byClass) %>% 
+  mutate(class_tweet = c("positive_llama70b4", "neutral_llama70b4", "negative_llama70b4"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama70b_5 <- as.data.frame(conf_epfl_llama70b_all_5$byClass) %>% 
+  mutate(class_tweet = c("positive_llama70b5", "neutral_llama70b5", "negative_llama70b5"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama70b_6 <- as.data.frame(conf_epfl_llama70b_all_6$byClass) %>% 
+  mutate(class_tweet = c("positive_llama70b6", "neutral_llama70b6", "negative_llama70b6"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+class_llama70b_7 <- as.data.frame(conf_epfl_llama70b_all_7$byClass) %>%
+  mutate(class_tweet = c("positive_llama70b7", "neutral_llama70b7", "negative_llama70b7"))%>%
+  rownames_to_column() %>%
+  select(-rowname)
+
+class_llama70b_8 <- as.data.frame(conf_epfl_llama70b_all_8$byClass) %>% 
+  mutate(class_tweet = c("positive_llama70b8", "neutral_llama70b8", "negative_llama70b8"))%>% 
+  rownames_to_column() %>% 
+  select(-rowname)
+
+
 class_all <- class_gpt2 %>% 
   full_join(class_gpt1) %>% 
   full_join(class_gpt3) %>% 
@@ -461,6 +611,22 @@ class_all <- class_gpt2 %>%
   full_join(class_mixtral6) %>%
   full_join(class_mixtral7) %>%
   full_join(class_mixtral8) %>%
+  full_join(class_llama32) %>% 
+  full_join(class_llama31) %>% 
+  full_join(class_llama33) %>%
+  full_join(class_llama34) %>%
+  full_join(class_llama35) %>%
+  full_join(class_llama36) %>%
+  full_join(class_llama37) %>%
+  full_join(class_llama38) %>%
+  full_join(class_llama70b_2) %>% 
+  full_join(class_llama70b_1) %>% 
+  full_join(class_llama70b_3) %>%
+  full_join(class_llama70b_4) %>%
+  full_join(class_llama70b_5) %>%
+  full_join(class_llama70b_6) %>%
+  full_join(class_llama70b_7) %>%
+  full_join(class_llama70b_8) %>%
   full_join(class_vader) %>%
   separate(., class_tweet, into = c("class", "classifier"), 
            sep = "_") %>% 
@@ -499,6 +665,22 @@ class_all <- class_gpt2 %>%
                                     "gpt6" = "GPT 3.5 prompt 6",
                                     "gpt7" = "GPT 3.5 prompt 7",
                                     "gpt8" = "GPT 3.5 prompt 8",
+                                    "llama70b2" = "Llama3 (70B) prompt 2",
+                                    "llama70b1" = "Llama3 (70B) prompt 1",
+                                    "llama70b3" = "Llama3 (70B) prompt 3",
+                                    "llama70b4" = "Llama3 (70B) prompt 4",
+                                    "llama70b5" = "Llama3 (70B) prompt 5",
+                                    "llama70b6" = "Llama3 (70B) prompt 6",
+                                    "llama70b7" = "Llama3 (70B) prompt 7",
+                                    "llama70b8" = "Llama3 (70B) prompt 8",
+                                    "llama2" = "Llama3 (8B) prompt 2",
+                                    "llama1" = "Llama3 (8B) prompt 1",
+                                    "llama3" = "Llama3 (8B) prompt 3",
+                                    "llama4" = "Llama3 (8B) prompt 4",
+                                    "llama5" = "Llama3 (8B) prompt 5",
+                                    "llama6" = "Llama3 (8B) prompt 6",
+                                    "llama7" = "Llama3 (8B) prompt 7",
+                                    "llama8" = "Llama3 (8B) prompt 8",
                                     "mturk" = "Amazon Mturk",
                                     "vader" = "Vader"))) %>% 
   select(-classifier) %>% 
