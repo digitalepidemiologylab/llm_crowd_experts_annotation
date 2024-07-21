@@ -125,3 +125,99 @@ print(df_mixtral_4.head())
 print(len(df_mixtral_4))
 
 df_mixtral_4.to_csv('mixtral_sentiment_prompt4.csv')
+
+# Prompt 5   
+
+## Loop to get the sentiment from mistral
+
+for i in range(0, 999):
+    prompt_i = prompt_4.replace('TWEET_TEXT_HERE', df.iloc[i,2])
+    response = llm.complete(prompt_i)
+    text.append(df.iloc[i,2])
+    sent_mixtral.append(response)
+    id_mixtral.append(df.iloc[i,1])
+    print(i, "prompt5") # Check how many tweets are left
+
+## Save the sentiment in a file and export it
+df_mixtral_5 = pd.DataFrame(list(zip(id_mixtral, text, sent_mixtral)),
+        columns = ['id', 'text', 'sentiment_mixtral'])
+
+df_mixtral_5['prompt'] = 5
+
+print(df_mixtral_5.info())
+print(df_mixtral_5.head())
+print(len(df_mixtral_5))
+
+df_mixtral_5.to_csv('mixtral_sentiment_prompt5.csv')
+
+# Prompt 6   
+
+## Loop to get the sentiment from mistral
+
+for i in range(0, 999):
+    prompt_i = prompt_4.replace('TWEET_TEXT_HERE', df.iloc[i,2])
+    response = llm.complete(prompt_i)
+    text.append(df.iloc[i,2])
+    sent_mixtral.append(response)
+    id_mixtral.append(df.iloc[i,1])
+    print(i, "prompt6") # Check how many tweets are left
+
+## Save the sentiment in a file and export it
+df_mixtral_6 = pd.DataFrame(list(zip(id_mixtral, text, sent_mixtral)),
+        columns = ['id', 'text', 'sentiment_mixtral'])
+
+df_mixtral_6['prompt'] = 6
+
+print(df_mixtral_6.info())
+print(df_mixtral_6.head())
+print(len(df_mixtral_6))
+
+df_mixtral_6.to_csv('mixtral_sentiment_prompt6.csv')
+
+# Prompt 7   
+
+## Loop to get the sentiment from mistral
+
+for i in range(0, 999):
+    prompt_i = prompt_4.replace('TWEET_TEXT_HERE', df.iloc[i,2])
+    response = llm.complete(prompt_i)
+    text.append(df.iloc[i,2])
+    sent_mixtral.append(response)
+    id_mixtral.append(df.iloc[i,1])
+    print(i, "prompt7") # Check how many tweets are left
+
+## Save the sentiment in a file and export it
+df_mixtral_7 = pd.DataFrame(list(zip(id_mixtral, text, sent_mixtral)),
+        columns = ['id', 'text', 'sentiment_mixtral'])
+
+df_mixtral_7['prompt'] = 7
+
+print(df_mixtral_7.info())
+print(df_mixtral_7.head())
+print(len(df_mixtral_7))
+
+df_mixtral_7.to_csv('mixtral_sentiment_prompt7.csv')
+
+# Prompt 8  
+
+## Loop to get the sentiment from mistral
+
+for i in range(0, 999):
+    prompt_i = prompt_4.replace('TWEET_TEXT_HERE', df.iloc[i,2])
+    response = llm.complete(prompt_i)
+    text.append(df.iloc[i,2])
+    sent_mixtral.append(response)
+    id_mixtral.append(df.iloc[i,1])
+    print(i, "prompt8") # Check how many tweets are left
+
+## Save the sentiment in a file and export it
+df_mixtral_8 = pd.DataFrame(list(zip(id_mixtral, text, sent_mixtral)),
+        columns = ['id', 'text', 'sentiment_mixtral'])
+
+df_mixtral_8['prompt'] = 8
+
+print(df_mixtral_8.info())
+print(df_mixtral_8.head())
+print(len(df_mixtral_8))
+
+df_mixtral_8.to_csv('mixtral_sentiment_prompt8.csv')

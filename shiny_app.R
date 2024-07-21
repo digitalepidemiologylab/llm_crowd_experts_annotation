@@ -18,8 +18,10 @@ server <- function(input, output) {
            "Summary of stance by EPFL experts" = shiny_epfl,
            "Summary of stance by Amazon Mturk workers" = shiny_mturk,
            "Summary of stance by GPT" = shiny_gpt,
-           "Summary of stance by Mistral" = shiny_mistral,
-           "Summary of stance by Mixtral" = shiny_mixtral)
+           "Summary of stance by Mistral (7B)" = shiny_mistral,
+           "Summary of stance by Mixtral (8x7B)" = shiny_mixtral,
+           "Summary of stance by Llama3 (8B)" = shiny_llama,
+           "Summary of stance by Llama3 (70B)" = shiny_llama_70b)
   })
   
   datasetInput <- reactive({
@@ -75,8 +77,10 @@ server <- function(input, output) {
            "Summary of stance by EPFL experts" = "Distribution of stance depending on agreement reached by EPFL experts. Tweets with the same stance assigned by at least three out of the four EPFL experts were considered tweets with partial agreement",
            "Summary of stance by Amazon Mturk workers" = "Distribution of stance depending on agreement reached by Amazon Mturk workers. Tweets with the same stance assigned by at least 75% of the Amazon Mturk workers classifying each tweet were considered tweets with partial agreement",
            "Summary of stance by GPT" = "Distribution of stance provided by GPT versions 3.5 and 4 and depending on the prompt provided to GPT and experts' agreement",
-           "Summary of stance by Mistral" = "Distribution of stance provided by Mistral depending on the prompt provided to Mistral and experts' agreement",
-           "Summary of stance by Mixtral" = "Distribution of stance provided by Mixtral depending on the prompt provided to Mixtral and experts' agreement")
+           "Summary of stance by Mistral (7B)" = "Distribution of stance provided by Mistral (7B) depending on the prompt provided to Mistral (7B) and experts' agreement",
+           "Summary of stance by Mixtral (8x7B)" = "Distribution of stance provided by Mixtral (8x7B) depending on the prompt provided to Mixtral (8x7B) and experts' agreement",
+           "Summary of stance by Llama3 (8B)" = "Distribution of stance provided by Llama3 (8B) depending on the prompt provided to Llama3 (8B) and experts' agreement",
+           "Summary of stance by Llama3 (70B)" = "Distribution of stance provided by Llama3 (70B) depending on the prompt provided to Llama3 (70B) and experts' agreement")
   })
   
   # Help text per dataset
@@ -112,8 +116,10 @@ ui <- navbarPage(
                            choices = c("Summary of stance by EPFL experts",
                                        "Summary of stance by Amazon Mturk workers",
                                        "Summary of stance by GPT",
-                                       "Summary of stance by Mistral",
-                                       "Summary of stance by Mixtral")),
+                                       "Summary of stance by Mistral (7B)",
+                                       "Summary of stance by Mixtral (8x7B)",
+                                       "Summary of stance by Llama3 (8B)",
+                                       "Summary of stance by Llama3 (70B)")),
                # Get help text per dataset
                textOutput("helpText_describe")
              ),

@@ -400,17 +400,24 @@ mixtral_clean <- mixtral %>%
          sentiment_mixtral = str_match(sentiment_mixtral_raw, 
                                        "\\b(neutral|negative|positive)\\b")[,2])
 
+mixtral_clean_s <- epfl_df %>% 
+  select(id_tweets, text) %>% 
+  right_join(mixtral_clean, by = "text") %>% 
+  select(id_tweets, sentiment_mixtral, prompt) %>% 
+  distinct(id_tweets, prompt, .keep_all = TRUE) %>% 
+  write_csv("data/mixtral_annotations_simple.csv")
+
 ## Descriptive analysis of Mixtral -----------
 mixtral_descriptive <- mixtral_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("^2$" = "Mixtral prompt 2",
-                                    "^1$" = "Mixtral prompt 1"
-                                    ,"^3$" = "Mixtral prompt 3"
-                                    ,"^4$" = "Mixtral prompt 4"
-                                    ,"^5$" = "Mixtral prompt 5"
-                                    ,"^6$" = "Mixtral prompt 6"
-                                    ,"^7$" = "Mixtral prompt 7"
-                                    ,"^8$" = "Mixtral prompt 8"
+                                  c("^2$" = "Mistral (8x7B) prompt 2",
+                                    "^1$" = "Mistral (8x7B) prompt 1"
+                                    ,"^3$" = "Mistral (8x7B) prompt 3"
+                                    ,"^4$" = "Mistral (8x7B) prompt 4"
+                                    ,"^5$" = "Mistral (8x7B) prompt 5"
+                                    ,"^6$" = "Mistral (8x7B) prompt 6"
+                                    ,"^7$" = "Mistral (8x7B) prompt 7"
+                                    ,"^8$" = "Mistral (8x7B) prompt 8"
                                     ))) %>% 
   group_by(prompt, sentiment_mixtral) %>% 
   tally() %>% 
@@ -425,14 +432,14 @@ mixtral_descriptive %>%
 
 mixtral_descriptive_agree <- mixtral_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("^2$" = "Mixtral prompt 2",
-                                    "^1$" = "Mixtral prompt 1"
-                                    ,"^3$" = "Mixtral prompt 3"
-                                    ,"^4$" = "Mixtral prompt 4"
-                                    ,"^5$" = "Mixtral prompt 5"
-                                    ,"^6$" = "Mixtral prompt 6"
-                                    ,"^7$" = "Mixtral prompt 7"
-                                    ,"^8$" = "Mixtral prompt 8"
+                                  c("^2$" = "Mistral (8x7B) prompt 2",
+                                    "^1$" = "Mistral (8x7B) prompt 1"
+                                    ,"^3$" = "Mistral (8x7B) prompt 3"
+                                    ,"^4$" = "Mistral (8x7B) prompt 4"
+                                    ,"^5$" = "Mistral (8x7B) prompt 5"
+                                    ,"^6$" = "Mistral (8x7B) prompt 6"
+                                    ,"^7$" = "Mistral (8x7B) prompt 7"
+                                    ,"^8$" = "Mistral (8x7B) prompt 8"
                                     ))) %>% 
   semi_join(epfl_df_full['text']) %>% 
   group_by(prompt, sentiment_mixtral) %>% 
@@ -478,17 +485,23 @@ mistral_clean <- mistral %>%
          sentiment_mistral = str_match(sentiment_mistral_raw, 
                                        "\\b(neutral|negative|positive)\\b")[,2])
 
+mistral_clean_s <- epfl_df %>% 
+  select(id_tweets, text) %>% 
+  right_join(mistral_clean, by = "text") %>% 
+  select(id_tweets, sentiment_mistral, prompt) %>% 
+  write_csv("data/mistral_annotations_simple.csv")
+
 ## Descriptive analysis of Mistral -----------
 mistral_descriptive <- mistral_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("^2$" = "Mistral prompt 2",
-                                    "^1$" = "Mistral prompt 1",
-                                    "^3$" = "Mistral prompt 3",
-                                    "^4$" = "Mistral prompt 4",
-                                    "^5$" = "Mistral prompt 5",
-                                    "^6$" = "Mistral prompt 6",
-                                    "^7$" = "Mistral prompt 7",
-                                    "^8$" = "Mistral prompt 8"))) %>% 
+                                  c("^2$" = "Mistral (7B) prompt 2",
+                                    "^1$" = "Mistral (7B) prompt 1",
+                                    "^3$" = "Mistral (7B) prompt 3",
+                                    "^4$" = "Mistral (7B) prompt 4",
+                                    "^5$" = "Mistral (7B) prompt 5",
+                                    "^6$" = "Mistral (7B) prompt 6",
+                                    "^7$" = "Mistral (7B) prompt 7",
+                                    "^8$" = "Mistral (7B) prompt 8"))) %>% 
   group_by(prompt, sentiment_mistral) %>% 
   tally() %>% 
   mutate(percentage = n/sum(n) *100) %>% 
@@ -502,14 +515,14 @@ mistral_descriptive %>%
 
 mistral_descriptive_agree <- mistral_clean %>% 
   mutate(prompt = str_replace_all(prompt, 
-                                  c("^2$" = "Mistral prompt 2",
-                                    "^1$" = "Mistral prompt 1",
-                                    "^3$" = "Mistral prompt 3",
-                                    "^4$" = "Mistral prompt 4",
-                                    "^5$" = "Mistral prompt 5",
-                                    "^6$" = "Mistral prompt 6",
-                                    "^7$" = "Mistral prompt 7",
-                                    "^8$" = "Mistral prompt 8"))) %>% 
+                                  c("^2$" = "Mistral (7B) prompt 2",
+                                    "^1$" = "Mistral (7B) prompt 1",
+                                    "^3$" = "Mistral (7B) prompt 3",
+                                    "^4$" = "Mistral (7B) prompt 4",
+                                    "^5$" = "Mistral (7B) prompt 5",
+                                    "^6$" = "Mistral (7B) prompt 6",
+                                    "^7$" = "Mistral (7B) prompt 7",
+                                    "^8$" = "Mistral (7B) prompt 8"))) %>% 
   semi_join(epfl_df_full['text']) %>% 
   group_by(prompt, sentiment_mistral) %>% 
   tally() %>% 
@@ -556,6 +569,13 @@ llama_clean <- llama %>%
                                        "\\b(neutral|negative|positive)\\b")[,2],
          sentiment_llama = case_when(is.na(sentiment_llama) ~ "neutral",
                                      .default = sentiment_llama))
+
+llama_clean_s <- epfl_df %>% 
+  select(id_tweets, text) %>% 
+  right_join(llama_clean, by = "text") %>% 
+  select(id_tweets, sentiment_llama, prompt) %>% 
+  distinct(id_tweets, prompt, .keep_all = TRUE) %>% 
+  write_csv("data/llama8b_annotations_simple.csv")
 
 ## Descriptive analysis of Llama 3 -----------
 llama_descriptive <- llama_clean %>% 
@@ -635,6 +655,12 @@ llama70b_clean <- llama70b %>%
                                      "\\b(neutral|negative|positive)\\b")[,2],
          sentiment_llama70b = case_when(is.na(sentiment_llama70b) ~ "neutral",
                                      .default = sentiment_llama70b))
+
+llama70b_clean_s <- epfl_df %>% 
+  select(id_tweets, text) %>% 
+  right_join(llama70b_clean, by = "text") %>% 
+  select(id_tweets, sentiment_llama70b, prompt) %>% 
+  write_csv("data/llama70b_annotations_simple.csv")
 
 ## Descriptive analysis of Llama 3 70b -----------
 llama70b_descriptive <- llama70b_clean %>% 
@@ -811,7 +837,7 @@ stance_distribution_fig <- mistral_mixtral_gpt_llama_descriptive_all_fig %>%
 stance_distribution_fig
 
 ggsave("outputs/stance_distribution.jpeg", stance_distribution_fig,
-       width=10, height=6)
+       width=12, height=6)
 
 
 

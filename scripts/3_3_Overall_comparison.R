@@ -51,9 +51,10 @@ ci_majority_accuracy <- data.frame(
                 "Full agreement", "Full agreement", "Full agreement",
                 "Full agreement"),
   Method = c("Mturk", "Vader","GPT 3.5", "GPT 4",
-             "Mistral", "Mixtral",  "Llama3 (8B)", "Llama3 (70B)", "Mturk", "Vader" ,
-             "GPT 3.5", "GPT 4", "Mistral", 
-             "Mixtral", "Llama3 (8B)", "Llama3 (70B)"))
+             "Mistral \n(7B)", "Mixtral \n(8x7B)",  "Llama3 \n(8B)", "Llama3 \n(70B)", 
+             "Mturk", "Vader" ,
+             "GPT 3.5", "GPT 4", "Mistral \n(7B)", 
+             "Mixtral \n(8x7B)", "Llama3 \n(8B)", "Llama3 \n(70B)"))
 
 majority_accuracy <- data.frame(
   hline_accuracy = c(conf_epfl_majority$overall[[1]],
@@ -72,6 +73,9 @@ overall_all_total <- overall_all_fig %>%
 
 #### Figure ----------------
 accuracy_fig_all <- overall_all_total  %>% 
+  mutate(Method = case_when(Method == "Llama3 (8B)" ~ "Llama3 \n(8B)",
+                            Method == "Llama3 (70B)" ~ "Llama3 \n(70B)",
+                            .default = Method)) %>% 
   ggplot(aes(x = Prompt, y = Accuracy)) +
   geom_point(aes(color = factor(Pvalue), 
                  shape = factor(Pvalue),
@@ -126,7 +130,7 @@ accuracy_fig_all
 
 ggsave("outputs/accuracy_figure.jpeg",
        accuracy_fig_all,
-       width = 10, height = 6)
+       width = 12, height = 6)
 
 
 # Combined figure for all metrics ------------
@@ -145,6 +149,9 @@ class_total_metrics <- class_all %>%
 
 ## Figure -----------
 metrics_class_agreement_fig <- class_total_metrics %>% 
+  mutate(Method = case_when(Method == "Llama3 (8B)" ~ "Llama3 \n(8B)",
+                            Method == "Llama3 (70B)" ~ "Llama3 \n(70B)",
+                            .default = Method)) %>% 
   ggplot(aes(x = Prompt)) +
   geom_point(aes(y = metric_value, color = Stance),
              size = 2, shape = 19)  +
@@ -164,8 +171,8 @@ metrics_class_agreement_fig <- class_total_metrics %>%
         plot.background = element_rect(color = "black", fill="white", size=1),
         legend.background = element_blank(),
         legend.box.background = element_rect(colour = "black", size = 0.5),
-        legend.text = element_text(size = 12),
-        legend.title = element_text(size = 12, face = "bold")) +
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 10, face = "bold")) +
   labs(x = "Model (prompt if applicable)",
        y = "Performance metric's value",
        colour = "Stance towards vaccination", 
