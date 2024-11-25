@@ -839,6 +839,8 @@ stance_distribution_fig
 ggsave("outputs/stance_distribution.jpeg", stance_distribution_fig,
        width=12, height=6)
 
+ggsave("outputs/Fig1.tiff", stance_distribution_fig,
+       width=12, height=6, compression = "jpeg")
 
 
 # Get all datasets -------------

@@ -110,10 +110,10 @@ accuracy_fig_all <- overall_all_total  %>%
                                "> 0.05" = 2.5),
                     labels = c("<= 0.05", 
                                "> 0.05")) +
-  scale_fill_manual(values = c("Partial agreement" = "darkgrey",
-                               "Full agreement" = "black"),
-                    labels = c("Partial agreement",
-                               "Full agreement")) +
+  scale_fill_manual(values = c("Full agreement" = "darkgrey",
+                               "Partial agreement" = "black"),
+                    labels = c("Full agreement",
+                               "Partial agreement")) +
   labs(color = "P value",
        shape = "P value",
        size = "P value",
@@ -132,6 +132,9 @@ ggsave("outputs/accuracy_figure.jpeg",
        accuracy_fig_all,
        width = 12, height = 6)
 
+ggsave("outputs/Fig2.tiff",
+       accuracy_fig_all,
+       width = 12, height = 6, compression = "jpeg")
 
 # Combined figure for all metrics ------------
 ## Merged database ----------
@@ -183,6 +186,9 @@ metrics_class_agreement_fig
 
 ggsave("outputs/metrics_class_assessment.jpeg", metrics_class_agreement_fig,
        width = 13, height = 9)
+
+ggsave("outputs/Fig3.tiff", metrics_class_agreement_fig,
+       width = 13, height = 9, compression = "jpeg")
 
 # Comparing ranking of methods by F1 score and class ---------
 ## Neutral --------
